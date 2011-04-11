@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.uml"
+            id="org.obeonetwork.pim.uml2.gen.java.ui.popupMenus.contribution.IFile">
+         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Text" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               class="org.obeonetwork.pim.uml2.gen.java.ui.popupMenus.AcceleoGenerateUML2toJavaAction"
+               enablesFor="+"
+               id="org.obeonetwork.pim.uml2.gen.java.ui.popupMenus.acceleoGenerateUML2toJavaAction"
+               icon="icons/default.gif"
+               label="Generate UML2 to Java"
+               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+      </objectContribution>
+   </extension>
+</plugin>
