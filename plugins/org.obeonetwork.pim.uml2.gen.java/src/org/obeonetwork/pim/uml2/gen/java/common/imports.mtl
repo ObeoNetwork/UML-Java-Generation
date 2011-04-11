@@ -1,0 +1,95 @@
+[comment encoding = UTF-8 /]
+[comment]
+ * Copyright (c) 2011 Obeo
+ * All rights reserved.  This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 1.0
+ * 
+ * You can apply any license to the files generated with this module and Acceleo.
+[/comment]
+
+[**
+ * The documentation of the module declaration.
+ * @author Stephane Begaudeau - Obeo
+ */]
+[module imports('http://www.eclipse.org/uml2/3.0.0/UML')/]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::common /]
+[import org::obeonetwork::pim::uml2::gen::java::common::properties /]
+[import org::obeonetwork::pim::uml2::gen::java::common::type /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
+[import org::obeonetwork::pim::uml2::gen::java::request::request /]
+
+
+[template public genImport(aClassifier : Classifier)]
+
+[if (not aClassifier.isArray())]
+[if (aClassifier.orderedMultiplicityElements() <> null and aClassifier.orderedMultiplicityElements()->size() > 0)]
+import [aClassifier.getOrderedCollectionClassPath()/];
+[/if]
+[if (aClassifier.notOrderedMultiplicityElements() <> null and aClassifier.notOrderedMultiplicityElements()->size() > 0)]
+import [aClassifier.getNotOrderedCollectionClassPath()/];
+[/if]
+[/if]
+[if (aClassifier.oclIsKindOf(Class))]
+[for (aType : Type | aClassifier.oclAsType(Class).getTypeList())]
+[if (not ''.equalsIgnoreCase(aType.importValue()))]
+import [aType.importValue()/];
+[/if]
+[/for]
+[elseif (aClassifier.oclIsKindOf(Interface))]
+[for (aType : Type | aClassifier.oclAsType(Interface).getTypeList())]
+[if (not ''.equalsIgnoreCase(aType.importValue()))]
+import [aType.importValue()/];
+[/if]
+[/for]
+[/if]
+// [protected ('imports')]	
+
+// [/protected]
+
+[/template]
+
+[query public importValue(aType : Type) : String = if ('model'.equalsIgnoreCase(aType.genPackagePath())) then aType.getImportValue() else aType.genPackagePath() + '.' + aType.name endif /]
+
+[template protected getImportValue(aType : Type) post(trim())]
+[getProperty(aType.genPackagePath() + '.' + aType.name)/]
+[/template]
+
+[query protected orderedMultiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
+	aClassifier.multiplicityElements()->select(elem : MultiplicityElement | (elem.upper = -1 or elem.upper > 1) and elem.isOrdered)
+/]
+
+[query protected notOrderedMultiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
+	aClassifier.multiplicityElements()->select(elem : MultiplicityElement | (elem.upper = -1 or elem.upper > 1) and not elem.isOrdered)
+/]
+
+[query protected multiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
+	ownedMember->filter(Operation).ownedParameter.oclAsType(MultiplicityElement)->union(ownedMember->filter(Property).oclAsType(MultiplicityElement))->union(getAssociations().navigableOwnedEnd)
+ /]
+
+[template public genImportPath(aType : Type) post(trim())]
+[if (getProperty('java.typeconversion.' + name) <> null)]
+[getProperty('java.typeconversion.' + name)/]
+[elseif (aType.genPackagePath().size() = 0)]
+[aType.genName()/]
+[else]
+[aType.genPackagePath()/].[aType.genName()/]
+[/if]
+[/template]
+
+[query protected getTypeList(aClass : Class) : Sequence(Type) = 
+	ownedAttribute.type
+	->union(getAssociations().navigableOwnedEnd.type->asSequence())
+	->union(ownedOperation.ownedParameter.type)->including(general->asSequence()->first())
+	->union(nestedClassifier->filter(Class).getTypeList()->asSequence())
+	->asOrderedSet()->asSequence()->filter(Type)
+/]
+
+[query protected getTypeList(anInterface : Interface) : Sequence(Type) = 
+	ownedAttribute.type
+	->union(getAssociations().navigableOwnedEnd.type->asSequence())
+	->union(ownedOperation.ownedParameter.type)->including(general->asSequence()->first())
+	->union(nestedClassifier->filter(Class).getTypeList()->asSequence())
+	->asOrderedSet()->asSequence()->filter(Type)
+/]
+

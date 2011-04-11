@@ -1,0 +1,82 @@
+[comment encoding = UTF-8 /]
+[comment]
+ * Copyright (c) 2011 Obeo
+ * All rights reserved.  This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 1.0
+ * 
+ * You can apply any license to the files generated with this module and Acceleo.
+[/comment]
+
+[**
+ * The documentation of the module declaration.
+ * @author Stephane Begaudeau - Obeo
+ */]
+[module declaration('http://www.eclipse.org/uml2/3.0.0/UML')/]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::common /]
+[import org::obeonetwork::pim::uml2::gen::java::common::type /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
+[import org::obeonetwork::pim::uml2::gen::java::request::request /]
+
+
+[template public genMethodPrototype(anOperation : Operation)]
+[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][genReturn()/] [genName()/]([genOperationParameters()/])
+[/template]
+
+[template public genOperationParameters(anOperation : Operation)]
+[anOperation.ownedParameter->select(param : Parameter | param.direction <> ParameterDirectionKind::return).genOperationParameter()->sep(', ')/]
+[/template]
+
+[template protected genOperationParameter(aParameter : Parameter)]
+[aParameter.genType()/] [aParameter.genName()/]
+[/template]
+
+[template public genInheritance(aClassifier : Classifier)]
+[if (aClassifier.general->size() > 0)] extends [for (extendedClassifier : Classifier | aClassifier.general)][extendedClassifier.genName()/][/for][/if]
+[/template]
+
+[template public genInterfaceRealization(aClass : Class)]
+[if (not aClass.clientDependency->filter(Realization)->isEmpty())] implements [for (namedElement : NamedElement | aClass.getAllInterfaces()) separator(', ')][namedElement.genName()/][/for][/if]
+[/template]
+
+[template public genVisibility(aNamedElement : NamedElement)]
+[if (aNamedElement.visibility <> VisibilityKind::_package)][aNamedElement.visibility/] [else]/*package*/ [/if]
+[/template]
+
+[template public genAbstract(aClass : Class)]
+[if (aClass.isAbstract)]abstract [/if]
+[/template]
+
+[template public genAbstract(anOperation : Operation)]
+[if (anOperation.isAbstract)]abstract [/if]
+[/template]
+
+[template public genFinal(aRedefinableElement : RedefinableElement)]
+[if (aRedefinableElement.isLeaf)]final [/if]
+[/template]
+
+[template public genFinal(aProperty : Property)]
+[if (aProperty.isLeaf)]final [/if]
+[/template]
+
+[template public genStatic(aFeature : Feature)]
+[if (aFeature.isStatic)]static [/if]
+[/template]
+
+[template public genDefaultValue(aProperty : Property)]
+[if (aProperty.upper = 1 and aProperty.default <> null)]
+[if (aProperty.default.equalsIgnoreCase(''))]
+[if (aProperty.getUserDefaultValue().equalsIgnoreCase(''))] = [aProperty.default/][else] = [aProperty.getUserDefaultValue()/][/if]
+[else]
+[if (aProperty.type.name = 'String')] = [aProperty.default.addQuotes()/][else] = [aProperty.default/][/if][/if]
+[/if]
+[/template]
+
+[template public addQuotes(aString : String)]
+"[aString/]"
+[/template]
+
+[template public getUserDefaultValue(aTypedElement : TypedElement)]
+[if (getProperty('java.defaultvalue.' + aTypedElement.type.name) <> null)][getProperty('java.defaultvalue.' + aTypedElement.type.name)/][/if]
+[/template]
+

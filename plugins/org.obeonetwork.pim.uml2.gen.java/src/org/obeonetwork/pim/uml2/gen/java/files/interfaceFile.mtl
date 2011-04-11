@@ -1,0 +1,86 @@
+[comment encoding = UTF-8 /]
+[comment]
+ * Copyright (c) 2011 Obeo
+ * All rights reserved.  This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 1.0
+ * 
+ * You can apply any license to the files generated with this module and Acceleo.
+[/comment]
+
+[**
+ * The documentation of the module interfaceFile.
+ * @author Stephane Begaudeau - Obeo
+ */]
+[module interfaceFile('http://www.eclipse.org/uml2/3.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::commonFile]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::common /]
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
+[import org::obeonetwork::pim::uml2::gen::java::common::imports /]
+[import org::obeonetwork::pim::uml2::gen::java::common::type /]
+
+[**
+ * The documentation of the template genFileBody.
+ * @param anInterface
+ */]
+[template protected genFileBody(anInterface : Interface) overrides genFileBody]
+[anInterface.genPackageDeclaration()/]
+[anInterface.genImport()/]
+[anInterface.genJavadoc()/]
+[anInterface.genBody()/]
+[/template]
+
+
+[template protected genBody (anInterface : Interface) ]
+[anInterface.genVisibility()/]interface [anInterface.genName()/] [anInterface.genInheritance()/]{
+	[anInterface.genAttributes()/]
+	[anInterface.genMethods()/]
+}
+[/template]
+
+[template protected genAttributes (anInterface : Interface) ]
+[for (property : Property | anInterface.ownedAttribute)]
+[if (not property.ownedComment->forAll(oclIsUndefined()))]
+/**
+ * Description of the property [property.genName()/].
+ *
+ [for (ownedComment : Comment | property.ownedComment)]
+ * [ownedComment._body/]
+ [/for]
+ *
+ */
+[/if]
+[property.genVisibility()/] [property.genFinal()/][property.genStatic()/][property.genType()/] [property.genName()/][property.genDefaultValue()/];
+[/for]
+
+// [protected ('(user defined attributes)')]
+
+// [/protected]
+
+[/template]
+
+[template protected genMethods (anInterface : Interface) ]
+[for (operation : Operation | anInterface.ownedOperation)]
+/**
+ * Description of the method [operation.genName()/].
+ [for (ownedComment : Comment | operation.ownedComment)]
+ * [ownedComment._body/]
+ [/for]
+ *
+ [for (parameter : Parameter | operation.ownedParameter)]
+ [if (parameter.direction <> ParameterDirectionKind::return)]
+ * @param [parameter.genName()/] [parameter.genComment()/]
+ [/if]
+ [/for]
+ [for (parameter : Parameter | operation.ownedParameter)]
+ [if (parameter.direction = ParameterDirectionKind::return)]
+ * @return [parameter.genComment()/]
+ [/if]
+ [/for]
+ */
+[operation.genMethodPrototype()/];
+[/for]
+
+// [protected ('(user defined methods)')]
+
+// [/protected]
+[/template]

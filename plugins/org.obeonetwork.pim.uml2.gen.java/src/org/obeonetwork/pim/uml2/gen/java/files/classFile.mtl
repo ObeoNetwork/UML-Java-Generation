@@ -1,0 +1,176 @@
+[comment encoding = UTF-8 /]
+[comment]
+ * Copyright (c) 2011 Obeo
+ * All rights reserved.  This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 1.0
+ * 
+ * You can apply any license to the files generated with this module and Acceleo.
+[/comment]
+
+[**
+ * The documentation of the module classFile.
+ * @author Stephane Begaudeau - Obeo
+ */]
+[module classFile('http://www.eclipse.org/uml2/3.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::commonFile]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::behavior /]
+[import org::obeonetwork::pim::uml2::gen::java::common::common /]
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
+[import org::obeonetwork::pim::uml2::gen::java::common::imports /]
+[import org::obeonetwork::pim::uml2::gen::java::common::type /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
+[import org::obeonetwork::pim::uml2::gen::java::request::request /]
+
+[**
+ * The documentation of the template genFileBody.
+ * @param aClass
+ */]
+[template protected genFileBody(aClass : Class) overrides genFileBody]
+[aClass.genPackageDeclaration()/]
+[aClass.genImport()/]
+[aClass.genJavadoc()/]
+[aClass.genBody()/]
+[/template]
+
+[template protected genBody(aClass : Class)]
+[genVisibility()/][genAbstract()/][genFinal()/]class [genName()/][genInheritance()/][genInterfaceRealization()/] {
+	[genClassMembers()/]
+}
+[/template]
+
+[template protected genClassMembers(aClass : Class)]
+[for (property : Property | ownedAttribute->union(aClass.getAssociations().navigableOwnedEnd->asOrderedSet()))]
+[if (property.ownedComment <> null)]
+/**
+ * Description of the property [property.genName()/].
+[for (propertyComment : Comment | property.ownedComment)]
+ * [propertyComment._body/]
+[/for]
+ */
+[/if]
+[property.genVisibility()/][property.genFinal()/][property.genStatic()/][property.genType()/] [property.genName()/][property.genDefaultValue()/];
+
+[/for]
+// [protected ('to add fields for ' + name)]
+
+// [/protected]
+
+[for (nestedClass : Class | nestedClassifier->filter(Class)->reject(name.equalsIgnoreCase('Behavior')))]
+[genComment()/]
+[genVisibility()/][genAbstract()/][genFinal()/]class [genName()/][genInheritance()/][genInterfaceRealization()/] {
+	[genClassMembers()/]
+} 
+[/for]
+
+[genConstructor()/]
+
+[for (property : Property | ownedAttribute->union(aClass.getAssociations().navigableOwnedEnd->asOrderedSet()))]
+[property.genAccessors()/]
+[/for]
+
+[for (operation : Operation | ownedOperation->reject(name.equalsIgnoreCase(aClass.name)))]
+/**
+ * Description of the method [genName()/].
+ * [genComment()/]
+[for (parameter : Parameter | operation.ownedParameter->select(param : Parameter | param.direction <> ParameterDirectionKind::return))]
+ * @param [genName()/][genComment()/]
+[/for]
+[for (parameter : Parameter | operation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
+ * @return [genName()/][genComment()/]
+[/for]
+ */
+[if (operation.isAbstract)]
+[operation.genMethodPrototype()/];
+[else]
+[operation.genMethodPrototype()/] {
+	[operation.genBehavior()/]
+}
+[/if] 
+[/for]
+[for (anOperation : Operation | aClass.getAllInterfaceOperations())]
+/**
+ * {@inheritDoc}
+[if(anOperation.eContainer().oclIsKindOf(Interface))]
+ * @see [anOperation.eContainer().oclAsType(Interface).genPackagePath()/].[anOperation.eContainer().oclAsType(Interface).name/]
+[/if]
+ *
+[for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | param.direction <> ParameterDirectionKind::return))]
+ * @param [genName()/][genComment()/]
+[/for]
+[for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
+ * @return [genName()/][genComment()/]
+[/for]
+ */
+[if (anOperation.isAbstract)]
+[anOperation.genMethodPrototype()/];
+[else]
+[anOperation.genMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
+[/if]
+[/for]
+
+// [protected ('to add methods for ' + name)]
+
+// [/protected]
+
+[/template]
+
+[template protected genConstructor(aClass : Class) post(trim())]
+[if (ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name))->size() = 0)]
+[if (getProperty('gen.constructor') = 'true')]
+/**
+ * The constructor.
+ */
+public [aClass.genName()/]() {
+	// [protected ('constructor')]
+	super();
+	// [/protected]
+}
+[/if]
+[else]
+[for (aConstructor : Operation | ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name)))]
+/**
+ * The constructor.
+[for (aParameter : Parameter | aConstructor.ownedParameter)]
+ * @param [aParameter.genName()/][aParameter.genComment()/]
+[/for]
+ */
+[aConstructor.genVisibility()/][aConstructor.genName()/]([aConstructor.genOperationParameters()/]) {
+	// [protected ('protected')]
+	super();
+	// [/protected]
+}
+[/for]
+[/if]
+[/template]
+
+[template protected genAccessors(aProperty : Property)]
+[if (getProperty('gen.accessors') = 'true')]
+/**
+ * Returns [aProperty.genName()/].
+ * @return [aProperty.genName()/][aProperty.genComment()/]
+ */
+public [aProperty.genType()/] get[aProperty.genName().toUpperFirst()/]() {
+	return this.[aProperty.genName()/];
+}
+[if (not aProperty.isReadOnly)]
+/**
+ * Sets a value to attribute [aProperty.genName()/]. 
+ * @param [aProperty.genName()/][aProperty.genComment()/]
+ */
+public void set[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] [aProperty.genName()/]) {
+[if (aProperty.opposite <> null and aProperty.upper = 1 and getProperty('gen.biDirections') = 'true' and aProperty.opposite.upper = 1)]
+	if(this.[aProperty.genName()/] != null) {
+		this.[aProperty.genName()/].set[aProperty.genPropertyParent()/](null);
+	}
+	this.[aProperty.genName()/].set[aProperty.genPropertyParent()/](this);
+[elseif (aProperty.isStatic)]
+	[aProperty.class.genName()/] = [aProperty.genName()/];
+	[else]
+	this.[aProperty.genName()/] = [aProperty.genName()/];
+[/if]
+}
+[/if]
+[/if]
+[/template]

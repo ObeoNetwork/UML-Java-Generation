@@ -1,0 +1,24 @@
+[comment encoding = UTF-8 /]
+[comment]
+ * Copyright (c) 2011 Obeo
+ * All rights reserved.  This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 1.0
+ * 
+ * You can apply any license to the files generated with this module and Acceleo.
+[/comment]
+
+[**
+ * The documentation of the common services module.
+ * @author Stephane Begaudeau - Obeo
+ */]
+[module commonServices('http://www.eclipse.org/uml2/3.0.0/UML')/]
+
+[**
+ * Returns the current date.
+ */]
+[template public getDate()][invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'getLongDate()', Sequence{})/][/template]
+
+[**
+ * Returns the current date.
+ */]
+[template public getTime()][invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'getTime()', Sequence{})/][/template]

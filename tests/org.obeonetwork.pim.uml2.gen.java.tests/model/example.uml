@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_w8FzIJBjEd2MY5zfT4Awfg" name="model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_Tj-XsJBlEd2MY5zfT4Awfg" name="org.eclipse.acceleo.java">
+    <packagedElement xmi:type="uml:Class" xmi:id="_GUaJoJBmEd2MY5zfT4Awfg" name="Person">
+      <ownedAttribute xmi:id="_JrASAJBmEd2MY5zfT4Awfg" name="name" type="_bFkDkJCWEd2Xeb6Jt2sbCQ" aggregation="composite"/>
+      <ownedAttribute xmi:id="_LuJ1gJBmEd2MY5zfT4Awfg" name="firstname" type="_bFkDkJCWEd2Xeb6Jt2sbCQ" aggregation="composite"/>
+      <ownedAttribute xmi:id="_PPM6YJBmEd2MY5zfT4Awfg" name="dateOfBirth" type="_G1LiIJBrEd2MY5zfT4Awfg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_-Bp9gJFbEd2gfL_kAZmBgw" name="emails" type="_bFkDkJCWEd2Xeb6Jt2sbCQ" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BCAJEJFcEd2gfL_kAZmBgw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bob28JFcEd2gfL_kAZmBgw"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_YRLRMJBmEd2MY5zfT4Awfg" name="getAge">
+        <ownedComment xmi:id="_Y-zloJFKEd2gfL_kAZmBgw">
+          <body>Calculate the age from birthdate to now.</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_c-2vAJBrEd2MY5zfT4Awfg" type="_q-uUoJCWEd2Xeb6Jt2sbCQ" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_ZrDOMJBmEd2MY5zfT4Awfg" name="getFullName">
+        <ownedParameter xmi:id="_d4-08JBrEd2MY5zfT4Awfg" type="_bFkDkJCWEd2Xeb6Jt2sbCQ" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pC1TsJBqEd2MY5zfT4Awfg" name="owns" memberEnd="_pC1TsZBqEd2MY5zfT4Awfg _pC16wZBqEd2MY5zfT4Awfg">
+      <ownedEnd xmi:id="_pC1TsZBqEd2MY5zfT4Awfg" name="owner" type="_GUaJoJBmEd2MY5zfT4Awfg" association="_pC1TsJBqEd2MY5zfT4Awfg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pC16wJBqEd2MY5zfT4Awfg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pC1TspBqEd2MY5zfT4Awfg"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_pC16wZBqEd2MY5zfT4Awfg" name="owned" type="_k9nKwJBqEd2MY5zfT4Awfg" aggregation="shared" association="_pC1TsJBqEd2MY5zfT4Awfg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pC16w5BqEd2MY5zfT4Awfg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pC16wpBqEd2MY5zfT4Awfg"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_A96esJBpEd2MY5zfT4Awfg" name="" memberEnd="_A96esZBpEd2MY5zfT4Awfg _A97FwZBpEd2MY5zfT4Awfg">
+      <ownedEnd xmi:id="_A96esZBpEd2MY5zfT4Awfg" name="parent" type="_GUaJoJBmEd2MY5zfT4Awfg" association="_A96esJBpEd2MY5zfT4Awfg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A97FwJBpEd2MY5zfT4Awfg" value="2"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A96espBpEd2MY5zfT4Awfg"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_A97FwZBpEd2MY5zfT4Awfg" name="children" type="_GUaJoJBmEd2MY5zfT4Awfg" association="_A96esJBpEd2MY5zfT4Awfg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A97Fw5BpEd2MY5zfT4Awfg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A97FwpBpEd2MY5zfT4Awfg"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_gG4FUJBqEd2MY5zfT4Awfg" name="NeedALicense">
+      <ownedOperation xmi:id="_jNYjQJBqEd2MY5zfT4Awfg" name="canDrive">
+        <ownedParameter xmi:id="_1wO98JBrEd2MY5zfT4Awfg" type="_cHO78JCWEd2Xeb6Jt2sbCQ" direction="return"/>
+        <ownedParameter xmi:id="_1wO98ZBrEd2MY5zfT4Awfg" name="driver" type="_GUaJoJBmEd2MY5zfT4Awfg"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_k9nKwJBqEd2MY5zfT4Awfg" name="Vehicle" isAbstract="true">
+      <ownedOperation xmi:id="_tLZEgJBqEd2MY5zfT4Awfg" name="drive">
+        <ownedParameter xmi:id="_ttEOMJBqEd2MY5zfT4Awfg" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_queWIJBqEd2MY5zfT4Awfg" name="Car" clientDependency="_kmJGIJCPEd2Xeb6Jt2sbCQ">
+      <generalization xmi:id="_vLQqgJBqEd2MY5zfT4Awfg" general="_k9nKwJBqEd2MY5zfT4Awfg"/>
+      <interfaceRealization xmi:id="_kmJGIJCPEd2Xeb6Jt2sbCQ" supplier="_gG4FUJBqEd2MY5zfT4Awfg" client="_queWIJBqEd2MY5zfT4Awfg" contract="_gG4FUJBqEd2MY5zfT4Awfg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_rRaEEJBqEd2MY5zfT4Awfg" name="Bicycle">
+      <generalization xmi:id="_uu9JAJBqEd2MY5zfT4Awfg" general="_k9nKwJBqEd2MY5zfT4Awfg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_sSj_EJBqEd2MY5zfT4Awfg" name="Boat" clientDependency="_lEMUEJCPEd2Xeb6Jt2sbCQ">
+      <generalization xmi:id="_viEoAJBqEd2MY5zfT4Awfg" general="_k9nKwJBqEd2MY5zfT4Awfg"/>
+      <interfaceRealization xmi:id="_lEMUEJCPEd2Xeb6Jt2sbCQ" supplier="_gG4FUJBqEd2MY5zfT4Awfg" client="_sSj_EJBqEd2MY5zfT4Awfg" contract="_gG4FUJBqEd2MY5zfT4Awfg"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_G1LiIJBrEd2MY5zfT4Awfg" name="Date"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_bFkDkJCWEd2Xeb6Jt2sbCQ" name="String"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_cHO78JCWEd2Xeb6Jt2sbCQ" name="Boolean"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_q-uUoJCWEd2Xeb6Jt2sbCQ" name="Integer"/>
+</uml:Model>

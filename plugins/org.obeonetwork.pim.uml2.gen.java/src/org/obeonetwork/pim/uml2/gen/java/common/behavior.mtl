@@ -1,0 +1,47 @@
+[comment encoding = UTF-8 /]
+[comment]
+ * Copyright (c) 2011 Obeo
+ * All rights reserved.  This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 1.0
+ * 
+ * You can apply any license to the files generated with this module and Acceleo.
+[/comment]
+
+[**
+ * The documentation of the module behavior.
+ * @author Stephane Begaudeau - Obeo
+ */]
+[module behavior('http://www.eclipse.org/uml2/3.0.0/UML')/]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::common /]
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
+[import org::obeonetwork::pim::uml2::gen::java::common::type /]
+
+
+[**
+ * This template will generate the body of the given operation.
+ * @param anOperation The operation.
+ */]
+[template public genBehavior(anOperation : Operation) post(trim())]
+[if (not anOperation.getMethod().equalsIgnoreCase(''))]
+[anOperation.method.genBehavior()/]
+[else]
+// [protected ('for method ' + name)]
+[for (aParameter : Parameter | ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
+[aParameter.genType()/] [anOperation.genName()/] = [if (aParameter.getUserDefaultValue() <> '')][aParameter.getUserDefaultValue()/][else]null[/if];
+[/for]
+return [genName()/];
+// [/protected]
+[/if]
+[/template]
+
+[template protected getMethod(anOperation : Operation)][anOperation.method/][/template]
+
+[template public genBehavior(aBehavior : Behavior) post(trim())]
+[/template]
+
+[template public genBehavior(anOpaqueBehavior : OpaqueBehavior) post(trim())]
+[anOpaqueBehavior._body/]
+[/template]
+
+
