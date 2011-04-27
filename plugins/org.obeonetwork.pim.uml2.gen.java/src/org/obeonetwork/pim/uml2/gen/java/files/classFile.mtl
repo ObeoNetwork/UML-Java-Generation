@@ -13,10 +13,12 @@
  */]
 [module classFile('http://www.eclipse.org/uml2/3.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::commonFile]
 
+[import org::obeonetwork::pim::uml2::gen::java::common::attributes /]
 [import org::obeonetwork::pim::uml2::gen::java::common::behavior /]
 [import org::obeonetwork::pim::uml2::gen::java::common::common /]
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 [import org::obeonetwork::pim::uml2::gen::java::common::imports /]
+[import org::obeonetwork::pim::uml2::gen::java::common::operations /]
 [import org::obeonetwork::pim::uml2::gen::java::common::type /]
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
 [import org::obeonetwork::pim::uml2::gen::java::request::request /]
@@ -33,93 +35,22 @@
 [/template]
 
 [template protected genBody(aClass : Class)]
-[genVisibility()/][genAbstract()/][genFinal()/]class [genName()/][genInheritance()/][genInterfaceRealization()/] {
-	[genClassMembers()/]
+[aClass.genVisibility()/][aClass.genAbstract()/][aClass.genFinal()/]class [aClass.genName()/][aClass.genInheritance()/][aClass.genInterfaceRealization()/] {
+    [aClass.genAttributes()/]
+    [aClass.genConstructor()/]
+    [aClass.genOperations()/]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.getAssociations().navigableOwnedEnd->asOrderedSet()))]
+    [aProperty.genAccessors()/]
+[/for]
+    [aClass.genNestedClassifiers()/]
 }
 [/template]
 
-[template protected genClassMembers(aClass : Class)]
-[for (property : Property | ownedAttribute->union(aClass.getAssociations().navigableOwnedEnd->asOrderedSet()))]
-/**
-[if (property.ownedComment <> null and property.ownedComment->size() > 0 and property.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
-[for (propertyComment : Comment | property.ownedComment)]
- * [propertyComment._body/]
+[template protected genNestedClassifiers(aClass : Class)]
+[for (nestedClass : Class | aClass.nestedClassifier->filter(Class)->reject(c : Class | c.name.equalsIgnoreCase('Behavior')))]
+[nestedClass.genJavadoc()/]
+[nestedClass.genBody()/]
 [/for]
-[else]
- * Description of the property [property.genName()/].
-[/if]
- */
-[property.genVisibility()/][property.genFinal()/][property.genStatic()/][property.genType()/] [property.genName()/][property.genDefaultValue()/];
-
-[/for]
-// [protected ('to add fields for ' + name)]
-
-// [/protected]
-
-[for (nestedClass : Class | nestedClassifier->filter(Class)->reject(name.equalsIgnoreCase('Behavior')))]
-[genComment()/]
-[genVisibility()/][genAbstract()/][genFinal()/]class [genName()/][genInheritance()/][genInterfaceRealization()/] {
-	[genClassMembers()/]
-} 
-[/for]
-
-[genConstructor()/]
-
-[for (property : Property | ownedAttribute->union(aClass.getAssociations().navigableOwnedEnd->asOrderedSet()))]
-[property.genAccessors()/]
-[/for]
-
-[for (operation : Operation | ownedOperation->reject(name.equalsIgnoreCase(aClass.name)))]
-/**
-[if (operation.ownedComment <> null and operation.ownedComment->size() > 0 and operation.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
-[for (aComment : Comment | operation.ownedComment)]
- * [aComment._body/]
-[/for]
-[else]
- * Description of the method [operation.genName()/].
-[/if]
-[for (parameter : Parameter | operation.ownedParameter->select(param : Parameter | param.direction <> ParameterDirectionKind::return))]
- * @param [genName()/][genComment()/]
-[/for]
-[for (parameter : Parameter | operation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
- * @return [genName()/][genComment()/]
-[/for]
- */
-[if (operation.isAbstract)]
-[operation.genMethodPrototype()/];
-[else]
-[operation.genMethodPrototype()/] {
-	[operation.genBehavior()/]
-}
-[/if] 
-[/for]
-[for (anOperation : Operation | aClass.getAllInterfaceOperations())]
-/**
- * {@inheritDoc}
-[if(anOperation.eContainer().oclIsKindOf(Interface))]
- * @see [anOperation.eContainer().oclAsType(Interface).genPackagePath()/].[anOperation.eContainer().oclAsType(Interface).name/]
-[/if]
- *
-[for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | param.direction <> ParameterDirectionKind::return))]
- * @param [genName()/][genComment()/]
-[/for]
-[for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
- * @return [genName()/][genComment()/]
-[/for]
- */
-[if (anOperation.isAbstract)]
-[anOperation.genMethodPrototype()/];
-[else]
-[anOperation.genMethodPrototype()/] {
-	[anOperation.genBehavior()/]
-}
-[/if]
-[/for]
-
-// [protected ('to add methods for ' + name)]
-
-// [/protected]
-
 [/template]
 
 [template protected genConstructor(aClass : Class) post(trim())]

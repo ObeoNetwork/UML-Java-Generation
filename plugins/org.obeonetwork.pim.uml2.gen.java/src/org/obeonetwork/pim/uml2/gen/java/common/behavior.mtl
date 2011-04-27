@@ -23,7 +23,7 @@
  * @param anOperation The operation.
  */]
 [template public genBehavior(anOperation : Operation) post(trim())]
-[if (not anOperation.getMethod().equalsIgnoreCase(''))]
+[if (not anOperation.genMethodBody().equalsIgnoreCase(''))]
 [anOperation.method.genBehavior()/]
 [else]
 // [protected ('for method ' + name)]
@@ -35,7 +35,7 @@ return [genName()/];
 [/if]
 [/template]
 
-[template protected getMethod(anOperation : Operation)][anOperation.method/][/template]
+[template protected genMethodBody(anOperation : Operation)][anOperation.method/][/template]
 
 [template public genBehavior(aBehavior : Behavior) post(trim())]
 [/template]

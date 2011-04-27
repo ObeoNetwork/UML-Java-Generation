@@ -64,9 +64,18 @@
                 </packagedElement>
                 <packagedElement xmi:type="uml:Package" xmi:id="_P8u4QHATEeCrvt1hzG-phQ" name="classes">
                   <packagedElement xmi:type="uml:Package" xmi:id="_Ln9QYHATEeCrvt1hzG-phQ" name="properties"/>
-                  <packagedElement xmi:type="uml:Package" xmi:id="_Ziht0HATEeCrvt1hzG-phQ" name="methods"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_Ziht0HATEeCrvt1hzG-phQ" name="methods">
+                    <packagedElement xmi:type="uml:Package" xmi:id="_ZC5uUHDeEeCl5bNajorhng" name="parameters"/>
+                  </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_-uaOQHAWEeCrvt1hzG-phQ" name="nested"/>
-                  <packagedElement xmi:type="uml:Package" xmi:id="_I3sIMHATEeCrvt1hzG-phQ" name="visibility"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_I3sIMHATEeCrvt1hzG-phQ" name="visibility">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_gzZ2MHDeEeCl5bNajorhng" name="PublicClass"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_hI6MIHDeEeCl5bNajorhng" name="PrivateClass" visibility="private"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_hPeHIHDeEeCl5bNajorhng" name="ProtectedClass" visibility="protected"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_hUzTEHDeEeCl5bNajorhng" name="PackageClass" visibility="package"/>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_a37WQHDeEeCl5bNajorhng" name="EmptyClass"/>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_dg_DMHDeEeCl5bNajorhng" name="AbstractClass" isAbstract="true"/>
                 </packagedElement>
                 <packagedElement xmi:type="uml:Package" xmi:id="_NfQJMHATEeCrvt1hzG-phQ" name="interfaces">
                   <packagedElement xmi:type="uml:Package" xmi:id="_vQBqIHAVEeCrvt1hzG-phQ" name="properties">

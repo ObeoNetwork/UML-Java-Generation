@@ -13,9 +13,11 @@
  */]
 [module interfaceFile('http://www.eclipse.org/uml2/3.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::commonFile]
 
+[import org::obeonetwork::pim::uml2::gen::java::common::attributes /]
 [import org::obeonetwork::pim::uml2::gen::java::common::common /]
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 [import org::obeonetwork::pim::uml2::gen::java::common::imports /]
+[import org::obeonetwork::pim::uml2::gen::java::common::operations /]
 [import org::obeonetwork::pim::uml2::gen::java::common::type /]
 
 [**
@@ -33,55 +35,7 @@
 [template protected genBody (anInterface : Interface) ]
 [anInterface.genVisibility()/]interface [anInterface.genName()/] [anInterface.genInheritance()/]{
 	[anInterface.genAttributes()/]
-	[anInterface.genMethods()/]
+	[anInterface.genOperations()/]
 }
 [/template]
 
-[template protected genAttributes (anInterface : Interface) ]
-[for (property : Property | anInterface.ownedAttribute)]
-/**
-[if (property.ownedComment <> null and property.ownedComment->size() > 0 and property.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
-[for (propertyComment : Comment | property.ownedComment)]
- * [propertyComment._body/]
-[/for]
-[else]
- * Description of the property [property.genName()/].
-[/if]
- */
-[property.genVisibility()/][property.genFinal()/][property.genStatic()/][property.genType()/] [property.genName()/][property.genDefaultValue()/];
-
-[/for]
-// [protected ('(user defined attributes)')]
-
-// [/protected]
-
-[/template]
-
-[template protected genMethods (anInterface : Interface) ]
-[for (operation : Operation | anInterface.ownedOperation)]
-/**
-[if (operation.ownedComment <> null and operation.ownedComment->size() > 0 and operation.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
-[for (aComment : Comment | operation.ownedComment)]
- * [aComment._body/]
-[/for]
-[else]
- * Description of the method [operation.genName()/].
-[/if]
-[for (parameter : Parameter | operation.ownedParameter)]
-[if (parameter.direction <> ParameterDirectionKind::return)]
- * @param [parameter.genName()/] [parameter.genComment()/]
-[/if]
-[/for]
-[for (parameter : Parameter | operation.ownedParameter)]
-[if (parameter.direction = ParameterDirectionKind::return)]
- * @return [parameter.genComment()/]
-[/if]
-[/for]
- */
-[operation.genMethodPrototype()/];
-
-[/for]
-// [protected ('(user defined methods)')]
-
-// [/protected]
-[/template]
