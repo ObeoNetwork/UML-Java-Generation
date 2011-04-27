@@ -39,8 +39,12 @@
 [/template]
 
 [template public genPackagePath(aType : Type)]
-[aType.getNearestPackage().normalizeName()/]
+[aType.packagePath().normalizeName()->reverse()->sep('.')/]
 [/template]
+
+[query public packagePath(aType : Type) : Sequence(Package) = 
+	Sequence{aType.getNearestPackage()}->union(aType.getNearestPackage().ancestors()->filter(Package))->select(pack : Package | pack.oclIsTypeOf(Package))
+/]
 
 [template private normalizeName(anElement : NamedElement)]
 [if ((anElement.name = 'package') or (anElement.name = 'interface') or (anElement.name = 'class'))][anElement.name.concat('_')/][else][anElement.name/][/if]

@@ -318,6 +318,7 @@ public class Workflow extends AbstractAcceleoGenerator {
         if (!isInWorkspace(org.eclipse.uml2.uml.UMLPackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.uml2.uml.UMLPackage.eINSTANCE.getNsURI(), org.eclipse.uml2.uml.UMLPackage.eINSTANCE);
         }
+        
         /*
          * TODO If you need additional package registrations, you can register them here. The following line
          * (in comment) is an example of the package registration for UML. If you want to change the content
@@ -325,11 +326,17 @@ public class Workflow extends AbstractAcceleoGenerator {
          * "@generated NOT". Without this new tag, any compilation of the Acceleo module with the main template
          * that has caused the creation of this class will revert your modifications. You can use the method
          * "isInWorkspace(Class c)" to check if the package that you are about to register is in the workspace.
-         * If you try to register a package that is in your workspace, you may create a conflict if the same
-         * package is also registered from a plugin.
+         * To register a package properly, please follow the following conventions:
+         * 
+         * if (!isInWorkspace(UMLPackage.class)) {
+         *     // The normal package registration if your metamodel is in a plugin.
+         *     resourceSet.getPackageRegistry().put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
+         * } else {
+         *     // The package registration that will be used if the metamodel is not deployed in a plugin.
+         *     // This should be used if your metamodel is in your workspace.
+         *     resourceSet.getPackageRegistry().put("/myproject/myfolder/mysubfolder/MyUMLMetamodel.ecore", UMLPackage.eINSTANCE);
+         * }
          */
-        
-        // resourceSet.getPackageRegistry().put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
     }
 
     /**
