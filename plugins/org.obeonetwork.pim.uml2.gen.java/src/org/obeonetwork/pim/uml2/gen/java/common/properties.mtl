@@ -13,20 +13,36 @@
  */]
 [module properties('http://www.eclipse.org/uml2/3.0.0/UML')/]
 
-[template public getOrderedCollectionClass(anElement : Element) post(trim())]
-[anElement.getOrderedCollectionClassPath().tokenize('.')->last()/]	
+[template public getOrderedUniqueCollectionClass(anElement : Element) post(trim())]
+[anElement.getOrderedUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getOrderedCollectionClassPath(anElement : Element) post(trim())]
-[getProperty('tuple.ordered.class')/]
+[template public getOrderedUniqueCollectionClassPath(anElement : Element) post(trim())]
+[getProperty('tuple.ordered.unique.class')/]
 [/template]
 
-[template public getNotOrderedCollectionClass(anElement : Element)]
-[anElement.getNotOrderedCollectionClassPath().tokenize('.')->last()/]
+[template public getOrderedNotUniqueCollectionClass(anElement : Element) post(trim())]
+[anElement.getOrderedNotUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getNotOrderedCollectionClassPath(anElement : Element) post(trim())]
-[getProperty('tuple.notOrdered.class')/]
+[template public getOrderedNotUniqueCollectionClassPath(anElement : Element) post(trim())]
+[getProperty('tuple.ordered.notUnique.class')/]
+[/template]
+
+[template public getNotOrderedUniqueCollectionClass(anElement : Element) post(trim())]
+[anElement.getNotOrderedUniqueCollectionClassPath().tokenize('.')->last()/]	
+[/template]
+
+[template public getNotOrderedUniqueCollectionClassPath(anElement : Element) post(trim())]
+[getProperty('tuple.notOrdered.unique.class')/]
+[/template]
+
+[template public getNotOrderedNotUniqueCollectionClass(anElement : Element) post(trim())]
+[anElement.getNotOrderedNotUniqueCollectionClassPath().tokenize('.')->last()/]	
+[/template]
+
+[template public getNotOrderedNotUniqueCollectionClassPath(anElement : Element) post(trim())]
+[getProperty('tuple.notOrdered.notUnique.class')/]
 [/template]
 
 [query public isArray(anElement : Element) : Boolean = getProperty('tuple.genArrays') = 'true' /]

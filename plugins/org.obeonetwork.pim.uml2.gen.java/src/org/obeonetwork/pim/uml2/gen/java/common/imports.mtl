@@ -23,11 +23,17 @@
 [template public genImport(aClassifier : Classifier)]
 
 [if (not aClassifier.isArray())]
-[if (aClassifier.orderedMultiplicityElements() <> null and aClassifier.orderedMultiplicityElements()->size() > 0)]
-import [aClassifier.getOrderedCollectionClassPath()/];
+[if (aClassifier.orderedUniqueMultiplicityElements() <> null and aClassifier.orderedUniqueMultiplicityElements()->size() > 0)]
+import [aClassifier.getOrderedUniqueCollectionClassPath()/];
 [/if]
-[if (aClassifier.notOrderedMultiplicityElements() <> null and aClassifier.notOrderedMultiplicityElements()->size() > 0)]
-import [aClassifier.getNotOrderedCollectionClassPath()/];
+[if (aClassifier.notOrderedNotUniqueMultiplicityElements() <> null and aClassifier.notOrderedNotUniqueMultiplicityElements()->size() > 0)]
+import [aClassifier.getNotOrderedNotUniqueCollectionClassPath()/];
+[/if]
+[if (aClassifier.notOrderedUniqueMultiplicityElements() <> null and aClassifier.notOrderedUniqueMultiplicityElements()->size() > 0)]
+import [aClassifier.getNotOrderedUniqueCollectionClassPath()/];
+[/if]
+[if (aClassifier.orderedNotUniqueMultiplicityElements() <> null and aClassifier.orderedNotUniqueMultiplicityElements()->size() > 0)]
+import [aClassifier.getOrderedNotUniqueCollectionClassPath()/];
 [/if]
 [/if]
 [if (aClassifier.oclIsKindOf(Class))]
@@ -49,18 +55,22 @@ import [aType.importValue()/];
 
 [/template]
 
-[query public importValue(aType : Type) : String = if ('model'.equalsIgnoreCase(aType.genPackagePath())) then aType.getImportValue() else aType.genPackagePath() + '.' + aType.name endif /]
+[query public importValue(aType : Type) : String = if (''.equalsIgnoreCase(aType.genPackagePath())) then getProperty(aType.name) else aType.genPackagePath() + '.' + aType.name endif /]
 
-[template protected getImportValue(aType : Type) post(trim())]
-[getProperty(aType.genPackagePath() + '.' + aType.name)/]
-[/template]
-
-[query protected orderedMultiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
-	aClassifier.multiplicityElements()->select(elem : MultiplicityElement | (elem.upper = -1 or elem.upper > 1) and elem.isOrdered)
+[query protected orderedUniqueMultiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
+	aClassifier.multiplicityElements()->select(elem : MultiplicityElement | (elem.upper = -1 or elem.upper > 1) and elem.isOrdered and elem.isUnique)
 /]
 
-[query protected notOrderedMultiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
-	aClassifier.multiplicityElements()->select(elem : MultiplicityElement | (elem.upper = -1 or elem.upper > 1) and not elem.isOrdered)
+[query protected orderedNotUniqueMultiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
+	aClassifier.multiplicityElements()->select(elem : MultiplicityElement | (elem.upper = -1 or elem.upper > 1) and elem.isOrdered and not elem.isUnique)
+/]
+
+[query protected notOrderedUniqueMultiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
+	aClassifier.multiplicityElements()->select(elem : MultiplicityElement | (elem.upper = -1 or elem.upper > 1) and not elem.isOrdered and elem.isUnique)
+/]
+
+[query protected notOrderedNotUniqueMultiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
+	aClassifier.multiplicityElements()->select(elem : MultiplicityElement | (elem.upper = -1 or elem.upper > 1) and not elem.isOrdered and not elem.isUnique)
 /]
 
 [query protected multiplicityElements(aClassifier : Classifier) : Collection(MultiplicityElement) = 
@@ -70,10 +80,8 @@ import [aType.importValue()/];
 [template public genImportPath(aType : Type) post(trim())]
 [if (getProperty('java.typeconversion.' + name) <> null)]
 [getProperty('java.typeconversion.' + name)/]
-[elseif (aType.genPackagePath().size() = 0)]
-[aType.genName()/]
 [else]
-[aType.genPackagePath()/].[aType.genName()/]
+[aType.importValue()/]
 [/if]
 [/template]
 

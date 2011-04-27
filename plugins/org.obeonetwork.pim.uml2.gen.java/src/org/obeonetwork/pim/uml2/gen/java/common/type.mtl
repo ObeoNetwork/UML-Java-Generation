@@ -37,19 +37,27 @@ void
 
 [template public genType(aParameter : Parameter) post(trim())]
 [if (aParameter.upper = 1)]
-[aParameter.genTypeName()/]
+    [aParameter.genTypeName()/]
 [elseif (aParameter.isArray())]
-[aParameter.genTypeName()/]['['/][']'/]
+    [aParameter.genTypeName()/]['['/][']'/]
 [else]
-[aParameter.genCollectionType()/]<[aParameter.genTypeName()/]>
+    [aParameter.genCollectionType()/]<[aParameter.genTypeName()/]>
 [/if]
 [/template]
 
 [template protected genCollectionType(aMultiplicityElement : MultiplicityElement) post(trim())]
 [if (aMultiplicityElement.isOrdered)]
-[aMultiplicityElement.getOrderedCollectionClass()/]
+    [if (aMultiplicityElement.isUnique)]
+        [aMultiplicityElement.getOrderedUniqueCollectionClass()/]
+    [else]
+        [aMultiplicityElement.getOrderedNotUniqueCollectionClass()/]
+    [/if]
 [else]
-[aMultiplicityElement.getNotOrderedCollectionClass()/]
+    [if (aMultiplicityElement.isUnique)]
+        [aMultiplicityElement.getNotOrderedUniqueCollectionClass()/]
+    [else]
+        [aMultiplicityElement.getNotOrderedNotUniqueCollectionClass()/]
+    [/if]
 [/if]
 [/template]
 

@@ -64,11 +64,30 @@
 [/template]
 
 [template public genDefaultValue(aProperty : Property)]
-[if (aProperty.upper = 1 and aProperty.default <> null)]
-[if (aProperty.default.equalsIgnoreCase(''))]
-[if (aProperty.getUserDefaultValue().equalsIgnoreCase(''))] = [aProperty.default/][else] = [aProperty.getUserDefaultValue()/][/if]
+ = [computeDefault()/]
+[/template]
+
+[template public computeDefault(aProperty : Property) post(trim())]
+[if (aProperty.upper = 1)]
+    [if (aProperty.default <> null)]
+        [if (''.equalsIgnoreCase(aProperty.default) or aProperty.default = null)]
+            [if (aProperty.getUserDefaultValue().equalsIgnoreCase(''))][aProperty.default/][else][aProperty.getUserDefaultValue()/][/if]
+        [else]
+            [if ('String'.equalsIgnoreCase(aProperty.type.genName()))][aProperty.default.addQuotes()/][else][aProperty.default/][/if]
+        [/if]
+    [else]
+        [if ('String'.equalsIgnoreCase(aProperty.type.genName()))]
+            ['""'/]
+        [else]        
+            [aProperty.getUserDefaultValue()/]
+        [/if]
+    [/if]
 [else]
-[if (aProperty.type.name = 'String')] = [aProperty.default.addQuotes()/][else] = [aProperty.default/][/if][/if]
+    [if (aProperty.default <> null)]        
+        new  [aProperty.genType()/]()
+    [else]
+        new [aProperty.genType()/]()
+    [/if]
 [/if]
 [/template]
 
@@ -76,7 +95,11 @@
 "[aString/]"
 [/template]
 
-[template public getUserDefaultValue(aTypedElement : TypedElement)]
-[if (getProperty('java.defaultvalue.' + aTypedElement.type.name) <> null)][getProperty('java.defaultvalue.' + aTypedElement.type.name)/][/if]
+[template public getUserDefaultValue(aTypedElement : TypedElement) post(trim())]
+[if (getProperty('java.defaultvalue.' + aTypedElement.type.name) <> null and not ''.equalsIgnoreCase(getProperty('java.defaultvalue.' + aTypedElement.type.name)))]
+    [getProperty('java.defaultvalue.' + aTypedElement.type.name)/]
+[else]
+    null
+[/if]
 [/template]
 

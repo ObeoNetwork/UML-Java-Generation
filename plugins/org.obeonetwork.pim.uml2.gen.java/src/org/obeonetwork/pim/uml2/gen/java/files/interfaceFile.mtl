@@ -39,18 +39,18 @@
 
 [template protected genAttributes (anInterface : Interface) ]
 [for (property : Property | anInterface.ownedAttribute)]
-[if (property.ownedComment <> null and property.ownedComment->size() > 0 and property.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 /**
+[if (property.ownedComment <> null and property.ownedComment->size() > 0 and property.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (propertyComment : Comment | property.ownedComment)]
  * [propertyComment._body/]
 [/for]
 [else]
  * Description of the property [property.genName()/].
- */
 [/if]
-[property.genVisibility()/] [property.genFinal()/][property.genStatic()/][property.genType()/] [property.genName()/][property.genDefaultValue()/];
-[/for]
+ */
+[property.genVisibility()/][property.genFinal()/][property.genStatic()/][property.genType()/] [property.genName()/][property.genDefaultValue()/];
 
+[/for]
 // [protected ('(user defined attributes)')]
 
 // [/protected]
@@ -59,8 +59,8 @@
 
 [template protected genMethods (anInterface : Interface) ]
 [for (operation : Operation | anInterface.ownedOperation)]
-[if (operation.ownedComment <> null and operation.ownedComment->size() > 0 and operation.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 /**
+[if (operation.ownedComment <> null and operation.ownedComment->size() > 0 and operation.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (aComment : Comment | operation.ownedComment)]
  * [aComment._body/]
 [/for]
@@ -79,8 +79,8 @@
 [/for]
  */
 [operation.genMethodPrototype()/];
-[/for]
 
+[/for]
 // [protected ('(user defined methods)')]
 
 // [/protected]
