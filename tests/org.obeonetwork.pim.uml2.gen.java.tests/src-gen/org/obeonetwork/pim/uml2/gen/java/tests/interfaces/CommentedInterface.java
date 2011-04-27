@@ -9,16 +9,16 @@ package org.obeonetwork.pim.uml2.gen.java.tests.interfaces;
 // End of user code
 
 /**
- * Description of CommentedInterface.
+ * The comment of CommentedInterface.
  */
 public interface CommentedInterface {
 	
 	// Start of user code (user defined attributes)
-				
-				// End of user code
+	
+	// End of user code
 	
 	
 	// Start of user code (user defined methods)
-				
-				// End of user code
+	
+	// End of user code
 }

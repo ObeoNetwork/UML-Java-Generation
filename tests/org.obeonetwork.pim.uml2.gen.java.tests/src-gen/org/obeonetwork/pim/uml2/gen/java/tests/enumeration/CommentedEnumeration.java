@@ -5,7 +5,7 @@
 package org.obeonetwork.pim.uml2.gen.java.tests.enumeration;
 
 /**
- * Description of CommentedEnumeration.
+ * The comment of CommentedEnumeration.
  */
 public enum CommentedEnumeration {
 }

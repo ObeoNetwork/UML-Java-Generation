@@ -8,19 +8,19 @@ package org.obeonetwork.pim.uml2.gen.java.tests.enumeration.enumerationliterals;
  * Description of MultipleLiteralsEnumeration.
  */
 public enum MultipleLiteralsEnumeration {
-	/**
-	 * Description of firstLiteral.
-	 */
-	firstLiteral,
-	
-	/**
-	 * Description of secondLiteral.
-	 */
-	secondLiteral,
-	
-	/**
-	 * Description of thirdLiteral.
-	 */
-	thirdLiteral,
-	
+    /**
+     * Description of firstLiteral.
+     */
+    firstLiteral,
+    
+    /**
+     * Description of secondLiteral.
+     */
+    secondLiteral,
+    
+    /**
+     * Description of thirdLiteral.
+     */
+    thirdLiteral,
+    
 }

@@ -40,12 +40,13 @@
 
 [template protected genClassMembers(aClass : Class)]
 [for (property : Property | ownedAttribute->union(aClass.getAssociations().navigableOwnedEnd->asOrderedSet()))]
-[if (property.ownedComment <> null)]
+[if (property.ownedComment <> null and property.ownedComment->size() > 0 and property.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 /**
- * Description of the property [property.genName()/].
 [for (propertyComment : Comment | property.ownedComment)]
  * [propertyComment._body/]
 [/for]
+[else]
+ * Description of the property [property.genName()/].
  */
 [/if]
 [property.genVisibility()/][property.genFinal()/][property.genStatic()/][property.genType()/] [property.genName()/][property.genDefaultValue()/];
@@ -69,9 +70,14 @@
 [/for]
 
 [for (operation : Operation | ownedOperation->reject(name.equalsIgnoreCase(aClass.name)))]
+[if (operation.ownedComment <> null and operation.ownedComment->size() > 0 and operation.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 /**
- * Description of the method [genName()/].
- * [genComment()/]
+[for (aComment : Comment | operation.ownedComment)]
+ * [aComment._body/]
+[/for]
+[else]
+ * Description of the method [operation.genName()/].
+[/if]
 [for (parameter : Parameter | operation.ownedParameter->select(param : Parameter | param.direction <> ParameterDirectionKind::return))]
  * @param [genName()/][genComment()/]
 [/for]

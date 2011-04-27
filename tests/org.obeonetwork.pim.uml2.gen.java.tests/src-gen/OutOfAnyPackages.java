@@ -13,8 +13,8 @@
  */
 public class OutOfAnyPackages {
 	// Start of user code to add fields for OutOfAnyPackages
-				
-				// End of user code
+	
+	// End of user code
 	
 	
 	/**
@@ -22,14 +22,14 @@ public class OutOfAnyPackages {
 	 */
 	public OutOfAnyPackages() {
 		// Start of user code constructor
-					super();
-					// End of user code
+		super();
+		// End of user code
 	}
 	
 	
 	
 	// Start of user code to add methods for OutOfAnyPackages
-				
-				// End of user code
+	
+	// End of user code
 	
 }

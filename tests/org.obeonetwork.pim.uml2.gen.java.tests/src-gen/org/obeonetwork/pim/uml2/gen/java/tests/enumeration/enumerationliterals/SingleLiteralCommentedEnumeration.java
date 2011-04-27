@@ -5,12 +5,12 @@
 package org.obeonetwork.pim.uml2.gen.java.tests.enumeration.enumerationliterals;
 
 /**
- * Description of SingleLiteralCommentedEnumeration.
+ * This is the comment of SingleLiteralCommentedEnumeration.
  */
 public enum SingleLiteralCommentedEnumeration {
-	/**
-	 * Description of firstLiteral.
-	 */
-	firstLiteral,
-	
+    /**
+     * The comment of the first literal of SingleLiteralCommentedEnumeration.
+     */
+    firstLiteral,
+    
 }

@@ -14,11 +14,11 @@ package org.obeonetwork.pim.uml2.gen.java.tests.interfaces;
 public interface EmptyInterface {
 	
 	// Start of user code (user defined attributes)
-				
-				// End of user code
+	
+	// End of user code
 	
 	
 	// Start of user code (user defined methods)
-				
-				// End of user code
+	
+	// End of user code
 }

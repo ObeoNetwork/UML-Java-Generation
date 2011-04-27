@@ -5,22 +5,22 @@
 package org.obeonetwork.pim.uml2.gen.java.tests.enumeration.enumerationliterals;
 
 /**
- * Description of MultipleLiteralsCommentedEnumeration.
+ * The comment of MultipleLiteralsCommentedEnumeration.
  */
 public enum MultipleLiteralsCommentedEnumeration {
-	/**
-	 * Description of firstLiteral.
-	 */
-	firstLiteral,
-	
-	/**
-	 * Description of secondLiteral.
-	 */
-	secondLiteral,
-	
-	/**
-	 * Description of thirdLiteral.
-	 */
-	thirdLiteral,
-	
+    /**
+     * The comment of the first literal of MultipleLiteralsCommentedEnumeration.
+     */
+    firstLiteral,
+    
+    /**
+     * The comment of the second literal of MultipleLiteralsCommentedEnumeration.
+     */
+    secondLiteral,
+    
+    /**
+     * The comment of the third literal of MultipleLiteralsCommentedEnumeration.
+     */
+    thirdLiteral,
+    
 }
