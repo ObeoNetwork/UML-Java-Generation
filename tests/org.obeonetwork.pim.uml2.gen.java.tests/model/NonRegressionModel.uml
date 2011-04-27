@@ -9,12 +9,6 @@
               <packagedElement xmi:type="uml:Package" xmi:id="_HJXlMHATEeCrvt1hzG-phQ" name="tests">
                 <packagedElement xmi:type="uml:Package" xmi:id="_SXdOQHATEeCrvt1hzG-phQ" name="enumeration">
                   <packagedElement xmi:type="uml:Package" xmi:id="_eKnTQHATEeCrvt1hzG-phQ" name="enumerationliterals">
-                    <packagedElement xmi:type="uml:Package" xmi:id="_w6QCMHATEeCrvt1hzG-phQ" name="visibility">
-                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_k9qUYHATEeCrvt1hzG-phQ" name="EmptyPublicEnumeration"/>
-                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_r9yvQHATEeCrvt1hzG-phQ" name="EmptyPrivateEnumeration" visibility="private"/>
-                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_tRZsMHATEeCrvt1hzG-phQ" name="EmptyProtectedEnumeration" visibility="protected"/>
-                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_u4aGQHATEeCrvt1hzG-phQ" name="EmptyPackageEnumeration" visibility="package"/>
-                    </packagedElement>
                     <packagedElement xmi:type="uml:Enumeration" xmi:id="_zAxCwHATEeCrvt1hzG-phQ" name="SingleLiteralEnumeration">
                       <ownedLiteral xmi:id="_C_9qYHAUEeCrvt1hzG-phQ" name="firstLiteral"/>
                     </packagedElement>
@@ -61,6 +55,12 @@
                     </ownedComment>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Enumeration" xmi:id="_5fGGMHAVEeCrvt1hzG-phQ" name="EmptyEnumeration"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_w6QCMHATEeCrvt1hzG-phQ" name="visibility">
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_k9qUYHATEeCrvt1hzG-phQ" name="EmptyPublicEnumeration"/>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_r9yvQHATEeCrvt1hzG-phQ" name="EmptyPrivateEnumeration" visibility="private"/>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_tRZsMHATEeCrvt1hzG-phQ" name="EmptyProtectedEnumeration" visibility="protected"/>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_u4aGQHATEeCrvt1hzG-phQ" name="EmptyPackageEnumeration" visibility="package"/>
+                  </packagedElement>
                 </packagedElement>
                 <packagedElement xmi:type="uml:Package" xmi:id="_P8u4QHATEeCrvt1hzG-phQ" name="classes">
                   <packagedElement xmi:type="uml:Package" xmi:id="_Ln9QYHATEeCrvt1hzG-phQ" name="properties"/>

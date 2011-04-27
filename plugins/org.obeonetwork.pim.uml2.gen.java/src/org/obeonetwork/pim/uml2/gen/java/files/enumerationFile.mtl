@@ -14,6 +14,7 @@
 [module enumerationFile('http://www.eclipse.org/uml2/3.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::commonFile]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::common /]
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 
 [**
  * The documentation of the template genFileBody.
@@ -28,7 +29,7 @@
 
 
 [template protected genBody(anEnumeration : Enumeration) ]
-public enum [anEnumeration.name.toUpperFirst()/] {
+[anEnumeration.genVisibility()/]enum [anEnumeration.name.toUpperFirst()/] {
 [for (anEnumerationLiteral : EnumerationLiteral | anEnumeration.ownedLiteral)]
     /**
 [if (anEnumerationLiteral.ownedComment <> null and anEnumerationLiteral.ownedComment->size() > 0 and anEnumerationLiteral.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
