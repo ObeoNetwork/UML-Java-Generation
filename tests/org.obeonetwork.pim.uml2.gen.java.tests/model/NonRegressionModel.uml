@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_tQW_0XASEeCrvt1hzG-phQ" name="NonRegressionModel">
+  <packagedElement xmi:type="uml:Package" xmi:id="_wah1wHASEeCrvt1hzG-phQ" name="org">
+    <packagedElement xmi:type="uml:Package" xmi:id="_z8cdUHASEeCrvt1hzG-phQ" name="obeonetwork">
+      <packagedElement xmi:type="uml:Package" xmi:id="_0Zqk0HASEeCrvt1hzG-phQ" name="pim">
+        <packagedElement xmi:type="uml:Package" xmi:id="_0y49IHASEeCrvt1hzG-phQ" name="uml2">
+          <packagedElement xmi:type="uml:Package" xmi:id="_3-nSQHASEeCrvt1hzG-phQ" name="gen">
+            <packagedElement xmi:type="uml:Package" xmi:id="_4-Bg0HASEeCrvt1hzG-phQ" name="java">
+              <packagedElement xmi:type="uml:Package" xmi:id="_HJXlMHATEeCrvt1hzG-phQ" name="tests">
+                <packagedElement xmi:type="uml:Package" xmi:id="_SXdOQHATEeCrvt1hzG-phQ" name="enumeration">
+                  <packagedElement xmi:type="uml:Package" xmi:id="_eKnTQHATEeCrvt1hzG-phQ" name="enumerationliterals">
+                    <packagedElement xmi:type="uml:Package" xmi:id="_w6QCMHATEeCrvt1hzG-phQ" name="visibility">
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_k9qUYHATEeCrvt1hzG-phQ" name="EmptyPublicEnumeration"/>
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_r9yvQHATEeCrvt1hzG-phQ" name="EmptyPrivateEnumeration" visibility="private"/>
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_tRZsMHATEeCrvt1hzG-phQ" name="EmptyProtectedEnumeration" visibility="protected"/>
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_u4aGQHATEeCrvt1hzG-phQ" name="EmptyPackageEnumeration" visibility="package"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_zAxCwHATEeCrvt1hzG-phQ" name="SingleLiteralEnumeration">
+                      <ownedLiteral xmi:id="_C_9qYHAUEeCrvt1hzG-phQ" name="firstLiteral"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_2E6wQHATEeCrvt1hzG-phQ" name="MultipleLiteralsEnumeration">
+                      <ownedLiteral xmi:id="_sajuUHAUEeCrvt1hzG-phQ" name="firstLiteral"/>
+                      <ownedLiteral xmi:id="_uBnywHAUEeCrvt1hzG-phQ" name="secondLiteral"/>
+                      <ownedLiteral xmi:id="_vMxXQHAUEeCrvt1hzG-phQ" name="thirdLiteral"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_4X3DQHATEeCrvt1hzG-phQ" name="SingleLiteralCommentedEnumeration">
+                      <ownedComment xmi:id="_0mtQYHAUEeCrvt1hzG-phQ" annotatedElement="_4X3DQHATEeCrvt1hzG-phQ">
+                        <body>This is the comment of SingleLiteralCommentedEnumeration.</body>
+                      </ownedComment>
+                      <ownedLiteral xmi:id="_wo7zQHAUEeCrvt1hzG-phQ" name="firstLiteral">
+                        <ownedComment xmi:id="_cPmtMHAVEeCrvt1hzG-phQ" annotatedElement="_wo7zQHAUEeCrvt1hzG-phQ">
+                          <body>The comment of the first literal of SingleLiteralCommentedEnumeration.</body>
+                        </ownedComment>
+                      </ownedLiteral>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_4X3qUHATEeCrvt1hzG-phQ" name="MultipleLiteralsCommentedEnumeration">
+                      <ownedComment xmi:id="_EEJ10HAVEeCrvt1hzG-phQ" annotatedElement="_4X3qUHATEeCrvt1hzG-phQ">
+                        <body>The comment of MultipleLiteralsCommentedEnumeration.</body>
+                      </ownedComment>
+                      <ownedLiteral xmi:id="_xDzKUHAUEeCrvt1hzG-phQ" name="firstLiteral">
+                        <ownedComment xmi:id="_JRVsYHAVEeCrvt1hzG-phQ" annotatedElement="_sajuUHAUEeCrvt1hzG-phQ">
+                          <body>The comment of the first literal of MultipleLiteralsCommentedEnumeration.</body>
+                        </ownedComment>
+                      </ownedLiteral>
+                      <ownedLiteral xmi:id="_xDzxYHAUEeCrvt1hzG-phQ" name="secondLiteral">
+                        <ownedComment xmi:id="_PjF-UHAVEeCrvt1hzG-phQ" annotatedElement="_xDzxYHAUEeCrvt1hzG-phQ">
+                          <body>The comment of the second literal of MultipleLiteralsCommentedEnumeration.</body>
+                        </ownedComment>
+                      </ownedLiteral>
+                      <ownedLiteral xmi:id="_xDzxYXAUEeCrvt1hzG-phQ" name="thirdLiteral">
+                        <ownedComment xmi:id="_VEOEkHAVEeCrvt1hzG-phQ" annotatedElement="_xDzxYXAUEeCrvt1hzG-phQ">
+                          <body>The comment of the third literal of MultipleLiteralsCommentedEnumeration.</body>
+                        </ownedComment>
+                      </ownedLiteral>
+                    </packagedElement>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Package" xmi:id="__2vIQHAWEeCrvt1hzG-phQ" name="nested"/>
+                  <packagedElement xmi:type="uml:Enumeration" xmi:id="_lnOj4HAVEeCrvt1hzG-phQ" name="CommentedEnumeration">
+                    <ownedComment xmi:id="_nievoHAVEeCrvt1hzG-phQ" annotatedElement="_lnOj4HAVEeCrvt1hzG-phQ">
+                      <body>The comment of CommentedEnumeration.</body>
+                    </ownedComment>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Enumeration" xmi:id="_5fGGMHAVEeCrvt1hzG-phQ" name="EmptyEnumeration"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_P8u4QHATEeCrvt1hzG-phQ" name="classes">
+                  <packagedElement xmi:type="uml:Package" xmi:id="_Ln9QYHATEeCrvt1hzG-phQ" name="properties"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_Ziht0HATEeCrvt1hzG-phQ" name="methods"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_-uaOQHAWEeCrvt1hzG-phQ" name="nested"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_I3sIMHATEeCrvt1hzG-phQ" name="visibility"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_NfQJMHATEeCrvt1hzG-phQ" name="interfaces">
+                  <packagedElement xmi:type="uml:Package" xmi:id="_vQBqIHAVEeCrvt1hzG-phQ" name="properties"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_cyHPQXATEeCrvt1hzG-phQ" name="methods"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_7-dPIHAWEeCrvt1hzG-phQ" name="nested"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_cyHPQnATEeCrvt1hzG-phQ" name="visibility">
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_vwPl0HAWEeCrvt1hzG-phQ" name="EmptyPublicInterface"/>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_yXFsQHAWEeCrvt1hzG-phQ" name="EmptyPrivateInterface" visibility="private"/>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_ybz0MHAWEeCrvt1hzG-phQ" name="EmptyProtectedInterface" visibility="protected"/>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_ygijMHAWEeCrvt1hzG-phQ" name="EmptyPackageInterface" visibility="package"/>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Interface" xmi:id="_8UipUHAVEeCrvt1hzG-phQ" name="CommentedInterface">
+                    <ownedComment xmi:id="_-LCQ4HAVEeCrvt1hzG-phQ" annotatedElement="_8UipUHAVEeCrvt1hzG-phQ">
+                      <body>The comment of CommentedInterface.</body>
+                    </ownedComment>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Interface" xmi:id="_1nydcHAVEeCrvt1hzG-phQ" name="EmptyInterface"/>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_C4jQQHATEeCrvt1hzG-phQ" name="OutOfAnyPackages"/>
+</uml:Model>
