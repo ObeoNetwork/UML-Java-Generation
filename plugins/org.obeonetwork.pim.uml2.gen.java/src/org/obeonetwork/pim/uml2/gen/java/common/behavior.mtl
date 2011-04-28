@@ -28,14 +28,40 @@
 [else]
 // [protected ('for method ' + name)]
 [for (aParameter : Parameter | ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
-[aParameter.genType()/] [anOperation.genName()/] = [if (aParameter.getUserDefaultValue() <> '')][aParameter.getUserDefaultValue()/][else]null[/if];
+[aParameter.genType()/] [anOperation.genName()/] = [aParameter.computeDefault()/];
 [/for]
 return [genName()/];
 // [/protected]
 [/if]
 [/template]
 
-[template protected genMethodBody(anOperation : Operation)][anOperation.method/][/template]
+[template protected computeDefault(aParameter : Parameter) post(trim())]
+[if (aParameter.upper = 1)]
+    [if (aParameter.default <> null)]
+        [if (''.equalsIgnoreCase(aParameter.default) or aParameter.default = null)]
+            [if (aParameter.getUserDefaultValue().equalsIgnoreCase(''))][aParameter.default/][else][aParameter.getUserDefaultValue()/][/if]
+        [else]
+            [if ('String'.equalsIgnoreCase(aParameter.type.genName()))][aParameter.default.addQuotes()/][else][aParameter.default/][/if]
+        [/if]
+    [else]
+        [if ('String'.equalsIgnoreCase(aParameter.type.genName()))]
+            ['""'/]
+        [else]        
+            [aParameter.getUserDefaultValue()/]
+        [/if]
+    [/if]
+[else]
+    [if (aParameter.default <> null)]        
+        new  [aParameter.genType()/]()
+    [else]
+        new [aParameter.genType()/]()
+    [/if]
+[/if]
+[/template]
+
+[template protected genMethodBody(anOperation : Operation) post(trim())]
+[anOperation.method/]
+[/template]
 
 [template public genBehavior(aBehavior : Behavior) post(trim())]
 [/template]

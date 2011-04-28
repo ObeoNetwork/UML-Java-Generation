@@ -30,7 +30,8 @@
 [/template]
 
 [template public genOperations(aClass : Class)]
-[for (anOperation : Operation | ownedOperation->reject(name.equalsIgnoreCase(aClass.name)))]
+
+[for (anOperation : Operation | ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
 [anOperation.genOperationComment()/]
 [if (anOperation.isAbstract)]
 [anOperation.genMethodPrototype()/];
@@ -38,7 +39,8 @@
 [anOperation.genMethodPrototype()/] {
 	[anOperation.genBehavior()/]
 }
-[/if] 
+[/if]
+ 
 [/for]
 [for (anOperation : Operation | aClass.getAllInterfaceOperations())]
 [anOperation.genInheritedOperationComment()/]
@@ -49,8 +51,8 @@
 	[anOperation.genBehavior()/]
 }
 [/if]
-[/for]
 
+[/for]
 // [protected ('(user defined methods)')]
 
 // [/protected]

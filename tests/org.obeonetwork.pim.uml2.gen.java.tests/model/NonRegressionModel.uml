@@ -139,6 +139,109 @@
                   </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_Ziht0HATEeCrvt1hzG-phQ" name="methods">
                     <packagedElement xmi:type="uml:Package" xmi:id="_ZC5uUHDeEeCl5bNajorhng" name="parameters"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_ZKeooHFwEeCSi7MPGob3tQ" name="SingleMethodClass">
+                      <ownedOperation xmi:id="_y60aMHFwEeCSi7MPGob3tQ" name="firstMethod">
+                        <ownedParameter xmi:id="_8HuOoHFwEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_aadCwHFwEeCSi7MPGob3tQ" name="MultipleMethodsClass">
+                      <ownedOperation xmi:id="_zSZMsHFwEeCSi7MPGob3tQ" name="firstMethod">
+                        <ownedParameter xmi:id="_9xSNcHFwEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_zb2DoHFwEeCSi7MPGob3tQ" name="secondMethod">
+                        <ownedParameter xmi:id="__BHdoHFwEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_zhVnoHFwEeCSi7MPGob3tQ" name="thirdMethod">
+                        <ownedParameter xmi:id="_BCe4cHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_ahUfwHFwEeCSi7MPGob3tQ" name="SingleCommentedMethodClass">
+                      <ownedOperation xmi:id="_zp0OMHFwEeCSi7MPGob3tQ" name="firstMethod">
+                        <ownedParameter xmi:id="_C_ZREHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_apGiwHFwEeCSi7MPGob3tQ" name="MultipleCommentedMethodsClass">
+                      <ownedOperation xmi:id="_zywu0HFwEeCSi7MPGob3tQ" name="firstMethod">
+                        <ownedParameter xmi:id="_EapHEHFxEeCSi7MPGob3tQ" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_z5dMsHFwEeCSi7MPGob3tQ" name="secondMethod">
+                        <ownedParameter xmi:id="_FiccoHFxEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_0ABHsHFwEeCSi7MPGob3tQ" name="thirdMethod">
+                        <ownedParameter xmi:id="_HPU1MHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_bF8PwHFwEeCSi7MPGob3tQ" name="VisibilityMethodsClass">
+                      <ownedOperation xmi:id="_0I3hsHFwEeCSi7MPGob3tQ" name="publicMethod">
+                        <ownedParameter xmi:id="_I0_LcHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_0OWeoHFwEeCSi7MPGob3tQ" name="privateMethod" visibility="private">
+                        <ownedParameter xmi:id="_JcwWEHFxEeCSi7MPGob3tQ" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_0TjHsHFwEeCSi7MPGob3tQ" name="protectedMethod" visibility="protected">
+                        <ownedParameter xmi:id="_OyXv4HFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_0ZpIoHFwEeCSi7MPGob3tQ" name="packageMethod" visibility="package">
+                        <ownedParameter xmi:id="_Nuep8HFxEeCSi7MPGob3tQ" type="_D4MGEHDIEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_bF820HFwEeCSi7MPGob3tQ" name="TypeMethodsClass">
+                      <ownedOperation xmi:id="_02y-sHFwEeCSi7MPGob3tQ" name="booleanMethod">
+                        <ownedParameter xmi:id="_U0bY8HFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_08bsoHFwEeCSi7MPGob3tQ" name="byteMethod">
+                        <ownedParameter xmi:id="_ViAQoHFxEeCSi7MPGob3tQ" type="_BrMqEHDIEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_1CFBoHFwEeCSi7MPGob3tQ" name="dateMethod">
+                        <ownedParameter xmi:id="_XEzgIHFxEeCSi7MPGob3tQ" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_1Ha0oHFwEeCSi7MPGob3tQ" name="floatMethod">
+                        <ownedParameter xmi:id="_YXeo8HFxEeCSi7MPGob3tQ" type="_D4MGEHDIEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_1MdssHFwEeCSi7MPGob3tQ" name="integerMethod">
+                        <ownedParameter xmi:id="_Zk3CEHFxEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_1R8poHFwEeCSi7MPGob3tQ" name="stringMethod">
+                        <ownedParameter xmi:id="_bRRgkHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_bF820XFwEeCSi7MPGob3tQ" name="StaticMethodClass">
+                      <ownedOperation xmi:id="_18_KsHFwEeCSi7MPGob3tQ" name="staticMethod" isStatic="true">
+                        <ownedParameter xmi:id="_gyJIIHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_bF9d4HFwEeCSi7MPGob3tQ" name="FinalMethodClass">
+                      <ownedOperation xmi:id="_2GwKsHFwEeCSi7MPGob3tQ" name="finalMethod" isLeaf="true">
+                        <ownedParameter xmi:id="_hom2EHFxEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_nzYLsHFwEeCSi7MPGob3tQ" name="AbstractMethodClass" isAbstract="true">
+                      <ownedOperation xmi:id="_2PczsHFwEeCSi7MPGob3tQ" name="abstractMethod" isAbstract="true">
+                        <ownedParameter xmi:id="_kDVMEHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_n58GsHFwEeCSi7MPGob3tQ" name="CardinalityMethodsClass">
+                      <ownedOperation xmi:id="_2mL4sHFwEeCSi7MPGob3tQ" name="orderedUniqueMethod">
+                        <ownedParameter xmi:id="_njfgIHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" isOrdered="true" direction="return">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n6UrwHFxEeCSi7MPGob3tQ" value="*"/>
+                        </ownedParameter>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_2t0KsHFwEeCSi7MPGob3tQ" name="notOrderedUniqueMethod">
+                        <ownedParameter xmi:id="_p21bwHFxEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p22C0HFxEeCSi7MPGob3tQ" value="*"/>
+                        </ownedParameter>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_22qksHFwEeCSi7MPGob3tQ" name="notOrderedNotUniqueMethod">
+                        <ownedParameter xmi:id="_sDECwHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" isUnique="false" direction="return">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sDEp0HFxEeCSi7MPGob3tQ" value="*"/>
+                        </ownedParameter>
+                      </ownedOperation>
+                      <ownedOperation xmi:id="_3JR-sHFwEeCSi7MPGob3tQ" name="orderedNotUniqueMethod">
+                        <ownedParameter xmi:id="_vrwnwHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" isOrdered="true" isUnique="false" direction="return">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vrwnwXFxEeCSi7MPGob3tQ" value="*"/>
+                        </ownedParameter>
+                      </ownedOperation>
+                    </packagedElement>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_-uaOQHAWEeCrvt1hzG-phQ" name="nested"/>
                   <packagedElement xmi:type="uml:Package" xmi:id="_I3sIMHATEeCrvt1hzG-phQ" name="visibility">
