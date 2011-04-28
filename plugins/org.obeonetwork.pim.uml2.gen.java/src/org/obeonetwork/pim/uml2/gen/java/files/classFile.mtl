@@ -74,7 +74,7 @@ public [aClass.genName()/]() {
 [/for]
  */
 [aConstructor.genVisibility()/][aConstructor.genName()/]([aConstructor.genOperationParameters()/]) {
-	// [protected ('protected')]
+	// [protected ('constructor with ' + aConstructor.ownedParameter.genName()->sep(', '))]
 	super();
 	// [/protected]
 }
