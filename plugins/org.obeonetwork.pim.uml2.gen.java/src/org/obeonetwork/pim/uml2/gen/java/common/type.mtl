@@ -46,7 +46,7 @@ void
 [/template]
 
 [template protected genCollectionType(aMultiplicityElement : MultiplicityElement) post(trim())]
-[if (aMultiplicityElement.isOrdered)]
+[if (aMultiplicityElement.isOrdered <> null and aMultiplicityElement.isOrdered)]
     [if (aMultiplicityElement.isUnique)]
         [aMultiplicityElement.getOrderedUniqueCollectionClass()/]
     [else]

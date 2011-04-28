@@ -86,12 +86,13 @@ public [aClass.genName()/]() {
 [if (getProperty('gen.accessors') = 'true')]
 /**
  * Returns [aProperty.genName()/].
- * @return [aProperty.genName()/][aProperty.genComment()/]
+ * @return [aProperty.genName()/] [aProperty.genComment()/]
  */
 public [aProperty.genType()/] get[aProperty.genName().toUpperFirst()/]() {
 	return this.[aProperty.genName()/];
 }
-[if (not aProperty.isReadOnly)]
+[if (not aProperty.isLeaf)]
+
 /**
  * Sets a value to attribute [aProperty.genName()/]. 
  * @param [aProperty.genName()/][aProperty.genComment()/]

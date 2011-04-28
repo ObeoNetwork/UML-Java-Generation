@@ -63,7 +63,80 @@
                   </packagedElement>
                 </packagedElement>
                 <packagedElement xmi:type="uml:Package" xmi:id="_P8u4QHATEeCrvt1hzG-phQ" name="classes">
-                  <packagedElement xmi:type="uml:Package" xmi:id="_Ln9QYHATEeCrvt1hzG-phQ" name="properties"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_Ln9QYHATEeCrvt1hzG-phQ" name="properties">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_XcYowHFoEeCpIZ35inDZ5w" name="SinglePropertyClass">
+                      <ownedAttribute xmi:id="_1wdEMHFoEeCpIZ35inDZ5w" name="firstProperty" type="_BrMqEHDIEeCl5bNajorhng"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_aIV4sHFoEeCpIZ35inDZ5w" name="MultiplePropertiesClass">
+                      <ownedAttribute xmi:id="_2MI6oHFoEeCpIZ35inDZ5w" name="firstProperty" type="_9YxLkHDHEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_3I4PsHFoEeCpIZ35inDZ5w" name="secondProperty" type="_-gPxAHDHEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_3PSZsHFoEeCpIZ35inDZ5w" name="thirdProperty" type="_D4MGEHDIEeCl5bNajorhng"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_aNh6sHFoEeCpIZ35inDZ5w" name="SingleCommentedPropertyClass">
+                      <ownedComment xmi:id="_w0MwIHFpEeCpIZ35inDZ5w" annotatedElement="_aNh6sHFoEeCpIZ35inDZ5w">
+                        <body>The comment of SingleCommentedPropertyClass.</body>
+                      </ownedComment>
+                      <ownedAttribute xmi:id="_3h5zsHFoEeCpIZ35inDZ5w" name="firstProperty" type="_BrMqEHDIEeCl5bNajorhng">
+                        <ownedComment xmi:id="_xHgGoHFpEeCpIZ35inDZ5w" annotatedElement="_3h5zsHFoEeCpIZ35inDZ5w">
+                          <body>The comment of the first property of SingleCommentedPropertyClass.</body>
+                        </ownedComment>
+                      </ownedAttribute>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_aSQCoHFoEeCpIZ35inDZ5w" name="MultipleCommentedPropertiesClass">
+                      <ownedComment xmi:id="_xQzzoHFpEeCpIZ35inDZ5w" annotatedElement="_aSQCoHFoEeCpIZ35inDZ5w">
+                        <body>The comment of MultipleCommentedPropertiesClass.</body>
+                      </ownedComment>
+                      <ownedAttribute xmi:id="_3tzhsHFoEeCpIZ35inDZ5w" name="firstProperty" type="_-k_HEHDHEeCl5bNajorhng">
+                        <ownedComment xmi:id="_xonPoHFpEeCpIZ35inDZ5w" annotatedElement="_3tzhsHFoEeCpIZ35inDZ5w">
+                          <body>The comment of the first property of MultipleCommentedPropertiesClass.</body>
+                        </ownedComment>
+                      </ownedAttribute>
+                      <ownedAttribute xmi:id="_3z6JsHFoEeCpIZ35inDZ5w" name="secondProperty" type="_-bhpEHDHEeCl5bNajorhng">
+                        <ownedComment xmi:id="_xhIuoHFpEeCpIZ35inDZ5w" annotatedElement="_3z6JsHFoEeCpIZ35inDZ5w">
+                          <body>The comment of the second property of MultipleCommentedPropertiesClass.</body>
+                        </ownedComment>
+                      </ownedAttribute>
+                      <ownedAttribute xmi:id="_36AxsHFoEeCpIZ35inDZ5w" name="thirdProperty" type="_-bhpEHDHEeCl5bNajorhng">
+                        <ownedComment xmi:id="_xaHgoHFpEeCpIZ35inDZ5w" annotatedElement="_36AxsHFoEeCpIZ35inDZ5w">
+                          <body>The comment of the third property of MultipleCommentedPropertiesClass.</body>
+                        </ownedComment>
+                      </ownedAttribute>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_aW_YsHFoEeCpIZ35inDZ5w" name="VisibilityPropertiesClass">
+                      <ownedAttribute xmi:id="_4IM-sHFoEeCpIZ35inDZ5w" name="publicProperty" type="_-k_HEHDHEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_4XAPsHFoEeCpIZ35inDZ5w" name="privateProperty" visibility="private" type="_9YxLkHDHEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_4dQosHFoEeCpIZ35inDZ5w" name="protectedProperty" visibility="protected" type="_-gPxAHDHEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_4lf-sHFoEeCpIZ35inDZ5w" name="packageProperty" visibility="package" type="_-gPxAHDHEeCl5bNajorhng"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_al7zoHFoEeCpIZ35inDZ5w" name="FinalPropertyClass">
+                      <ownedAttribute xmi:id="_4vuRsHFoEeCpIZ35inDZ5w" name="finalProperty" isLeaf="true" type="_-bhpEHDHEeCl5bNajorhng"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_jcMpsHFoEeCpIZ35inDZ5w" name="StaticPropertyClass">
+                      <ownedAttribute xmi:id="_46QGsHFoEeCpIZ35inDZ5w" name="staticProperty" isStatic="true" type="_-k_HEHDHEeCl5bNajorhng"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_jmuesHFoEeCpIZ35inDZ5w" name="CardinalityPropertiesClass">
+                      <ownedAttribute xmi:id="_5EK3sHFoEeCpIZ35inDZ5w" name="orderedUniqueProperty" type="_-k_HEHDHEeCl5bNajorhng" isOrdered="true">
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WoHdwHFpEeCpIZ35inDZ5w" value="*"/>
+                      </ownedAttribute>
+                      <ownedAttribute xmi:id="_5KHusHFoEeCpIZ35inDZ5w" name="notOrderedUniqueProperty" type="_9YxLkHDHEeCl5bNajorhng">
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_X_sUsHFpEeCpIZ35inDZ5w" value="*"/>
+                      </ownedAttribute>
+                      <ownedAttribute xmi:id="_5Q1asHFoEeCpIZ35inDZ5w" name="notOrderedNotUniqueProperty" type="_-gPxAHDHEeCl5bNajorhng" isUnique="false">
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bDnYsHFpEeCpIZ35inDZ5w" value="*"/>
+                      </ownedAttribute>
+                      <ownedAttribute xmi:id="_5iX2oHFoEeCpIZ35inDZ5w" name="orderedNotUniqueProperty" type="_-bhpEHDHEeCl5bNajorhng" isOrdered="true" isUnique="false">
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dWjrsHFpEeCpIZ35inDZ5w" value="*"/>
+                      </ownedAttribute>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_kO21sHFoEeCpIZ35inDZ5w" name="TypePropertiesClass">
+                      <ownedAttribute xmi:id="_56y9sHFoEeCpIZ35inDZ5w" name="booleanProperty" type="_-k_HEHDHEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_6CQ3oHFoEeCpIZ35inDZ5w" name="byteProperty" type="_BrMqEHDIEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_6JSFoHFoEeCpIZ35inDZ5w" name="dateProperty" type="_9YxLkHDHEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_6Q6-sHFoEeCpIZ35inDZ5w" name="floatProperty" type="_D4MGEHDIEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_6XUhoHFoEeCpIZ35inDZ5w" name="integerProperty" type="_-gPxAHDHEeCl5bNajorhng"/>
+                      <ownedAttribute xmi:id="_6e9asHFoEeCpIZ35inDZ5w" name="stringProperty" type="_-bhpEHDHEeCl5bNajorhng"/>
+                    </packagedElement>
+                  </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_Ziht0HATEeCrvt1hzG-phQ" name="methods">
                     <packagedElement xmi:type="uml:Package" xmi:id="_ZC5uUHDeEeCl5bNajorhng" name="parameters"/>
                   </packagedElement>
@@ -76,6 +149,12 @@
                   </packagedElement>
                   <packagedElement xmi:type="uml:Class" xmi:id="_a37WQHDeEeCl5bNajorhng" name="EmptyClass"/>
                   <packagedElement xmi:type="uml:Class" xmi:id="_dg_DMHDeEeCl5bNajorhng" name="AbstractClass" isAbstract="true"/>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_L-MHIXFoEeCpIZ35inDZ5w" name="CommentedClass">
+                    <ownedComment xmi:id="_SxUAwHFoEeCpIZ35inDZ5w" annotatedElement="_L-MHIXFoEeCpIZ35inDZ5w">
+                      <body>The comment of CommentedClass.</body>
+                    </ownedComment>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_PBSEsHFoEeCpIZ35inDZ5w" name="FinalClass" isLeaf="true"/>
                 </packagedElement>
                 <packagedElement xmi:type="uml:Package" xmi:id="_NfQJMHATEeCrvt1hzG-phQ" name="interfaces">
                   <packagedElement xmi:type="uml:Package" xmi:id="_vQBqIHAVEeCrvt1hzG-phQ" name="properties">

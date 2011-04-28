@@ -54,6 +54,7 @@
 // [protected ('(user defined methods)')]
 
 // [/protected]
+
 [/template]
 
 [template public genOperationComment(anOperation : Operation)]

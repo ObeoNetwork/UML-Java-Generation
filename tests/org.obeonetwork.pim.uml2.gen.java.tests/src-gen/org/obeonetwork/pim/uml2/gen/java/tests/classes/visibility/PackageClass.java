@@ -29,4 +29,5 @@ package org.obeonetwork.pim.uml2.gen.java.tests.classes.visibility;
     
     // End of user code
     
+    
 }

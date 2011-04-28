@@ -29,4 +29,5 @@ protected class ProtectedClass {
     
     // End of user code
     
+    
 }
