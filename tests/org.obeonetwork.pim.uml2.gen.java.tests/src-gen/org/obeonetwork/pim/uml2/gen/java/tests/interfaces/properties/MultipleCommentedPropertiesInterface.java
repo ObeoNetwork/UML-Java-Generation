@@ -5,7 +5,7 @@
 package org.obeonetwork.pim.uml2.gen.java.tests.interfaces.properties;
 
 import java.util.Date;
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.Date;
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 
@@ -56,7 +56,7 @@ public class CardinalityPropertiesClass {
     
     /**
      * Returns orderedUniqueProperty.
-     * @return orderedUniqueProperty
+     * @return orderedUniqueProperty 
      */
     public LinkedHashSet<Boolean> getOrderedUniqueProperty() {
     	return this.orderedUniqueProperty;
@@ -64,15 +64,15 @@ public class CardinalityPropertiesClass {
     
     /**
      * Sets a value to attribute orderedUniqueProperty. 
-     * @param orderedUniqueProperty
+     * @param newOrderedUniqueProperty 
      */
-    public void setOrderedUniqueProperty(LinkedHashSet<Boolean> orderedUniqueProperty) {
-    	this.orderedUniqueProperty = orderedUniqueProperty;
+    public void setOrderedUniqueProperty(LinkedHashSet<Boolean> newOrderedUniqueProperty) {
+        this.orderedUniqueProperty = newOrderedUniqueProperty;
     }
     
     /**
      * Returns notOrderedUniqueProperty.
-     * @return notOrderedUniqueProperty
+     * @return notOrderedUniqueProperty 
      */
     public HashSet<Date> getNotOrderedUniqueProperty() {
     	return this.notOrderedUniqueProperty;
@@ -80,15 +80,15 @@ public class CardinalityPropertiesClass {
     
     /**
      * Sets a value to attribute notOrderedUniqueProperty. 
-     * @param notOrderedUniqueProperty
+     * @param newNotOrderedUniqueProperty 
      */
-    public void setNotOrderedUniqueProperty(HashSet<Date> notOrderedUniqueProperty) {
-    	this.notOrderedUniqueProperty = notOrderedUniqueProperty;
+    public void setNotOrderedUniqueProperty(HashSet<Date> newNotOrderedUniqueProperty) {
+        this.notOrderedUniqueProperty = newNotOrderedUniqueProperty;
     }
     
     /**
      * Returns notOrderedNotUniqueProperty.
-     * @return notOrderedNotUniqueProperty
+     * @return notOrderedNotUniqueProperty 
      */
     public ArrayList<Integer> getNotOrderedNotUniqueProperty() {
     	return this.notOrderedNotUniqueProperty;
@@ -96,15 +96,15 @@ public class CardinalityPropertiesClass {
     
     /**
      * Sets a value to attribute notOrderedNotUniqueProperty. 
-     * @param notOrderedNotUniqueProperty
+     * @param newNotOrderedNotUniqueProperty 
      */
-    public void setNotOrderedNotUniqueProperty(ArrayList<Integer> notOrderedNotUniqueProperty) {
-    	this.notOrderedNotUniqueProperty = notOrderedNotUniqueProperty;
+    public void setNotOrderedNotUniqueProperty(ArrayList<Integer> newNotOrderedNotUniqueProperty) {
+        this.notOrderedNotUniqueProperty = newNotOrderedNotUniqueProperty;
     }
     
     /**
      * Returns orderedNotUniqueProperty.
-     * @return orderedNotUniqueProperty
+     * @return orderedNotUniqueProperty 
      */
     public ArrayList<String> getOrderedNotUniqueProperty() {
     	return this.orderedNotUniqueProperty;
@@ -112,10 +112,10 @@ public class CardinalityPropertiesClass {
     
     /**
      * Sets a value to attribute orderedNotUniqueProperty. 
-     * @param orderedNotUniqueProperty
+     * @param newOrderedNotUniqueProperty 
      */
-    public void setOrderedNotUniqueProperty(ArrayList<String> orderedNotUniqueProperty) {
-    	this.orderedNotUniqueProperty = orderedNotUniqueProperty;
+    public void setOrderedNotUniqueProperty(ArrayList<String> newOrderedNotUniqueProperty) {
+        this.orderedNotUniqueProperty = newOrderedNotUniqueProperty;
     }
     
     

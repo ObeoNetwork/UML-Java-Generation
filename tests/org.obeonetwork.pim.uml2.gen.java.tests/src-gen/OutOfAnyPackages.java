@@ -4,7 +4,7 @@
  */
 
 
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 

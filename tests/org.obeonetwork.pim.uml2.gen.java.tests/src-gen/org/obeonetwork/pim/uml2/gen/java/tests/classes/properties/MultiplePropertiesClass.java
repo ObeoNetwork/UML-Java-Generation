@@ -5,7 +5,7 @@
 package org.obeonetwork.pim.uml2.gen.java.tests.classes.properties;
 
 import java.util.Date;
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 
@@ -47,7 +47,7 @@ public class MultiplePropertiesClass {
     
     /**
      * Returns firstProperty.
-     * @return firstProperty
+     * @return firstProperty 
      */
     public Date getFirstProperty() {
     	return this.firstProperty;
@@ -55,15 +55,15 @@ public class MultiplePropertiesClass {
     
     /**
      * Sets a value to attribute firstProperty. 
-     * @param firstProperty
+     * @param newFirstProperty 
      */
-    public void setFirstProperty(Date firstProperty) {
-    	this.firstProperty = firstProperty;
+    public void setFirstProperty(Date newFirstProperty) {
+        this.firstProperty = newFirstProperty;
     }
     
     /**
      * Returns secondProperty.
-     * @return secondProperty
+     * @return secondProperty 
      */
     public Integer getSecondProperty() {
     	return this.secondProperty;
@@ -71,15 +71,15 @@ public class MultiplePropertiesClass {
     
     /**
      * Sets a value to attribute secondProperty. 
-     * @param secondProperty
+     * @param newSecondProperty 
      */
-    public void setSecondProperty(Integer secondProperty) {
-    	this.secondProperty = secondProperty;
+    public void setSecondProperty(Integer newSecondProperty) {
+        this.secondProperty = newSecondProperty;
     }
     
     /**
      * Returns thirdProperty.
-     * @return thirdProperty
+     * @return thirdProperty 
      */
     public Float getThirdProperty() {
     	return this.thirdProperty;
@@ -87,10 +87,10 @@ public class MultiplePropertiesClass {
     
     /**
      * Sets a value to attribute thirdProperty. 
-     * @param thirdProperty
+     * @param newThirdProperty 
      */
-    public void setThirdProperty(Float thirdProperty) {
-    	this.thirdProperty = thirdProperty;
+    public void setThirdProperty(Float newThirdProperty) {
+        this.thirdProperty = newThirdProperty;
     }
     
     

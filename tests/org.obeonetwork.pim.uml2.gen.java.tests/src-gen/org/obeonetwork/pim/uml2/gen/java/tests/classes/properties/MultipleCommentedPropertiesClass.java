@@ -4,7 +4,7 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.classes.properties;
 
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 
@@ -46,7 +46,7 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Returns firstProperty.
-     * @return firstPropertyThe comment of the first property of MultipleCommentedPropertiesClass.
+     * @return firstProperty The comment of the first property of MultipleCommentedPropertiesClass.
      */
     public Boolean getFirstProperty() {
     	return this.firstProperty;
@@ -54,15 +54,15 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Sets a value to attribute firstProperty. 
-     * @param firstPropertyThe comment of the first property of MultipleCommentedPropertiesClass.
+     * @param newFirstProperty The comment of the first property of MultipleCommentedPropertiesClass.
      */
-    public void setFirstProperty(Boolean firstProperty) {
-    	this.firstProperty = firstProperty;
+    public void setFirstProperty(Boolean newFirstProperty) {
+        this.firstProperty = newFirstProperty;
     }
     
     /**
      * Returns secondProperty.
-     * @return secondPropertyThe comment of the second property of MultipleCommentedPropertiesClass.
+     * @return secondProperty The comment of the second property of MultipleCommentedPropertiesClass.
      */
     public String getSecondProperty() {
     	return this.secondProperty;
@@ -70,15 +70,15 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Sets a value to attribute secondProperty. 
-     * @param secondPropertyThe comment of the second property of MultipleCommentedPropertiesClass.
+     * @param newSecondProperty The comment of the second property of MultipleCommentedPropertiesClass.
      */
-    public void setSecondProperty(String secondProperty) {
-    	this.secondProperty = secondProperty;
+    public void setSecondProperty(String newSecondProperty) {
+        this.secondProperty = newSecondProperty;
     }
     
     /**
      * Returns thirdProperty.
-     * @return thirdPropertyThe comment of the third property of MultipleCommentedPropertiesClass.
+     * @return thirdProperty The comment of the third property of MultipleCommentedPropertiesClass.
      */
     public String getThirdProperty() {
     	return this.thirdProperty;
@@ -86,10 +86,10 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Sets a value to attribute thirdProperty. 
-     * @param thirdPropertyThe comment of the third property of MultipleCommentedPropertiesClass.
+     * @param newThirdProperty The comment of the third property of MultipleCommentedPropertiesClass.
      */
-    public void setThirdProperty(String thirdProperty) {
-    	this.thirdProperty = thirdProperty;
+    public void setThirdProperty(String newThirdProperty) {
+        this.thirdProperty = newThirdProperty;
     }
     
     

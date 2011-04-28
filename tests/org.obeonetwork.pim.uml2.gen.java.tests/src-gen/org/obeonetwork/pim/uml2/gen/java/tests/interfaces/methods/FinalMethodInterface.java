@@ -4,7 +4,7 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.interfaces.methods;
 
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 

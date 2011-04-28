@@ -88,25 +88,23 @@ public [aClass.genName()/]() {
  * Returns [aProperty.genName()/].
  * @return [aProperty.genName()/] [aProperty.genComment()/]
  */
-public [aProperty.genType()/] get[aProperty.genName().toUpperFirst()/]() {
-	return this.[aProperty.genName()/];
+public [if(aProperty.isStatic)]static [/if][aProperty.genType()/] get[aProperty.genName().toUpperFirst()/]() {
+	return [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/];
 }
 [if (not aProperty.isLeaf)]
 
 /**
  * Sets a value to attribute [aProperty.genName()/]. 
- * @param [aProperty.genName()/][aProperty.genComment()/]
+ * @param new[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
  */
-public void set[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] [aProperty.genName()/]) {
+public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] new[aProperty.genName().toUpperFirst()/]) {
 [if (aProperty.opposite <> null and aProperty.upper = 1 and getProperty('gen.biDirections') = 'true' and aProperty.opposite.upper = 1)]
-	if(this.[aProperty.genName()/] != null) {
-		this.[aProperty.genName()/].set[aProperty.genPropertyParent()/](null);
+	if([if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] != null) {
+		[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](null);
 	}
-	this.[aProperty.genName()/].set[aProperty.genPropertyParent()/](this);
-[elseif (aProperty.isStatic)]
-	[aProperty.class.genName()/] = [aProperty.genName()/];
-	[else]
-	this.[aProperty.genName()/] = [aProperty.genName()/];
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](this);
+[else]
+    [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] = new[aProperty.genName().toUpperFirst()/];
 [/if]
 }
 [/if]

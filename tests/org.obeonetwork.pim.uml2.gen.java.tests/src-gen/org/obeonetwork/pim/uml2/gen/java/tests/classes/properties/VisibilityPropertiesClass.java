@@ -5,7 +5,7 @@
 package org.obeonetwork.pim.uml2.gen.java.tests.classes.properties;
 
 import java.util.Date;
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 
@@ -52,7 +52,7 @@ public class VisibilityPropertiesClass {
     
     /**
      * Returns publicProperty.
-     * @return publicProperty
+     * @return publicProperty 
      */
     public Boolean getPublicProperty() {
     	return this.publicProperty;
@@ -60,15 +60,15 @@ public class VisibilityPropertiesClass {
     
     /**
      * Sets a value to attribute publicProperty. 
-     * @param publicProperty
+     * @param newPublicProperty 
      */
-    public void setPublicProperty(Boolean publicProperty) {
-    	this.publicProperty = publicProperty;
+    public void setPublicProperty(Boolean newPublicProperty) {
+        this.publicProperty = newPublicProperty;
     }
     
     /**
      * Returns privateProperty.
-     * @return privateProperty
+     * @return privateProperty 
      */
     public Date getPrivateProperty() {
     	return this.privateProperty;
@@ -76,15 +76,15 @@ public class VisibilityPropertiesClass {
     
     /**
      * Sets a value to attribute privateProperty. 
-     * @param privateProperty
+     * @param newPrivateProperty 
      */
-    public void setPrivateProperty(Date privateProperty) {
-    	this.privateProperty = privateProperty;
+    public void setPrivateProperty(Date newPrivateProperty) {
+        this.privateProperty = newPrivateProperty;
     }
     
     /**
      * Returns protectedProperty.
-     * @return protectedProperty
+     * @return protectedProperty 
      */
     public Integer getProtectedProperty() {
     	return this.protectedProperty;
@@ -92,15 +92,15 @@ public class VisibilityPropertiesClass {
     
     /**
      * Sets a value to attribute protectedProperty. 
-     * @param protectedProperty
+     * @param newProtectedProperty 
      */
-    public void setProtectedProperty(Integer protectedProperty) {
-    	this.protectedProperty = protectedProperty;
+    public void setProtectedProperty(Integer newProtectedProperty) {
+        this.protectedProperty = newProtectedProperty;
     }
     
     /**
      * Returns packageProperty.
-     * @return packageProperty
+     * @return packageProperty 
      */
     public Integer getPackageProperty() {
     	return this.packageProperty;
@@ -108,10 +108,10 @@ public class VisibilityPropertiesClass {
     
     /**
      * Sets a value to attribute packageProperty. 
-     * @param packageProperty
+     * @param newPackageProperty 
      */
-    public void setPackageProperty(Integer packageProperty) {
-    	this.packageProperty = packageProperty;
+    public void setPackageProperty(Integer newPackageProperty) {
+        this.packageProperty = newPackageProperty;
     }
     
     

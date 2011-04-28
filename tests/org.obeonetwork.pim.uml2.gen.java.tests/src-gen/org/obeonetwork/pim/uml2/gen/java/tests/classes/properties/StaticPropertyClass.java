@@ -4,7 +4,7 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.classes.properties;
 
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 
@@ -36,18 +36,18 @@ public class StaticPropertyClass {
     
     /**
      * Returns staticProperty.
-     * @return staticProperty
+     * @return staticProperty 
      */
-    public Boolean getStaticProperty() {
-    	return this.staticProperty;
+    public static Boolean getStaticProperty() {
+    	return staticProperty;
     }
     
     /**
      * Sets a value to attribute staticProperty. 
-     * @param staticProperty
+     * @param newStaticProperty 
      */
-    public void setStaticProperty(Boolean staticProperty) {
-    	StaticPropertyClass = staticProperty;
+    public static void setStaticProperty(Boolean newStaticProperty) {
+        staticProperty = newStaticProperty;
     }
     
     

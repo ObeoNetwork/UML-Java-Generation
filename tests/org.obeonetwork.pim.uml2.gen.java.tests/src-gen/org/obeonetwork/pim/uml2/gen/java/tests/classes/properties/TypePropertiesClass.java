@@ -5,7 +5,7 @@
 package org.obeonetwork.pim.uml2.gen.java.tests.classes.properties;
 
 import java.util.Date;
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 
@@ -62,7 +62,7 @@ public class TypePropertiesClass {
     
     /**
      * Returns booleanProperty.
-     * @return booleanProperty
+     * @return booleanProperty 
      */
     public Boolean getBooleanProperty() {
     	return this.booleanProperty;
@@ -70,15 +70,15 @@ public class TypePropertiesClass {
     
     /**
      * Sets a value to attribute booleanProperty. 
-     * @param booleanProperty
+     * @param newBooleanProperty 
      */
-    public void setBooleanProperty(Boolean booleanProperty) {
-    	this.booleanProperty = booleanProperty;
+    public void setBooleanProperty(Boolean newBooleanProperty) {
+        this.booleanProperty = newBooleanProperty;
     }
     
     /**
      * Returns byteProperty.
-     * @return byteProperty
+     * @return byteProperty 
      */
     public Byte getByteProperty() {
     	return this.byteProperty;
@@ -86,15 +86,15 @@ public class TypePropertiesClass {
     
     /**
      * Sets a value to attribute byteProperty. 
-     * @param byteProperty
+     * @param newByteProperty 
      */
-    public void setByteProperty(Byte byteProperty) {
-    	this.byteProperty = byteProperty;
+    public void setByteProperty(Byte newByteProperty) {
+        this.byteProperty = newByteProperty;
     }
     
     /**
      * Returns dateProperty.
-     * @return dateProperty
+     * @return dateProperty 
      */
     public Date getDateProperty() {
     	return this.dateProperty;
@@ -102,15 +102,15 @@ public class TypePropertiesClass {
     
     /**
      * Sets a value to attribute dateProperty. 
-     * @param dateProperty
+     * @param newDateProperty 
      */
-    public void setDateProperty(Date dateProperty) {
-    	this.dateProperty = dateProperty;
+    public void setDateProperty(Date newDateProperty) {
+        this.dateProperty = newDateProperty;
     }
     
     /**
      * Returns floatProperty.
-     * @return floatProperty
+     * @return floatProperty 
      */
     public Float getFloatProperty() {
     	return this.floatProperty;
@@ -118,15 +118,15 @@ public class TypePropertiesClass {
     
     /**
      * Sets a value to attribute floatProperty. 
-     * @param floatProperty
+     * @param newFloatProperty 
      */
-    public void setFloatProperty(Float floatProperty) {
-    	this.floatProperty = floatProperty;
+    public void setFloatProperty(Float newFloatProperty) {
+        this.floatProperty = newFloatProperty;
     }
     
     /**
      * Returns integerProperty.
-     * @return integerProperty
+     * @return integerProperty 
      */
     public Integer getIntegerProperty() {
     	return this.integerProperty;
@@ -134,15 +134,15 @@ public class TypePropertiesClass {
     
     /**
      * Sets a value to attribute integerProperty. 
-     * @param integerProperty
+     * @param newIntegerProperty 
      */
-    public void setIntegerProperty(Integer integerProperty) {
-    	this.integerProperty = integerProperty;
+    public void setIntegerProperty(Integer newIntegerProperty) {
+        this.integerProperty = newIntegerProperty;
     }
     
     /**
      * Returns stringProperty.
-     * @return stringProperty
+     * @return stringProperty 
      */
     public String getStringProperty() {
     	return this.stringProperty;
@@ -150,10 +150,10 @@ public class TypePropertiesClass {
     
     /**
      * Sets a value to attribute stringProperty. 
-     * @param stringProperty
+     * @param newStringProperty 
      */
-    public void setStringProperty(String stringProperty) {
-    	this.stringProperty = stringProperty;
+    public void setStringProperty(String newStringProperty) {
+        this.stringProperty = newStringProperty;
     }
     
     

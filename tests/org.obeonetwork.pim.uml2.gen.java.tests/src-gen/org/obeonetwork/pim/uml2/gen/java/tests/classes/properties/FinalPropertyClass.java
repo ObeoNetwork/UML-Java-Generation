@@ -4,7 +4,7 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.classes.properties;
 
-// Start of user code imports	
+// Start of user code (user defined imports)	
 
 // End of user code
 
@@ -36,7 +36,7 @@ public class FinalPropertyClass {
     
     /**
      * Returns finalProperty.
-     * @return finalProperty
+     * @return finalProperty 
      */
     public String getFinalProperty() {
     	return this.finalProperty;
