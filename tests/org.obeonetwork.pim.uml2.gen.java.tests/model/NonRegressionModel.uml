@@ -156,18 +156,36 @@
                       </ownedOperation>
                     </packagedElement>
                     <packagedElement xmi:type="uml:Class" xmi:id="_ahUfwHFwEeCSi7MPGob3tQ" name="SingleCommentedMethodClass">
+                      <ownedComment xmi:id="_UDn_YXF3EeC-ka_BthtsLw" annotatedElement="_ahUfwHFwEeCSi7MPGob3tQ">
+                        <body>The comment of SingleCommentedMethodClass.</body>
+                      </ownedComment>
                       <ownedOperation xmi:id="_zp0OMHFwEeCSi7MPGob3tQ" name="firstMethod">
+                        <ownedComment xmi:id="_Uf5rsHF3EeC-ka_BthtsLw" annotatedElement="_zp0OMHFwEeCSi7MPGob3tQ">
+                          <body>The comment of the first method of SingleCommentedMethodClass.</body>
+                        </ownedComment>
                         <ownedParameter xmi:id="_C_ZREHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
                     </packagedElement>
                     <packagedElement xmi:type="uml:Class" xmi:id="_apGiwHFwEeCSi7MPGob3tQ" name="MultipleCommentedMethodsClass">
+                      <ownedComment xmi:id="_VSQVsHF3EeC-ka_BthtsLw" annotatedElement="_apGiwHFwEeCSi7MPGob3tQ">
+                        <body>The comment of MultipleCommentedMethodsClass.</body>
+                      </ownedComment>
                       <ownedOperation xmi:id="_zywu0HFwEeCSi7MPGob3tQ" name="firstMethod">
+                        <ownedComment xmi:id="_VndwsHF3EeC-ka_BthtsLw" annotatedElement="_zywu0HFwEeCSi7MPGob3tQ">
+                          <body>The comment of the first method of MultipleCommentedMethodsClass.</body>
+                        </ownedComment>
                         <ownedParameter xmi:id="_EapHEHFxEeCSi7MPGob3tQ" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
                       <ownedOperation xmi:id="_z5dMsHFwEeCSi7MPGob3tQ" name="secondMethod">
+                        <ownedComment xmi:id="_VhENwHF3EeC-ka_BthtsLw" annotatedElement="_z5dMsHFwEeCSi7MPGob3tQ">
+                          <body>The comment of the second method of MultipleCommentedMethodsClass.</body>
+                        </ownedComment>
                         <ownedParameter xmi:id="_FiccoHFxEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
                       <ownedOperation xmi:id="_0ABHsHFwEeCSi7MPGob3tQ" name="thirdMethod">
+                        <ownedComment xmi:id="_Va8-sHF3EeC-ka_BthtsLw" annotatedElement="_0ABHsHFwEeCSi7MPGob3tQ">
+                          <body>The comment of the third method of MultipleCommentedMethodsClass.</body>
+                        </ownedComment>
                         <ownedParameter xmi:id="_HPU1MHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
                     </packagedElement>

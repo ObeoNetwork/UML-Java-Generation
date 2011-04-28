@@ -9,7 +9,7 @@ package org.obeonetwork.pim.uml2.gen.java.tests.classes.methods;
 // End of user code
 
 /**
- * Description of SingleCommentedMethodClass.
+ * The comment of SingleCommentedMethodClass.
  */
 public class SingleCommentedMethodClass {
     // Start of user code (user defined attributes)
@@ -26,7 +26,7 @@ public class SingleCommentedMethodClass {
     }
     
     /**
-     * Description of the method firstMethod.
+     * The comment of the first method of SingleCommentedMethodClass.
      * @return 
      */
     public Boolean firstMethod() {

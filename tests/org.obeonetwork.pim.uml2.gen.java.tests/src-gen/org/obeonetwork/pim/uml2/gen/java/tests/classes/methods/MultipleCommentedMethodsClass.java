@@ -10,7 +10,7 @@ import java.util.Date;
 // End of user code
 
 /**
- * Description of MultipleCommentedMethodsClass.
+ * The comment of MultipleCommentedMethodsClass.
  */
 public class MultipleCommentedMethodsClass {
     // Start of user code (user defined attributes)
@@ -27,7 +27,7 @@ public class MultipleCommentedMethodsClass {
     }
     
     /**
-     * Description of the method firstMethod.
+     * The comment of the first method of MultipleCommentedMethodsClass.
      * @return 
      */
     public Date firstMethod() {
@@ -38,7 +38,7 @@ public class MultipleCommentedMethodsClass {
     }
      
     /**
-     * Description of the method secondMethod.
+     * The comment of the second method of MultipleCommentedMethodsClass.
      * @return 
      */
     public Integer secondMethod() {
@@ -49,7 +49,7 @@ public class MultipleCommentedMethodsClass {
     }
      
     /**
-     * Description of the method thirdMethod.
+     * The comment of the third method of MultipleCommentedMethodsClass.
      * @return 
      */
     public String thirdMethod() {
