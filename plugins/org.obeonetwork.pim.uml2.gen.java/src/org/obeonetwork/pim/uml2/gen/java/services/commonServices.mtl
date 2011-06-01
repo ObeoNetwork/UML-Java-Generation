@@ -16,9 +16,13 @@
 [**
  * Returns the current date.
  */]
-[template public getDate()][invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'getLongDate()', Sequence{})/][/template]
+[template public getDate(traceabilityContext : OclAny) post(trim())]
+[invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'getLongDate()', Sequence{})/]
+[/template]
 
 [**
  * Returns the current date.
  */]
-[template public getTime()][invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'getTime()', Sequence{})/][/template]
+[template public getTime(traceabilityContext : OclAny) post(trim())]
+[invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'getTime()', Sequence{})/]
+[/template]
