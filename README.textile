@@ -5,6 +5,10 @@ This project provides a UML to Java generator created with Acceleo to generate J
 These plugins are released under the EPL Open-Souce License.
 
 
+More details about this generator can be found here:
+* "http://www.obeonetwork.com/page/uml-to-java-generator":http://www.obeonetwork.com/page/uml-to-java-generator
+
+
 
 
 
