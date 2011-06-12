@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="Acceleo 3.1 UML to Java Generator" url="http://www.obeonetwork.com/page/uml-to-java-generator">
+      This update site contains all the available feature for the Acceleo 3.1 UML to Java Generator.
+   </description>
+   <feature url="features/org.obeonetwork.pim.uml2.gen.java.feature_0.1.0.qualifier.jar" id="org.obeonetwork.pim.uml2.gen.java.feature" version="0.1.0.qualifier"/>
+   <feature url="features/org.obeonetwork.pim.uml2.gen.java.ui.feature_0.1.0.qualifier.jar" id="org.obeonetwork.pim.uml2.gen.java.ui.feature" version="0.1.0.qualifier"/>
+</site>
