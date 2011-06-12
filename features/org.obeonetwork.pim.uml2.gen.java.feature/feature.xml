@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.obeonetwork.pim.uml2.gen.java.feature"
-      label="UML2 to Java Generator"
-      version="0.1.0.qualifier"
+      label="Acceleo UML2 to Java Generator"
+      version="1.0.0.qualifier"
       provider-name="Obeo Network">
 
    <description>
