@@ -32,7 +32,7 @@
 [anEnumeration.genVisibility()/]enum [anEnumeration.name.toUpperFirst()/] {
 [for (anEnumerationLiteral : EnumerationLiteral | anEnumeration.ownedLiteral)]
     /**
-[if (anEnumerationLiteral.ownedComment <> null and anEnumerationLiteral.ownedComment->size() > 0 and anEnumerationLiteral.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
+[if (anEnumerationLiteral.ownedComment->size() > 0 and anEnumerationLiteral.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (aComment : Comment | anEnumerationLiteral.ownedComment)]
      * [aComment._body/]
 [/for]

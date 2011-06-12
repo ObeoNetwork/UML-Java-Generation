@@ -69,7 +69,7 @@ Info: [message/] for [aNamedElement.eClass().name/] element [aNamedElement.name/
  * @param aModel The model.
  */]
 [template private checkAbstractOperation(aModel : Model)]
-[for (anOperation : Operation | aModel.eAllContentsQuery()->filter(Operation)->select(o : Operation | o.isAbstract and o.class <> null and not o.class.isAbstract))]
+[for (anOperation : Operation | aModel.eAllContentsQuery()->filter(Operation)->select(o : Operation | o.isAbstract and not o.class.oclIsUndefined() and not o.class.isAbstract))]
 [anOperation.error('Abstract operation in non abstract class')/]
 [/for]
 [/template]
@@ -79,7 +79,7 @@ Info: [message/] for [aNamedElement.eClass().name/] element [aNamedElement.name/
  * @param aModel The model.
  */]
 [template private checkDefaultValue(aModel : Model)]
-[for (aProperty : Property | aModel.eAllContentsQuery()->filter(Property)->select(p : Property | p.default <> null and p.upper <> 1))]
+[for (aProperty : Property | aModel.eAllContentsQuery()->filter(Property)->select(p : Property | not p.default.oclIsUndefined() and not (p.upper = 1)))]
 [aProperty.error('Can\'t affect default value to multiple attribute')/]
 [/for]
 [/template]

@@ -14,3 +14,6 @@ bin/
 
 # Ignore the tasks folder because the tasks are specific to an Eclipse install.
 tasks/
+
+# Ignore the target output folder of the maven build.
+target/

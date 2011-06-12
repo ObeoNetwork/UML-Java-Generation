@@ -11,3 +11,6 @@
 
 # Ignore the bin folder.
 bin/
+
+# Ignore the target output folder of the maven build.
+target/

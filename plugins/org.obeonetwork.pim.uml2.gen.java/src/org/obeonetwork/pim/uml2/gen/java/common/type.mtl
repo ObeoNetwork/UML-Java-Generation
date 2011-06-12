@@ -18,7 +18,7 @@
 
 
 [template public genReturn(anOperation : Operation) post(trim())]
-[if (anOperation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return) <> null)]
+[if (anOperation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return)-> size() > 0)]
 [anOperation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return)->first().genType()/]
 [else]
 void
@@ -46,7 +46,7 @@ void
 [/template]
 
 [template protected genCollectionType(aMultiplicityElement : MultiplicityElement) post(trim())]
-[if (aMultiplicityElement.isOrdered <> null and aMultiplicityElement.isOrdered)]
+[if (not aMultiplicityElement.isOrdered.oclIsUndefined() and aMultiplicityElement.isOrdered)]
     [if (aMultiplicityElement.isUnique)]
         [aMultiplicityElement.getOrderedUniqueCollectionClass()/]
     [else]
@@ -64,7 +64,7 @@ void
 [template protected genTypeName(aTypedElement : TypedElement) post(trim())]
 [if (aTypedElement.type = null)]
 Object
-[elseif (getProperty('java.typeconversion.' + aTypedElement.type.name) <> null)]
+[elseif (not getProperty('java.typeconversion.' + aTypedElement.type.name).oclIsUndefined())]
 [getProperty('java.typeconversion.' + aTypedElement.type.name).tokenize('.')->last()/]
 [elseif (type.name = 'UnlimitedNatural')]
 Integer

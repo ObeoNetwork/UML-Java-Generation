@@ -17,7 +17,7 @@
 
 [template public genJavadoc (aClassifier : Classifier) ]
 /**
-[if (aClassifier.ownedComment <> null and aClassifier.ownedComment->size() > 0 and aClassifier.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
+[if (aClassifier.ownedComment->size() > 0 and aClassifier.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (aComment : Comment | aClassifier.ownedComment)]
  * [aComment._body/]
 [/for]

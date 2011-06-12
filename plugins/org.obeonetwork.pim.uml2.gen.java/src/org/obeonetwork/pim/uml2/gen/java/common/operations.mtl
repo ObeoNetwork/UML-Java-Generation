@@ -61,7 +61,7 @@
 
 [template public genOperationComment(anOperation : Operation)]
 /**
-[if (anOperation.ownedComment <> null and anOperation.ownedComment->size() > 0 and anOperation.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
+[if (anOperation.ownedComment->size() > 0 and anOperation.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (aComment : Comment | anOperation.ownedComment)]
  * [aComment._body/]
 [/for]
@@ -69,7 +69,7 @@
  * Description of the method [anOperation.genName()/].
 [/if]
 [for (parameter : Parameter | anOperation.ownedParameter)]
-[if (parameter.direction <> ParameterDirectionKind::return)]
+[if (not (parameter.direction = ParameterDirectionKind::return))]
  * @param [parameter.genName()/] [parameter.genComment()/]
 [/if]
 [/for]
@@ -88,7 +88,7 @@
  * @see [anOperation.eContainer().oclAsType(Interface).genPackagePath()/].[anOperation.eContainer().oclAsType(Interface).name/]
 [/if]
  *
-[for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | param.direction <> ParameterDirectionKind::return))]
+[for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | not (param.direction = ParameterDirectionKind::return)))]
  * @param [genName()/][genComment()/]
 [/for]
 [for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]

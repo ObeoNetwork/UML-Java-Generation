@@ -23,16 +23,16 @@
 [template public genImport(aClassifier : Classifier)]
 
 [if (not aClassifier.isArray())]
-[if (aClassifier.orderedUniqueMultiplicityElements() <> null and aClassifier.orderedUniqueMultiplicityElements()->size() > 0)]
+[if (aClassifier.orderedUniqueMultiplicityElements()->size() > 0)]
 import [aClassifier.getOrderedUniqueCollectionClassPath()/];
 [/if]
-[if (aClassifier.notOrderedNotUniqueMultiplicityElements() <> null and aClassifier.notOrderedNotUniqueMultiplicityElements()->size() > 0)]
+[if (aClassifier.notOrderedNotUniqueMultiplicityElements()->size() > 0)]
 import [aClassifier.getNotOrderedNotUniqueCollectionClassPath()/];
 [/if]
-[if (aClassifier.notOrderedUniqueMultiplicityElements() <> null and aClassifier.notOrderedUniqueMultiplicityElements()->size() > 0)]
+[if (aClassifier.notOrderedUniqueMultiplicityElements()->size() > 0)]
 import [aClassifier.getNotOrderedUniqueCollectionClassPath()/];
 [/if]
-[if (aClassifier.orderedNotUniqueMultiplicityElements() <> null and aClassifier.orderedNotUniqueMultiplicityElements()->size() > 0)]
+[if (aClassifier.orderedNotUniqueMultiplicityElements()->size() > 0)]
 import [aClassifier.getOrderedNotUniqueCollectionClassPath()/];
 [/if]
 [/if]
@@ -78,7 +78,7 @@ import [aType.importValue()/];
  /]
 
 [template public genImportPath(aType : Type) post(trim())]
-[if (getProperty('java.typeconversion.' + name) <> null)]
+[if (not (getProperty('java.typeconversion.' + name) = null))]
 [getProperty('java.typeconversion.' + name)/]
 [else]
 [aType.importValue()/]

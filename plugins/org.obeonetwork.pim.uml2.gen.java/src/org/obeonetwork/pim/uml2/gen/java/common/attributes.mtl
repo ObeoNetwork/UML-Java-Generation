@@ -43,7 +43,7 @@
 
 [template protected genAttributeComment(aProperty : Property)]
 /**
-[if (aProperty.ownedComment <> null and aProperty.ownedComment->size() > 0 and aProperty.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
+[if (aProperty.ownedComment->size() > 0 and aProperty.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (propertyComment : Comment | aProperty.ownedComment)]
  * [propertyComment._body/]
 [/for]

@@ -15,7 +15,7 @@
 
   <parent>
     <groupId>org.obeonetwork.acceleo</groupId>
-    <artifactId>Acceleo UML2 to Java Generator</artifactId>
+    <artifactId>org.obeonetwork.pim.uml2.gen.java.parent</artifactId>
     <version>1.0.0.qualifier</version>
     <relativePath>../..</relativePath>
   </parent>
@@ -24,6 +24,7 @@
   <packaging>eclipse-repository</packaging>
 
   <name>Acceleo UML2 to Java Generator Repository</name>
+  
   <!-- see http://issues.sonatype.org/browse/TYCHO-313 -->
   <version>1.0.0-SNAPSHOT</version>
 

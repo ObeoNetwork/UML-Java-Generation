@@ -37,7 +37,7 @@ return [genName()/];
 
 [template protected computeDefault(aParameter : Parameter) post(trim())]
 [if (aParameter.upper = 1)]
-    [if (aParameter.default <> null)]
+    [if (not aParameter.default.oclIsUndefined())]
         [if (''.equalsIgnoreCase(aParameter.default) or aParameter.default = null)]
             [if (aParameter.getUserDefaultValue().equalsIgnoreCase(''))][aParameter.default/][else][aParameter.getUserDefaultValue()/][/if]
         [else]
@@ -51,7 +51,7 @@ return [genName()/];
         [/if]
     [/if]
 [else]
-    [if (aParameter.default <> null)]        
+    [if (not aParameter.default.oclIsUndefined())]        
         new  [aParameter.genType()/]()
     [else]
         new [aParameter.genType()/]()

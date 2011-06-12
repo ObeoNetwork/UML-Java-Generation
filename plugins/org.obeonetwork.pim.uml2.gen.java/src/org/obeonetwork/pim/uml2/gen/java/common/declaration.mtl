@@ -24,7 +24,7 @@
 [/template]
 
 [template public genOperationParameters(anOperation : Operation)]
-[anOperation.ownedParameter->select(param : Parameter | param.direction <> ParameterDirectionKind::return).genOperationParameter()->sep(', ')/]
+[anOperation.ownedParameter->select(param : Parameter | not (param.direction = ParameterDirectionKind::return)).genOperationParameter()->sep(', ')/]
 [/template]
 
 [template protected genOperationParameter(aParameter : Parameter)]
@@ -40,7 +40,7 @@
 [/template]
 
 [template public genVisibility(aNamedElement : NamedElement)]
-[if (aNamedElement.visibility <> VisibilityKind::_package)][aNamedElement.visibility/] [else]/*package*/ [/if]
+[if (not (aNamedElement.visibility = VisibilityKind::_package))][aNamedElement.visibility/] [else]/*package*/ [/if]
 [/template]
 
 [template public genAbstract(aClass : Class)]
@@ -69,7 +69,7 @@
 
 [template public computeDefault(aProperty : Property) post(trim())]
 [if (aProperty.upper = 1)]
-    [if (aProperty.default <> null)]
+    [if (not aProperty.default.oclIsUndefined())]
         [if (''.equalsIgnoreCase(aProperty.default) or aProperty.default = null)]
             [if (aProperty.getUserDefaultValue().equalsIgnoreCase(''))][aProperty.default/][else][aProperty.getUserDefaultValue()/][/if]
         [else]
@@ -83,7 +83,7 @@
         [/if]
     [/if]
 [else]
-    [if (aProperty.default <> null)]        
+    [if (not aProperty.default.oclIsUndefined())]        
         new  [aProperty.genType()/]()
     [else]
         new [aProperty.genType()/]()
@@ -96,7 +96,7 @@
 [/template]
 
 [template public getUserDefaultValue(aTypedElement : TypedElement) post(trim())]
-[if (getProperty('java.defaultvalue.' + aTypedElement.type.name) <> null and not ''.equalsIgnoreCase(getProperty('java.defaultvalue.' + aTypedElement.type.name)))]
+[if (not getProperty('java.defaultvalue.' + aTypedElement.type.name).oclIsUndefined() and not ''.equalsIgnoreCase(getProperty('java.defaultvalue.' + aTypedElement.type.name)))]
     [getProperty('java.defaultvalue.' + aTypedElement.type.name)/]
 [else]
     null
