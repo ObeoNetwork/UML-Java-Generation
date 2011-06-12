@@ -11,3 +11,6 @@
 
 # Ignore the bin folder.
 bin/
+
+# Ignore the tasks folder because the tasks are specific to an Eclipse install.
+tasks/
