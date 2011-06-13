@@ -22,6 +22,7 @@ import org.obeonetwork.pim.uml2.gen.java.main.Workflow;
 
 /**
  * Main entry point of the 'UML2 to Java' generation module.
+ * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 0.1
  */
 public class GenerateAll {

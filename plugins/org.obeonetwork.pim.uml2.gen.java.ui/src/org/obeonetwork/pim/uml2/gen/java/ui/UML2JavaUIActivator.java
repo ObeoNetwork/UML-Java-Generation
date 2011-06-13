@@ -15,6 +15,7 @@ import org.osgi.framework.BundleContext;
 
 /**
  * The activator class controls the plug-in life cycle.
+ * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 0.1
  */
 public class UML2JavaUIActivator extends AbstractUIPlugin {

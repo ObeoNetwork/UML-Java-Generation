@@ -18,5 +18,42 @@
                label="Generate UML2 to Java"
                menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
       </objectContribution>
+      <objectContribution
+            adaptable="true"
+            id="org.obeonetwork.pim.uml2.gen.java.ui.contribution1"
+            nameFilter="*"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="org.obeonetwork.pim.uml2.gen.java.ui.builder.ToggleNatureAction"
+               enablesFor="+"
+               id="org.obeonetwork.pim.uml2.gen.java.ui.addRemoveNatureAction"
+               label="Add/Remove Acceleo UML2 to Java Generator Nature"
+               menubarPath="additions">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="acceleoUMLToJavaBuilder"
+         name="Acceleo UML2 to Java Project Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="org.obeonetwork.pim.uml2.gen.java.ui.builder.AcceleoUMLToJavaBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="acceleoUMLToJavaNature"
+         name="Acceleo UML2 to Java Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.obeonetwork.pim.uml2.gen.java.ui.builder.AcceleoUMLToJavaNature">
+         </run>
+      </runtime>
+      <builder
+            id="org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaBuilder">
+      </builder>
    </extension>
 </plugin>
