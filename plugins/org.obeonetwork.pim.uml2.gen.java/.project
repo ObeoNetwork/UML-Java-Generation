@@ -13,6 +13,14 @@
 		<buildCommand>
 			<name>org.eclipse.acceleo.ide.ui.acceleoBuilder</name>
 			<arguments>
+				<dictionary>
+					<key>compliance</key>
+					<value>pragmatic</value>
+				</dictionary>
+				<dictionary>
+					<key>resource.kind</key>
+					<value>xmi</value>
+				</dictionary>
 			</arguments>
 		</buildCommand>
 		<buildCommand>

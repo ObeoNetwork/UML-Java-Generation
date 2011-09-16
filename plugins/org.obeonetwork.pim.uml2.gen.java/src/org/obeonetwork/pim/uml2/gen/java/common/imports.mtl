@@ -85,19 +85,89 @@ import [aType.importValue()/];
 [/if]
 [/template]
 
+
 [query protected getTypeList(aClass : Class) : Sequence(Type) = 
-	ownedAttribute.type
-	->union(getAssociations().navigableOwnedEnd.type->asSequence())
-	->union(ownedOperation.ownedParameter.type)->including(general->asSequence()->first())
-	->union(nestedClassifier->filter(Class).getTypeList()->asSequence())
-	->asOrderedSet()->asSequence()->filter(Type)
+	if (aClass.getGeneralTypes()->size() > 0) then 
+		Sequence(Type){}
+		->merge(aClass.getOwnedAttributesTypeList())
+		->merge(aClass.getAssociationsTypeList())
+		->merge(aClass.getOwnedOperationsParametersTypeList())
+		->merge(aClass.getNestedClassifiersTypeList())
+		->including(aClass.getGeneralTypes()->first())
+		->asOrderedSet()->asSequence()
+	else
+		Sequence(Type){}
+		->merge(aClass.getOwnedAttributesTypeList())
+		->merge(aClass.getAssociationsTypeList())
+		->merge(aClass.getOwnedOperationsParametersTypeList())
+		->merge(aClass.getNestedClassifiersTypeList())
+		->asOrderedSet()->asSequence()
+	endif
 /]
 
-[query protected getTypeList(anInterface : Interface) : Sequence(Type) = 
-	ownedAttribute.type
-	->union(getAssociations().navigableOwnedEnd.type->asSequence())
-	->union(ownedOperation.ownedParameter.type)->including(general->asSequence()->first())
-	->union(nestedClassifier->filter(Class).getTypeList()->asSequence())
-	->asOrderedSet()->asSequence()->filter(Type)
+[query private getOwnedAttributesTypeList(aClass : Class) : Sequence(Type) = 
+	if ownedAttribute->size() > 0 then ownedAttribute.type else Sequence(Type){} endif
 /]
 
+[query private getAssociationsTypeList(aClass : Class) : Sequence(Type) = 
+	if getAssociations()->size() > 0 and (getAssociations().navigableOwnedEnd->size() > 0) then getAssociations().navigableOwnedEnd.type->asSequence() else Sequence(Type){} endif
+/]
+
+[query private getOwnedOperationsParametersTypeList(aClass : Class) : Sequence(Type) = 
+	if ownedOperation-> size() > 0 and (ownedOperation.ownedParameter->size() > 0) then ownedOperation.ownedParameter.type else Sequence(Type){} endif
+/]
+
+[query private getNestedClassifiersTypeList(aClass : Class) : Sequence(Type) = 
+	if nestedClassifier->size() > 0 and (nestedClassifier->filter(Class)->size() > 0) then nestedClassifier->filter(Class).getTypeList() else Sequence(Type){} endif
+/]
+
+[query private merge(firstSequence : Sequence(T), secondSequence : Sequence(T)) : Sequence(Type) = 
+	if not (firstSequence->size() = 0) then
+		firstSequence->union(secondSequence)
+	else if not (secondSequence->size() = 0) then
+		 	secondSequence
+		 else
+		 	Sequence(Type){} 
+		 endif
+	endif
+/]
+
+[query protected getTypeList(anInterface : Interface) : Sequence(Type) =
+	if (anInterface.getGeneralTypes()->size() > 0) then 
+		Sequence(Type){}
+		->merge(anInterface.getOwnedAttributesTypeList())
+		->merge(anInterface.getAssociationsTypeList())
+		->merge(anInterface.getOwnedOperationsParametersTypeList())
+		->merge(anInterface.getNestedClassifiersTypeList())
+		->including(anInterface.getGeneralTypes()->first())
+		->asOrderedSet()->asSequence()
+	else
+		Sequence(Type){}
+		->merge(anInterface.getOwnedAttributesTypeList())
+		->merge(anInterface.getAssociationsTypeList())
+		->merge(anInterface.getOwnedOperationsParametersTypeList())
+		->merge(anInterface.getNestedClassifiersTypeList())
+		->asOrderedSet()->asSequence()
+	endif
+/]
+
+
+[query private getOwnedAttributesTypeList(anInterface : Interface) : Sequence(Type) = 
+	if ownedAttribute->size() > 0 then ownedAttribute.type else Sequence(Type){} endif
+/]
+
+[query private getAssociationsTypeList(anInterface : Interface) : Sequence(Type) = 
+	if getAssociations()->size() > 0 and (getAssociations().navigableOwnedEnd->size() > 0) then getAssociations().navigableOwnedEnd.type->asSequence() else Sequence(Type){} endif
+/]
+
+[query private getOwnedOperationsParametersTypeList(anInterface : Interface) : Sequence(Type) = 
+	if ownedOperation->size() > 0 and (ownedOperation.ownedParameter->size() > 0) and (ownedOperation.ownedParameter.type->size() > 0)then ownedOperation.ownedParameter.type else Sequence(Type){} endif
+/]
+
+[query private getNestedClassifiersTypeList(anInterface : Interface) : Sequence(Type) = 
+	if nestedClassifier->filter(Class)->size() > 0 then nestedClassifier->filter(Class).getTypeList()->asSequence() else Sequence(Type){} endif
+/]
+
+[query private getGeneralTypes(aClassifier : Classifier) : Sequence(Type) = 
+	if general->size() > 0 then general->asSequence() else Sequence(Type){} endif
+/]

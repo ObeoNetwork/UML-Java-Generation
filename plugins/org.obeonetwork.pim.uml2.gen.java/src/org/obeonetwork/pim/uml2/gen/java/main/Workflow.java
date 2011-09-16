@@ -139,14 +139,12 @@ public class Workflow extends AbstractAcceleoGenerator {
                 
                 /*
                  * Add the properties from the launch arguments.
-                 * If you want to programmatically add new arguments, add them in "propertiesFiles"
+                 * If you want to programmatically add new properties, add them in "propertiesFiles"
                  * You can add the absolute path of a properties files, or even a project relative path.
                  * If you want to add another "protocol" for your properties files, please override 
                  * "getPropertiesLoaderService(AcceleoService)" in order to return a new property loader.
-                 * The basic properties loader will look for properties in the current project if the path
-                 * of the properties file is like this "packagea.packageb.packagec.default" for a properties
-                 * file named default.properties, or if the path is an absolute path. With a new property
-                 * loader you could for example, look for properties files in a bundle.
+                 * The behavior of the properties loader service is explained in the Acceleo documentation
+                 * (Help -> Help Contents).
                  */
                  
                 for (int i = 2; i < args.length; i++) {
@@ -232,6 +230,7 @@ public class Workflow extends AbstractAcceleoGenerator {
      * @return The generation strategy that is to be used for generations launched through this launcher.
      * @generated
      */
+    @Override
     public IAcceleoGenerationStrategy getGenerationStrategy() {
         return super.getGenerationStrategy();
     }
@@ -336,6 +335,8 @@ public class Workflow extends AbstractAcceleoGenerator {
          *     // This should be used if your metamodel is in your workspace and if you are using binary resource serialization.
          *     resourceSet.getPackageRegistry().put("/myproject/myfolder/mysubfolder/MyUMLMetamodel.ecore", UMLPackage.eINSTANCE);
          * }
+         * 
+         * To learn more about Package Registration, have a look at the Acceleo Launcher documentation (Help -> Help Contents).
          */
     }
 
@@ -354,7 +355,9 @@ public class Workflow extends AbstractAcceleoGenerator {
          * (in comment) is an example of the resource factory registration for UML. If you want to change the content
          * of this method, do NOT forget to change the "@generated" tag in the Javadoc of this method to "@generated NOT".
          * Without this new tag, any compilation of the Acceleo module with the main template that has caused the creation
-         * of this class will revert your modifications. 
+         * of this class will revert your modifications.
+         * 
+         * To learn more about the registration of Resource Factories, have a look at the Acceleo Launcher documentation (Help -> Help Contents). 
          */ 
         
         // resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);

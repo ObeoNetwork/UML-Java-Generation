@@ -19,7 +19,8 @@
             sourceFolder="${target.folder}"
             outputFolder="${target.folder}"
             dependencies=""
-            binaryResource="true">
+            binaryResource="false"
+            trimPosition="false">
         </acceleoCompiler>
     </target>    
 </project>
