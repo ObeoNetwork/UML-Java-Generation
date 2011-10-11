@@ -20,7 +20,7 @@
             outputFolder="${target.folder}"
             dependencies=""
             binaryResource="false"
-            trimPosition="false">
+            packagesToRegister="">
         </acceleoCompiler>
     </target>    
 </project>
