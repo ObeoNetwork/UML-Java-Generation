@@ -80,7 +80,7 @@ public class AcceleoCompiler extends AbstractAcceleoCompiler {
         super.registerResourceFactories();
         /*
          * If you want to add other resource factories, for example if your metamodel uses a specific serialization:
-         * org.eclipse.emf.ecore.resource.Resource.Factory.Registry.getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
+         * org.eclipse.emf.ecore.resource.Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
          **/
     }
 }
