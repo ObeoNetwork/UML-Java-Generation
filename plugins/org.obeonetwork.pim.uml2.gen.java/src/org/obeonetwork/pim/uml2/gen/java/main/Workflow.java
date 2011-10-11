@@ -18,11 +18,13 @@ import java.util.List;
 import org.eclipse.acceleo.engine.event.IAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.generation.strategy.IAcceleoGenerationStrategy;
 import org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator;
+import org.eclipse.acceleo.engine.utils.AcceleoEngineUtils;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.uml2.uml.resource.UMLResource;
 
 /**
  * Entry point of the 'Workflow' generation module.
@@ -273,9 +275,13 @@ public class Workflow extends AbstractAcceleoGenerator {
          * Without this new tag, any compilation of the Acceleo module with the main template that has caused the creation of 
          * this class will revert your modifications.
          */
-    	propertiesFiles.add("org.obeonetwork.pim.uml2.gen.java.properties.default");
-    	propertiesFiles.add("org.obeonetwork.pim.uml2.gen.java.properties.imports");
-    	propertiesFiles.add("org.obeonetwork.pim.uml2.gen.java.properties.types");
+    	propertiesFiles.add("/org/obeonetwork/pim/uml2/gen/java/properties/default.properties");
+    	propertiesFiles.add("/org/obeonetwork/pim/uml2/gen/java/properties/imports.properties");
+    	propertiesFiles.add("/org/obeonetwork/pim/uml2/gen/java/properties/types.properties");
+    	
+    	if (model != null & model.eResource() != null) {
+    		propertiesFiles.addAll(AcceleoEngineUtils.getPropertiesFilesNearModel(model.eResource()));
+    	}
     	
         return propertiesFiles;
     }
@@ -345,7 +351,7 @@ public class Workflow extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerResourceFactories(ResourceSet resourceSet) {
@@ -360,7 +366,7 @@ public class Workflow extends AbstractAcceleoGenerator {
          * To learn more about the registration of Resource Factories, have a look at the Acceleo Launcher documentation (Help -> Help Contents). 
          */ 
         
-        // resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
     }
     
 }

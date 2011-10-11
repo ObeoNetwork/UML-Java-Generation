@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="workflow" name="org.obeonetwork.pim.uml2.gen.java">
-    <property name="ECLIPSE_HOME" value="../../../../../../../Eclipse/Windows/3.7"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../Workspaces/Acceleo Head Developpement runtime-New_configuration"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../Eclipse/Windows/3.7 Utilisation Acceleo 3.1"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../Workspaces/Acceleo Utilisation Github"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.obeonetwork.pim.uml2.gen.java.libraryclasspath">
