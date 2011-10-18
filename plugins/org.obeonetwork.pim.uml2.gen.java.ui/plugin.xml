@@ -7,14 +7,14 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.uml"
             id="org.obeonetwork.pim.uml2.gen.java.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Text" path="additionsAcceleo">
+         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Generators" path="additionsAcceleo">
                <groupMarker name="acceleo"/> 
          </menu>
          <action
                class="org.obeonetwork.pim.uml2.gen.java.ui.popupMenus.AcceleoGenerateUML2toJavaAction"
                enablesFor="+"
                id="org.obeonetwork.pim.uml2.gen.java.ui.popupMenus.acceleoGenerateUML2toJavaAction"
-               icon="icons/default.gif"
+               icon="icons/acceleo_module_16x16.png"
                label="Generate UML2 to Java"
                menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
       </objectContribution>
