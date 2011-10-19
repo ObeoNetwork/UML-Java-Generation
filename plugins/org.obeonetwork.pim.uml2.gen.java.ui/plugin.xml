@@ -4,22 +4,6 @@
    <extension point="org.eclipse.ui.popupMenus">
       <objectContribution
             adaptable="true"
-            objectClass="org.eclipse.core.resources.IFile"
-            nameFilter="*.uml"
-            id="org.obeonetwork.pim.uml2.gen.java.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Generators" path="additionsAcceleo">
-               <groupMarker name="acceleo"/> 
-         </menu>
-         <action
-               class="org.obeonetwork.pim.uml2.gen.java.ui.popupMenus.AcceleoGenerateUML2toJavaAction"
-               enablesFor="+"
-               id="org.obeonetwork.pim.uml2.gen.java.ui.popupMenus.acceleoGenerateUML2toJavaAction"
-               icon="icons/acceleo_module_16x16.png"
-               label="Generate UML2 to Java"
-               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
-      </objectContribution>
-      <objectContribution
-            adaptable="true"
             id="org.obeonetwork.pim.uml2.gen.java.ui.contribution1"
             nameFilter="*"
             objectClass="org.eclipse.core.resources.IProject">
@@ -55,5 +39,66 @@
       <builder
             id="org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaBuilder">
       </builder>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="org.obeonetwork.pim.uml2.gen.java.ui.launch.UML2JavaLaunchDelegate"
+            id="org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationType"
+            modes="run"
+            name="%launchConfigurationName"
+            sourceLocatorId="org.obeonetwork.pim.uml2.gen.java.ui.sourceLocator">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.sourceLocators">
+      <sourceLocator
+            class="org.obeonetwork.pim.uml2.gen.java.ui.launch.UML2JavaPersistableSourceLocator"
+            id="org.obeonetwork.pim.uml2.gen.java.ui.sourceLocator"
+            name="%sourceLocatorName">
+      </sourceLocator>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="org.obeonetwork.pim.uml2.gen.java.ui.launch.LaunchShortcut"
+            icon="icons/acceleo_module_16x16.png"
+            id="org.obeonetwork.pim.uml2.gen.java.ui.UML2JavaGenerationShortcut"
+            label="%launchConfigurationShortcutLabel"
+            modes="run">
+         <contextualLaunch>
+            <enablement>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <test
+                           property="org.eclipse.debug.ui.matchesPattern"
+                           value="*.uml">
+                     </test>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+      </shortcut>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="org.obeonetwork.pim.uml2.gen.java.ui.launch.AbstractLaunchConfigurationTabGroup"
+            description="%launchConfigurationTabGroupsName"
+            id="org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationTabGroup"
+            type="org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationType"
+            icon="icons/acceleo_module_16x16.png"
+            id="org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
    </extension>
 </plugin>

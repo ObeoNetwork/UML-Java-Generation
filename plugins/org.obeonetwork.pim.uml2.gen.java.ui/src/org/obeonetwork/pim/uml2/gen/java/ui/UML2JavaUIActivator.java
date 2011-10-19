@@ -10,6 +10,11 @@
  *******************************************************************************/
 package org.obeonetwork.pim.uml2.gen.java.ui;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -29,6 +34,11 @@ public class UML2JavaUIActivator extends AbstractUIPlugin {
 	 * The shared instance.
 	 */
 	private static UML2JavaUIActivator plugin;
+	
+	/**
+	 * The images.
+	 */
+	private Map<String, Image> imageMap = new HashMap<String, Image>();
 	
 	/**
 	 * The constructor.
@@ -63,6 +73,36 @@ public class UML2JavaUIActivator extends AbstractUIPlugin {
 	 */
 	public static UML2JavaUIActivator getDefault() {
 		return plugin;
+	}
+	
+	/**
+	 * Returns an image at the given plug-in relative path.
+	 * 
+	 * @param path
+	 *            is a plug-in relative path
+	 * @return the image
+	 */
+	public Image getImage(String path) {
+		Image result = imageMap.get(path);
+		if (result == null) {
+			ImageDescriptor descriptor = getImageDescriptor(path);
+			if (descriptor != null) {
+				result = descriptor.createImage();
+				imageMap.put(path, result);
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * Returns an image descriptor for the image file at the given plug-in relative path.
+	 * 
+	 * @param path
+	 *            the path
+	 * @return the image descriptor
+	 */
+	public static ImageDescriptor getImageDescriptor(String path) {
+		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
 
 }

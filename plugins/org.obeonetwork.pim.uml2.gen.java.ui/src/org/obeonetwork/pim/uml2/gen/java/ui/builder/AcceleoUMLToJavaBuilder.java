@@ -12,6 +12,7 @@ package org.obeonetwork.pim.uml2.gen.java.ui.builder;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -49,6 +50,11 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 	 * The ID of the builder.
 	 */
 	public static final String BUILDER_ID = "org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaBuilder";
+	
+	/**
+	 * Indicates if the build has generated some content.
+	 */
+	private boolean hasGenerated = false;
 
 	/**
 	 * {@inheritDoc}
@@ -57,7 +63,9 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 	 *      java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
 	 */
 	@SuppressWarnings("rawtypes")
-	protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException {
+	protected IProject[] build(int kind, Map args, final IProgressMonitor monitor) throws CoreException {
+		hasGenerated = false;
+		
 		if (kind == FULL_BUILD) {
 			fullBuild(monitor);
 		} else {
@@ -68,7 +76,39 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 				incrementalBuild(delta, monitor);
 			}
 		}
+		
+		if (hasGenerated) {
+			this.refresh(monitor);
+		}
+		
 		return null;
+	}
+	
+	/**
+	 * Refresh the project after the generation.
+	 * 
+	 * @param monitor The progress monitor.
+	 */
+	protected void refresh(final IProgressMonitor monitor) {
+		Thread thread = new Thread() {			
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e1) {
+					// do not log
+				}
+				try {
+					getProject().build(IncrementalProjectBuilder.FULL_BUILD, "org.eclipse.jdt.core.javabuilder", new HashMap<String, String>(), monitor);
+				} catch (CoreException e) {
+					UML2JavaUIActivator.getDefault().getLog().log(new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage()));
+				}
+			}
+		};
+		
+		thread.setPriority(Thread.MIN_PRIORITY);
+		
+		thread.start();
 	}
 
 	/**
@@ -80,6 +120,7 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 		IProject project = getProject();
 		List<IFile> umlFiles = new ArrayList<IFile>();
 		umlFiles = computeUMLFiles(umlFiles, project);
+		
 		for (IFile iFile : umlFiles) {
 			if (!monitor.isCanceled()) {
 				generate(iFile, monitor);
@@ -184,6 +225,8 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 				workflow.doGenerate(BasicMonitor.toMonitor(progressMonitor));
 				
 				targetFolder.refreshLocal(IResource.DEPTH_INFINITE, progressMonitor);
+				this.refresh(progressMonitor);
+				this.hasGenerated = true;
 			}
 		} catch (IOException e) {
 			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
