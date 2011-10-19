@@ -20,7 +20,7 @@
     <relativePath>../..</relativePath>
   </parent>
 
-  <artifactId>org.obeonetwork.pim.uml2.gen.java.ui</artifactId>
+  <artifactId>org.obeonetwork.pim.uml2.gen.java.doc</artifactId>
   <version>1.0.0.qualifier</version>
   <packaging>eclipse-plugin</packaging>
 
