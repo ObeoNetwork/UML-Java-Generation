@@ -36,13 +36,13 @@ import [aClassifier.getNotOrderedUniqueCollectionClassPath()/];
 import [aClassifier.getOrderedNotUniqueCollectionClassPath()/];
 [/if]
 [/if]
-[if (aClassifier.oclIsKindOf(Class))]
+[if (aClassifier.oclIsKindOf(Class) and (aClassifier.oclAsType(Class).getTypeList()->size() > 0))]
 [for (aType : Type | aClassifier.oclAsType(Class).getTypeList())]
 [if (not ''.equalsIgnoreCase(aType.importValue()))]
 import [aType.importValue()/];
 [/if]
 [/for]
-[elseif (aClassifier.oclIsKindOf(Interface))]
+[elseif (aClassifier.oclIsKindOf(Interface) and (aClassifier.oclAsType(Interface).getTypeList()->size() > 0))]
 [for (aType : Type | aClassifier.oclAsType(Interface).getTypeList())]
 [if (not ''.equalsIgnoreCase(aType.importValue()))]
 import [aType.importValue()/];
@@ -94,14 +94,14 @@ import [aType.importValue()/];
 		->merge(aClass.getOwnedOperationsParametersTypeList())
 		->merge(aClass.getNestedClassifiersTypeList())
 		->including(aClass.getGeneralTypes()->first())
-		->asOrderedSet()->asSequence()
+		->reject(oclIsUndefined())->asOrderedSet()->asSequence()
 	else
 		Sequence(Type){}
 		->merge(aClass.getOwnedAttributesTypeList())
 		->merge(aClass.getAssociationsTypeList())
 		->merge(aClass.getOwnedOperationsParametersTypeList())
 		->merge(aClass.getNestedClassifiersTypeList())
-		->asOrderedSet()->asSequence()
+		->reject(oclIsUndefined())->asOrderedSet()->asSequence()
 	endif
 /]
 
