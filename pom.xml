@@ -30,6 +30,7 @@
   <modules>
     <module>plugins/org.obeonetwork.pim.uml2.gen.java</module>
 	<module>plugins/org.obeonetwork.pim.uml2.gen.java.ui</module>
+	<module>doc/org.obeonetwork.pim.uml2.gen.java.doc</module>
 	<module>features/org.obeonetwork.pim.uml2.gen.java.feature</module>
 	<module>features/org.obeonetwork.pim.uml2.gen.java.ui.feature</module>
 	<module>updatesite/org.obeonetwork.pim.uml2.gen.java.updatesite</module>
