@@ -118,8 +118,8 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 
 			// Add the nature
 			String[] newNatures = new String[natures.length + 1];
-			System.arraycopy(natures, 0, newNatures, 0, natures.length);
-			newNatures[natures.length] = AcceleoUMLToJavaNature.NATURE_ID;
+			newNatures[0] = AcceleoUMLToJavaNature.NATURE_ID;
+			System.arraycopy(natures, 0, newNatures, 1, natures.length);
 			description.setNatureIds(newNatures);
 			project.setDescription(description, null);
 			
