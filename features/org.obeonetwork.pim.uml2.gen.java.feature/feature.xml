@@ -216,6 +216,10 @@ Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
 
+   <url>
+      <discovery label="Acceleo 3.2" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/milestones/3.2"/>
+   </url>
+
    <plugin
          id="org.obeonetwork.pim.uml2.gen.java"
          download-size="0"
