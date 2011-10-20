@@ -11,7 +11,7 @@
                class="org.obeonetwork.pim.uml2.gen.java.ui.builder.ToggleNatureAction"
                enablesFor="+"
                id="org.obeonetwork.pim.uml2.gen.java.ui.addRemoveNatureAction"
-               label="Add/Remove Acceleo UML2 to Java Generator Nature"
+               label="%toggleNatureLabel"
                menubarPath="additions">
          </action>
       </objectContribution>
