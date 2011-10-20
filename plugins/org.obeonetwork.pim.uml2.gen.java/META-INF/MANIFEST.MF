@@ -19,5 +19,6 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: org.obeonetwork.pim.uml2.gen.java.main,
+ org.obeonetwork.pim.uml2.gen.java.properties,
  org.obeonetwork.pim.uml2.gen.java.services
 

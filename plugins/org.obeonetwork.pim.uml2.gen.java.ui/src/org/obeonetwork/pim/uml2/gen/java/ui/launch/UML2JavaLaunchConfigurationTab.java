@@ -23,6 +23,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
+import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -54,7 +55,7 @@ import org.obeonetwork.pim.uml2.gen.java.ui.UML2JavaUIActivator;
  * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 1.0
  */
-public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationTab {
+public class UML2JavaLaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 
 	/**
 	 * The table containing all the workspace relative path of the UML models.
@@ -104,7 +105,6 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 			public void widgetSelected(SelectionEvent e) {
 				browse();
 				update();
-				updateLaunchConfigurationDialog();
 			}
 		});
 		Button removeButton = new Button(tableButtonComposite, SWT.PUSH);
@@ -117,7 +117,6 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 				int[] selectionIndices = modelTable.getSelectionIndices();
 				modelTable.remove(selectionIndices);
 				update();
-				updateLaunchConfigurationDialog();
 			}
 		});
 		this.createHelpButton(tableButtonComposite, "The list of the UML models for which Java source code will be generated.");
@@ -141,7 +140,7 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 		
 		targetText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
-				updateLaunchConfigurationDialog();
+				
 			}
 		});
 		final Button targetButton = createPushButton(comp, "Browse...", null);
@@ -159,8 +158,8 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 						targetText.setText(((Path)result[0]).toString());
 					}
 				}
-				updateLaunchConfigurationDialog();
 				update();
+				updateLaunchConfigurationDialog();
 			}
 		});
 		createHelpButton(comp, "Select the output folder where the code will be generated.");
@@ -204,6 +203,7 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 				item.setText(file.getFullPath().toString());
 			}
 		}
+		updateLaunchConfigurationDialog();
 	}
 	
 	/**
@@ -343,6 +343,11 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
+		this.saveData(configuration);
+		this.update();
+	}
+	
+	public void saveData(ILaunchConfigurationWorkingCopy configuration) {		
 		configuration.setAttribute(IUML2JavaContants.ATTR_TARGET_FOLDER_PATH, targetText.getText());
 		Set<String> umlModelPaths = new LinkedHashSet<String>();
 		TableItem[] items = modelTable.getItems();
@@ -350,8 +355,7 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 			umlModelPaths.add(tableItem.getText());
 		}
 		configuration.setAttribute(IUML2JavaContants.ATTR_MODEL_PATHS, umlModelPaths);
-		this.update();
-	}	
+	}
 
 	/**
 	 * {@inheritDoc}

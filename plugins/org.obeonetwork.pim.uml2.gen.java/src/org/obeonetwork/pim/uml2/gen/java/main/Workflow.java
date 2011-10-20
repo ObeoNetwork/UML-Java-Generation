@@ -13,18 +13,27 @@ package org.obeonetwork.pim.uml2.gen.java.main;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.MissingResourceException;
+import java.util.Properties;
 
+import org.eclipse.acceleo.engine.AcceleoEnginePlugin;
 import org.eclipse.acceleo.engine.event.IAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.generation.strategy.IAcceleoGenerationStrategy;
 import org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator;
+import org.eclipse.acceleo.engine.service.AcceleoService;
 import org.eclipse.acceleo.engine.utils.AcceleoEngineUtils;
+import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.uml2.uml.resource.UMLResource;
+import org.obeonetwork.pim.uml2.gen.java.properties.IUML2JavaPropertiesConstants;
 
 /**
  * Entry point of the 'Workflow' generation module.
@@ -48,12 +57,18 @@ public class Workflow extends AbstractAcceleoGenerator {
     public static final String[] TEMPLATE_NAMES = { "generateClass", "generateInterface", "generateEnumeration" };
     
     /**
+     * User added properties.
+     * @generated NOT
+     */
+    private static Properties additionalProperties = new Properties();
+    
+    /**
      * The list of properties files from the launch parameters (Launch configuration).
      *
      * @generated
      */
     private List<String> propertiesFiles = new ArrayList<String>();
-
+    
     /**
      * Allows the public constructor to be used. Note that a generator created
      * this way cannot be used to launch generations before one of
@@ -250,6 +265,46 @@ public class Workflow extends AbstractAcceleoGenerator {
     }
     
     /**
+     * {@inheritDoc}
+     * 
+     * @see org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator#createAcceleoService()
+     * @generated NOT
+     */
+    @Override
+    protected AcceleoService createAcceleoService() {
+    	AcceleoService acceleoService = super.createAcceleoService();
+    	
+    	if (EMFPlugin.IS_ECLIPSE_RUNNING) {
+    		Map<String, String> propertiesToAdd = new HashMap<String, String>();
+			Enumeration<?> propertiesNames = additionalProperties.propertyNames();
+			while (propertiesNames.hasMoreElements()) {
+				String propertyName = (String)propertiesNames.nextElement();
+				String propertyValue = additionalProperties.getProperty(propertyName);
+				propertiesToAdd.put(propertyName, propertyValue);
+			}
+			if (!propertiesToAdd.isEmpty()) {
+				try {
+					acceleoService.addProperties(propertiesToAdd);
+				} catch (MissingResourceException ex) {
+					AcceleoEnginePlugin.log(ex, false);
+				}
+			}
+    	}
+    	
+    	return acceleoService;
+    }
+    
+    /**
+     * Sets the additional properties.
+     * 
+     * @param properties The additional properties.
+     * @generated NOT
+     */
+    public static void setUserProperties(Properties properties) {
+    	additionalProperties = properties;
+    }
+    
+    /**
      * If the module(s) called by this launcher require properties files, return their qualified path from
      * here.Take note that the first added properties files will take precedence over subsequent ones if they
      * contain conflicting keys.
@@ -275,9 +330,9 @@ public class Workflow extends AbstractAcceleoGenerator {
          * Without this new tag, any compilation of the Acceleo module with the main template that has caused the creation of 
          * this class will revert your modifications.
          */
-    	propertiesFiles.add("/org/obeonetwork/pim/uml2/gen/java/properties/default.properties");
-    	propertiesFiles.add("/org/obeonetwork/pim/uml2/gen/java/properties/imports.properties");
-    	propertiesFiles.add("/org/obeonetwork/pim/uml2/gen/java/properties/types.properties");
+    	propertiesFiles.add(IUML2JavaPropertiesConstants.DEFAULT_PROPERTIES);
+    	propertiesFiles.add(IUML2JavaPropertiesConstants.IMPORTS_PROPERTIES);
+    	propertiesFiles.add(IUML2JavaPropertiesConstants.TYPES_PROPERTIES);
     	
     	if (model != null & model.eResource() != null) {
     		propertiesFiles.addAll(AcceleoEngineUtils.getPropertiesFilesNearModel(model.eResource()));

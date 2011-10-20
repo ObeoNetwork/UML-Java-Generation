@@ -27,7 +27,7 @@ public class AbstractLaunchConfigurationTabGroup extends org.eclipse.debug.ui.Ab
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.ILaunchConfigurationDialog, java.lang.String)
 	 */
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-		setTabs(new ILaunchConfigurationTab[]{new UML2JavaLaunchconfigurationTab()});
+		setTabs(new ILaunchConfigurationTab[]{new UML2JavaLaunchConfigurationTab(), new UML2JavaLaunchConfigurationPropertiesTab()});
 	}
 
 }

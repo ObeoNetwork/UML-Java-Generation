@@ -12,7 +12,10 @@ package org.obeonetwork.pim.uml2.gen.java.ui.launch;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
@@ -60,6 +63,19 @@ public class UML2JavaLaunchDelegate implements ILaunchConfigurationDelegate {
 			}
 		} catch (CoreException e) {
 
+		}
+		
+		try {
+			Map<?, ?> map = configuration.getAttribute(IUML2JavaContants.ATTR_PROPERTIES, new HashMap<Object, Object>());
+			Properties properties = new Properties();
+			properties.putAll(map);
+			Workflow.setUserProperties(properties);
+		} catch (CoreException e) {
+
+		}
+		
+		if (targetFolder == null || targetFolder.length() == 0) {
+			return;
 		}
 		
 		for (String umlModelPath : umlModelPaths) {

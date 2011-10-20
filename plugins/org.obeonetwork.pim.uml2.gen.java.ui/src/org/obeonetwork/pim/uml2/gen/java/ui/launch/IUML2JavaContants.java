@@ -26,4 +26,6 @@ public interface IUML2JavaContants {
 	 * The key for the attribute "model paths" in the launch configuration.
 	 */
 	String ATTR_MODEL_PATHS = "org.obeonetwork.pim.uml2.gen.java.ui.launch.models.path";
+	
+	String ATTR_PROPERTIES = "org.obeonetwork.pim.uml2.gen.java.ui.launch.properties";
 }

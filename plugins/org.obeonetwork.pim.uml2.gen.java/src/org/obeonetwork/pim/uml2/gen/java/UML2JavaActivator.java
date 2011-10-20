@@ -27,7 +27,7 @@ public class UML2JavaActivator extends Plugin {
      * The plug-in ID.
      */
     public static final String PLUGIN_ID = "org.obeonetwork.pim.uml2.gen.java";
-
+    
     /**
      * The shared instance.
      */
