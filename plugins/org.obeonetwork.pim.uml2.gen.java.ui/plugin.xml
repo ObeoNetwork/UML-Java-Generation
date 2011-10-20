@@ -10,6 +10,7 @@
          <action
                class="org.obeonetwork.pim.uml2.gen.java.ui.builder.ToggleNatureAction"
                enablesFor="+"
+               icon="icons/acceleo_module_16x16.png"
                id="org.obeonetwork.pim.uml2.gen.java.ui.addRemoveNatureAction"
                label="%toggleNatureLabel"
                menubarPath="additions">
