@@ -102,4 +102,12 @@
             id="org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationTypeImage">
       </launchConfigurationTypeImage>
    </extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/acceleo_module_7x7.png"
+            id="org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaNatureImage"
+            natureId="org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaNature">
+      </image>
+   </extension>
 </plugin>
