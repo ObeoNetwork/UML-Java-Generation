@@ -210,6 +210,7 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 	 * Update the launch configuration and check potential errors.
 	 */
 	private void update() {
+		this.setErrorMessage(null);
 		if (modelTable != null && modelTable.getItemCount() == 0) {
 			this.setErrorMessage("At least one UML model is required to launch the generation");
 		} else if (targetText != null) {
@@ -282,8 +283,9 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 			targetText.setText("");
 			for (int i = 0; i < modelTable.getItemCount(); i++) {
 				modelTable.remove(0);
-			}		
+			}
 		}
+		this.update();
 	}
 
 	/**
@@ -332,6 +334,7 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 				item.setText(umlModelPath);
 			}
 		}
+		this.update();
 	}
 
 	/**
@@ -347,6 +350,7 @@ public class UML2JavaLaunchconfigurationTab extends AbstractLaunchConfigurationT
 			umlModelPaths.add(tableItem.getText());
 		}
 		configuration.setAttribute(IUML2JavaContants.ATTR_MODEL_PATHS, umlModelPaths);
+		this.update();
 	}	
 
 	/**
