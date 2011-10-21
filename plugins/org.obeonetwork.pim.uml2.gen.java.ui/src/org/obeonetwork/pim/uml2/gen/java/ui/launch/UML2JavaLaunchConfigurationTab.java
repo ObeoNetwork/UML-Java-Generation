@@ -137,6 +137,7 @@ public class UML2JavaLaunchConfigurationTab extends AbstractLaunchConfigurationT
 		gd = new GridData(GridData.FILL_HORIZONTAL);
 		gd.horizontalSpan = 1;
 		targetText.setLayoutData(gd);
+		targetText.setEditable(false);
 		
 		targetText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
