@@ -16,6 +16,10 @@ The first time, the launch configuration dialog will open and you will be able t
 
 You can also create a launch configuration from scratch thanks to the "Run" -> "Run Configurations..." menu. there you just have to click on the "Acceleo UML2 to Java" category and push the "New configuration" button and a new empty launch configuration will be created.
 
+The launch configuration also gives you the ability to see and override the default properties used during the generation. In order to do that, you just have to edit the properties in the "Properties" tab in the launch configuration. Overridden properties will appear in green as you can see it in the following screenshot.
+
+[[Image:../images/launch-configuration-properties.png|center]]
+
 ===Builder===
 The Acceleo UML2 to Java generator also features a builder to automatically launch a generation after any changes on a given ".uml" model. In order to activate this build, first right click on a project and select the "Toggle UML2 to Java Nature" menu to add (or remove) the "UML2 to Java" nature.
 
