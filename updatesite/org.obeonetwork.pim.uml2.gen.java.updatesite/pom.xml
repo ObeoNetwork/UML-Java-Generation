@@ -46,7 +46,7 @@
                   <directory>.</directory>
                   <includes>
                     <include>index.html</include>
-	            <include>web/*</include>
+	                <include>web/*</include>
                   </includes>
                 </resource>
               </resources>

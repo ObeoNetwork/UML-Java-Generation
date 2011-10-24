@@ -217,8 +217,20 @@ litigation.
    </license>
 
    <url>
+      <update label="Acceleo 3.2" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/milestones/3.2"/>
       <discovery label="Acceleo 3.2" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/milestones/3.2"/>
    </url>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.ocl"/>
+      <import plugin="org.eclipse.ocl.ecore"/>
+      <import plugin="org.eclipse.uml2.uml"/>
+      <import plugin="org.eclipse.acceleo.model" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.acceleo.engine" version="3.2.0" match="greaterOrEqual"/>
+   </requires>
 
    <plugin
          id="org.obeonetwork.pim.uml2.gen.java"
