@@ -47,6 +47,8 @@
                   <includes>
                     <include>index.html</include>
 	                <include>web/*</include>
+	                <include>compositeArtifacts.xml</include>
+	                <include>compositeContent.xml</include>
                   </includes>
                 </resource>
               </resources>
