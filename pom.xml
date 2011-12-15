@@ -39,7 +39,7 @@
   <properties>
     <acceleo-version>3.2.0-SNAPSHOT</acceleo-version>
     <tycho-version>0.12.0</tycho-version>
-    <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/milestones/3.2</acceleo-site>
+    <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2</acceleo-site>
   </properties>
 
   <profiles>
