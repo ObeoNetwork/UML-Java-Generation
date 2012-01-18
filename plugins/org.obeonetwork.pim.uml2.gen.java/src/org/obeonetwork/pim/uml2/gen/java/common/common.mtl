@@ -52,7 +52,7 @@
 	Sequence{aType.getNearestPackage()}->union(aType.getNearestPackage().ancestors()->filter(Package))->select(pack : Package | pack.oclIsTypeOf(Package))
 /]
 
-[template private normalizeName(anElement : NamedElement) post(trim())]
+[template public normalizeName(anElement : NamedElement) post(trim())]
 [if ((anElement.name = 'package') or (anElement.name = 'interface') or (anElement.name = 'class'))]
 [anElement.name.concat('_')/]
 [else]

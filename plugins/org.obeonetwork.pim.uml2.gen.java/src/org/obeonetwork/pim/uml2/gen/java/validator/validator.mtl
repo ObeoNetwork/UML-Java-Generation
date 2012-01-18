@@ -31,7 +31,7 @@
  * @param aNamedElement The named element.
  * @param message The message.
  */]
-[template private error(aNamedElement : NamedElement, message : String)]
+[template public error(aNamedElement : NamedElement, message : String)]
 Error: [message/] for [aNamedElement.eClass().name/] element [aNamedElement.name/].
 [/template]
 
@@ -40,7 +40,7 @@ Error: [message/] for [aNamedElement.eClass().name/] element [aNamedElement.name
  * @param aNamedElement The named element.
  * @param message The message.
  */]
-[template private warning(aNamedElement : NamedElement, message : String)]
+[template public warning(aNamedElement : NamedElement, message : String)]
 Warning: [message/] for [aNamedElement.eClass().name/] element [aNamedElement.name/].
 [/template]
 
@@ -49,7 +49,7 @@ Warning: [message/] for [aNamedElement.eClass().name/] element [aNamedElement.na
  * @param aNamedElement The named element.
  * @param message The message.
  */]
-[template private information(aNamedElement : NamedElement, message : String)]
+[template public information(aNamedElement : NamedElement, message : String)]
 Info: [message/] for [aNamedElement.eClass().name/] element [aNamedElement.name/].
 [/template]
 
