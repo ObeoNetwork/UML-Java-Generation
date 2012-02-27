@@ -18,12 +18,20 @@
 [import org::obeonetwork::pim::uml2::gen::java::files::enumerationFile /]
 [import org::obeonetwork::pim::uml2::gen::java::files::interfaceFile /]
 
+[template public generate(aModel : Model)]
+[comment @main /]
+[for (aPackage : Package | aModel.eAllContents(Package))]
+[aPackage.eContents(Class).generateClass()/]
+[aPackage.eContents(Interface).generateInterface()/]
+[aPackage.eContents(Enumeration).generateEnumeration()/]
+[/for]
+[/template]
+
 [**
  * The entry point of the generation of a class.
  * @param aClass an UML Class.
  */]
 [template public generateClass(aClass : Class)]
-[comment @main /]
 [file (aClass.genFullPathFile(), false, 'UTF-8')]
 [aClass.genFileHeader()/]
 [aClass.genFileBody()/]
@@ -35,7 +43,6 @@
  * @param anInterface an UML Interface.
  */]
 [template public generateInterface(anInterface : Interface)]
-[comment @main /]
 [file (anInterface.genFullPathFile(), false, 'UTF-8')]
 [anInterface.genFileHeader()/]
 [anInterface.genFileBody()/]
@@ -47,7 +54,6 @@
  * @param anEnumeration an UML enumeration.
  */]
 [template public generateEnumeration(anEnumeration : Enumeration)]
-[comment @main /]
 [file (anEnumeration.genFullPathFile(), false, 'UTF-8')]
 [anEnumeration.genFileHeader()/]
 [anEnumeration.genFileBody()/]

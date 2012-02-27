@@ -54,7 +54,7 @@ public class Workflow extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generateClass", "generateInterface", "generateEnumeration" };
+    public static final String[] TEMPLATE_NAMES = { "generate" };
     
     /**
      * User added properties.
