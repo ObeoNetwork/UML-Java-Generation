@@ -38,4 +38,5 @@ public interface MultipleCommentedMethodsInterface {
 	// Start of user code (user defined methods)
 	
 	// End of user code
+	
 }

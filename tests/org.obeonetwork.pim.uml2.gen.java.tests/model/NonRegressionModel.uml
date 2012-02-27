@@ -48,7 +48,6 @@
                       </ownedLiteral>
                     </packagedElement>
                   </packagedElement>
-                  <packagedElement xmi:type="uml:Package" xmi:id="__2vIQHAWEeCrvt1hzG-phQ" name="nested"/>
                   <packagedElement xmi:type="uml:Enumeration" xmi:id="_lnOj4HAVEeCrvt1hzG-phQ" name="CommentedEnumeration">
                     <ownedComment xmi:id="_nievoHAVEeCrvt1hzG-phQ" annotatedElement="_lnOj4HAVEeCrvt1hzG-phQ">
                       <body>The comment of CommentedEnumeration.</body>
@@ -260,8 +259,24 @@
                         </ownedParameter>
                       </ownedOperation>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_hw8IEV8FEeGlht6TS2odLw" name="VoidReturningMethodsClass">
+                      <ownedOperation xmi:id="_lRGcIF8FEeGlht6TS2odLw" name="voidReturningMethod"/>
+                      <ownedOperation xmi:id="_puWDgF8FEeGlht6TS2odLw" name="voidReturningMethodWithParameters">
+                        <ownedParameter xmi:id="_ttARcF8FEeGlht6TS2odLw" name="param" type="_-bhpEHDHEeCl5bNajorhng"/>
+                      </ownedOperation>
+                    </packagedElement>
                   </packagedElement>
-                  <packagedElement xmi:type="uml:Package" xmi:id="_-uaOQHAWEeCrvt1hzG-phQ" name="nested"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_-uaOQHAWEeCrvt1hzG-phQ" name="nested">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_maIrUF8GEeGlht6TS2odLw" name="SimpleClassWithSimpleNestedClass">
+                      <nestedClassifier xmi:type="uml:Class" xmi:id="_qevwQF8GEeGlht6TS2odLw" name="SimpleNestedClass"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_TqYLIF8HEeGlht6TS2odLw" name="SimpleClassWithSimpleNestedInterface">
+                      <nestedClassifier xmi:type="uml:Interface" xmi:id="_ZZRnoF8HEeGlht6TS2odLw" name="SimpleNestedInterface"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_WmglEF8HEeGlht6TS2odLw" name="SimpleClassWithSimpleNestedEnumeration">
+                      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_dXLnoF8HEeGlht6TS2odLw" name="SimpleNestedEnumeration"/>
+                    </packagedElement>
+                  </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_I3sIMHATEeCrvt1hzG-phQ" name="visibility">
                     <packagedElement xmi:type="uml:Class" xmi:id="_gzZ2MHDeEeCl5bNajorhng" name="PublicClass"/>
                     <packagedElement xmi:type="uml:Class" xmi:id="_hI6MIHDeEeCl5bNajorhng" name="PrivateClass" visibility="private"/>
@@ -475,6 +490,12 @@
                         </ownedParameter>
                       </ownedOperation>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_MEWqYF8GEeGlht6TS2odLw" name="VoidReturningMethodsInterface">
+                      <ownedOperation xmi:id="_ROel4F8GEeGlht6TS2odLw" name="voidReturningMethod"/>
+                      <ownedOperation xmi:id="_TUEZYF8GEeGlht6TS2odLw" name="voidReturningMethodWithParameter">
+                        <ownedParameter xmi:id="_Vr82wF8GEeGlht6TS2odLw" name="param" type="_-bhpEHDHEeCl5bNajorhng"/>
+                      </ownedOperation>
+                    </packagedElement>
                     <packagedElement xmi:type="uml:Package" xmi:id="_KB5cAHDYEeCl5bNajorhng" name="parameters">
                       <packagedElement xmi:type="uml:Interface" xmi:id="_MIDQMHDYEeCl5bNajorhng" name="SingleParameterMethodInterface">
                         <ownedOperation xmi:id="_fgXIsHDYEeCl5bNajorhng" name="singleParameterMethod">
@@ -570,7 +591,17 @@
                       </packagedElement>
                     </packagedElement>
                   </packagedElement>
-                  <packagedElement xmi:type="uml:Package" xmi:id="_7-dPIHAWEeCrvt1hzG-phQ" name="nested"/>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_7-dPIHAWEeCrvt1hzG-phQ" name="nested">
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_vsEwwF8GEeGlht6TS2odLw" name="SimpleInterfaceWithSimpleNestedInterface">
+                      <nestedClassifier xmi:type="uml:Interface" xmi:id="_yG83wF8GEeGlht6TS2odLw" name="SimpleNestedInterface"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_LfIykF8IEeGlht6TS2odLw" name="SimpleInterfaceWithSimpleNestedClass">
+                      <nestedClassifier xmi:type="uml:Class" xmi:id="_ODsaAF8IEeGlht6TS2odLw" name="SimpleNestedClass"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_PoE94F8IEeGlht6TS2odLw" name="SimpleInterfaceWithSimpleNestedEnumeration">
+                      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_SOto8F8IEeGlht6TS2odLw" name="SimpleNestedEnumeration"/>
+                    </packagedElement>
+                  </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_cyHPQnATEeCrvt1hzG-phQ" name="visibility">
                     <packagedElement xmi:type="uml:Interface" xmi:id="_vwPl0HAWEeCrvt1hzG-phQ" name="EmptyPublicInterface"/>
                     <packagedElement xmi:type="uml:Interface" xmi:id="_yXFsQHAWEeCrvt1hzG-phQ" name="EmptyPrivateInterface" visibility="private"/>

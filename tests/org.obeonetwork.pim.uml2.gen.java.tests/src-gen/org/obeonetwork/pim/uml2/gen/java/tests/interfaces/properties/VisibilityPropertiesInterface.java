@@ -40,4 +40,5 @@ public interface VisibilityPropertiesInterface {
 	// Start of user code (user defined methods)
 	
 	// End of user code
+	
 }

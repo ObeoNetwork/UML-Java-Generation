@@ -24,4 +24,5 @@ public interface SingleCommentedPropertyInterface {
 	// Start of user code (user defined methods)
 	
 	// End of user code
+	
 }

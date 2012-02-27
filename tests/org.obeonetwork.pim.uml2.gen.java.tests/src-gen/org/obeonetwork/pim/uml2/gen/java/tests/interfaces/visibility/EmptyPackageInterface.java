@@ -19,4 +19,5 @@ package org.obeonetwork.pim.uml2.gen.java.tests.interfaces.visibility;
 	// Start of user code (user defined methods)
 	
 	// End of user code
+	
 }

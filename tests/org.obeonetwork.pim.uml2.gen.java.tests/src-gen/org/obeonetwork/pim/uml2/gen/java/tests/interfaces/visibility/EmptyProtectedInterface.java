@@ -19,4 +19,5 @@ protected interface EmptyProtectedInterface {
 	// Start of user code (user defined methods)
 	
 	// End of user code
+	
 }

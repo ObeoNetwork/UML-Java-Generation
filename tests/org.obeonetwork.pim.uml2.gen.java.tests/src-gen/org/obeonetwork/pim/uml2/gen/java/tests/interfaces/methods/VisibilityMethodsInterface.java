@@ -44,4 +44,5 @@ public interface VisibilityMethodsInterface {
 	// Start of user code (user defined methods)
 	
 	// End of user code
+	
 }

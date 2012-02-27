@@ -26,4 +26,5 @@ public interface AbstractMethodInterface {
 	// Start of user code (user defined methods)
 	
 	// End of user code
+	
 }

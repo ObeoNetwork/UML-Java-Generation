@@ -29,4 +29,5 @@ public interface MultipleParametersMethodInterface {
 	// Start of user code (user defined methods)
 	
 	// End of user code
+	
 }

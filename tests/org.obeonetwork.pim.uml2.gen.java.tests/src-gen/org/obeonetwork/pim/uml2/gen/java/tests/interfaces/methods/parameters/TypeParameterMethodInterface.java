@@ -32,4 +32,5 @@ public interface TypeParameterMethodInterface {
 	// Start of user code (user defined methods)
 	
 	// End of user code
+	
 }
