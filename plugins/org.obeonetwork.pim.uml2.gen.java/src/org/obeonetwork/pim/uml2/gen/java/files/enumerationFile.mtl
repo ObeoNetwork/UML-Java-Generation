@@ -28,7 +28,7 @@
 [/template]
 
 
-[template protected genBody(anEnumeration : Enumeration) ]
+[template protected genBody(anEnumeration : Enumeration) overrides genBody]
 [anEnumeration.genVisibility()/]enum [anEnumeration.name.toUpperFirst()/] {
 [for (anEnumerationLiteral : EnumerationLiteral | anEnumeration.ownedLiteral)]
     /**

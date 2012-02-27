@@ -78,7 +78,7 @@ import [aType.importValue()/];
  /]
 
 [template public genImportPath(aType : Type) post(trim())]
-[if (not (getProperty('java.typeconversion.' + name) = null))]
+[if (not getProperty('java.typeconversion.' + name).oclIsUndefined() and (getProperty('java.typeconversion.' + name).size() > 0))]
 [getProperty('java.typeconversion.' + name)/]
 [else]
 [aType.importValue()/]

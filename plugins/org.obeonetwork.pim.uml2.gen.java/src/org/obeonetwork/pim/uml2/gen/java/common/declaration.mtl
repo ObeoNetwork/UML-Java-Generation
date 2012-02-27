@@ -96,7 +96,7 @@
 [/template]
 
 [template public getUserDefaultValue(aTypedElement : TypedElement) post(trim())]
-[if (not getProperty('java.defaultvalue.' + aTypedElement.type.name).oclIsUndefined() and not ''.equalsIgnoreCase(getProperty('java.defaultvalue.' + aTypedElement.type.name)))]
+[if (not getProperty('java.defaultvalue.' + aTypedElement.type.name).size().oclIsUndefined() and (getProperty('java.defaultvalue.' + aTypedElement.type.name).size() > 0) and not ''.equalsIgnoreCase(getProperty('java.defaultvalue.' + aTypedElement.type.name)))]
     [getProperty('java.defaultvalue.' + aTypedElement.type.name)/]
 [else]
     null

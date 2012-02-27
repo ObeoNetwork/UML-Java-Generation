@@ -25,7 +25,7 @@
 [template public genBehavior(anOperation : Operation) post(trim())]
 [if (not anOperation.genMethodBody().equalsIgnoreCase(''))]
 [anOperation.method.genBehavior()/]
-[else]
+[elseif (not anOperation.type.oclIsUndefined())]
 // [protected ('for method ' + name)]
 [for (aParameter : Parameter | ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
 [aParameter.genType()/] [anOperation.genName()/] = [aParameter.computeDefault()/];

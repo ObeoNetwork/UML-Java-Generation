@@ -34,7 +34,7 @@
 [aClass.genBody()/]
 [/template]
 
-[template protected genBody(aClass : Class)]
+[template protected genBody(aClass : Class) overrides genBody]
 [aClass.genVisibility()/][aClass.genAbstract()/][aClass.genFinal()/]class [aClass.genName()/][aClass.genInheritance()/][aClass.genInterfaceRealization()/] {
     [aClass.genAttributes()/]
     [aClass.genConstructor()/]
@@ -47,9 +47,9 @@
 [/template]
 
 [template protected genNestedClassifiers(aClass : Class)]
-[for (nestedClass : Class | aClass.nestedClassifier->filter(Class)->reject(c : Class | c.name.equalsIgnoreCase('Behavior')))]
-[nestedClass.genJavadoc()/]
-[nestedClass.genBody()/]
+[for (nestedClassifier : Classifier | aClass.nestedClassifier)]
+[nestedClassifier.genJavadoc()/]
+[nestedClassifier.genBody()/]
 [/for]
 [/template]
 

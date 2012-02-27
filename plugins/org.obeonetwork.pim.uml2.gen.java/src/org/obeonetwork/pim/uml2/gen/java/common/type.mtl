@@ -64,7 +64,7 @@ void
 [template protected genTypeName(aTypedElement : TypedElement) post(trim())]
 [if (aTypedElement.type = null)]
 Object
-[elseif (not getProperty('java.typeconversion.' + aTypedElement.type.name).oclIsUndefined())]
+[elseif (not getProperty('java.typeconversion.' + aTypedElement.type.name).oclIsUndefined() and (getProperty('java.typeconversion.' + aTypedElement.type.name).size() > 0))]
 [getProperty('java.typeconversion.' + aTypedElement.type.name).tokenize('.')->last()/]
 [elseif (type.name = 'UnlimitedNatural')]
 Integer
