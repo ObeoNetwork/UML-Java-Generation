@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.obeonetwork.pim.uml2.gen.java
-Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.obeonetwork.pim.uml2.gen.java;singleton:=true
+Bundle-Version: 1.0.1.qualifier
 Bundle-Activator: org.obeonetwork.pim.uml2.gen.java.UML2JavaActivator
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -12,9 +12,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ocl,
  org.eclipse.ocl.ecore,
  org.eclipse.uml2.uml,
- org.eclipse.acceleo.model,
- org.eclipse.acceleo.engine,
- org.eclipse.acceleo.parser;resolution:=optional
+ org.eclipse.acceleo.model;bundle-version="3.1.2",
+ org.eclipse.acceleo.engine;bundle-version="3.1.2",
+ org.eclipse.acceleo.parser;bundle-version="3.1.2";resolution:=optional
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true

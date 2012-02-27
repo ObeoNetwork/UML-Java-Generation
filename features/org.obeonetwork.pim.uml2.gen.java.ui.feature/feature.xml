@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.pim.uml2.gen.java.ui.feature"
       label="Acceleo UML2 to Java Generator UI"
-      version="1.0.0.qualifier"
+      version="1.0.1.qualifier"
       provider-name="Obeo Network"
       plugin="org.obeonetwork.pim.uml2.gen.java.ui">
 
@@ -234,14 +234,14 @@ litigation.
    </license>
 
    <plugin
-         id="org.obeonetwork.pim.uml2.gen.java.ui"
+         id="org.obeonetwork.pim.uml2.gen.java.doc"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.obeonetwork.pim.uml2.gen.java.doc"
+         id="org.obeonetwork.pim.uml2.gen.java.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

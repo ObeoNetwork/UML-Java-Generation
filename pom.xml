@@ -9,7 +9,7 @@
 
   <groupId>org.obeonetwork.acceleo</groupId>
   <artifactId>org.obeonetwork.pim.uml2.gen.java.parent</artifactId>
-  <version>1.0.0.qualifier</version>
+  <version>1.0.1.qualifier</version>
   <packaging>pom</packaging>
   <name>Acceleo UML2 to Java Generator Project</name>
 
@@ -38,7 +38,7 @@
 
   <properties>
     <acceleo-version>3.2.0-SNAPSHOT</acceleo-version>
-    <tycho-version>0.12.0</tycho-version>
+    <tycho-version>0.14.0</tycho-version>
     <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2</acceleo-site>
   </properties>
 
