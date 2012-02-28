@@ -32,15 +32,6 @@ public class SimpleClassWithSimpleNestedInterface {
     /**
      * Description of SimpleNestedInterface.
      */
-    public interface SimpleNestedInterface {
-    	// Start of user code (user defined attributes)
-    	
-    	// End of user code
-    	
-    	// Start of user code (user defined methods)
-    	
-    	// End of user code
-    	
-    }
+    // This template should be overridden in order to generate the body of the file.
     
 }

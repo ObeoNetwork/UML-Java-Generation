@@ -32,7 +32,6 @@ public class SimpleClassWithSimpleNestedEnumeration {
     /**
      * Description of SimpleNestedEnumeration.
      */
-    public enum SimpleNestedEnumeration {
-    }
+    // This template should be overridden in order to generate the body of the file.
     
 }

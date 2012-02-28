@@ -23,24 +23,5 @@ public interface SimpleInterfaceWithSimpleNestedClass {
 	/**
 	 * Description of SimpleNestedClass.
 	 */
-	public class SimpleNestedClass {
-	    // Start of user code (user defined attributes)
-	    
-	    // End of user code
-	    
-	    /**
-	     * The constructor.
-	     */
-	    public SimpleNestedClass() {
-	    	// Start of user code constructor
-	    	super();
-	    	// End of user code
-	    }
-	    
-	    // Start of user code (user defined methods)
-	    
-	    // End of user code
-	    
-	    
-	}
+	// This template should be overridden in order to generate the body of the file.
 }
