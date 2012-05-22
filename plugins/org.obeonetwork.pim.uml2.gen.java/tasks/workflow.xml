@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="workflow" name="org.obeonetwork.pim.uml2.gen.java">
-    <property name="ECLIPSE_HOME" value="../../../../../../../Eclipse/Windows/3.7 Utilisation Acceleo 3.2"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../Workspaces/Acceleo Utilisation Github"/>
+    <property name="ECLIPSE_HOME" value="../../../../../Eclipse/Windows/3.7 Utilisation Acceleo 3.2"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../Workspaces/UML to Java"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.obeonetwork.pim.uml2.gen.java.libraryclasspath">
@@ -23,13 +23,13 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.1.1.v20110823-1646.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.uml_3.2.100.v201108110105.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.common_1.6.0.v201105021727.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.2.1.v20120209-0326.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.2.1.v20120209-0326.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.2.1.v20120209-0326.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.profiler_3.2.1.v20120209-0326.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.3.0.v20120427-0106.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.3.0.v20120427-0106.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.3.0.v20120427-0106.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.profiler_3.3.0.v20120427-0106.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.7.0.v20110913-1156.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.6.0.v20110913-1156.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.parser_3.2.1.v20120209-0326.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.parser_3.3.0.v20120427-0106.jar"/>
     </path>
 
     <path id="org.obeonetwork.pim.uml2.gen.java.classpath">
