@@ -19,7 +19,7 @@
         <ownedParameter xmi:id="_d4-08JBrEd2MY5zfT4Awfg" type="_bFkDkJCWEd2Xeb6Jt2sbCQ" direction="return"/>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_pC1TsJBqEd2MY5zfT4Awfg" name="owns" memberEnd="_pC1TsZBqEd2MY5zfT4Awfg _pC16wZBqEd2MY5zfT4Awfg">
+    <packagedElement xmi:type="uml:Association" xmi:id="_pC1TsJBqEd2MY5zfT4Awfg" name="owns" memberEnd="_pC1TsZBqEd2MY5zfT4Awfg _pC16wZBqEd2MY5zfT4Awfg" navigableOwnedEnd="_pC16wZBqEd2MY5zfT4Awfg">
       <ownedEnd xmi:id="_pC1TsZBqEd2MY5zfT4Awfg" name="owner" type="_GUaJoJBmEd2MY5zfT4Awfg" association="_pC1TsJBqEd2MY5zfT4Awfg">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pC16wJBqEd2MY5zfT4Awfg" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pC1TspBqEd2MY5zfT4Awfg"/>
