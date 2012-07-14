@@ -39,7 +39,7 @@
     [aClass.genAttributes()/]
     [aClass.genConstructor()/]
     [aClass.genOperations()/]
-[for (aProperty : Property | aClass.ownedAttribute->union(aClass.getAssociations().navigableOwnedEnd->asOrderedSet()))]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.getOutgoingNavigableOwnedEnd()))]
     [aProperty.genAccessors()/]
 [/for]
     [aClass.genNestedClassifiers()/]
