@@ -35,7 +35,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.obeonetwork.pim.uml2.gen.java.main.Workflow;
+import org.obeonetwork.pim.uml2.gen.java.main.Uml2java;
 import org.obeonetwork.pim.uml2.gen.java.ui.UML2JavaUIActivator;
 
 /**
@@ -90,7 +90,7 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 	 * @param monitor The progress monitor.
 	 */
 	protected void refresh(final IProgressMonitor monitor) {
-		Thread thread = new Thread() {			
+		Thread thread = new Thread() {
 			@Override
 			public void run() {
 				try {
@@ -221,7 +221,7 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 
 				ResourceSet resourceSet = new AcceleoResourceSetImpl();
 				EObject eObject = ModelUtils.load(model.getLocation().toFile(), resourceSet);
-				Workflow workflow = new Workflow(eObject, targetFolder.getLocation().toFile(), new ArrayList<String>());
+				Uml2java workflow = new Uml2java(eObject, targetFolder.getLocation().toFile(), new ArrayList<String>());
 				workflow.doGenerate(BasicMonitor.toMonitor(progressMonitor));
 				
 				targetFolder.refreshLocal(IResource.DEPTH_INFINITE, progressMonitor);

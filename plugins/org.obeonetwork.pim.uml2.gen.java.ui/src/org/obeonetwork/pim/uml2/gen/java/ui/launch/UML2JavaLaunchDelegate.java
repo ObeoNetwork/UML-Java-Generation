@@ -30,7 +30,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.obeonetwork.pim.uml2.gen.java.main.Workflow;
+import org.obeonetwork.pim.uml2.gen.java.main.Uml2java;
 
 /**
  * The UML to Java launch configuration launcher.
@@ -69,7 +69,7 @@ public class UML2JavaLaunchDelegate implements ILaunchConfigurationDelegate {
 			Map<?, ?> map = configuration.getAttribute(IUML2JavaContants.ATTR_PROPERTIES, new HashMap<Object, Object>());
 			Properties properties = new Properties();
 			properties.putAll(map);
-			Workflow.setUserProperties(properties);
+			Uml2java.setUserProperties(properties);
 		} catch (CoreException e) {
 
 		}
@@ -84,7 +84,7 @@ public class UML2JavaLaunchDelegate implements ILaunchConfigurationDelegate {
 			if (file!= null && container != null && file.isAccessible() && container.isAccessible()) {
 				URI modelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
 				try {
-					Workflow workflow = new Workflow(modelURI, container.getLocation().toFile(), new ArrayList<String>());
+					Uml2java workflow = new Uml2java(modelURI, container.getLocation().toFile(), new ArrayList<String>());
 					workflow.doGenerate(BasicMonitor.toMonitor(monitor));
 					
 					container.refreshLocal(IResource.DEPTH_INFINITE, monitor);

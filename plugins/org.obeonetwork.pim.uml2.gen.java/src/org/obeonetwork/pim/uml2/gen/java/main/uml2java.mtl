@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[comment]
+ * Copyright (c) 2012 Obeo
+ * All rights reserved.  This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 1.0
+ * 
+ * You can apply any license to the files generated with this module and Acceleo.
+[/comment]
+
+[**
+ * This module is the starting point of the generation.
+ * @author Stephane Begaudeau - Obeo
+ */]
+[module uml2java('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import org::obeonetwork::pim::uml2::gen::java::files::classJavaFile /]
+[import org::obeonetwork::pim::uml2::gen::java::files::interfaceJavaFile /]
+[import org::obeonetwork::pim::uml2::gen::java::files::enumJavaFile /]
+
+[template public main(aModel : Model)]
+[comment @main /]
+[for (aType : Type | aModel.eAllContents(Package).ownedType)]
+	[if (aType.oclIsKindOf(Class))]
+		[aType.oclAsType(Class).genClassJavaFile()/]
+	[elseif (aType.oclIsKindOf(Interface))]
+		[aType.oclAsType(Interface).genInterfaceJavaFile()/]
+	[elseif (aType.oclIsKindOf(Enumeration))]
+		[aType.oclAsType(Enumeration).genEnumJavaFile()/]
+	[/if]
+[/for]
+[/template]

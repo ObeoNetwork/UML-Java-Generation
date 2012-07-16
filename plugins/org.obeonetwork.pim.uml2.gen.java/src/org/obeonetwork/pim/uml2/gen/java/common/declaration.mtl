@@ -1,23 +1,11 @@
 [comment encoding = UTF-8 /]
-[comment]
- * Copyright (c) 2011 Obeo
- * All rights reserved.  This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * 
- * You can apply any license to the files generated with this module and Acceleo.
-[/comment]
+[module declaration('http://www.eclipse.org/uml2/4.0.0/UML')]
 
-[**
- * The documentation of the module declaration.
- * @author Stephane Begaudeau - Obeo
- */]
-[module declaration('http://www.eclipse.org/uml2/3.0.0/UML')/]
-
-[import org::obeonetwork::pim::uml2::gen::java::common::common /]
 [import org::obeonetwork::pim::uml2::gen::java::common::type /]
-[import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
-[import org::obeonetwork::pim::uml2::gen::java::request::request /]
 
+[template public genName(aNamedElement : NamedElement)]
+[aNamedElement.name/]
+[/template]
 
 [template public genMethodPrototype(anOperation : Operation)]
 [genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][genReturn()/] [genName()/]([genOperationParameters()/])
@@ -27,7 +15,7 @@
 [anOperation.ownedParameter->select(param : Parameter | not (param.direction = ParameterDirectionKind::return)).genOperationParameter()->sep(', ')/]
 [/template]
 
-[template protected genOperationParameter(aParameter : Parameter)]
+[template public genOperationParameter(aParameter : Parameter)]
 [aParameter.genType()/] [aParameter.genName()/]
 [/template]
 
@@ -38,6 +26,13 @@
 [template public genInterfaceRealization(aClass : Class)]
 [if (not aClass.clientDependency->filter(Realization)->isEmpty())] implements [for (namedElement : NamedElement | aClass.getAllInterfaces()) separator(', ')][namedElement.genName()/][/for][/if]
 [/template]
+
+[**
+ * Returns all the interface of a given class.
+ * @param aClass The class.
+ */]
+[query public getAllInterfaces(aClass : Class) : Bag(NamedElement) = aClass.clientDependency->filter(Realization).supplier /]
+
 
 [template public genVisibility(aNamedElement : NamedElement)]
 [if (not (aNamedElement.visibility = VisibilityKind::_package))][aNamedElement.visibility/] [else]/*package*/ [/if]
@@ -84,7 +79,7 @@
     [/if]
 [else]
     [if (not aProperty.default.oclIsUndefined())]        
-        new  [aProperty.genType()/]()
+        new [aProperty.genType()/]()
     [else]
         new [aProperty.genType()/]()
     [/if]
@@ -102,4 +97,3 @@
     null
 [/if]
 [/template]
-

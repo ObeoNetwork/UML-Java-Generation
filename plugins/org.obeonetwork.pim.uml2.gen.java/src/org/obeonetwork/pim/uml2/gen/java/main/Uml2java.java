@@ -33,7 +33,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.uml2.uml.resource.UMLResource;
-import org.obeonetwork.pim.uml2.gen.java.properties.IUML2JavaPropertiesConstants;
 
 /**
  * Entry point of the 'Workflow' generation module.
@@ -41,20 +40,20 @@ import org.obeonetwork.pim.uml2.gen.java.properties.IUML2JavaPropertiesConstants
  * @since 0.1
  * @generated
  */
-public class Workflow extends AbstractAcceleoGenerator {
+public class Uml2java extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/org/obeonetwork/pim/uml2/gen/java/main/workflow";
+    public static final String MODULE_FILE_NAME = "/org/obeonetwork/pim/uml2/gen/java/main/uml2java";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generate" };
+    public static final String[] TEMPLATE_NAMES = { "main" };
     
     /**
      * User added properties.
@@ -83,7 +82,7 @@ public class Workflow extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public Workflow() {
+    public Uml2java() {
         // Empty implementation
     }
 
@@ -103,7 +102,7 @@ public class Workflow extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public Workflow(URI modelURI, File targetFolder,
+    public Uml2java(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -124,7 +123,7 @@ public class Workflow extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public Workflow(EObject model, File targetFolder,
+    public Uml2java(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -159,7 +158,7 @@ public class Workflow extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                Workflow generator = new Workflow(modelURI, folder, arguments);
+                Uml2java generator = new Uml2java(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.
@@ -342,10 +341,6 @@ public class Workflow extends AbstractAcceleoGenerator {
          * Without this new tag, any compilation of the Acceleo module with the main template that has caused the creation of 
          * this class will revert your modifications.
          */
-    	propertiesFiles.add(IUML2JavaPropertiesConstants.DEFAULT_PROPERTIES);
-    	propertiesFiles.add(IUML2JavaPropertiesConstants.IMPORTS_PROPERTIES);
-    	propertiesFiles.add(IUML2JavaPropertiesConstants.TYPES_PROPERTIES);
-    	
     	if (model != null & model.eResource() != null) {
     		propertiesFiles.addAll(AcceleoEngineUtils.getPropertiesFilesNearModel(model.eResource()));
     	}

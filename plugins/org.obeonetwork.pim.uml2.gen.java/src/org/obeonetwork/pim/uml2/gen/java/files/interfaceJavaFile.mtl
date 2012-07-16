@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[module interfaceJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::classifierJavaFile]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
+[import org::obeonetwork::pim::uml2::gen::java::common::imports /]
+
+[template private interfaceJavaFilePath(anInterface : Interface)]
+[/template]
+
+[template public genInterfaceJavaFile(anInterface : Interface)]
+[file (anInterface.interfaceJavaFilePath(), false, 'UTF-8')]
+[anInterface.genHeader()/]
+[anInterface.genImport()/]
+[anInterface.genClassifierBody()/]
+[/file]
+[/template]
+
+[template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Interface))]
+[/template]
