@@ -16,7 +16,7 @@
   <parent>
     <groupId>org.obeonetwork.acceleo</groupId>
     <artifactId>org.obeonetwork.pim.uml2.gen.java.parent</artifactId>
-    <version>1.0.1.qualifier</version>
+    <version>1.0.2-SNAPSHOT</version>
     <relativePath>../..</relativePath>
   </parent>
 

@@ -15,43 +15,47 @@
   <parent>
     <groupId>org.obeonetwork.acceleo</groupId>
     <artifactId>org.obeonetwork.pim.uml2.gen.java.parent</artifactId>
-    <version>1.0.1.qualifier</version>
+    <version>1.0.2-SNAPSHOT</version>
     <relativePath>../..</relativePath>
   </parent>
 
   <artifactId>org.obeonetwork.pim.uml2.gen.java</artifactId>
-  <version>1.0.1.qualifier</version> <!-- This version should match the version of your project in the MANIFEST.MF-->
+  <version>1.0.2-SNAPSHOT</version> <!-- This version should match the version of your project in the MANIFEST.MF-->
   <packaging>eclipse-plugin</packaging>
 
   <name>Acceleo UML2 to Java Generator</name>
 
   <build>
-      <plugins>
-        <plugin>  
-          <groupId>org.codehaus.mojo</groupId>  
-          <artifactId>exec-maven-plugin</artifactId>  
-          <version>1.1.1</version>  
-          <executions>  
-            <execution>  
-              <phase>compile</phase>  
-              <goals>  
-                <goal>java</goal>  
+     <plugins>
+       <plugin>
+         <groupId>org.eclipse.acceleo</groupId>
+         <artifactId>maven</artifactId>
+         <version>3.2.1</version>
+         <executions>
+           <execution>
+             <phase>compile</phase>
+             <goals>
+                <goal>acceleo-compile</goal>
               </goals>
-              <configuration>
-                <!--
-                   Calls the AcceleoCompiler to launch the compilation.
-                -->
-                <mainClass>org.obeonetwork.pim.uml2.gen.java.AcceleoCompiler</mainClass>  
-                <arguments>  
-                  <argument>${basedir}/src/</argument>  <!-- The source folder -->  
-                  <argument>${basedir}/target/classes</argument>  <!-- The output folder -->
-                  <argument>true</argument>  <!-- Indicates if we should use binary resources serializations -->
-                  <argument></argument>  <!-- The project dependencies in the workspace -->
-                </arguments>  
-              </configuration>  
-            </execution>  
-          </executions>  
-        </plugin>
-      </plugins>
-  </build>
+           </execution>
+         </executions>
+         <configuration>
+           <useBinaryResources>false</useBinaryResources>
+           <usePlatformResourcePath>true</usePlatformResourcePath>
+           <acceleoProject>
+             <root>${project.basedir}</root>
+             <entries>
+               <entry>
+                 <input>src</input>
+                 <output>target/classes</output>
+               </entry>
+             </entries>
+           </acceleoProject>
+           <packagesToRegister>
+             <packageToRegister>org.eclipse.uml2.uml.UMLPackage</packageToRegister>
+           </packagesToRegister>
+         </configuration>
+       </plugin>
+     </plugins>
+   </build>
 </project>
