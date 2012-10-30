@@ -6,6 +6,11 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
 
 [template private classJavaFilePath(aClass : Class)]
+[if (not aClass.getNearestPackage().oclIsUndefined())]
+[aClass.genPackagePath().substituteAll('.', '/').concat('/').concat(aClass.name).concat('.java')/]
+[else]
+[aClass.name.concat('.java')/]
+[/if]
 [/template]
 
 [template public genClassJavaFile(aClass : Class)]
@@ -20,12 +25,13 @@
 [template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Class))]
 [let aClass : Class = aClassifier.oclAsType(Class)]
 [aClass.genJavadoc()/]
-[aClass.declaration()/]
-[aClass.attributes()/]
-[aClass.constructor()/]
-[aClass.operations()/]
-[aClass.accessors()/]
-[aClass.nestedClassifiers()/]
+[aClass.declaration()/] {
+	[aClass.attributes()/]
+	[aClass.constructor()/]
+	[aClass.operations()/]
+	[aClass.accessors()/]
+	[aClass.nestedClassifiers()/]
+}
 [/let]
 [/template]
 

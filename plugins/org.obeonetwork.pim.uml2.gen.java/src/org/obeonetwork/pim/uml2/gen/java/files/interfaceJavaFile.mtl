@@ -3,8 +3,15 @@
 
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
 [import org::obeonetwork::pim::uml2::gen::java::common::imports /]
+[import org::obeonetwork::pim::uml2::gen::java::common::path /]
+
 
 [template private interfaceJavaFilePath(anInterface : Interface)]
+[if (not anInterface.getNearestPackage().oclIsUndefined())]
+[anInterface.genPackagePath().substituteAll('.', '/').concat('/').concat(anInterface.name).concat('.java')/]
+[else]
+[anInterface.name.concat('.java')/]
+[/if]
 [/template]
 
 [template public genInterfaceJavaFile(anInterface : Interface)]

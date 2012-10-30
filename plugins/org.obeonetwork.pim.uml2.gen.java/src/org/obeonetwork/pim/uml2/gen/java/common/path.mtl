@@ -10,6 +10,10 @@ package [aClassifier.packageDeclaration()/];
 [aType.packagePath().normalizeName()->reverse()->sep('.')/]
 [/template]
 
+[template public genPackagePath(aClassifier : Classifier)]
+[aClassifier.packageDeclaration()/]
+[/template]
+
 [query private packagePath(aType : Type) : Sequence(Package) = 
 	Sequence{aType.getNearestPackage()}->union(aType.getNearestPackage().ancestors()->filter(Package))->select(pack : Package | pack.oclIsTypeOf(Package))
 /]

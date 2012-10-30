@@ -3,8 +3,14 @@
 
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
 [import org::obeonetwork::pim::uml2::gen::java::common::imports /]
+[import org::obeonetwork::pim::uml2::gen::java::common::path /]
 
 [template private enumJavaFilePath(anEnumeration : Enumeration)]
+[if (not anEnumeration.getNearestPackage().oclIsUndefined())]
+[anEnumeration.genPackagePath().substituteAll('.', '/').concat('/').concat(anEnumeration.name).concat('.java')/]
+[else]
+[anEnumeration.name.concat('.java')/]
+[/if]
 [/template]
 
 
