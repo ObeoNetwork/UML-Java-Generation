@@ -2,9 +2,13 @@
 [module enumJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::classifierJavaFile]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 [import org::obeonetwork::pim::uml2::gen::java::common::imports /]
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
 
+[**
+ * Define the package organisations for the class
+ */]
 [template private enumJavaFilePath(anEnumeration : Enumeration)]
 [if (not anEnumeration.getNearestPackage().oclIsUndefined())]
 [anEnumeration.genPackagePath().substituteAll('.', '/').concat('/').concat(anEnumeration.name).concat('.java')/]
@@ -23,4 +27,19 @@
 [/template]
 
 [template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Enumeration))]
+[aClassifier.genVisibility()/]enum [aClassifier.name.toUpperFirst()/] {
+[for (anEnumerationLiteral : EnumerationLiteral | aClassifier.oclAsType(Enumeration).ownedLiteral)]
+    /**
+[if (anEnumerationLiteral.ownedComment->size() > 0 and anEnumerationLiteral.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
+[for (aComment : Comment | anEnumerationLiteral.ownedComment)]
+     * [aComment._body/]
+[/for]
+[else]
+     * Description of [anEnumerationLiteral.name/].
+[/if]
+     */
+    [anEnumerationLiteral.name/],
+    
+[/for]
+}
 [/template]
