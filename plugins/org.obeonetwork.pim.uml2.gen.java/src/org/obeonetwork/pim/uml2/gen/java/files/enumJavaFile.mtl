@@ -5,6 +5,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 [import org::obeonetwork::pim::uml2::gen::java::common::imports /]
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
 
 [**
  * Define the package organisations for the class
@@ -17,11 +18,10 @@
 [/if]
 [/template]
 
-
 [template public genEnumJavaFile(anEnumeration : Enumeration)]
 [file (anEnumeration.enumJavaFilePath(), false, 'UTF-8')]
-[anEnumeration.genPackageDeclaration()/]
 [anEnumeration.genHeader()/]
+[anEnumeration.genPackageDeclaration()/]
 [anEnumeration.genImport()/]
 [anEnumeration.genJavadoc()/]
 [anEnumeration.genClassifierBody()/]

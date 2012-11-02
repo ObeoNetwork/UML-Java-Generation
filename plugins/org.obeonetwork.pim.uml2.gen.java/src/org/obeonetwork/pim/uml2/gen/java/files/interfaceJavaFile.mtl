@@ -7,6 +7,9 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
 [import org::obeonetwork::pim::uml2::gen::java::common::attribute/]
 [import org::obeonetwork::pim::uml2::gen::java::common::operations/]
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
+[import org::obeonetwork::pim::uml2::gen::java::common::type/]
+
 
 [**
  * Define the package organisations for the class
@@ -21,8 +24,8 @@
 
 [template public genInterfaceJavaFile(anInterface : Interface)]
 [file (anInterface.interfaceJavaFilePath(), false, 'UTF-8')]
-[anInterface.genPackageDeclaration()/]
 [anInterface.genHeader()/]
+[anInterface.genPackageDeclaration()/]
 [anInterface.genImport()/]
 [anInterface.genJavadoc()/]
 [anInterface.genClassifierBody()/]
@@ -41,4 +44,27 @@
 	[/for]
 }
 [/let]
+[/template]
+
+[template private genAttributes(anInterface : Interface) ]
+[for (aProperty : Property | anInterface.ownedAttribute)]
+[aProperty.genAttributeComment()/]
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
+
+[/for]
+// [protected ('(user defined attributes)')]
+
+// [/protected]
+
+[/template]
+
+[template private genOperations (anInterface : Interface) ]
+[for (anOperation : Operation | anInterface.ownedOperation)]
+[anOperation.genOperationComment()/]
+[anOperation.genMethodPrototype()/];
+
+[/for]
+// [protected ('(user defined methods)')]
+
+// [/protected]
 [/template]

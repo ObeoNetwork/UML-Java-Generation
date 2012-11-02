@@ -31,6 +31,12 @@ void
 [/if]
 [/template]
 
+[template public genInsideArrayType(aProperty : Property) post(trim())]
+[if ((not (aProperty.upper = 1)) and (not (aProperty.isArray())))]
+[aProperty.genTypeName()/]
+[/if]
+[/template]
+
 [template protected genCollectionType(aMultiplicityElement : MultiplicityElement) post(trim())]
 [if (not aMultiplicityElement.isOrdered.oclIsUndefined() and aMultiplicityElement.isOrdered)]
     [if (aMultiplicityElement.isUnique)]

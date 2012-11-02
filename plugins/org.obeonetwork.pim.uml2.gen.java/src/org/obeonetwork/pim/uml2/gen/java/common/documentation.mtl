@@ -2,7 +2,6 @@
 [module documentation('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
-
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
 
 [template public genHeader(aClassifier : Classifier) post(trim())]

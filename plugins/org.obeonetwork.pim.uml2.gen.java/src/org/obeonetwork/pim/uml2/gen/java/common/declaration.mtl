@@ -27,6 +27,10 @@
 [if (not aClass.clientDependency->filter(Realization)->isEmpty())] implements [for (namedElement : NamedElement | aClass.getAllInterfaces()) separator(', ')][namedElement.genName()/][/for][/if]
 [/template]
 
+[template public genPropertyParent(aProperty : Property)]
+
+[/template]
+
 [**
  * Returns all the interface of a given class.
  * @param aClass The class.

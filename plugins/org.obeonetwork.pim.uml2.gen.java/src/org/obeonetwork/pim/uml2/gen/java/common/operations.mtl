@@ -3,17 +3,7 @@
 
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation/]
-
-[template public genOperations (anInterface : Interface) ]
-[for (anOperation : Operation | anInterface.ownedOperation)]
-[anOperation.genOperationComment()/]
-[anOperation.genMethodPrototype()/];
-
-[/for]
-// [protected ('(user defined methods)')]
-
-// [/protected]
-[/template]
+[import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
 [template public genOperationComment(anOperation : Operation)]
 /**
@@ -33,6 +23,22 @@
 [if (parameter.direction = ParameterDirectionKind::return)]
  * @return [parameter.genComment()/]
 [/if]
+[/for]
+ */
+[/template]
+
+[template public genInheritedOperationComment(anOperation : Operation)]
+/**
+ * {@inheritDoc}
+[if(anOperation.eContainer().oclIsKindOf(Interface))]
+ * @see [anOperation.eContainer().oclAsType(Interface).genPackagePath()/].[anOperation.eContainer().oclAsType(Interface).name/]
+[/if]
+ *
+[for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | not (param.direction = ParameterDirectionKind::return)))]
+ * @param [genName()/][genComment()/]
+[/for]
+[for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
+ * @return [genName()/][genComment()/]
 [/for]
  */
 [/template]

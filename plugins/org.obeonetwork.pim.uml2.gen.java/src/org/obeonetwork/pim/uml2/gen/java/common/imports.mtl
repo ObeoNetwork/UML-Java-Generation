@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module imports('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+
+[template public genImport(aClassifier : Classifier)]
+
+[/template]

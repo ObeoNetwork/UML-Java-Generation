@@ -5,17 +5,6 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::type/]
 [import org::obeonetwork::pim::uml2::gen::java::request::request/]
 
-[template public genAttributes(anInterface : Interface) ]
-[for (aProperty : Property | anInterface.ownedAttribute)]
-[aProperty.genAttributeComment()/]
-[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
-
-[/for]
-// [protected ('(user defined attributes)')]
-
-// [/protected]
-
-[/template]
 
 [template public genAttributes(aClass : Class)]
 [for (aProperty : Property | aClass.ownedAttribute->union(aClass.getOutgoingNavigableOwnedEnd()))]
@@ -29,7 +18,7 @@
 
 [/template]
 
-[template protected genAttributeComment(aProperty : Property)]
+[template public genAttributeComment(aProperty : Property)]
 /**
 [if (aProperty.ownedComment->size() > 0 and aProperty.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (propertyComment : Comment | aProperty.ownedComment)]
