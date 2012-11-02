@@ -2,15 +2,17 @@
 [module classJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::classifierJavaFile]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
-[import org::obeonetwork::pim::uml2::gen::java::common::imports /]
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
 [import org::obeonetwork::pim::uml2::gen::java::common::attribute/]
 [import org::obeonetwork::pim::uml2::gen::java::common::operations/]
-[import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
 [import org::obeonetwork::pim::uml2::gen::java::common::behavior/]
-[import org::obeonetwork::pim::uml2::gen::java::request::request/]
 [import org::obeonetwork::pim::uml2::gen::java::common::type/]
+
+[import org::obeonetwork::pim::uml2::gen::java::request::request/]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
+[import org::obeonetwork::pim::uml2::gen::java::services::importService /]
 
 
 [template private classJavaFilePath(aClass : Class)]
@@ -25,7 +27,9 @@
 [file (aClass.classJavaFilePath(), false, 'UTF-8')]
 [aClass.genHeader()/]
 [aClass.genPackageDeclaration()/]
-[aClass.genImport()/]
+
+[aClass.reqImport()/]
+
 [aClass.genJavadoc()/]
 [aClass.genClassifierBody()/]
 [/file]

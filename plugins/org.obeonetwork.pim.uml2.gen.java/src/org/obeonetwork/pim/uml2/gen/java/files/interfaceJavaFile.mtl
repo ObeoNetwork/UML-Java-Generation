@@ -2,14 +2,14 @@
 [module interfaceJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::classifierJavaFile]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
-[import org::obeonetwork::pim::uml2::gen::java::common::imports /]
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
 [import org::obeonetwork::pim::uml2::gen::java::common::attribute/]
 [import org::obeonetwork::pim::uml2::gen::java::common::operations/]
-[import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
 [import org::obeonetwork::pim::uml2::gen::java::common::type/]
 
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
+[import org::obeonetwork::pim::uml2::gen::java::services::importService /]
 
 [**
  * Define the package organisations for the class
@@ -26,7 +26,9 @@
 [file (anInterface.interfaceJavaFilePath(), false, 'UTF-8')]
 [anInterface.genHeader()/]
 [anInterface.genPackageDeclaration()/]
-[anInterface.genImport()/]
+
+[anInterface.reqImport()/]
+
 [anInterface.genJavadoc()/]
 [anInterface.genClassifierBody()/]
 [/file]
