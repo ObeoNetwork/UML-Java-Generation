@@ -7,7 +7,7 @@
 
 [template private classJavaFilePath(aClass : Class)]
 [if (not aClass.getNearestPackage().oclIsUndefined())]
-[aClass.genPackagePath().substituteAll('.', '/').concat('/').concat(aClass.name).concat('.java')/]
+[aClass.genPackagePath()/][aClass.name/].java
 [else]
 [aClass.name.concat('.java')/]
 [/if]
@@ -15,9 +15,10 @@
 
 [template public genClassJavaFile(aClass : Class)]
 [file (aClass.classJavaFilePath(), false, 'UTF-8')]
-[aClass.genHeader()/]
 [aClass.genPackageDeclaration()/]
+[aClass.genHeader()/]
 [aClass.genImport()/]
+[aClass.genJavadoc()/]
 [aClass.genClassifierBody()/]
 [/file]
 [/template]

@@ -11,7 +11,7 @@
  */]
 [template private enumJavaFilePath(anEnumeration : Enumeration)]
 [if (not anEnumeration.getNearestPackage().oclIsUndefined())]
-[anEnumeration.genPackagePath().substituteAll('.', '/').concat('/').concat(anEnumeration.name).concat('.java')/]
+[anEnumeration.genPackagePath()/][anEnumeration.name/].java
 [else]
 [anEnumeration.name.concat('.java')/]
 [/if]
@@ -20,13 +20,15 @@
 
 [template public genEnumJavaFile(anEnumeration : Enumeration)]
 [file (anEnumeration.enumJavaFilePath(), false, 'UTF-8')]
+[anEnumeration.genPackageDeclaration()/]
 [anEnumeration.genHeader()/]
 [anEnumeration.genImport()/]
+[anEnumeration.genJavadoc()/]
 [anEnumeration.genClassifierBody()/]
 [/file]
 [/template]
 
-[template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Enumeration))]
+[template private genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Enumeration))]
 [aClassifier.genVisibility()/]enum [aClassifier.name.toUpperFirst()/] {
 [for (anEnumerationLiteral : EnumerationLiteral | aClassifier.oclAsType(Enumeration).ownedLiteral)]
     /**

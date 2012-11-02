@@ -3,36 +3,36 @@
 
 
 
-[template public getOrderedUniqueCollectionClass(anElement : Element) post(trim())]
+[template public getOrderedUniqueCollectionClass(anElement : OclAny) post(trim())]
 [anElement.getOrderedUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getOrderedUniqueCollectionClassPath(anElement : Element) post(trim())]
+[template public getOrderedUniqueCollectionClassPath(anElement : OclAny) post(trim())]
 [getProperty('tuple.ordered.unique.class')/]
 [/template]
 
-[template public getOrderedNotUniqueCollectionClass(anElement : Element) post(trim())]
+[template public getOrderedNotUniqueCollectionClass(anElement : OclAny) post(trim())]
 [anElement.getOrderedNotUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getOrderedNotUniqueCollectionClassPath(anElement : Element) post(trim())]
+[template public getOrderedNotUniqueCollectionClassPath(anElement : OclAny) post(trim())]
 [getProperty('tuple.ordered.notUnique.class')/]
 [/template]
 
-[template public getNotOrderedUniqueCollectionClass(anElement : Element) post(trim())]
+[template public getNotOrderedUniqueCollectionClass(anElement : OclAny) post(trim())]
 [anElement.getNotOrderedUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getNotOrderedUniqueCollectionClassPath(anElement : Element) post(trim())]
+[template public getNotOrderedUniqueCollectionClassPath(anElement : OclAny) post(trim())]
 [getProperty('tuple.notOrdered.unique.class')/]
 [/template]
 
-[template public getNotOrderedNotUniqueCollectionClass(anElement : Element) post(trim())]
+[template public getNotOrderedNotUniqueCollectionClass(anElement : OclAny) post(trim())]
 [anElement.getNotOrderedNotUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getNotOrderedNotUniqueCollectionClassPath(anElement : Element) post(trim())]
+[template public getNotOrderedNotUniqueCollectionClassPath(anElement : OclAny) post(trim())]
 [getProperty('tuple.notOrdered.notUnique.class')/]
 [/template]
 
-[query public isArray(anElement : Element) : Boolean = getProperty('tuple.genArrays') = 'true' /]
+[query public isArray(anElement : OclAny) : Boolean = getProperty('tuple.genArrays') = 'true' /]
