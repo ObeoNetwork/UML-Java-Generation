@@ -11,24 +11,12 @@ package [aClassifier.packageDeclaration()/];
 [/template]
 
 [template public genPackagePath(aClassifier : Classifier)]
-[aClassifier.componentPath()/][aClassifier.packageDeclaration().substituteAll('.', '/').concat('/')/]
+[if (aClassifier.ancestors(Component)->first().componentPath().size() > 0)][aClassifier.ancestors(Component)->first().componentPath()/]/src/[/if][aClassifier.packageDeclaration().substituteAll('.', '/').concat('/')/]
 [/template]
 
-[template public componentPath(aClassifier : Classifier) post(trim())]
-aCl.getNearestPackage.ancestors(Component)
+[template public componentPath(aComponent : Component)]
+[aComponent.name/]
 [/template]
-
-[template public genPlugInDeclaration(aType : Type)]
-[aType.plugInPath().normalizeName()->reverse()->sep('.')/]
-[/template]
-
-[template public genBundleName(aType : Type)]
-[aType.getNearestPackage().normalizeName()/]
-[/template]
-
-[query private plugInPath(aType : Type) : Sequence(Package) = 
-	aType.getNearestPackage().ancestors()
-/]
 
 [query private packagePath(aType : Type) : Sequence(Package) = 
 	Sequence{aType.getNearestPackage()}->union(aType.getNearestPackage().ancestors()->filter(Package))->select(pack : Package | pack.oclIsTypeOf(Package))

@@ -4,9 +4,9 @@
 
 [template public genImport(aClassifier : Classifier)]
 [reqImport()/]
-// Start of user code (user defined imports) 
+// [protected ('(user defined imports)')]
 
-// End of user code
+// [/protected]
 [/template]
 
 [query private reqImport(aClassifier : Classifier) : String =

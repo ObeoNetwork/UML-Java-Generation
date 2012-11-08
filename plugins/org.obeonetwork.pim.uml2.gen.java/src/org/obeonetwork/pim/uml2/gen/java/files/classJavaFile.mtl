@@ -57,7 +57,6 @@
 [for (aProperty : Property | aClass.ownedAttribute->union(aClass.getOutgoingNavigableOwnedEnd()))]
 [aProperty.genAttributeComment()/]
 [aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
-
 [/for]
 // [protected ('(user defined attributes)')]
 

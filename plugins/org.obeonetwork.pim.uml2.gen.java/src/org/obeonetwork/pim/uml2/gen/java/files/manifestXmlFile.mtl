@@ -5,30 +5,32 @@
 
 
 [template private  genManifestXmlFile(aComponent : Component)]
-META-INF/MANIFEST.MF
+[aComponent.componentPath()/]/META-INF/MANIFEST.MF
 [/template]
 
 [template public manifestXmlFile(aComponent : Component)]
-[file (genManifestXmlFile(), false, 'UTF-8')]
+[file (aComponent.genManifestXmlFile(), false, 'UTF-8')]
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: [genBundleName()/]
-Bundle-SymbolicName: [genPlugInDeclaration()/]
+Bundle-Name: %bundleName
+Bundle-SymbolicName: [aComponent.componentPath()/]
 Bundle-Version: 2.0.0.qualifier
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Require-Bundle: [requireBundle()/]
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
-Export-Package: [exportPackage()/]
+[aComponent.exportPackages()/]
+[aComponent.importPackages()/]
 
 [/file]
 [/template]
 
-[template private exportPackage(arg : Type)]
-	template_expression
+[template private exportPackages(aComponent : Component)]
+[if (true)]
+[/if]
 [/template]
 
-[template public requireBundle(arg : Type)]
-	template_expression
+[template private importPackages(aComponent : Component)]
+[if (true)]
+[/if]
 [/template]
