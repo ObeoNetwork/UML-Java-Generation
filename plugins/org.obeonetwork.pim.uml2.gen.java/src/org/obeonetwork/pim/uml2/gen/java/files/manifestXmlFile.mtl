@@ -27,10 +27,12 @@ Bundle-ActivationPolicy: lazy
 
 [template private exportPackages(aComponent : Component)]
 [if (true)]
+Export-Package: 
 [/if]
 [/template]
 
 [template private importPackages(aComponent : Component)]
 [if (true)]
+Import-Package: [aComponent.ancestors(Model).eAllContents(Component).ownedPort.eInverse(ConnectorEnd).role.type.siblings().ancestors(Package)->reverse()->reject(oclIsKindOf(Model))/]
 [/if]
 [/template]
