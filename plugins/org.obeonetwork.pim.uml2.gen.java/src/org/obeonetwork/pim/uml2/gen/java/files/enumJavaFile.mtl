@@ -24,7 +24,7 @@
 [anEnumeration.genHeader()/]
 [anEnumeration.genPackageDeclaration()/]
 
-[anEnumeration.reqImport()/]
+[anEnumeration.genImport()/]
 
 [anEnumeration.genJavadoc()/]
 [anEnumeration.genClassifierBody()/]

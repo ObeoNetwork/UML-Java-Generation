@@ -28,7 +28,7 @@
 [aClass.genHeader()/]
 [aClass.genPackageDeclaration()/]
 
-[aClass.reqImport()/]
+[aClass.genImport()/]
 
 [aClass.genJavadoc()/]
 [aClass.genClassifierBody()/]

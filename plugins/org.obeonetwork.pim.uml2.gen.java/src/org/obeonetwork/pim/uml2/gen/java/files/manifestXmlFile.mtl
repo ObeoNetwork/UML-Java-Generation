@@ -1,0 +1,34 @@
+[comment encoding = UTF-8 /]
+[module manifestXmlFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::path/]
+
+
+[template private  genManifestXmlFile(aComponent : Component)]
+META-INF/MANIFEST.MF
+[/template]
+
+[template public manifestXmlFile(aComponent : Component)]
+[file (genManifestXmlFile(), false, 'UTF-8')]
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: [genBundleName()/]
+Bundle-SymbolicName: [genPlugInDeclaration()/]
+Bundle-Version: 2.0.0.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: [requireBundle()/]
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Export-Package: [exportPackage()/]
+
+[/file]
+[/template]
+
+[template private exportPackage(arg : Type)]
+	template_expression
+[/template]
+
+[template public requireBundle(arg : Type)]
+	template_expression
+[/template]

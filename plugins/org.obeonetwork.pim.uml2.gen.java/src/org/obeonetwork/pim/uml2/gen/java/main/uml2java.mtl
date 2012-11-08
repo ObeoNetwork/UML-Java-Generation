@@ -17,8 +17,12 @@
 [import org::obeonetwork::pim::uml2::gen::java::files::interfaceJavaFile /]
 [import org::obeonetwork::pim::uml2::gen::java::files::enumJavaFile /]
 
+[import org::obeonetwork::pim::uml2::gen::java::files::manifestXmlFile/]
+
 [template public main(aModel : Model)]
 [comment @main /]
+[for (aComponent : Component | aModel.eAllContents(Component))]
+[aComponent.manifestXmlFile() /]
 [for (aType : Type | aModel.eAllContents(Package).ownedType)]
 	[if (aType.oclIsKindOf(Class))]
 		[aType.oclAsType(Class).genClassJavaFile()/]
@@ -27,5 +31,6 @@
 	[elseif (aType.oclIsKindOf(Enumeration))]
 		[aType.oclAsType(Enumeration).genEnumJavaFile()/]
 	[/if]
+[/for]
 [/for]
 [/template]

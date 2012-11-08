@@ -1,6 +1,14 @@
 [comment encoding = UTF-8 /]
 [module importService('http://www.eclipse.org/uml2/4.0.0/UML')]
 
-[query public reqImport(aClassifier : Classifier) : String =
+
+[template public genImport(aClassifier : Classifier)]
+[reqImport()/]
+// Start of user code (user defined imports) 
+
+// End of user code
+[/template]
+
+[query private reqImport(aClassifier : Classifier) : String =
 	invoke('org.obeonetwork.pim.uml2.gen.java.services.ImportServices', 'reqImport(org.eclipse.uml2.uml.Classifier)', Sequence{aClassifier}).toString().trim()
 /]

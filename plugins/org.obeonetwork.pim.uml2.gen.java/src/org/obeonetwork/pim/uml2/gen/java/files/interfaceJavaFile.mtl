@@ -27,7 +27,7 @@
 [anInterface.genHeader()/]
 [anInterface.genPackageDeclaration()/]
 
-[anInterface.reqImport()/]
+[anInterface.genImport()/]
 
 [anInterface.genJavadoc()/]
 [anInterface.genClassifierBody()/]
