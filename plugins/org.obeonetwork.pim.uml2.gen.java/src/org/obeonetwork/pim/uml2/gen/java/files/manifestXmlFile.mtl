@@ -21,18 +21,23 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 [aComponent.exportPackages()/]
 [aComponent.importPackages()/]
+[aComponent.requireBundles()/]
 
 [/file]
 [/template]
 
 [template private exportPackages(aComponent : Component)]
-[if (true)]
-Export-Package: 
-[/if]
+Export-Package: [for (aPort : Port | aComponent.ownedPort) separator(',' + aComponent.lineSeparator())][aPort.type.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/][/for]
 [/template]
 
 [template private importPackages(aComponent : Component)]
-[if (true)]
-Import-Package: [aComponent.ancestors(Model).eAllContents(Component).ownedPort.eInverse(ConnectorEnd).role.type.siblings().ancestors(Package)->reverse()->reject(oclIsKindOf(Model))/]
+[if (not aComponent.ownedPort.type->filter(Type).oclIsKindOf(Component)->size() > 0)]
+Import-Package: [for (aPort : Port | aComponent.ownedPort) separator(',' + aComponent.lineSeparator())][aPort.eInverse(ConnectorEnd).siblings()->filter(ConnectorEnd).role.type.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/][/for]
+[/if]
+[/template]
+
+[template private requireBundles(aComponent : Component)]
+[if (aComponent.ownedPort.type->filter(Component)->size() > 0)]
+Require-Bundle: [for (aPort : Port | aComponent.ownedPort) separator(',' + aComponent.lineSeparator())][aPort.eInverse(ConnectorEnd).siblings()->filter(ConnectorEnd).role.type.ancestors(Component)->reject(oclIsKindOf(Model)).name/][/for]
 [/if]
 [/template]
