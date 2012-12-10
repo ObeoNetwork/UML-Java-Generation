@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="workflow" name="org.obeonetwork.pim.uml2.gen.java">
-    <property name="ECLIPSE_HOME" value="../../../../../sts-2.9.2-RELEASE-2"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../workspaces/sts-2.9.2-RELEASE-21"/>
+    <property name="ECLIPSE_HOME" value="../../../../../sts-2.9.2-RELEASE-3"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../workspaces/sts-2.9.2-RELEASE-3"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.obeonetwork.pim.uml2.gen.java.libraryclasspath">
@@ -21,9 +21,10 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.7.0.v20120127-1122.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.7.0.v20120127-1122.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.xmi_2.7.0.v20120127-1122.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.1.0.v20120206-0606.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.2.1.v20120917-1739.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.1.2.v20111015-2027.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.0.0.v20120516-1543.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.2.0.v20120522-1637.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.uml_3.2.100.v201108110105.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.common_1.6.0.v201105021727.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.2.1.v20120511-0335.jar"/>
