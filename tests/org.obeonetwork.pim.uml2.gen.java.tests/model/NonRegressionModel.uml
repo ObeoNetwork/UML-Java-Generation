@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_tQW_0XASEeCrvt1hzG-phQ" name="model">
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_tQW_0XASEeCrvt1hzG-phQ" name="model">
   <packagedElement xmi:type="uml:Package" xmi:id="_wah1wHASEeCrvt1hzG-phQ" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_z8cdUHASEeCrvt1hzG-phQ" name="obeonetwork">
       <packagedElement xmi:type="uml:Package" xmi:id="_0Zqk0HASEeCrvt1hzG-phQ" name="pim">
@@ -263,6 +263,11 @@
                       <ownedOperation xmi:id="_lRGcIF8FEeGlht6TS2odLw" name="voidReturningMethod"/>
                       <ownedOperation xmi:id="_puWDgF8FEeGlht6TS2odLw" name="voidReturningMethodWithParameters">
                         <ownedParameter xmi:id="_ttARcF8FEeGlht6TS2odLw" name="param" type="_-bhpEHDHEeCl5bNajorhng"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_g1BAsEPmEeKZu-2c1tIdiA" name="ExceptionThrowingMethodClass">
+                      <ownedOperation xmi:id="_myNX4EPmEeKZu-2c1tIdiA" name="exceptionThrowingMethod" raisedException="_C4jQQHATEeCrvt1hzG-phQ">
+                        <ownedParameter xmi:id="_tdtmkEPmEeKZu-2c1tIdiA" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
                     </packagedElement>
                   </packagedElement>

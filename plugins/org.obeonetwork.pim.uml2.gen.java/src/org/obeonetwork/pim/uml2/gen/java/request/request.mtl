@@ -1,0 +1,58 @@
+[comment encoding = UTF-8 /]
+[comment]
+ * Copyright (c) 2011 Obeo
+ * All rights reserved.  This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 1.0
+ * 
+ * You can apply any license to the files generated with this module and Acceleo.
+[/comment]
+
+[**
+ * The documentation of the module request.
+ * @author Stephane Begaudeau - Obeo
+ */]
+[module request('http://www.eclipse.org/uml2/3.0.0/UML')/]
+
+[**
+ * Returns all the content of the model. Since this is a query, the result is stored in cache.
+ * @param aModel The UML model.
+ */]
+[query public eAllContentsQuery(aModel : Model) : Sequence(OclAny) = aModel.eAllContents() /]
+
+[**
+ * Returns all the interface of a given class.
+ * @param aClass The class.
+ */]
+[query public getAllInterfaces(aClass : Class) : Bag(NamedElement) = aClass.clientDependency->filter(Realization).supplier /]
+
+[**
+ * Returns all the operations of the superclasses of a given class.
+ * @param aClass The class.
+ */]
+[query public getAllSuperClassOperations(aClass : Class) : Sequence(Operation) = aClass.general->filter(Class).ownedOperation->asSequence() /]
+
+[**
+ * Returns all the operations of the interfaces implemented by the given class.
+ * @param aClass The class.
+ */]
+[query public getAllInterfaceOperations(aClass : Class) : Sequence(Operation) =
+	aClass.getAllInterfaces()->filter(Interface).ownedOperation->asSequence()
+/]
+
+[**
+ * Returns all the properties corresponding to navigable ends of the outgoing 
+ * associations for the given class.
+ * @param aClass The class.
+ */]
+[query public getOutgoingNavigableOwnedEnd(aClass : Class) : Set(Property)
+   = getSelfAssociationsNavigableOwnedEnd(aClass)
+      ->union(getOtherAssociationsNavigableOwnedEnd(aClass))->asOrderedSet()
+/]
+
+[query private getSelfAssociationsNavigableOwnedEnd(aClass : Class) : Set(Property)
+   = aClass.getAssociations()->select(ownedEnd.type->asSet()->size() = 1).navigableOwnedEnd->asOrderedSet()
+/]
+
+[query private getOtherAssociationsNavigableOwnedEnd(aClass : Class) : Set(Property)
+   = aClass.getAssociations()->select(navigableOwnedEnd->select(type <> aClass)->size() = 1).navigableOwnedEnd->select(type <> aClass)->asOrderedSet()
+/]
