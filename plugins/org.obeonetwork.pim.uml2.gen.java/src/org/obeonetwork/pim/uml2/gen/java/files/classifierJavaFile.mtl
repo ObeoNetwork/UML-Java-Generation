@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module classifierJavaFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+
+[template public genClassifierBody(aClassifier : Classifier)]
+// invalid content
+[/template]

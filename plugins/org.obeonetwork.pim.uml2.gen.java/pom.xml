@@ -15,43 +15,76 @@
   <parent>
     <groupId>org.obeonetwork.acceleo</groupId>
     <artifactId>org.obeonetwork.pim.uml2.gen.java.parent</artifactId>
-    <version>1.0.1.qualifier</version>
+    <version>2.0.0.qualifier</version>
     <relativePath>../..</relativePath>
   </parent>
 
   <artifactId>org.obeonetwork.pim.uml2.gen.java</artifactId>
-  <version>1.0.1.qualifier</version> <!-- This version should match the version of your project in the MANIFEST.MF-->
+  <version>2.0.0.qualifier</version> <!-- This version should match the version of your project in the MANIFEST.MF-->
   <packaging>eclipse-plugin</packaging>
 
   <name>Acceleo UML2 to Java Generator</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.eclipse.acceleo</groupId>
+      <artifactId>maven</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+  </dependencies>
+  
+  <repositories>
+    <repository>
+      <id>Indigo TMP Release</id>
+      <url>file://F:\Developpement\Git\org.eclipse.acceleo\maven\repository\releases\indigo</url>
+    </repository>
+    <repository>
+      <id>Indigo Release</id>
+      <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/releases/indigo</url>
+    </repository>
+	<repository>
+      <id>Juno Release</id>
+      <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/releases/juno</url>
+    </repository>
+	<repository>
+      <id>Snapshots</id>
+      <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/snapshots</url>
+    </repository>
+  </repositories>
+
   <build>
-      <plugins>
-        <plugin>  
-          <groupId>org.codehaus.mojo</groupId>  
-          <artifactId>exec-maven-plugin</artifactId>  
-          <version>1.1.1</version>  
-          <executions>  
-            <execution>  
-              <phase>compile</phase>  
-              <goals>  
-                <goal>java</goal>  
-              </goals>
-              <configuration>
-                <!--
-                   Calls the AcceleoCompiler to launch the compilation.
-                -->
-                <mainClass>org.obeonetwork.pim.uml2.gen.java.AcceleoCompiler</mainClass>  
-                <arguments>  
-                  <argument>${basedir}/src/</argument>  <!-- The source folder -->  
-                  <argument>${basedir}/target/classes</argument>  <!-- The output folder -->
-                  <argument>true</argument>  <!-- Indicates if we should use binary resources serializations -->
-                  <argument></argument>  <!-- The project dependencies in the workspace -->
-                </arguments>  
-              </configuration>  
-            </execution>  
-          </executions>  
-        </plugin>
-      </plugins>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.acceleo</groupId>
+        <artifactId>maven</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+			<goals>
+		      <goal>acceleo-compile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <useBinaryResources>false</useBinaryResources>
+          <acceleoProject>
+            <root>${project.basedir}</root>
+            <entries>
+              <entry>
+                <input>src</input>
+                <output>target/classes</output>
+              </entry>
+            </entries>
+            <jars>
+              <jar>org.eclipse.uml2:uml:4.0.0</jar>
+            </jars>
+          </acceleoProject>
+          <packagesToRegister>
+		    <packageToRegister>org.eclipse.uml2.uml.UMLPackage</packageToRegister>
+          </packagesToRegister>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

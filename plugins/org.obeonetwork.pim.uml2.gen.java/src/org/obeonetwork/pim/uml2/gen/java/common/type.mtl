@@ -1,21 +1,7 @@
 [comment encoding = UTF-8 /]
-[comment]
- * Copyright (c) 2011 Obeo
- * All rights reserved.  This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License 1.0
- * 
- * You can apply any license to the files generated with this module and Acceleo.
-[/comment]
+[module type('http://www.eclipse.org/uml2/4.0.0/UML')]
 
-[**
- * The documentation of the module type.
- * @author Stephane Begaudeau - Obeo
- */]
-[module type('http://www.eclipse.org/uml2/3.0.0/UML')/]
-
-[import org::obeonetwork::pim::uml2::gen::java::common::common /]
-[import org::obeonetwork::pim::uml2::gen::java::common::properties /]
-
+[import org::obeonetwork::pim::uml2::gen::java::properties::properties /]
 
 [template public genReturn(anOperation : Operation) post(trim())]
 [if (anOperation.ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return)-> size() > 0)]
@@ -69,7 +55,7 @@ Object
 [elseif (type.name = 'UnlimitedNatural')]
 Integer
 [else]
-[aTypedElement.type.genName().tokenize('.')->last()/]
+[aTypedElement.type.name.tokenize('.')->last()/]
 [/if]
 [/template]
 

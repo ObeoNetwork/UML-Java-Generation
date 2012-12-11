@@ -9,7 +9,7 @@
 
   <groupId>org.obeonetwork.acceleo</groupId>
   <artifactId>org.obeonetwork.pim.uml2.gen.java.parent</artifactId>
-  <version>1.0.1.qualifier</version>
+  <version>2.0.0.qualifier</version>
   <packaging>pom</packaging>
   <name>Acceleo UML2 to Java Generator Project</name>
 
@@ -38,23 +38,23 @@
 
   <properties>
     <acceleo-version>3.2.0-SNAPSHOT</acceleo-version>
-    <tycho-version>0.14.0</tycho-version>
+    <tycho-version>0.14.1</tycho-version>
     <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2</acceleo-site>
   </properties>
 
   <profiles>
     <profile>
-      <id>platform-indigo</id>
+      <id>platform-juno</id>
       <activation>
          <activeByDefault>true</activeByDefault>
         <property>
           <name>platform-version-name</name>
-          <value>indigo</value>
+          <value>juno</value>
         </property>
       </activation>
       <properties>
-        <eclipse-site>http://download.eclipse.org/releases/indigo</eclipse-site>
-        <platform-version>[3.7,3.8)</platform-version>
+        <eclipse-site>http://download.eclipse.org/releases/juno</eclipse-site>
+        <platform-version>[3.8,4.2)</platform-version>
       </properties>
     </profile>
   </profiles>
@@ -77,6 +77,18 @@
       <!-- need maven-findbugs-2.3.2-SNAPSHOT, see http://jira.codehaus.org/browse/MFINDBUGS-122 remove this when this version is released -->
       <id>codehaus.snapshots</id>
       <url>http://snapshots.repository.codehaus.org/</url>
+    </pluginRepository>
+	<pluginRepository>
+      <id>Indigo Release</id>
+      <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/releases/indigo</url>
+    </pluginRepository>
+	<pluginRepository>
+      <id>Juno Release</id>
+      <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/releases/juno</url>
+    </pluginRepository>
+	<pluginRepository>
+      <id>Snapshots</id>
+      <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/snapshots</url>
     </pluginRepository>
   </pluginRepositories>
 

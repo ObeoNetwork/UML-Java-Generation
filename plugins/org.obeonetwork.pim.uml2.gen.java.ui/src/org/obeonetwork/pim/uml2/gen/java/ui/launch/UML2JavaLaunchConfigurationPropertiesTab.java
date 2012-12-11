@@ -28,7 +28,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
-import org.obeonetwork.pim.uml2.gen.java.main.Workflow;
+import org.obeonetwork.pim.uml2.gen.java.main.Uml2java;
 import org.obeonetwork.pim.uml2.gen.java.properties.IUML2JavaPropertiesConstants;
 import org.obeonetwork.pim.uml2.gen.java.ui.UML2JavaUIActivator;
 import org.osgi.framework.Bundle;
@@ -46,10 +46,9 @@ public class UML2JavaLaunchConfigurationPropertiesTab extends AbstractLaunchConf
 	private TableViewer propertiesTableViewer;
 	
 	static {
-		bundle = AcceleoWorkspaceUtil.getBundle(Workflow.class);
+		bundle = AcceleoWorkspaceUtil.getBundle(Uml2java.class);
 		defaultProperties = new Properties();
 		defaultProperties.putAll(loadPropertiesFromBundle(IUML2JavaPropertiesConstants.DEFAULT_PROPERTIES));
-		defaultProperties.putAll(loadPropertiesFromBundle(IUML2JavaPropertiesConstants.IMPORTS_PROPERTIES));
 		defaultProperties.putAll(loadPropertiesFromBundle(IUML2JavaPropertiesConstants.TYPES_PROPERTIES));
 	}
 	

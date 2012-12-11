@@ -17,7 +17,7 @@ import java.util.List;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.obeonetwork.pim.uml2.gen.java.main.Workflow;
+import org.obeonetwork.pim.uml2.gen.java.main.Uml2java;
 
 
 /**
@@ -75,7 +75,7 @@ public class GenerateAll {
 			targetFolder.mkdirs();
 		}
 		
-		Workflow generator = new Workflow(modelURI, targetFolder, arguments);
+		Uml2java generator = new Uml2java(modelURI, targetFolder, arguments);
 		generator.doGenerate(BasicMonitor.toMonitor(monitor));
 		
 	}

@@ -1,0 +1,49 @@
+[comment encoding = UTF-8 /]
+[module classJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::classifierJavaFile]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
+[import org::obeonetwork::pim::uml2::gen::java::common::imports /]
+[import org::obeonetwork::pim::uml2::gen::java::common::path /]
+
+[template private classJavaFilePath(aClass : Class)]
+[/template]
+
+[template public genClassJavaFile(aClass : Class)]
+[file (aClass.classJavaFilePath(), false, 'UTF-8')]
+[aClass.genHeader()/]
+[aClass.genPackageDeclaration()/]
+[aClass.genImport()/]
+[aClass.genClassifierBody()/]
+[/file]
+[/template]
+
+[template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Class))]
+[let aClass : Class = aClassifier.oclAsType(Class)]
+[aClass.genJavadoc()/]
+[aClass.declaration()/]
+[aClass.attributes()/]
+[aClass.constructor()/]
+[aClass.operations()/]
+[aClass.accessors()/]
+[aClass.nestedClassifiers()/]
+[/let]
+[/template]
+
+[template private declaration(aClass : Class)]
+[/template]
+
+[template private attributes(aClass : Class)]
+[/template]
+
+[template private constructor(aClass : Class)]
+[/template]
+
+[template private operations(aClass : Class)]
+[/template]
+
+[template private accessors(aClass : Class)]
+[/template]
+
+[template private nestedClassifiers(aClass : Class)]
+[/template]
+
