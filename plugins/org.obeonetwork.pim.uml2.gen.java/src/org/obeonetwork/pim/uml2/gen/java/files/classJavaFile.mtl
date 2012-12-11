@@ -65,7 +65,7 @@
 
 [template private constructor(aClass : Class)]
 [if (ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name))->size() = 0)]
-[if (getProperty('gen.constructor') = 'true')]
+[if (getProperty('gen-Constructor') = 'true')]
 /**
  * The constructor.
  */
@@ -122,7 +122,7 @@ public [aClass.genName()/]() {
 
 [template private accessors(aProperty : Property)]
 
-[if (getProperty('gen.accessors') = 'true')]
+[if (getProperty('gen-Accessors') = 'true')]
 /**
  * Returns [aProperty.genName()/].
  * @return [aProperty.genName()/] [aProperty.genComment()/]
@@ -137,7 +137,7 @@ public [if(aProperty.isStatic)]static [/if][aProperty.genType()/] get[aProperty.
  * @param new[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
  */
 public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] new[aProperty.genName().toUpperFirst()/]) {
-[if (not aProperty.opposite.oclIsUndefined() and aProperty.upper = 1 and getProperty('gen.biDirections') = 'true' and aProperty.opposite.upper = 1)]
+[if (not aProperty.opposite.oclIsUndefined() and aProperty.upper = 1 and getProperty('gen-biDirections') = 'true' and aProperty.opposite.upper = 1)]
 	if([if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] != null) {
 		[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](null);
 	}

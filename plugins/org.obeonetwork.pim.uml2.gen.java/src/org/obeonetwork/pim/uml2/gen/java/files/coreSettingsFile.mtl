@@ -1,0 +1,16 @@
+[comment encoding = UTF-8 /]
+[module coreSettingsFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::path/]
+
+[template private coreSettingsFile(aComponent : Component)]
+[aComponent.componentPath()/]/.settings/org.eclipse.core.ressources.prefs
+[/template]
+
+[template public genCoreSettingsFile(aComponent : Component)]
+[file (aComponent.coreSettingsFile(), false, 'UTF-8')]
+eclipse.preferences.version=1
+encoding/<project>=UTF-8
+[/file]
+[/template]
+

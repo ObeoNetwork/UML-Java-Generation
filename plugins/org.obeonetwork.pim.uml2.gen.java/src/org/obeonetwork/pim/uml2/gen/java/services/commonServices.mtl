@@ -9,3 +9,6 @@
 [query public reqTime(anOclAny : OclAny) : String =
 	invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'reqTime()', Sequence{})
 /]
+
+[query public reqRefreshProject(aComponent : Component) : String = 
+	invoke('org.obeonetwork.pim.uml2.gen.java.services.RefreshWorkspace', 'addProject(org.eclipse.uml2.uml.Component)', Sequence{aComponent})/]

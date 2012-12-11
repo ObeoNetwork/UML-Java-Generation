@@ -1,0 +1,17 @@
+[comment encoding = UTF-8 /]
+[module pluginPropertiesFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::path/]
+
+[import org::obeonetwork::pim::uml2::gen::java::properties::properties /]
+
+[template private pluginPropertiesFile(aComponent : Component)]
+[aComponent.componentPath()/]/plugin.properties
+[/template]
+
+[template public genPluginPropertiesFile(aComponent : Component)]
+[file (aComponent.pluginPropertiesFile(), false, 'UTF-8')]
+Bundle-Name = [aComponent.genBundleName()/]
+Provider-Name = [aComponent.genProviderName()/]
+[/file]
+[/template]

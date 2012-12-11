@@ -3,36 +3,47 @@
 
 
 
-[template public getOrderedUniqueCollectionClass(anElement : OclAny) post(trim())]
-[anElement.getOrderedUniqueCollectionClassPath().tokenize('.')->last()/]	
+[template public genOrderedUniqueCollectionClass(anElement : OclAny) post(trim())]
+[anElement.genOrderedUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getOrderedUniqueCollectionClassPath(anElement : OclAny) post(trim())]
+[template public genOrderedUniqueCollectionClassPath(anElement : OclAny) post(trim())]
 [getProperty('tuple.ordered.unique.class')/]
 [/template]
 
-[template public getOrderedNotUniqueCollectionClass(anElement : OclAny) post(trim())]
-[anElement.getOrderedNotUniqueCollectionClassPath().tokenize('.')->last()/]	
+[template public genOrderedNotUniqueCollectionClass(anElement : OclAny) post(trim())]
+[anElement.genOrderedNotUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getOrderedNotUniqueCollectionClassPath(anElement : OclAny) post(trim())]
+[template public genOrderedNotUniqueCollectionClassPath(anElement : OclAny) post(trim())]
 [getProperty('tuple.ordered.notUnique.class')/]
 [/template]
 
-[template public getNotOrderedUniqueCollectionClass(anElement : OclAny) post(trim())]
-[anElement.getNotOrderedUniqueCollectionClassPath().tokenize('.')->last()/]	
+[template public genNotOrderedUniqueCollectionClass(anElement : OclAny) post(trim())]
+[anElement.genNotOrderedUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getNotOrderedUniqueCollectionClassPath(anElement : OclAny) post(trim())]
+[template public genNotOrderedUniqueCollectionClassPath(anElement : OclAny) post(trim())]
 [getProperty('tuple.notOrdered.unique.class')/]
 [/template]
 
-[template public getNotOrderedNotUniqueCollectionClass(anElement : OclAny) post(trim())]
-[anElement.getNotOrderedNotUniqueCollectionClassPath().tokenize('.')->last()/]	
+[template public genNotOrderedNotUniqueCollectionClass(anElement : OclAny) post(trim())]
+[anElement.genNotOrderedNotUniqueCollectionClassPath().tokenize('.')->last()/]	
 [/template]
 
-[template public getNotOrderedNotUniqueCollectionClassPath(anElement : OclAny) post(trim())]
+[template public genNotOrderedNotUniqueCollectionClassPath(anElement : OclAny) post(trim())]
 [getProperty('tuple.notOrdered.notUnique.class')/]
 [/template]
+
+[template public genBundleName(anOclAny: OclAny)]
+[getProperty('Bundle-Name')/]
+[/template]
+
+[template public genProviderName(anOclAny: OclAny)]
+[getProperty('Provider-Name')/]
+[/template]
+
+[query public reqShouldGenerateOSGi(anOclAny : OclAny) : Boolean = getProperty('Generate-OSGi-Artifacts') = 'true' /]
+
 
 [query public isArray(anElement : OclAny) : Boolean = getProperty('tuple.genArrays') = 'true' /]
