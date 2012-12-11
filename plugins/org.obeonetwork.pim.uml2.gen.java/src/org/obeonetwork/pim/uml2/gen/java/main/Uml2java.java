@@ -26,6 +26,15 @@ import org.eclipse.acceleo.engine.generation.strategy.IAcceleoGenerationStrategy
 import org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator;
 import org.eclipse.acceleo.engine.service.AcceleoService;
 import org.eclipse.acceleo.engine.utils.AcceleoEngineUtils;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.Monitor;
@@ -441,8 +450,6 @@ public class Uml2java extends AbstractAcceleoGenerator {
          * 
          * To learn more about the registration of Resource Factories, have a look at the Acceleo Launcher documentation (Help -> Help Contents). 
          */ 
-        
         resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
-    }
-    
+    }    
 }

@@ -18,11 +18,23 @@
 [import org::obeonetwork::pim::uml2::gen::java::files::enumJavaFile /]
 
 [import org::obeonetwork::pim::uml2::gen::java::files::manifestXmlFile/]
+[import org::obeonetwork::pim::uml2::gen::java::services::buildPropertiesXmlFile/]
+[import org::obeonetwork::pim::uml2::gen::java::services::classPathXmlFile/]
+[import org::obeonetwork::pim::uml2::gen::java::services::pluginPropertiesXmlFile/]
+[import org::obeonetwork::pim::uml2::gen::java::services::projectXmlFile/]
+[import org::obeonetwork::pim::uml2::gen::java::services::settingsTextFile/]
 
 [template public main(aModel : Model)]
 [comment @main /]
 [for (aComponent : Component | aModel.eAllContents(Component))]
 [aComponent.manifestXmlFile() /]
+[aComponent.buildPropertiesXmlFile() /]
+[aComponent.classPathXmlFile() /]
+[aComponent.pluginPropertiesXmlFile() /]
+[aComponent.projectXmlFile() /]
+[aComponent.settingsCoreTextFile() /]
+[aComponent.settingsJdtTextFile() /]
+[aComponent.projectName()/]
 [/for]
 [for (aType : Type | aModel.eAllContents(Package).ownedType)]
 	[if (aType.oclIsKindOf(Class))]
@@ -34,3 +46,10 @@
 	[/if]
 [/for]
 [/template]
+
+[query public name(arg : Type) : OclAny = self /]
+
+
+[query public projectName(aComponent : Component) : String = 
+	invoke('org.obeonetwork.pim.uml2.gen.java.services.RefreshWorkspace', 'addProject(org.eclipse.uml2.uml.Component)', Sequence{aComponent})/]
+

@@ -31,7 +31,7 @@ Export-Package: [for (aPort : Port | aComponent.ownedPort) separator(',' + aComp
 [/template]
 
 [template private importPackages(aComponent : Component)]
-[if (not aComponent.ownedPort.type->filter(Type).oclIsKindOf(Component)->size() > 0)]
+[if (aComponent.ownedPort.type->filter(Type).oclIsKindOf(Component)->size() > 0)]
 Import-Package: [for (aPort : Port | aComponent.ownedPort) separator(',' + aComponent.lineSeparator())][aPort.eInverse(ConnectorEnd).siblings()->filter(ConnectorEnd).role.type.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/][/for]
 [/if]
 [/template]
