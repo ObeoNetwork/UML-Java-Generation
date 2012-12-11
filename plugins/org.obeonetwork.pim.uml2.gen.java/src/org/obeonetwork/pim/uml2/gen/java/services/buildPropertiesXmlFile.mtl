@@ -1,0 +1,20 @@
+[comment encoding = UTF-8 /]
+[module buildPropertiesXmlFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::path/]
+
+[template public genBuildPropertiesXmlFile(aComponent : Component)]
+[aComponent.componentPath()/]/build.properties
+[/template]
+
+[template public buildPropertiesXmlFile(aComponent : Component)]
+[file (aComponent.genBuildPropertiesXmlFile(), false, 'UTF-8')]
+source.. = src/
+output.. = bin/
+bin.includes = META-INF/,\
+			   .,\
+			   plugin.properties
+src.includes = META-INF/,\
+			   plugin.properties
+[/file]
+[/template]
