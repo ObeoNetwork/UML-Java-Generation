@@ -1,11 +1,13 @@
 [comment encoding = UTF-8 /]
 [module classJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::classifierJavaFile]
 
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
 [import org::obeonetwork::pim::uml2::gen::java::common::imports /]
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
 
 [template private classJavaFilePath(aClass : Class)]
+[aClass.genFullPathFile().concat('.java')/]
 [/template]
 
 [template public genClassJavaFile(aClass : Class)]
@@ -20,16 +22,18 @@
 [template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Class))]
 [let aClass : Class = aClassifier.oclAsType(Class)]
 [aClass.genJavadoc()/]
-[aClass.declaration()/]
-[aClass.attributes()/]
-[aClass.constructor()/]
-[aClass.operations()/]
-[aClass.accessors()/]
-[aClass.nestedClassifiers()/]
+[aClass.declaration()/]{
+   [aClass.attributes()/]
+   [aClass.constructor()/]
+   [aClass.operations()/]
+   [aClass.accessors()/]
+   [aClass.nestedClassifiers()/]
+}
 [/let]
 [/template]
 
 [template private declaration(aClass : Class)]
+[aClass.genVisibility()/]class [aClass.genName()/] [aClass.genInheritance()/]
 [/template]
 
 [template private attributes(aClass : Class)]
@@ -39,6 +43,14 @@
 [/template]
 
 [template private operations(aClass : Class)]
+[for (anOperation : Operation | aClass.ownedOperation)]
+
+[anOperation.genMethodPrototype()/]{
+   // [protected ('- logic for '.concat(anOperation.name))]
+
+   // [/protected]
+}
+[/for]
 [/template]
 
 [template private accessors(aClass : Class)]

@@ -8,7 +8,7 @@
 [/template]
 
 [template public genMethodPrototype(anOperation : Operation)]
-[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][genReturn()/] [genName()/]([genOperationParameters()/])
+[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][genReturn()/] [genName()/]([genOperationParameters()/])[genOperationExceptions()/]
 [/template]
 
 [template public genOperationParameters(anOperation : Operation)]
@@ -17,6 +17,10 @@
 
 [template public genOperationParameter(aParameter : Parameter)]
 [aParameter.genType()/] [aParameter.genName()/]
+[/template]
+
+[template public genOperationExceptions(anOperation : Operation)]
+[if (anOperation.raisedException->size() > 0)] throws [anOperation.raisedException.genName()->sep(', ')/][/if]
 [/template]
 
 [template public genInheritance(aClassifier : Classifier)]

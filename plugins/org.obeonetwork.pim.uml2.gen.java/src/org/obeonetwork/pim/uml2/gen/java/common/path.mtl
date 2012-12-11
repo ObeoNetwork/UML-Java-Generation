@@ -2,11 +2,23 @@
 [module path('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 
+[template public genFullPathFile(aClassifier : Classifier) post (trim())]
+[if (not aClassifier.getNearestPackage().oclIsUndefined())]
+   [aClassifier.genPackagePath().substituteAll('.', '/').concat('/').concat(aClassifier.name)/]
+[else]
+   [aClassifier.name/]
+[/if]
+[/template]
+
 [template public genPackageDeclaration(aClassifier : Classifier)]
 package [aClassifier.packageDeclaration()/];
 [/template]
 
 [template private packageDeclaration(aType : Type)]
+[aType.packagePath().normalizeName()->reverse()->sep('.')/]
+[/template]
+
+[template public genPackagePath(aType : Type)]
 [aType.packagePath().normalizeName()->reverse()->sep('.')/]
 [/template]
 
