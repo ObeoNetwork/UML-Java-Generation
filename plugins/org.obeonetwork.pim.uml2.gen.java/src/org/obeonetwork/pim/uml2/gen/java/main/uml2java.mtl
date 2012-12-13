@@ -16,10 +16,41 @@
 [import org::obeonetwork::pim::uml2::gen::java::files::classJavaFile /]
 [import org::obeonetwork::pim::uml2::gen::java::files::interfaceJavaFile /]
 [import org::obeonetwork::pim::uml2::gen::java::files::enumJavaFile /]
+[import org::obeonetwork::pim::uml2::gen::java::files::manifestMFFile/]
+[import org::obeonetwork::pim::uml2::gen::java::files::pluginPropertiesFile/]
+[import org::obeonetwork::pim::uml2::gen::java::files::projectXmlFile/]
+[import org::obeonetwork::pim::uml2::gen::java::files::buildPropertiesFile/]
+[import org::obeonetwork::pim::uml2::gen::java::files::classPathXmlFile/]
+[import org::obeonetwork::pim::uml2::gen::java::files::jdtSettingsFile/]
+[import org::obeonetwork::pim::uml2::gen::java::files::coreSettingsFile/]
+
+[import org::obeonetwork::pim::uml2::gen::java::properties::properties /]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::path /]
 
 [template public main(aModel : Model)]
 [comment @main /]
+[for (aComponent : Component | aModel.eAllContents(Component))]
+[aComponent.genClassPathXmlFile() /]
+[aComponent.genProjectXmlFile() /]
+[aComponent.genCoreSettingsFile() /]
+[aComponent.genJdtSettingsFile() /]
+[if ((aComponent.reqShouldGenerateOSGi()))]
+[aComponent.genManifestMFFile() /]
+[aComponent.genBuildPropertiesFile() /]
+[aComponent.genPluginPropertiesFile() /]
+[/if]
+[aComponent.genComponentPath().reqAddProject() /]
+[/for]
+
 [for (aType : Type | aModel.eAllContents(Package).ownedType)]
+	[if (aType.ancestors(Component)->size() = 0)]
+		[aModel.genDefaultProjectName().reqCreateProject(aModel.genSourceFolderName(), aModel.genOutputFolderName())/]
+		[aModel.genDefaultProjectName().reqAddProject()/]
+	[/if]
+
 	[if (aType.oclIsKindOf(Class))]
 		[aType.oclAsType(Class).genClassJavaFile()/]
 	[elseif (aType.oclIsKindOf(Interface))]
@@ -29,3 +60,5 @@
 	[/if]
 [/for]
 [/template]
+
+

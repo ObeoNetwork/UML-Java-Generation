@@ -12,12 +12,13 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ocl,
  org.eclipse.ocl.ecore,
  org.eclipse.uml2.uml;bundle-version="4.0.0",
- org.eclipse.acceleo.model;bundle-version="3.1.2",
- org.eclipse.acceleo.engine;bundle-version="3.1.2",
- org.eclipse.acceleo.parser;bundle-version="3.1.2";resolution:=optional
+ org.eclipse.acceleo.model;bundle-version="3.3.1",
+ org.eclipse.acceleo.engine;bundle-version="3.3.1",
+ org.eclipse.core.resources;bundle-version="3.8.1"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: org.obeonetwork.pim.uml2.gen.java.main,
- org.obeonetwork.pim.uml2.gen.java.properties
+ org.obeonetwork.pim.uml2.gen.java.properties,
+ org.obeonetwork.pim.uml2.gen.java.services
 

@@ -1,0 +1,26 @@
+[comment encoding = UTF-8 /]
+[module request('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+
+[query public getOutgoingNavigableOwnedEnd(aClass : Class) : Set(Property)
+   = getSelfAssociationsNavigableOwnedEnd(aClass)
+      ->union(getOtherAssociationsNavigableOwnedEnd(aClass))->asOrderedSet()
+/]
+
+[query private getSelfAssociationsNavigableOwnedEnd(aClass : Class) : Set(Property)
+   = aClass.getAssociations()->select(ownedEnd.type->asSet()->size() = 1).navigableOwnedEnd->asOrderedSet()
+/]
+
+[query private getOtherAssociationsNavigableOwnedEnd(aClass : Class) : Set(Property)
+   = aClass.getAssociations()->select(navigableOwnedEnd->select(type <> aClass)->size() = 1).navigableOwnedEnd->select(type <> aClass)->asOrderedSet()
+/]
+
+[query public getAllInterfaces(aClass : Class) : Bag(NamedElement) = aClass.clientDependency->filter(Realization).supplier /]
+
+[**
+ * Returns all the operations of the interfaces implemented by the given class.
+ * @param aClass The class.
+ */]
+[query public getAllInterfaceOperations(aClass : Class) : Sequence(Operation) =
+	aClass.getAllInterfaces()->filter(Interface).ownedOperation->asSequence()
+/]
