@@ -22,7 +22,7 @@
 [template public genEnumJavaFile(anEnumeration : Enumeration)]
 [file (anEnumeration.enumJavaFilePath(), false, 'UTF-8')]
 [anEnumeration.genHeader()/]
-[anEnumeration.genPackageDeclaration()/]
+package [anEnumeration.genPackageDeclaration()/];
 
 [anEnumeration.genImport()/]
 

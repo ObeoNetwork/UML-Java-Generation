@@ -4,7 +4,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
 [template private coreSettingsFile(aComponent : Component)]
-[aComponent.componentPath()/]/.settings/org.eclipse.core.ressources.prefs
+[aComponent.genComponentPath()/]/.settings/org.eclipse.core.ressources.prefs
 [/template]
 
 [template public genCoreSettingsFile(aComponent : Component)]

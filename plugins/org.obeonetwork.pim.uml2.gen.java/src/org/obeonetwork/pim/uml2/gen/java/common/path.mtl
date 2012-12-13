@@ -1,20 +1,17 @@
 [comment encoding = UTF-8 /]
 [module path('http://www.eclipse.org/uml2/4.0.0/UML')]
 
+[import org::obeonetwork::pim::uml2::gen::java::properties::properties/]
 
-[template public genPackageDeclaration(aClassifier : Classifier)]
-package [aClassifier.packageDeclaration()/];
-[/template]
-
-[template private packageDeclaration(aType : Type)]
+[template public genPackageDeclaration(aType : Type)]
 [aType.packagePath().normalizeName()->reverse()->sep('.')/]
 [/template]
 
 [template public genPackagePath(aClassifier : Classifier)]
-[if (aClassifier.ancestors(Component)->first().componentPath().size() > 0)][aClassifier.ancestors(Component)->first().componentPath()/]/src/[/if][aClassifier.packageDeclaration().substituteAll('.', '/').concat('/')/]
+[if (aClassifier.ancestors(Component)->size() > 0)][aClassifier.ancestors(Component)->first().genComponentPath()/][else][aClassifier.genDefaultProjectName()/][/if]/[aClassifier.genSourceFolderName()/]/[aClassifier.genPackageDeclaration().substituteAll('.', '/').concat('/')/]
 [/template]
 
-[template public componentPath(aComponent : Component)]
+[template public genComponentPath(aComponent : Component)]
 [aComponent.name/]
 [/template]
 

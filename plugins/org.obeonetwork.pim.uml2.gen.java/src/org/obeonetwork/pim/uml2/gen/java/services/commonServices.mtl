@@ -1,6 +1,7 @@
 [comment encoding = UTF-8 /]
 [module commonServices('http://www.eclipse.org/uml2/4.0.0/UML')]
 
+[import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
 [query public reqDate(anOclAny : OclAny) : String =
 	invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'reqDate()', Sequence{})
@@ -10,5 +11,10 @@
 	invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'reqTime()', Sequence{})
 /]
 
-[query public reqRefreshProject(aComponent : Component) : String = 
-	invoke('org.obeonetwork.pim.uml2.gen.java.services.RefreshWorkspace', 'addProject(org.eclipse.uml2.uml.Component)', Sequence{aComponent})/]
+[query public reqAddProject(aString : String) : OclVoid = 
+	invoke('org.obeonetwork.pim.uml2.gen.java.services.RefreshWorkspace', 'addProject(java.lang.String)', Sequence{aString})
+/]
+
+[query public reqCreateProject(projectName : String, sourceFolderName: String, outputFolderName: String) : OclVoid = 
+	invoke('org.obeonetwork.pim.uml2.gen.java.services.RefreshWorkspace', 'createProject(java.lang.String, java.lang.String, java.lang.String)', Sequence{projectName, sourceFolderName, outputFolderName})
+/]

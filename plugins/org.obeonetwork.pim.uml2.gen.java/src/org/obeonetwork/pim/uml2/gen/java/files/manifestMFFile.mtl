@@ -5,7 +5,7 @@
 
 
 [template private  manifestMFFile(aComponent : Component)]
-[aComponent.componentPath()/]/META-INF/MANIFEST.MF
+[aComponent.genComponentPath()/]/META-INF/MANIFEST.MF
 [/template]
 
 [template public genManifestMFFile(aComponent : Component)]
@@ -13,31 +13,31 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: [aComponent.componentPath()/]
+Bundle-SymbolicName: [aComponent.genComponentPath()/]
 Bundle-Version: 2.0.0.qualifier
 Bundle-Vendor: %Provider-Name
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 [aComponent.exportPackages()/]
+[if (aComponent.ownedPort.type->filter(Type).oclIsKindOf(Component)->size() > 0)]
 [aComponent.importPackages()/]
+[/if]
+[if (aComponent.ownedPort.type->filter(Component)->size() > 0)]
 [aComponent.requireBundles()/]
+[/if]
 
 [/file]
 [/template]
 
 [template private exportPackages(aComponent : Component)]
-Export-Package: [for (aPort : Port | aComponent.ownedPort) separator(',' + aComponent.lineSeparator())][aPort.type.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/][/for]
+[for (aPort : Port | aComponent.ownedPort) separator(',' + aComponent.lineSeparator())][if (i = 1)]Export-Package:[/if] [aPort.type.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/][/for]
 [/template]
 
 [template private importPackages(aComponent : Component)]
-[if (aComponent.ownedPort.type->filter(Type).oclIsKindOf(Component)->size() > 0)]
-Import-Package: [for (aPort : Port | aComponent.ownedPort) separator(',' + aComponent.lineSeparator())][aPort.eInverse(ConnectorEnd).siblings()->filter(ConnectorEnd).role.type.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/][/for]
-[/if]
+[for (aConnectorEnd : ConnectorEnd | aComponent.ownedPort.eInverse(ConnectorEnd).siblings()->filter(ConnectorEnd)) separator(',' + aComponent.lineSeparator())][if (i = 1)]Import-Package:[/if] [aConnectorEnd.role.type.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/][/for]
 [/template]
 
 [template private requireBundles(aComponent : Component)]
-[if (aComponent.ownedPort.type->filter(Component)->size() > 0)]
-Require-Bundle: [for (aPort : Port | aComponent.ownedPort) separator(',' + aComponent.lineSeparator())][aPort.eInverse(ConnectorEnd).siblings()->filter(ConnectorEnd).role.type.ancestors(Component)->reject(oclIsKindOf(Model)).name/][/for]
-[/if]
+[for (aComponent : Component | aComponent.ownedPort.eInverse(ConnectorEnd).siblings()->filter(ConnectorEnd).role.type->asOrderedSet().ancestors(Component)->first()) separator(',' + aComponent.lineSeparator())][if (i = 1)]Require-Bundle:[/if] [aComponent.name/][/for]
 [/template]

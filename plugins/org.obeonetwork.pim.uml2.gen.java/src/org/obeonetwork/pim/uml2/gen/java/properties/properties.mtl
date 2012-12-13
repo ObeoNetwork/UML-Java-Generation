@@ -43,7 +43,18 @@
 [getProperty('Provider-Name')/]
 [/template]
 
-[query public reqShouldGenerateOSGi(anOclAny : OclAny) : Boolean = getProperty('Generate-OSGi-Artifacts') = 'true' /]
+[template public genSourceFolderName(anOclAny: OclAny)]
+[getProperty('Taget-Class-Generation-Folder')/]
+[/template]
 
+[template public genOutputFolderName(anOclAny: OclAny)]
+[getProperty('Target-Bin-Folder')/]
+[/template]
+
+[template public genDefaultProjectName(anOclAny: OclAny)]
+[getProperty('Project-Name')/]
+[/template]
+
+[query public reqShouldGenerateOSGi(anOclAny : OclAny) : Boolean = getProperty('Generate-OSGi-Artifacts') = 'true' /]
 
 [query public isArray(anElement : OclAny) : Boolean = getProperty('tuple.genArrays') = 'true' /]

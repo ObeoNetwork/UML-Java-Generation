@@ -26,7 +26,7 @@
 [template public genClassJavaFile(aClass : Class)]
 [file (aClass.classJavaFilePath(), false, 'UTF-8')]
 [aClass.genHeader()/]
-[aClass.genPackageDeclaration()/]
+package [aClass.genPackageDeclaration()/];
 
 [aClass.genImport()/]
 
@@ -65,7 +65,7 @@
 
 [template private constructor(aClass : Class)]
 [if (ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name))->size() = 0)]
-[if (getProperty('gen-Constructor') = 'true')]
+[if (getProperty('gen-Constructor') = 'true' and(not(aClass.isAbstract)))]
 /**
  * The constructor.
  */
@@ -75,7 +75,7 @@ public [aClass.genName()/]() {
 	// [/protected]
 }
 [/if]
-[else]
+[elseif (not(aClass.isAbstract))]
 [for (aConstructor : Operation | ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name)))]
 /**
  * The constructor.

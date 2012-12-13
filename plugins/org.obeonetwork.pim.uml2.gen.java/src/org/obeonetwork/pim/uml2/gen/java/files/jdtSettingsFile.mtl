@@ -4,7 +4,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
 [template private jdtSettingsFile(aComponent : Component)]
-[aComponent.componentPath()/]/.settings/org.eclipse.jdt.ressources.prefs
+[aComponent.genComponentPath()/]/.settings/org.eclipse.jdt.ressources.prefs
 [/template]
 
 [template public genJdtSettingsFile(aComponent : Component)]

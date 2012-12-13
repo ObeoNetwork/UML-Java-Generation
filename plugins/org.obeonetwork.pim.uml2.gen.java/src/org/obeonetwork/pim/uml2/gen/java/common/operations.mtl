@@ -30,8 +30,8 @@
 [template public genInheritedOperationComment(anOperation : Operation)]
 /**
  * {@inheritDoc}
-[if(anOperation.eContainer().oclIsKindOf(Interface))]
- * @see [anOperation.eContainer().oclAsType(Interface).genPackagePath()/].[anOperation.eContainer().oclAsType(Interface).name/]
+[if(anOperation.eContainer().oclIsKindOf(Classifier))]
+ * @see [anOperation.eContainer().oclAsType(Classifier).genPackageDeclaration()/].[anOperation.eContainer().oclAsType(Classifier).name/]
 [/if]
  *
 [for (parameter : Parameter | anOperation.ownedParameter->select(param : Parameter | not (param.direction = ParameterDirectionKind::return)))]

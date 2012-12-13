@@ -5,7 +5,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::properties::properties /]
 
 [template private classPathXmlFile(aComponent : Component)]
-[aComponent.componentPath()/]/.classpath
+[aComponent.genComponentPath()/]/.classpath
 [/template]
 
 [template public genClassPathXmlFile(aComponent : Component)]
@@ -16,8 +16,8 @@
 [if (aComponent.reqShouldGenerateOSGi())]
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 [/if]
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="[aComponent.genSourceFolderName()/]"/>
+	<classpathentry kind="output" path="[aComponent.genOutputFolderName()/]"/>
 </classpath>
 [/file]
 [/template]

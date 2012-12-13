@@ -5,7 +5,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::properties::properties /]
 
 [template private projectXmlFile(aComponent : Component)]
-[aComponent.componentPath()/]/.project
+[aComponent.genComponentPath()/]/.project
 [/template]
 
 [template public genProjectXmlFile(aComponent : Component)]
