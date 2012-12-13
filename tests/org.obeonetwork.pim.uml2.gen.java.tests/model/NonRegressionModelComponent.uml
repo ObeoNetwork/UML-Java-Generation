@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_tQW_0XASEeCrvt1hzG-phQ" name="model">
+  <packagedElement xmi:type="uml:Class" xmi:id="_KJTMgEVAEeKwt55KLWMfog" name="IOException"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Ks7eAEVAEeKwt55KLWMfog" name="IllegalAccessException"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_K9QZAEVAEeKwt55KLWMfog" name="OtherException"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_C4jQQHATEeCrvt1hzG-phQ" name="OutOfAnyPackages"/>
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_9YxLkHDHEeCl5bNajorhng" name="Date"/>
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-bhpEHDHEeCl5bNajorhng" name="String"/>
@@ -290,6 +293,12 @@
                         <ownedOperation xmi:id="_puWDgF8FEeGlht6TS2odLw" name="voidReturningMethodWithParameters">
                           <ownedParameter xmi:id="_ttARcF8FEeGlht6TS2odLw" name="param" type="_-bhpEHDHEeCl5bNajorhng"/>
                         </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_Y_ndUUU8EeKwt55KLWMfog" name="MethodException">
+                        <ownedOperation xmi:id="_lKdpkEU8EeKwt55KLWMfog" name="exceptionMethod" raisedException="_KJTMgEVAEeKwt55KLWMfog"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="__7nF8EU-EeKwt55KLWMfog" name="MultipleMethodException">
+                        <ownedOperation xmi:id="_FIqZoEU_EeKwt55KLWMfog" name="multipleExceptionMethod" raisedException="_KJTMgEVAEeKwt55KLWMfog _Ks7eAEVAEeKwt55KLWMfog _K9QZAEVAEeKwt55KLWMfog"/>
                       </packagedElement>
                     </packagedElement>
                     <packagedElement xmi:type="uml:Package" xmi:id="_-uaOQHAWEeCrvt1hzG-phQ" name="nested">
