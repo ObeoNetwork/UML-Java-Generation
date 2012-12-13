@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_tQW_0XASEeCrvt1hzG-phQ" name="model">
+  <packagedElement xmi:type="uml:Class" xmi:id="_C4jQQHATEeCrvt1hzG-phQ" name="OutOfAnyPackages"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_9YxLkHDHEeCl5bNajorhng" name="Date"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-bhpEHDHEeCl5bNajorhng" name="String"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-gPxAHDHEeCl5bNajorhng" name="Integer"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-k_HEHDHEeCl5bNajorhng" name="Boolean"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_BrMqEHDIEeCl5bNajorhng" name="Byte"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_D4MGEHDIEeCl5bNajorhng" name="Float"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_RTCG8CpzEeKgpLBx9NlQYg" name="org.obeonetwork.pim.uml2.gen.java.tests.enumeration">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_x7EToCp0EeKgpLBx9NlQYg" name="" type="_4X3qUHATEeCrvt1hzG-phQ"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_nnK3YCpzEeKgpLBx9NlQYg" name="org">
+      <packagedElement xmi:type="uml:Package" xmi:id="_qBlrYCpzEeKgpLBx9NlQYg" name="obeonetwork">
+        <packagedElement xmi:type="uml:Package" xmi:id="_rLDN0CpzEeKgpLBx9NlQYg" name="pim">
+          <packagedElement xmi:type="uml:Package" xmi:id="_sCvq0CpzEeKgpLBx9NlQYg" name="uml2">
+            <packagedElement xmi:type="uml:Package" xmi:id="_tUYR0CpzEeKgpLBx9NlQYg" name="gen">
+              <packagedElement xmi:type="uml:Package" xmi:id="_1KZL0CpzEeKgpLBx9NlQYg" name="java">
+                <packagedElement xmi:type="uml:Package" xmi:id="_2LPk0CpzEeKgpLBx9NlQYg" name="tests">
+                  <packagedElement xmi:type="uml:Package" xmi:id="_SXdOQHATEeCrvt1hzG-phQ" name="enumeration">
+                    <packagedElement xmi:type="uml:Package" xmi:id="_eKnTQHATEeCrvt1hzG-phQ" name="enumerationliterals">
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_zAxCwHATEeCrvt1hzG-phQ" name="SingleLiteralEnumeration">
+                        <ownedLiteral xmi:id="_C_9qYHAUEeCrvt1hzG-phQ" name="firstLiteral"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_2E6wQHATEeCrvt1hzG-phQ" name="MultipleLiteralsEnumeration">
+                        <ownedLiteral xmi:id="_sajuUHAUEeCrvt1hzG-phQ" name="firstLiteral"/>
+                        <ownedLiteral xmi:id="_uBnywHAUEeCrvt1hzG-phQ" name="secondLiteral"/>
+                        <ownedLiteral xmi:id="_vMxXQHAUEeCrvt1hzG-phQ" name="thirdLiteral"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_4X3DQHATEeCrvt1hzG-phQ" name="SingleCommentedLiteralEnumeration">
+                        <ownedComment xmi:id="_0mtQYHAUEeCrvt1hzG-phQ" annotatedElement="_4X3DQHATEeCrvt1hzG-phQ">
+                          <body>This is the comment of SingleCommentedLiteralEnumeration.</body>
+                        </ownedComment>
+                        <ownedLiteral xmi:id="_wo7zQHAUEeCrvt1hzG-phQ" name="firstLiteral">
+                          <ownedComment xmi:id="_cPmtMHAVEeCrvt1hzG-phQ" annotatedElement="_wo7zQHAUEeCrvt1hzG-phQ">
+                            <body>The comment of the first literal of SingleCommentedLiteralEnumeration.</body>
+                          </ownedComment>
+                        </ownedLiteral>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_4X3qUHATEeCrvt1hzG-phQ" name="MultipleCommentedLiteralsEnumeration">
+                        <ownedComment xmi:id="_EEJ10HAVEeCrvt1hzG-phQ" annotatedElement="_4X3qUHATEeCrvt1hzG-phQ">
+                          <body>The comment of MultipleCommentedLiteralsEnumeration.</body>
+                        </ownedComment>
+                        <ownedLiteral xmi:id="_xDzKUHAUEeCrvt1hzG-phQ" name="firstLiteral">
+                          <ownedComment xmi:id="_JRVsYHAVEeCrvt1hzG-phQ" annotatedElement="_sajuUHAUEeCrvt1hzG-phQ">
+                            <body>The comment of the first literal of MultipleCommentedLiteralsEnumeration.</body>
+                          </ownedComment>
+                        </ownedLiteral>
+                        <ownedLiteral xmi:id="_xDzxYHAUEeCrvt1hzG-phQ" name="secondLiteral">
+                          <ownedComment xmi:id="_PjF-UHAVEeCrvt1hzG-phQ" annotatedElement="_xDzxYHAUEeCrvt1hzG-phQ">
+                            <body>The comment of the second literal of MultipleCommentedLiteralsEnumeration.</body>
+                          </ownedComment>
+                        </ownedLiteral>
+                        <ownedLiteral xmi:id="_xDzxYXAUEeCrvt1hzG-phQ" name="thirdLiteral">
+                          <ownedComment xmi:id="_VEOEkHAVEeCrvt1hzG-phQ" annotatedElement="_xDzxYXAUEeCrvt1hzG-phQ">
+                            <body>The comment of the third literal of MultipleCommentedLiteralsEnumeration.</body>
+                          </ownedComment>
+                        </ownedLiteral>
+                      </packagedElement>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_lnOj4HAVEeCrvt1hzG-phQ" name="CommentedEnumeration">
+                      <ownedComment xmi:id="_nievoHAVEeCrvt1hzG-phQ" annotatedElement="_lnOj4HAVEeCrvt1hzG-phQ">
+                        <body>The comment of CommentedEnumeration.</body>
+                      </ownedComment>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_5fGGMHAVEeCrvt1hzG-phQ" name="EmptyEnumeration"/>
+                    <packagedElement xmi:type="uml:Package" xmi:id="_w6QCMHATEeCrvt1hzG-phQ" name="visibility">
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_k9qUYHATEeCrvt1hzG-phQ" name="EmptyPublicEnumeration"/>
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_r9yvQHATEeCrvt1hzG-phQ" name="EmptyPrivateEnumeration" visibility="private"/>
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_tRZsMHATEeCrvt1hzG-phQ" name="EmptyProtectedEnumeration" visibility="protected"/>
+                      <packagedElement xmi:type="uml:Enumeration" xmi:id="_u4aGQHATEeCrvt1hzG-phQ" name="EmptyPackageEnumeration" visibility="package"/>
+                    </packagedElement>
+                  </packagedElement>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_91ukQCpzEeKgpLBx9NlQYg" name="org.obeonetwork.pim.uml2.gen.java.tests.classes">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_yufUoCp0EeKgpLBx9NlQYg" name="" type="_aadCwHFwEeCSi7MPGob3tQ"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_AjhnQCp0EeKgpLBx9NlQYg" name="org">
+      <packagedElement xmi:type="uml:Package" xmi:id="_BWkNwCp0EeKgpLBx9NlQYg" name="obeonetwork">
+        <packagedElement xmi:type="uml:Package" xmi:id="_CpktwCp0EeKgpLBx9NlQYg" name="pim">
+          <packagedElement xmi:type="uml:Package" xmi:id="_DcYqwCp0EeKgpLBx9NlQYg" name="uml2">
+            <packagedElement xmi:type="uml:Package" xmi:id="_EK7LwCp0EeKgpLBx9NlQYg" name="gen">
+              <packagedElement xmi:type="uml:Package" xmi:id="_E9bmwCp0EeKgpLBx9NlQYg" name="java">
+                <packagedElement xmi:type="uml:Package" xmi:id="_GpT5wCp0EeKgpLBx9NlQYg" name="tests">
+                  <packagedElement xmi:type="uml:Package" xmi:id="_P8u4QHATEeCrvt1hzG-phQ" name="classes">
+                    <packagedElement xmi:type="uml:Package" xmi:id="_Ln9QYHATEeCrvt1hzG-phQ" name="properties">
+                      <packagedElement xmi:type="uml:Class" xmi:id="_XcYowHFoEeCpIZ35inDZ5w" name="SinglePropertyClass">
+                        <ownedAttribute xmi:id="_1wdEMHFoEeCpIZ35inDZ5w" name="firstProperty" type="_BrMqEHDIEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_aIV4sHFoEeCpIZ35inDZ5w" name="MultiplePropertiesClass">
+                        <ownedAttribute xmi:id="_2MI6oHFoEeCpIZ35inDZ5w" name="firstProperty" type="_9YxLkHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_3I4PsHFoEeCpIZ35inDZ5w" name="secondProperty" type="_-gPxAHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_3PSZsHFoEeCpIZ35inDZ5w" name="thirdProperty" type="_D4MGEHDIEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_aNh6sHFoEeCpIZ35inDZ5w" name="SingleCommentedPropertyClass">
+                        <ownedComment xmi:id="_w0MwIHFpEeCpIZ35inDZ5w" annotatedElement="_aNh6sHFoEeCpIZ35inDZ5w">
+                          <body>The comment of SingleCommentedPropertyClass.</body>
+                        </ownedComment>
+                        <ownedAttribute xmi:id="_3h5zsHFoEeCpIZ35inDZ5w" name="firstProperty" type="_BrMqEHDIEeCl5bNajorhng">
+                          <ownedComment xmi:id="_xHgGoHFpEeCpIZ35inDZ5w" annotatedElement="_3h5zsHFoEeCpIZ35inDZ5w">
+                            <body>The comment of the first property of SingleCommentedPropertyClass.</body>
+                          </ownedComment>
+                        </ownedAttribute>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_aSQCoHFoEeCpIZ35inDZ5w" name="MultipleCommentedPropertiesClass">
+                        <ownedComment xmi:id="_xQzzoHFpEeCpIZ35inDZ5w" annotatedElement="_aSQCoHFoEeCpIZ35inDZ5w">
+                          <body>The comment of MultipleCommentedPropertiesClass.</body>
+                        </ownedComment>
+                        <ownedAttribute xmi:id="_3tzhsHFoEeCpIZ35inDZ5w" name="firstProperty" type="_-k_HEHDHEeCl5bNajorhng">
+                          <ownedComment xmi:id="_xonPoHFpEeCpIZ35inDZ5w" annotatedElement="_3tzhsHFoEeCpIZ35inDZ5w">
+                            <body>The comment of the first property of MultipleCommentedPropertiesClass.</body>
+                          </ownedComment>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="_3z6JsHFoEeCpIZ35inDZ5w" name="secondProperty" type="_-bhpEHDHEeCl5bNajorhng">
+                          <ownedComment xmi:id="_xhIuoHFpEeCpIZ35inDZ5w" annotatedElement="_3z6JsHFoEeCpIZ35inDZ5w">
+                            <body>The comment of the second property of MultipleCommentedPropertiesClass.</body>
+                          </ownedComment>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="_36AxsHFoEeCpIZ35inDZ5w" name="thirdProperty" type="_-bhpEHDHEeCl5bNajorhng">
+                          <ownedComment xmi:id="_xaHgoHFpEeCpIZ35inDZ5w" annotatedElement="_36AxsHFoEeCpIZ35inDZ5w">
+                            <body>The comment of the third property of MultipleCommentedPropertiesClass.</body>
+                          </ownedComment>
+                        </ownedAttribute>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_aW_YsHFoEeCpIZ35inDZ5w" name="VisibilityPropertiesClass">
+                        <ownedAttribute xmi:id="_4IM-sHFoEeCpIZ35inDZ5w" name="publicProperty" type="_-k_HEHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_4XAPsHFoEeCpIZ35inDZ5w" name="privateProperty" visibility="private" type="_9YxLkHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_4dQosHFoEeCpIZ35inDZ5w" name="protectedProperty" visibility="protected" type="_-gPxAHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_4lf-sHFoEeCpIZ35inDZ5w" name="packageProperty" visibility="package" type="_-gPxAHDHEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_al7zoHFoEeCpIZ35inDZ5w" name="FinalPropertyClass">
+                        <ownedAttribute xmi:id="_4vuRsHFoEeCpIZ35inDZ5w" name="finalProperty" isLeaf="true" type="_-bhpEHDHEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_jcMpsHFoEeCpIZ35inDZ5w" name="StaticPropertyClass">
+                        <ownedAttribute xmi:id="_46QGsHFoEeCpIZ35inDZ5w" name="staticProperty" isStatic="true" type="_-k_HEHDHEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_jmuesHFoEeCpIZ35inDZ5w" name="CardinalityPropertiesClass">
+                        <ownedAttribute xmi:id="_5EK3sHFoEeCpIZ35inDZ5w" name="orderedUniqueProperty" type="_-k_HEHDHEeCl5bNajorhng" isOrdered="true">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WoHdwHFpEeCpIZ35inDZ5w" value="*"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="_5KHusHFoEeCpIZ35inDZ5w" name="notOrderedUniqueProperty" type="_9YxLkHDHEeCl5bNajorhng">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_X_sUsHFpEeCpIZ35inDZ5w" value="*"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="_5Q1asHFoEeCpIZ35inDZ5w" name="notOrderedNotUniqueProperty" type="_-gPxAHDHEeCl5bNajorhng" isUnique="false">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bDnYsHFpEeCpIZ35inDZ5w" value="*"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="_5iX2oHFoEeCpIZ35inDZ5w" name="orderedNotUniqueProperty" type="_-bhpEHDHEeCl5bNajorhng" isOrdered="true" isUnique="false">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dWjrsHFpEeCpIZ35inDZ5w" value="*"/>
+                        </ownedAttribute>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_kO21sHFoEeCpIZ35inDZ5w" name="TypePropertiesClass">
+                        <ownedAttribute xmi:id="_56y9sHFoEeCpIZ35inDZ5w" name="booleanProperty" type="_-k_HEHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_6CQ3oHFoEeCpIZ35inDZ5w" name="byteProperty" type="_BrMqEHDIEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_6JSFoHFoEeCpIZ35inDZ5w" name="dateProperty" type="_9YxLkHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_6Q6-sHFoEeCpIZ35inDZ5w" name="floatProperty" type="_D4MGEHDIEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_6XUhoHFoEeCpIZ35inDZ5w" name="integerProperty" type="_-gPxAHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_6e9asHFoEeCpIZ35inDZ5w" name="stringProperty" type="_-bhpEHDHEeCl5bNajorhng"/>
+                      </packagedElement>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Package" xmi:id="_Ziht0HATEeCrvt1hzG-phQ" name="methods">
+                      <packagedElement xmi:type="uml:Package" xmi:id="_ZC5uUHDeEeCl5bNajorhng" name="parameters"/>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_ZKeooHFwEeCSi7MPGob3tQ" name="SingleMethodClass">
+                        <ownedOperation xmi:id="_y60aMHFwEeCSi7MPGob3tQ" name="firstMethod">
+                          <ownedParameter xmi:id="_8HuOoHFwEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_aadCwHFwEeCSi7MPGob3tQ" name="MultipleMethodsClass">
+                        <ownedOperation xmi:id="_zSZMsHFwEeCSi7MPGob3tQ" name="firstMethod">
+                          <ownedParameter xmi:id="_9xSNcHFwEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_zb2DoHFwEeCSi7MPGob3tQ" name="secondMethod">
+                          <ownedParameter xmi:id="__BHdoHFwEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_zhVnoHFwEeCSi7MPGob3tQ" name="thirdMethod">
+                          <ownedParameter xmi:id="_BCe4cHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_ahUfwHFwEeCSi7MPGob3tQ" name="SingleCommentedMethodClass">
+                        <ownedComment xmi:id="_UDn_YXF3EeC-ka_BthtsLw" annotatedElement="_ahUfwHFwEeCSi7MPGob3tQ">
+                          <body>The comment of SingleCommentedMethodClass.</body>
+                        </ownedComment>
+                        <ownedOperation xmi:id="_zp0OMHFwEeCSi7MPGob3tQ" name="firstMethod">
+                          <ownedComment xmi:id="_Uf5rsHF3EeC-ka_BthtsLw" annotatedElement="_zp0OMHFwEeCSi7MPGob3tQ">
+                            <body>The comment of the first method of SingleCommentedMethodClass.</body>
+                          </ownedComment>
+                          <ownedParameter xmi:id="_C_ZREHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_apGiwHFwEeCSi7MPGob3tQ" name="MultipleCommentedMethodsClass">
+                        <ownedComment xmi:id="_VSQVsHF3EeC-ka_BthtsLw" annotatedElement="_apGiwHFwEeCSi7MPGob3tQ">
+                          <body>The comment of MultipleCommentedMethodsClass.</body>
+                        </ownedComment>
+                        <ownedOperation xmi:id="_zywu0HFwEeCSi7MPGob3tQ" name="firstMethod">
+                          <ownedComment xmi:id="_VndwsHF3EeC-ka_BthtsLw" annotatedElement="_zywu0HFwEeCSi7MPGob3tQ">
+                            <body>The comment of the first method of MultipleCommentedMethodsClass.</body>
+                          </ownedComment>
+                          <ownedParameter xmi:id="_EapHEHFxEeCSi7MPGob3tQ" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_z5dMsHFwEeCSi7MPGob3tQ" name="secondMethod">
+                          <ownedComment xmi:id="_VhENwHF3EeC-ka_BthtsLw" annotatedElement="_z5dMsHFwEeCSi7MPGob3tQ">
+                            <body>The comment of the second method of MultipleCommentedMethodsClass.</body>
+                          </ownedComment>
+                          <ownedParameter xmi:id="_FiccoHFxEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_0ABHsHFwEeCSi7MPGob3tQ" name="thirdMethod">
+                          <ownedComment xmi:id="_Va8-sHF3EeC-ka_BthtsLw" annotatedElement="_0ABHsHFwEeCSi7MPGob3tQ">
+                            <body>The comment of the third method of MultipleCommentedMethodsClass.</body>
+                          </ownedComment>
+                          <ownedParameter xmi:id="_HPU1MHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_bF8PwHFwEeCSi7MPGob3tQ" name="VisibilityMethodsClass">
+                        <ownedOperation xmi:id="_0I3hsHFwEeCSi7MPGob3tQ" name="publicMethod">
+                          <ownedParameter xmi:id="_I0_LcHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_0OWeoHFwEeCSi7MPGob3tQ" name="privateMethod" visibility="private">
+                          <ownedParameter xmi:id="_JcwWEHFxEeCSi7MPGob3tQ" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_0TjHsHFwEeCSi7MPGob3tQ" name="protectedMethod" visibility="protected">
+                          <ownedParameter xmi:id="_OyXv4HFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_0ZpIoHFwEeCSi7MPGob3tQ" name="packageMethod" visibility="package">
+                          <ownedParameter xmi:id="_Nuep8HFxEeCSi7MPGob3tQ" type="_D4MGEHDIEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_bF820HFwEeCSi7MPGob3tQ" name="TypeMethodsClass">
+                        <ownedOperation xmi:id="_02y-sHFwEeCSi7MPGob3tQ" name="booleanMethod">
+                          <ownedParameter xmi:id="_U0bY8HFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_08bsoHFwEeCSi7MPGob3tQ" name="byteMethod">
+                          <ownedParameter xmi:id="_ViAQoHFxEeCSi7MPGob3tQ" type="_BrMqEHDIEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_1CFBoHFwEeCSi7MPGob3tQ" name="dateMethod">
+                          <ownedParameter xmi:id="_XEzgIHFxEeCSi7MPGob3tQ" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_1Ha0oHFwEeCSi7MPGob3tQ" name="floatMethod">
+                          <ownedParameter xmi:id="_YXeo8HFxEeCSi7MPGob3tQ" type="_D4MGEHDIEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_1MdssHFwEeCSi7MPGob3tQ" name="integerMethod">
+                          <ownedParameter xmi:id="_Zk3CEHFxEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_1R8poHFwEeCSi7MPGob3tQ" name="stringMethod">
+                          <ownedParameter xmi:id="_bRRgkHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_bF820XFwEeCSi7MPGob3tQ" name="StaticMethodClass">
+                        <ownedOperation xmi:id="_18_KsHFwEeCSi7MPGob3tQ" name="staticMethod" isStatic="true">
+                          <ownedParameter xmi:id="_gyJIIHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_bF9d4HFwEeCSi7MPGob3tQ" name="FinalMethodClass">
+                        <ownedOperation xmi:id="_2GwKsHFwEeCSi7MPGob3tQ" name="finalMethod" isLeaf="true">
+                          <ownedParameter xmi:id="_hom2EHFxEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_nzYLsHFwEeCSi7MPGob3tQ" name="AbstractMethodClass" isAbstract="true">
+                        <ownedOperation xmi:id="_2PczsHFwEeCSi7MPGob3tQ" name="abstractMethod" isAbstract="true">
+                          <ownedParameter xmi:id="_kDVMEHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_n58GsHFwEeCSi7MPGob3tQ" name="CardinalityMethodsClass">
+                        <ownedOperation xmi:id="_2mL4sHFwEeCSi7MPGob3tQ" name="orderedUniqueMethod">
+                          <ownedParameter xmi:id="_njfgIHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" isOrdered="true" direction="return">
+                            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n6UrwHFxEeCSi7MPGob3tQ" value="*"/>
+                          </ownedParameter>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_2t0KsHFwEeCSi7MPGob3tQ" name="notOrderedUniqueMethod">
+                          <ownedParameter xmi:id="_p21bwHFxEeCSi7MPGob3tQ" type="_-gPxAHDHEeCl5bNajorhng" direction="return">
+                            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p22C0HFxEeCSi7MPGob3tQ" value="*"/>
+                          </ownedParameter>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_22qksHFwEeCSi7MPGob3tQ" name="notOrderedNotUniqueMethod">
+                          <ownedParameter xmi:id="_sDECwHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" isUnique="false" direction="return">
+                            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sDEp0HFxEeCSi7MPGob3tQ" value="*"/>
+                          </ownedParameter>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_3JR-sHFwEeCSi7MPGob3tQ" name="orderedNotUniqueMethod">
+                          <ownedParameter xmi:id="_vrwnwHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" isOrdered="true" isUnique="false" direction="return">
+                            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vrwnwXFxEeCSi7MPGob3tQ" value="*"/>
+                          </ownedParameter>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_hw8IEV8FEeGlht6TS2odLw" name="VoidReturningMethodsClass">
+                        <ownedOperation xmi:id="_lRGcIF8FEeGlht6TS2odLw" name="voidReturningMethod"/>
+                        <ownedOperation xmi:id="_puWDgF8FEeGlht6TS2odLw" name="voidReturningMethodWithParameters">
+                          <ownedParameter xmi:id="_ttARcF8FEeGlht6TS2odLw" name="param" type="_-bhpEHDHEeCl5bNajorhng"/>
+                        </ownedOperation>
+                      </packagedElement>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Package" xmi:id="_-uaOQHAWEeCrvt1hzG-phQ" name="nested">
+                      <packagedElement xmi:type="uml:Class" xmi:id="_maIrUF8GEeGlht6TS2odLw" name="SimpleClassWithSimpleNestedClass">
+                        <nestedClassifier xmi:type="uml:Class" xmi:id="_qevwQF8GEeGlht6TS2odLw" name="SimpleNestedClass"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_TqYLIF8HEeGlht6TS2odLw" name="SimpleClassWithSimpleNestedInterface">
+                        <nestedClassifier xmi:type="uml:Interface" xmi:id="_ZZRnoF8HEeGlht6TS2odLw" name="SimpleNestedInterface"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_WmglEF8HEeGlht6TS2odLw" name="SimpleClassWithSimpleNestedEnumeration">
+                        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_dXLnoF8HEeGlht6TS2odLw" name="SimpleNestedEnumeration"/>
+                      </packagedElement>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Package" xmi:id="_I3sIMHATEeCrvt1hzG-phQ" name="visibility">
+                      <packagedElement xmi:type="uml:Class" xmi:id="_gzZ2MHDeEeCl5bNajorhng" name="PublicClass"/>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_hI6MIHDeEeCl5bNajorhng" name="PrivateClass" visibility="private"/>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_hPeHIHDeEeCl5bNajorhng" name="ProtectedClass" visibility="protected"/>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_hUzTEHDeEeCl5bNajorhng" name="PackageClass" visibility="package"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_a37WQHDeEeCl5bNajorhng" name="EmptyClass"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_dg_DMHDeEeCl5bNajorhng" name="AbstractClass" isAbstract="true"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_L-MHIXFoEeCpIZ35inDZ5w" name="CommentedClass">
+                      <ownedComment xmi:id="_SxUAwHFoEeCpIZ35inDZ5w" annotatedElement="_L-MHIXFoEeCpIZ35inDZ5w">
+                        <body>The comment of CommentedClass.</body>
+                      </ownedComment>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_PBSEsHFoEeCpIZ35inDZ5w" name="FinalClass" isLeaf="true"/>
+                  </packagedElement>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="__Z5swCpzEeKgpLBx9NlQYg" name="org.obeonetwork.pim.uml2.gen.java.tests.interfaces">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_ztWwoCp0EeKgpLBx9NlQYg" name="" type="_PoE94F8IEeGlht6TS2odLw"/>
+    <ownedConnector xmi:id="__rkPECp0EeKgpLBx9NlQYg">
+      <end xmi:id="_CRqHkCp1EeKgpLBx9NlQYg" role="_yufUoCp0EeKgpLBx9NlQYg"/>
+      <end xmi:id="_CyPFECp1EeKgpLBx9NlQYg" role="_ztWwoCp0EeKgpLBx9NlQYg"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="_EK46ECp1EeKgpLBx9NlQYg">
+      <end xmi:id="_EqUoECp1EeKgpLBx9NlQYg" role="_x7EToCp0EeKgpLBx9NlQYg"/>
+      <end xmi:id="_FRANkCp1EeKgpLBx9NlQYg" role="_ztWwoCp0EeKgpLBx9NlQYg"/>
+    </ownedConnector>
+    <packagedElement xmi:type="uml:Package" xmi:id="_HswTwCp0EeKgpLBx9NlQYg" name="org">
+      <packagedElement xmi:type="uml:Package" xmi:id="_S_o9QCp0EeKgpLBx9NlQYg" name="obeonetwork">
+        <packagedElement xmi:type="uml:Package" xmi:id="_TwZEwCp0EeKgpLBx9NlQYg" name="pim">
+          <packagedElement xmi:type="uml:Package" xmi:id="_UiIqwCp0EeKgpLBx9NlQYg" name="uml2">
+            <packagedElement xmi:type="uml:Package" xmi:id="_VhmjsCp0EeKgpLBx9NlQYg" name="gen">
+              <packagedElement xmi:type="uml:Package" xmi:id="_WY6mMCp0EeKgpLBx9NlQYg" name="java">
+                <packagedElement xmi:type="uml:Package" xmi:id="_cl7iECp0EeKgpLBx9NlQYg" name="tests">
+                  <packagedElement xmi:type="uml:Package" xmi:id="_NfQJMHATEeCrvt1hzG-phQ" name="interfaces">
+                    <packagedElement xmi:type="uml:Package" xmi:id="_vQBqIHAVEeCrvt1hzG-phQ" name="properties">
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_eavNIHDHEeCl5bNajorhng" name="SinglePropertyInterface">
+                        <ownedAttribute xmi:id="_oeAB0HDHEeCl5bNajorhng" name="firstProperty" type="_-k_HEHDHEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_hp87IHDHEeCl5bNajorhng" name="MultiplePropertiesInterface">
+                        <ownedAttribute xmi:id="_pnrmsHDHEeCl5bNajorhng" name="firstProperty" type="_BrMqEHDIEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_qE9_oHDHEeCl5bNajorhng" name="secondProperty" type="_9YxLkHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_qhIXMHDHEeCl5bNajorhng" name="thirdProperty" type="_D4MGEHDIEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_i7bxIHDHEeCl5bNajorhng" name="SingleCommentedPropertyInterface">
+                        <ownedComment xmi:id="_PF-NIHDIEeCl5bNajorhng" annotatedElement="_i7bxIHDHEeCl5bNajorhng">
+                          <body>The comment of SingleCommentedPropertyInterface.</body>
+                        </ownedComment>
+                        <ownedAttribute xmi:id="_rh9iEHDHEeCl5bNajorhng" name="firstProperty" type="_-gPxAHDHEeCl5bNajorhng">
+                          <ownedComment xmi:id="_bYa2MHDIEeCl5bNajorhng" annotatedElement="_rh9iEHDHEeCl5bNajorhng">
+                            <body>The comment of the first property of SingleCommentedPropertyInterface.</body>
+                          </ownedComment>
+                        </ownedAttribute>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_i7bxIXDHEeCl5bNajorhng" name="MultipleCommentedPropertiesInterface">
+                        <ownedComment xmi:id="_jCipQHDIEeCl5bNajorhng" annotatedElement="_i7bxIXDHEeCl5bNajorhng">
+                          <body>The comment of MultipleCommentedPropertiesInterface.</body>
+                        </ownedComment>
+                        <ownedAttribute xmi:id="_rNrUIHDHEeCl5bNajorhng" name="firstProperty" type="_-gPxAHDHEeCl5bNajorhng">
+                          <ownedComment xmi:id="_jkYLAHDIEeCl5bNajorhng" annotatedElement="_rNrUIHDHEeCl5bNajorhng">
+                            <body>The comment of the first property of the MultipleCommentedPropertiesInterface.</body>
+                          </ownedComment>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="_rNrUIXDHEeCl5bNajorhng" name="secondProperty" type="_-gPxAHDHEeCl5bNajorhng">
+                          <ownedComment xmi:id="_kK7NoHDIEeCl5bNajorhng" annotatedElement="_rNrUIXDHEeCl5bNajorhng">
+                            <body>The comment of the second property of MultipleCommentedPropertiesInterface.</body>
+                          </ownedComment>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="_rNrUInDHEeCl5bNajorhng" name="thirdProperty" type="_9YxLkHDHEeCl5bNajorhng">
+                          <ownedComment xmi:id="_kxhTkHDIEeCl5bNajorhng" annotatedElement="_rNrUInDHEeCl5bNajorhng">
+                            <body>The comment of the third property of MultipleCommentedPropertiesInterface.</body>
+                          </ownedComment>
+                        </ownedAttribute>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_-YfGsHDIEeCl5bNajorhng" name="VisibilityPropertiesInterface">
+                        <ownedAttribute xmi:id="_KxoNoHDJEeCl5bNajorhng" name="publicProperty" type="_-k_HEHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_MnVyEHDJEeCl5bNajorhng" name="privateProperty" visibility="private" type="_BrMqEHDIEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_MugxEHDJEeCl5bNajorhng" name="protectedProperty" visibility="protected" type="_9YxLkHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_QFWxEHDJEeCl5bNajorhng" name="packageProperty" visibility="package" type="_D4MGEHDIEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_CDVAwHDJEeCl5bNajorhng" name="FinalPropertyInterface">
+                        <ownedAttribute xmi:id="_aimzEHDJEeCl5bNajorhng" name="finalProperty" isLeaf="true" type="_-gPxAHDHEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_FJSsIHDJEeCl5bNajorhng" name="StaticPropertyInterface">
+                        <ownedAttribute xmi:id="_ja8FsHDJEeCl5bNajorhng" name="staticProperty" isStatic="true" type="_-gPxAHDHEeCl5bNajorhng"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_Tw5OsHDJEeCl5bNajorhng" name="CardinalityPropertiesInterface">
+                        <ownedAttribute xmi:id="_nxHbwHDJEeCl5bNajorhng" name="singleElementProperty" type="_-bhpEHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_2qZkMHDJEeCl5bNajorhng" name="multipleElementsProperty" type="_-gPxAHDHEeCl5bNajorhng" isUnique="false">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C4tUIHDKEeCl5bNajorhng" value="*"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="_42Y6oHDJEeCl5bNajorhng" name="multipleOrderedElementsProperty" type="_-bhpEHDHEeCl5bNajorhng" isOrdered="true" isUnique="false">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DrNvIHDKEeCl5bNajorhng" value="*"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="_6pf3AHDJEeCl5bNajorhng" name="multipleUniqueElementsProperty" type="_9YxLkHDHEeCl5bNajorhng">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JzqUEHDKEeCl5bNajorhng" value="*"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="__DpuIHDJEeCl5bNajorhng" name="multipleUniqueOrderedElementsProperty" type="_-k_HEHDHEeCl5bNajorhng" isOrdered="true">
+                          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KX_JIHDKEeCl5bNajorhng" value="*"/>
+                        </ownedAttribute>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_XVhyEHDUEeCl5bNajorhng" name="TypePropertiesInterface">
+                        <ownedAttribute xmi:id="_pxNDMHDUEeCl5bNajorhng" name="dateProperty" type="_9YxLkHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_qMM9IHDUEeCl5bNajorhng" name="booleanProperty" type="_-k_HEHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_qXfnIHDUEeCl5bNajorhng" name="stringProperty" type="_-bhpEHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_qfklEHDUEeCl5bNajorhng" name="integerProperty" type="_-gPxAHDHEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_qpVlEHDUEeCl5bNajorhng" name="byteProperty" type="_BrMqEHDIEeCl5bNajorhng"/>
+                        <ownedAttribute xmi:id="_q7MxIHDUEeCl5bNajorhng" name="floatProperty" type="_D4MGEHDIEeCl5bNajorhng"/>
+                      </packagedElement>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Package" xmi:id="_cyHPQXATEeCrvt1hzG-phQ" name="methods">
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_0NPZsHDTEeCl5bNajorhng" name="SingleMethodInterface">
+                        <ownedOperation xmi:id="_SiiuwHDVEeCl5bNajorhng" name="firstMethod">
+                          <ownedParameter xmi:id="_arrZEHDVEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_N8yhEHDUEeCl5bNajorhng" name="MultipleMethodsInterface">
+                        <ownedOperation xmi:id="_TCLREHDVEeCl5bNajorhng" name="firstMethod">
+                          <ownedParameter xmi:id="_eXoGYHDVEeCl5bNajorhng" type="_BrMqEHDIEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_THNiEHDVEeCl5bNajorhng" name="secondMethod">
+                          <ownedParameter xmi:id="_gA6YYHDVEeCl5bNajorhng" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_TMj8IHDVEeCl5bNajorhng" name="thirdMethod">
+                          <ownedParameter xmi:id="_hll3MHDVEeCl5bNajorhng" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_PohqIHDUEeCl5bNajorhng" name="SingleCommentedMethodInterface">
+                        <ownedComment xmi:id="_uBvO0HDVEeCl5bNajorhng" annotatedElement="_PohqIHDUEeCl5bNajorhng">
+                          <body>The comment of SingleCommentedMethodInterface.</body>
+                        </ownedComment>
+                        <ownedOperation xmi:id="_TacnIHDVEeCl5bNajorhng" name="firstMethod">
+                          <ownedComment xmi:id="_uXI3EHDVEeCl5bNajorhng" annotatedElement="_SiiuwHDVEeCl5bNajorhng">
+                            <body>The comment of the first method of SingleCommentedMethodInterface.</body>
+                          </ownedComment>
+                          <ownedParameter xmi:id="_s8A84HDVEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_PohqIXDUEeCl5bNajorhng" name="MultipleCommentedMethodsInterface">
+                        <ownedComment xmi:id="_umaCIHDVEeCl5bNajorhng" annotatedElement="_PohqIXDUEeCl5bNajorhng">
+                          <body>The comment of MultipleCommentedMethodsInterface.</body>
+                        </ownedComment>
+                        <ownedOperation xmi:id="_Ti1HEHDVEeCl5bNajorhng" name="firstOperation">
+                          <ownedComment xmi:id="_u0StIHDVEeCl5bNajorhng" annotatedElement="_Ti1HEHDVEeCl5bNajorhng">
+                            <body>The comment of the first operation of MultipleCommentedMethodsInterface.</body>
+                          </ownedComment>
+                          <ownedParameter xmi:id="_J0sYYHDWEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_Tn3_IHDVEeCl5bNajorhng" name="secondOperation">
+                          <ownedComment xmi:id="_u7wnEHDVEeCl5bNajorhng" annotatedElement="_Tn3_IHDVEeCl5bNajorhng">
+                            <body>The comment of the second method of MultipleCommentedMethodsInterface.</body>
+                          </ownedComment>
+                          <ownedParameter xmi:id="_Lyzq4HDWEeCl5bNajorhng" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_TswfIHDVEeCl5bNajorhng" name="thirdOperation">
+                          <ownedComment xmi:id="_vF1JEHDVEeCl5bNajorhng" annotatedElement="_TswfIHDVEeCl5bNajorhng">
+                            <body>The comment of the third method of MultipleCommentedMethodsInterface.</body>
+                          </ownedComment>
+                          <ownedParameter xmi:id="_NOXC4HDWEeCl5bNajorhng" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_S6g_UHDUEeCl5bNajorhng" name="VisibilityMethodsInterface">
+                        <ownedOperation xmi:id="_UTz4EHDVEeCl5bNajorhng" name="publicMethod">
+                          <ownedParameter xmi:id="_GU3mEHDXEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_UaXzEHDVEeCl5bNajorhng" name="privateMethod" visibility="private">
+                          <ownedParameter xmi:id="_HQWW4HDXEeCl5bNajorhng" type="_BrMqEHDIEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_UgoMEHDVEeCl5bNajorhng" name="protectedMethod" visibility="protected">
+                          <ownedParameter xmi:id="_LAscAHDXEeCl5bNajorhng" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_UmvbIHDVEeCl5bNajorhng" name="packageMethod" visibility="package">
+                          <ownedParameter xmi:id="_Mr0hEHDXEeCl5bNajorhng" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_U8VtIHDUEeCl5bNajorhng" name="TypeMethodsInterface">
+                        <ownedOperation xmi:id="_VEpfIHDVEeCl5bNajorhng" name="booleanMethod">
+                          <ownedParameter xmi:id="_XvMH4HDXEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_VK54IHDVEeCl5bNajorhng" name="byteMethod">
+                          <ownedParameter xmi:id="_Y-J1YHDXEeCl5bNajorhng" type="_BrMqEHDIEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_VRKRIHDVEeCl5bNajorhng" name="integerMethod">
+                          <ownedParameter xmi:id="_ba0FEHDXEeCl5bNajorhng" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_VYLfIHDVEeCl5bNajorhng" name="dateMethod">
+                          <ownedParameter xmi:id="_cpXi4HDXEeCl5bNajorhng" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_Veb4IHDVEeCl5bNajorhng" name="floatMethod">
+                          <ownedParameter xmi:id="_ddHUAHDXEeCl5bNajorhng" type="_D4MGEHDIEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_Vk1bEHDVEeCl5bNajorhng" name="stringMethod">
+                          <ownedParameter xmi:id="_f3YXAHDXEeCl5bNajorhng" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_VdmnIHDUEeCl5bNajorhng" name="StaticMethodInterface">
+                        <ownedOperation xmi:id="_V9GxIHDVEeCl5bNajorhng" name="staticMethod" isStatic="true">
+                          <ownedParameter xmi:id="_QpfQgHDXEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_WAi8IHDUEeCl5bNajorhng" name="FinalMethodInterface">
+                        <ownedOperation xmi:id="_WfcCIHDVEeCl5bNajorhng" name="finalMethod" isLeaf="true">
+                          <ownedParameter xmi:id="_UDstkHDXEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_fbQjEHDUEeCl5bNajorhng" name="AbstractMethodInterface">
+                        <ownedOperation xmi:id="_WvmlEHDVEeCl5bNajorhng" name="abstractMethod" isAbstract="true">
+                          <ownedParameter xmi:id="_Ur4H4HDXEeCl5bNajorhng" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_u5K7MHDXEeCl5bNajorhng" name="CardinalityMethodInterface">
+                        <ownedOperation xmi:id="_xAEWQHDXEeCl5bNajorhng" name="orderedUniqueMethod">
+                          <ownedParameter xmi:id="_35yAEHDXEeCl5bNajorhng" type="_-gPxAHDHEeCl5bNajorhng" isOrdered="true" direction="return">
+                            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9e2LIHDXEeCl5bNajorhng" value="*"/>
+                          </ownedParameter>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_xPw_IHDXEeCl5bNajorhng" name="notOrderedUniqueMethod">
+                          <ownedParameter xmi:id="_5vMCgHDXEeCl5bNajorhng" type="_9YxLkHDHEeCl5bNajorhng" direction="return">
+                            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_87JBIHDXEeCl5bNajorhng" value="*"/>
+                          </ownedParameter>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_xU8aEHDXEeCl5bNajorhng" name="notOrderedNotUniqueMethod">
+                          <ownedParameter xmi:id="_6onk4HDXEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" isUnique="false" direction="return">
+                            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_64sBMHDXEeCl5bNajorhng" value="*"/>
+                          </ownedParameter>
+                        </ownedOperation>
+                        <ownedOperation xmi:id="_xg_5EHDXEeCl5bNajorhng" name="OrderedNotUniqueMethod">
+                          <ownedParameter xmi:id="__aHlAHDXEeCl5bNajorhng" type="_-bhpEHDHEeCl5bNajorhng" isOrdered="true" isUnique="false" direction="return">
+                            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BECJIHDYEeCl5bNajorhng" value="*"/>
+                          </ownedParameter>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_MEWqYF8GEeGlht6TS2odLw" name="VoidReturningMethodsInterface">
+                        <ownedOperation xmi:id="_ROel4F8GEeGlht6TS2odLw" name="voidReturningMethod"/>
+                        <ownedOperation xmi:id="_TUEZYF8GEeGlht6TS2odLw" name="voidReturningMethodWithParameter">
+                          <ownedParameter xmi:id="_Vr82wF8GEeGlht6TS2odLw" name="param" type="_-bhpEHDHEeCl5bNajorhng"/>
+                        </ownedOperation>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Package" xmi:id="_KB5cAHDYEeCl5bNajorhng" name="parameters">
+                        <packagedElement xmi:type="uml:Interface" xmi:id="_MIDQMHDYEeCl5bNajorhng" name="SingleParameterMethodInterface">
+                          <ownedOperation xmi:id="_fgXIsHDYEeCl5bNajorhng" name="singleParameterMethod">
+                            <ownedParameter xmi:id="_HJ2bYHDZEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                            <ownedParameter xmi:id="_SymnMHDZEeCl5bNajorhng" name="firstParameter" type="_BrMqEHDIEeCl5bNajorhng"/>
+                          </ownedOperation>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Interface" xmi:id="_PSEVIHDYEeCl5bNajorhng" name="MultipleParametersMethodInterface">
+                          <ownedOperation xmi:id="_f_tXIHDYEeCl5bNajorhng" name="multipleParametersMethod">
+                            <ownedParameter xmi:id="_KojW4HDZEeCl5bNajorhng" type="_-gPxAHDHEeCl5bNajorhng" direction="return"/>
+                            <ownedParameter xmi:id="_VEQgwHDZEeCl5bNajorhng" name="firstParameter" type="_-k_HEHDHEeCl5bNajorhng"/>
+                            <ownedParameter xmi:id="_VUCCIHDZEeCl5bNajorhng" name="secondParameter" type="_9YxLkHDHEeCl5bNajorhng"/>
+                            <ownedParameter xmi:id="_VbDQIHDZEeCl5bNajorhng" name="thirdParameter" type="_-gPxAHDHEeCl5bNajorhng"/>
+                          </ownedOperation>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Interface" xmi:id="_PYAlEHDYEeCl5bNajorhng" name="SingleCommentedParameterMethodInterface">
+                          <ownedComment xmi:id="_anAswHDbEeCl5bNajorhng" annotatedElement="_PYAlEHDYEeCl5bNajorhng">
+                            <body>The comment of SingleCommentedParameterMethodInterface.</body>
+                          </ownedComment>
+                          <ownedOperation xmi:id="_gKr4EHDYEeCl5bNajorhng" name="singleCommentedParameterMethod">
+                            <ownedComment xmi:id="_bSjkIHDbEeCl5bNajorhng" annotatedElement="_gKr4EHDYEeCl5bNajorhng">
+                              <body>The comment of the method singleCommentedParameterMethod.</body>
+                            </ownedComment>
+                            <ownedParameter xmi:id="_LS5UYHDZEeCl5bNajorhng" type="_D4MGEHDIEeCl5bNajorhng" direction="return">
+                              <ownedComment xmi:id="_R7aZIHDcEeCl5bNajorhng" annotatedElement="_LS5UYHDZEeCl5bNajorhng">
+                                <body>The comment of the return type of singleCommentedParameterMethod.</body>
+                              </ownedComment>
+                            </ownedParameter>
+                            <ownedParameter xmi:id="_Ql1iwHDbEeCl5bNajorhng" name="firstParameter" type="_-k_HEHDHEeCl5bNajorhng">
+                              <ownedComment xmi:id="_beThIHDbEeCl5bNajorhng" annotatedElement="_Ql1iwHDbEeCl5bNajorhng">
+                                <body>The comment of the first parameter of the method singleCommentedParameterMethod.</body>
+                              </ownedComment>
+                            </ownedParameter>
+                          </ownedOperation>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Interface" xmi:id="_Pe4pIHDYEeCl5bNajorhng" name="MultipleCommentedParametersMethodInterface">
+                          <ownedComment xmi:id="__PNjQHDcEeCl5bNajorhng" annotatedElement="_Pe4pIHDYEeCl5bNajorhng">
+                            <body>The comment of MultipleCommentedParametersMethodInterface.</body>
+                          </ownedComment>
+                          <ownedOperation xmi:id="_gWITEHDYEeCl5bNajorhng" name="multipleCommentedParametersMethod">
+                            <ownedComment xmi:id="_kn3RMHDcEeCl5bNajorhng" annotatedElement="_gWITEHDYEeCl5bNajorhng">
+                              <body>The comment of multipleCommentedParametersMethod.</body>
+                            </ownedComment>
+                            <ownedParameter xmi:id="_MEaQ4HDZEeCl5bNajorhng" type="_-gPxAHDHEeCl5bNajorhng" direction="return">
+                              <ownedComment xmi:id="_lFm9IHDcEeCl5bNajorhng" annotatedElement="_MEaQ4HDZEeCl5bNajorhng">
+                                <body>The comment of the return type of the method multipleCommentedParametersMethod.</body>
+                              </ownedComment>
+                            </ownedParameter>
+                            <ownedParameter xmi:id="_RAISEHDbEeCl5bNajorhng" name="firstParameter" type="_-gPxAHDHEeCl5bNajorhng">
+                              <ownedComment xmi:id="_lMUCEHDcEeCl5bNajorhng" annotatedElement="_RAISEHDbEeCl5bNajorhng">
+                                <body>The comment of the first parameter of multipleCommentedParametersMethod.</body>
+                              </ownedComment>
+                            </ownedParameter>
+                            <ownedParameter xmi:id="_RGs0IHDbEeCl5bNajorhng" name="secondParameter" type="_-gPxAHDHEeCl5bNajorhng">
+                              <ownedComment xmi:id="_lVKcEHDcEeCl5bNajorhng" annotatedElement="_RGs0IHDbEeCl5bNajorhng">
+                                <body>The comment of the second parameter of multipleCommentedParametersMethod.</body>
+                              </ownedComment>
+                            </ownedParameter>
+                            <ownedParameter xmi:id="_RNuCIHDbEeCl5bNajorhng" name="thirdParameter" type="_-bhpEHDHEeCl5bNajorhng">
+                              <ownedComment xmi:id="_lgm3EHDcEeCl5bNajorhng" annotatedElement="_RNuCIHDbEeCl5bNajorhng">
+                                <body>The comment of the first parameter of multipleCommentedParametersMethod.</body>
+                              </ownedComment>
+                            </ownedParameter>
+                          </ownedOperation>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Interface" xmi:id="_WsJhEHDYEeCl5bNajorhng" name="CardinalityParameterMethodInterface">
+                          <ownedOperation xmi:id="_gerLEHDYEeCl5bNajorhng" name="cardinalityParameterMethod">
+                            <ownedParameter xmi:id="_35eBkHDYEeCl5bNajorhng" name="orderedUniqueParameter" type="_-k_HEHDHEeCl5bNajorhng" isOrdered="true">
+                              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-UeWIHDYEeCl5bNajorhng" value="*"/>
+                            </ownedParameter>
+                            <ownedParameter xmi:id="_4KL-IHDYEeCl5bNajorhng" name="notOrderedUniqueParameter" type="_-gPxAHDHEeCl5bNajorhng">
+                              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ANUuIHDZEeCl5bNajorhng" value="*"/>
+                            </ownedParameter>
+                            <ownedParameter xmi:id="_4QcXIHDYEeCl5bNajorhng" name="notOrderedNotUniqueParameter" type="_-bhpEHDHEeCl5bNajorhng" isUnique="false">
+                              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Bpo7IHDZEeCl5bNajorhng" value="*"/>
+                            </ownedParameter>
+                            <ownedParameter xmi:id="_4V77IHDYEeCl5bNajorhng" name="orderedNotUniqueParameter" type="_9YxLkHDHEeCl5bNajorhng" isOrdered="true" isUnique="false">
+                              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_D0MHIHDZEeCl5bNajorhng" value="*"/>
+                            </ownedParameter>
+                            <ownedParameter xmi:id="_Iy1LYHDZEeCl5bNajorhng" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
+                          </ownedOperation>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Interface" xmi:id="_YPyeEHDYEeCl5bNajorhng" name="TypeParameterMethodInterface">
+                          <ownedOperation xmi:id="_g85YIHDYEeCl5bNajorhng" name="typeParameterMethod">
+                            <ownedParameter xmi:id="_i0Lp4HDYEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                            <ownedParameter xmi:id="_jmuhIHDYEeCl5bNajorhng" name="firstParameter" type="_-k_HEHDHEeCl5bNajorhng"/>
+                            <ownedParameter xmi:id="_pcaiIHDYEeCl5bNajorhng" name="secondParameter" type="_BrMqEHDIEeCl5bNajorhng"/>
+                            <ownedParameter xmi:id="_piNBEHDYEeCl5bNajorhng" name="thirdParameter" type="_9YxLkHDHEeCl5bNajorhng"/>
+                            <ownedParameter xmi:id="_pw3IIHDYEeCl5bNajorhng" name="fourthParameter" type="_D4MGEHDIEeCl5bNajorhng"/>
+                            <ownedParameter xmi:id="_qMyPIHDYEeCl5bNajorhng" name="fifthParameter" type="_-gPxAHDHEeCl5bNajorhng"/>
+                            <ownedParameter xmi:id="_qdQUEHDYEeCl5bNajorhng" name="sixthParameter" type="_-bhpEHDHEeCl5bNajorhng"/>
+                          </ownedOperation>
+                        </packagedElement>
+                      </packagedElement>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Package" xmi:id="_7-dPIHAWEeCrvt1hzG-phQ" name="nested">
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_vsEwwF8GEeGlht6TS2odLw" name="SimpleInterfaceWithSimpleNestedInterface">
+                        <nestedClassifier xmi:type="uml:Interface" xmi:id="_yG83wF8GEeGlht6TS2odLw" name="SimpleNestedInterface"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_LfIykF8IEeGlht6TS2odLw" name="SimpleInterfaceWithSimpleNestedClass">
+                        <nestedClassifier xmi:type="uml:Class" xmi:id="_ODsaAF8IEeGlht6TS2odLw" name="SimpleNestedClass"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_PoE94F8IEeGlht6TS2odLw" name="SimpleInterfaceWithSimpleNestedEnumeration">
+                        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_SOto8F8IEeGlht6TS2odLw" name="SimpleNestedEnumeration"/>
+                      </packagedElement>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Package" xmi:id="_cyHPQnATEeCrvt1hzG-phQ" name="visibility">
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_vwPl0HAWEeCrvt1hzG-phQ" name="EmptyPublicInterface"/>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_yXFsQHAWEeCrvt1hzG-phQ" name="EmptyPrivateInterface" visibility="private"/>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_ybz0MHAWEeCrvt1hzG-phQ" name="EmptyProtectedInterface" visibility="protected"/>
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_ygijMHAWEeCrvt1hzG-phQ" name="EmptyPackageInterface" visibility="package"/>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_8UipUHAVEeCrvt1hzG-phQ" name="CommentedInterface">
+                      <ownedComment xmi:id="_-LCQ4HAVEeCrvt1hzG-phQ" annotatedElement="_8UipUHAVEeCrvt1hzG-phQ">
+                        <body>The comment of CommentedInterface.</body>
+                      </ownedComment>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_1nydcHAVEeCrvt1hzG-phQ" name="EmptyInterface"/>
+                  </packagedElement>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
