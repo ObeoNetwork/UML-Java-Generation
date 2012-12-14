@@ -8,7 +8,11 @@
 [/template]
 
 [template public genMethodPrototype(anOperation : Operation)]
-[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][genReturn()/] [genName()/]([genOperationParameters()/])
+[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][genReturn()/] [genName()/]([genOperationParameters()/])[genOperationExceptions()/]
+[/template]
+
+[template public genOperationExceptions(anOperation : Operation)]
+[if (anOperation.raisedException->size() > 0)] throws [anOperation.raisedException.genName()->sep(', ')/][/if]
 [/template]
 
 [template public genOperationParameters(anOperation : Operation)]
@@ -25,6 +29,10 @@
 
 [template public genInterfaceRealization(aClass : Class)]
 [if (not aClass.clientDependency->filter(Realization)->isEmpty())] implements [for (namedElement : NamedElement | aClass.getAllInterfaces()) separator(', ')][namedElement.genName()/][/for][/if]
+[/template]
+
+[template public genPropertyParent(aProperty : Property)]
+
 [/template]
 
 [**

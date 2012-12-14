@@ -2,48 +2,195 @@
 [module classJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::classifierJavaFile]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
-[import org::obeonetwork::pim::uml2::gen::java::common::imports /]
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
+[import org::obeonetwork::pim::uml2::gen::java::common::attribute/]
+[import org::obeonetwork::pim::uml2::gen::java::common::operations/]
+[import org::obeonetwork::pim::uml2::gen::java::common::behavior/]
+[import org::obeonetwork::pim::uml2::gen::java::common::type/]
+
+[import org::obeonetwork::pim::uml2::gen::java::request::request/]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
+[import org::obeonetwork::pim::uml2::gen::java::services::importService /]
+
 
 [template private classJavaFilePath(aClass : Class)]
+[if (not aClass.getNearestPackage().oclIsUndefined())]
+[aClass.genPackagePath()/][aClass.name/].java
+[else]
+[aClass.name.concat('.java')/]
+[/if]
 [/template]
 
 [template public genClassJavaFile(aClass : Class)]
 [file (aClass.classJavaFilePath(), false, 'UTF-8')]
 [aClass.genHeader()/]
-[aClass.genPackageDeclaration()/]
+package [aClass.genPackageDeclaration()/];
+
 [aClass.genImport()/]
+
+[aClass.genJavadoc()/]
 [aClass.genClassifierBody()/]
 [/file]
 [/template]
 
-[template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Class))]
+[template private genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Class))]
 [let aClass : Class = aClassifier.oclAsType(Class)]
-[aClass.genJavadoc()/]
-[aClass.declaration()/]
-[aClass.attributes()/]
-[aClass.constructor()/]
-[aClass.operations()/]
-[aClass.accessors()/]
-[aClass.nestedClassifiers()/]
+[aClass.declaration()/] {
+	[aClass.attributes()/]
+	[aClass.constructor()/]
+	[aClass.operations()/]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
+	[aProperty.accessors()/]
+[/for]
+	[aClass.nestedClassifiers()/]
+}
 [/let]
 [/template]
 
 [template private declaration(aClass : Class)]
+[aClass.genVisibility()/][aClass.genAbstract()/][aClass.genFinal()/]class [aClass.genName()/][aClass.genInheritance()/][aClass.genInterfaceRealization()/]
 [/template]
 
 [template private attributes(aClass : Class)]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
+[aProperty.genAttributeComment()/]
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
+[/for]
+// [protected ('(user defined attributes)')]
+
+// [/protected]
 [/template]
 
 [template private constructor(aClass : Class)]
+[if (ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name))->size() = 0)]
+[if (getProperty('gen-Constructor') = 'true' and(not(aClass.isAbstract)))]
+/**
+ * The constructor.
+ */
+public [aClass.genName()/]() {
+	// [protected ('constructor')]
+	super();
+	// [/protected]
+}
+[/if]
+[elseif (not(aClass.isAbstract))]
+[for (aConstructor : Operation | ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name)))]
+/**
+ * The constructor.
+[for (aParameter : Parameter | aConstructor.ownedParameter)]
+ * @param [aParameter.genName()/][aParameter.genComment()/]
+[/for]
+ */
+[aConstructor.genVisibility()/][aConstructor.genName()/]([aConstructor.genOperationParameters()/]) {
+	// [protected ('constructor with ' + aConstructor.ownedParameter.genName()->sep(', '))]
+	super();
+	// [/protected]
+}
+[/for]
+[/if]
 [/template]
 
 [template private operations(aClass : Class)]
+[for (anOperation : Operation | ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+[anOperation.genOperationComment()/]
+[if (anOperation.isAbstract)]
+[anOperation.genMethodPrototype()/];
+[else]
+[anOperation.genMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
+[/if]
+ 
+[/for]
+[for (anOperation : Operation | aClass.getAllInterfaceOperations())]
+[anOperation.genInheritedOperationComment()/]
+[if (anOperation.isAbstract)]
+[anOperation.genMethodPrototype()/];
+[else]
+[anOperation.genMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
+[/if]
+
+[/for]
+// [protected ('(user defined methods)')]
+
+// [/protected]
 [/template]
 
-[template private accessors(aClass : Class)]
+[template private accessors(aProperty : Property)]
+
+[if (getProperty('gen-Accessors') = 'true')]
+/**
+ * Returns [aProperty.genName()/].
+ * @return [aProperty.genName()/] [aProperty.genComment()/]
+ */
+public [if(aProperty.isStatic)]static [/if][aProperty.genType()/] get[aProperty.genName().toUpperFirst()/]() {
+	return [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/];
+}
+[if (not aProperty.isLeaf)]
+
+/**
+ * Sets a value to attribute [aProperty.genName()/]. 
+ * @param new[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] new[aProperty.genName().toUpperFirst()/]) {
+[if (not aProperty.opposite.oclIsUndefined() and aProperty.upper = 1 and getProperty('gen-biDirections') = 'true' and aProperty.opposite.upper = 1)]
+	if([if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] != null) {
+		[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](null);
+	}
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](this);
+[else]
+    [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] = new[aProperty.genName().toUpperFirst()/];
+[/if]
+}
+[/if]
+[if (not (aProperty.upper = 1))]
+
+/**
+ * Add one attribute (if [aProperty.genName()/] had a multiple cardinality)
+ * @param [aProperty.genInsideArrayType().toLowerFirst()/]ToAdd in [aProperty.genName()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void add[aProperty.genInsideArrayType()/]To[aProperty.genName().toUpperFirst()/]([aProperty.genInsideArrayType()/] [aProperty.genInsideArrayType().toLowerFirst()/]ToAdd) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].add([aProperty.genInsideArrayType().toLowerFirst()/]ToAdd);
+}
+
+/**
+ * Remove an attribute (if [aProperty.genName()/] had a multiple cardinality)
+ * @param [aProperty.genInsideArrayType().toLowerFirst()/]ToRemove in [aProperty.genName()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void remove[aProperty.genInsideArrayType()/]To[aProperty.genName().toUpperFirst()/]([aProperty.genInsideArrayType()/] [aProperty.genInsideArrayType().toLowerFirst()/]ToRemove) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].remove([aProperty.genInsideArrayType().toLowerFirst()/]ToRemove);
+}
+
+/**
+ * Add all the attribute (if [aProperty.genName()/] had a multiple cardinality)
+ * @param [aProperty.genInsideArrayType().toLowerFirst()/]sToAdd in [aProperty.genName()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void addAll[aProperty.genInsideArrayType()/]To[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] [aProperty.genInsideArrayType().toLowerFirst()/]sToAdd) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].addAll([aProperty.genInsideArrayType().toLowerFirst()/]sToAdd);
+}
+
+/**
+ * Remove all the attribute (if [aProperty.genName()/] had a multiple cardinality)
+ * @param [aProperty.genInsideArrayType().toLowerFirst()/]sToRemove in [aProperty.genName()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void removeAll[aProperty.genInsideArrayType()/]To[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] [aProperty.genInsideArrayType().toLowerFirst()/]sToRemove) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].removeAll([aProperty.genInsideArrayType().toLowerFirst()/]sToRemove);
+}
+[/if]
+[/if]
+
 [/template]
 
 [template private nestedClassifiers(aClass : Class)]
+[for (nestedClassifier : Classifier | aClass.nestedClassifier)]
+[if (nestedClassifier.oclIsKindOf(Interface) or nestedClassifier.oclIsKindOf(Class) or nestedClassifier.oclIsKindOf(Enumeration))]
+[nestedClassifier.genJavadoc()/]
+[nestedClassifier.genBody()/]
+[/if]
+[/for]
 [/template]
 

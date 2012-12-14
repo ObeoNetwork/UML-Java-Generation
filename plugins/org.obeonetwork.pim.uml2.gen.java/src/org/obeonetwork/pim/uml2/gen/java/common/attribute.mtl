@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[module attribute('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
+[import org::obeonetwork::pim::uml2::gen::java::common::type/]
+[import org::obeonetwork::pim::uml2::gen::java::request::request/]
+
+
+[template public genAttributes(aClass : Class)]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
+[aProperty.genAttributeComment()/]
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
+
+[/for]
+// [protected ('(user defined attributes)')]
+
+// [/protected]
+
+[/template]
+
+[template public genAttributeComment(aProperty : Property)]
+/**
+[if (aProperty.ownedComment->size() > 0 and aProperty.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
+[for (propertyComment : Comment | aProperty.ownedComment)]
+ * [propertyComment._body/]
+[/for]
+[else]
+ * Description of the property [aProperty.genName()/].
+[/if]
+ */
+[/template]
