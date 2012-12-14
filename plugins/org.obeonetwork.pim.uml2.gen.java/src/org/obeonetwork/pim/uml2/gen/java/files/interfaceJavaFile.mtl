@@ -2,18 +2,71 @@
 [module interfaceJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends org::obeonetwork::pim::uml2::gen::java::files::classifierJavaFile]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
-[import org::obeonetwork::pim::uml2::gen::java::common::imports /]
+[import org::obeonetwork::pim::uml2::gen::java::common::path /]
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
+[import org::obeonetwork::pim::uml2::gen::java::common::attribute/]
+[import org::obeonetwork::pim::uml2::gen::java::common::operations/]
+[import org::obeonetwork::pim::uml2::gen::java::common::type/]
 
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
+[import org::obeonetwork::pim::uml2::gen::java::services::importService /]
+
+[**
+ * Define the package organisations for the class
+ */]
 [template private interfaceJavaFilePath(anInterface : Interface)]
+[if (not anInterface.getNearestPackage().oclIsUndefined())]
+[anInterface.genPackagePath()/][anInterface.name/].java
+[else]
+[anInterface.name.concat('.java')/]
+[/if]
 [/template]
 
 [template public genInterfaceJavaFile(anInterface : Interface)]
 [file (anInterface.interfaceJavaFilePath(), false, 'UTF-8')]
 [anInterface.genHeader()/]
+package [anInterface.genPackageDeclaration()/];
+
 [anInterface.genImport()/]
+
+[anInterface.genJavadoc()/]
 [anInterface.genClassifierBody()/]
 [/file]
 [/template]
 
-[template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Interface))]
+[template private genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Interface))]
+[let anInterface : Interface = aClassifier.oclAsType(Interface)]
+[anInterface.genVisibility()/]interface [anInterface.genName()/] [anInterface.genInheritance()/]{
+	[anInterface.genAttributes()/]
+	[anInterface.genOperations()/]
+	
+	[for (nestedClassifier : Classifier | anInterface.nestedClassifier)]
+	[nestedClassifier.genJavadoc()/]
+	[nestedClassifier.genBody()/]
+	[/for]
+}
+[/let]
+[/template]
+
+[template private genAttributes(anInterface : Interface) ]
+[for (aProperty : Property | anInterface.ownedAttribute)]
+[aProperty.genAttributeComment()/]
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
+
+[/for]
+// [protected ('(user defined attributes)')]
+
+// [/protected]
+
+[/template]
+
+[template private genOperations (anInterface : Interface) ]
+[for (anOperation : Operation | anInterface.ownedOperation)]
+[anOperation.genOperationComment()/]
+[anOperation.genMethodPrototype()/];
+
+[/for]
+// [protected ('(user defined methods)')]
+
+// [/protected]
 [/template]

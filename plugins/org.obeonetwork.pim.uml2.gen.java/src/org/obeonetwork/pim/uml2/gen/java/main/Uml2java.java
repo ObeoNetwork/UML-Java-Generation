@@ -33,6 +33,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.uml2.uml.resource.UMLResource;
+import org.obeonetwork.pim.uml2.gen.java.properties.IUML2JavaPropertiesConstants;
 
 /**
  * Entry point of the 'Workflow' generation module.
@@ -345,6 +346,8 @@ public class Uml2java extends AbstractAcceleoGenerator {
     		propertiesFiles.addAll(AcceleoEngineUtils.getPropertiesFilesNearModel(model.eResource()));
     	}
     	
+    	propertiesFiles.add(IUML2JavaPropertiesConstants.DEFAULT_PROPERTIES);
+    	
         return propertiesFiles;
     }
     
@@ -438,8 +441,6 @@ public class Uml2java extends AbstractAcceleoGenerator {
          * 
          * To learn more about the registration of Resource Factories, have a look at the Acceleo Launcher documentation (Help -> Help Contents). 
          */ 
-        
         resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
-    }
-    
+    }    
 }
