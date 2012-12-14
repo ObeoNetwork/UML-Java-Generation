@@ -7,7 +7,7 @@
 
 
 [template public genAttributes(aClass : Class)]
-[for (aProperty : Property | aClass.ownedAttribute->union(aClass.getOutgoingNavigableOwnedEnd()))]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
 [aProperty.genAttributeComment()/]
 [aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
 

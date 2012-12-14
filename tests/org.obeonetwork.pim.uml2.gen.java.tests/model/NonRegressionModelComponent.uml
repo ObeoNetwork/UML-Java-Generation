@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_tQW_0XASEeCrvt1hzG-phQ" name="model">
-  <packagedElement xmi:type="uml:Class" xmi:id="_KJTMgEVAEeKwt55KLWMfog" name="IOException"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_Ks7eAEVAEeKwt55KLWMfog" name="IllegalAccessException"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_K9QZAEVAEeKwt55KLWMfog" name="OtherException"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_C4jQQHATEeCrvt1hzG-phQ" name="OutOfAnyPackages"/>
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_9YxLkHDHEeCl5bNajorhng" name="Date"/>
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-bhpEHDHEeCl5bNajorhng" name="String"/>
@@ -91,6 +88,26 @@
               <packagedElement xmi:type="uml:Package" xmi:id="_E9bmwCp0EeKgpLBx9NlQYg" name="java">
                 <packagedElement xmi:type="uml:Package" xmi:id="_GpT5wCp0EeKgpLBx9NlQYg" name="tests">
                   <packagedElement xmi:type="uml:Package" xmi:id="_P8u4QHATEeCrvt1hzG-phQ" name="classes">
+                    <packagedElement xmi:type="uml:Package" xmi:id="_fKyuQEXNEeKQjsKQR6M8gw" name="relations">
+                      <packagedElement xmi:type="uml:Class" xmi:id="_q1PjMEXNEeKQjsKQR6M8gw" name="BaseClass">
+                        <ownedAttribute xmi:id="_FkbB8EXWEeKIQ6RCEN9GPw" name="compositionProperty" association="_J4g0sEXTEeKQjsKQR6M8gw"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_rIU3QEXNEeKQjsKQR6M8gw" name="AssociationClass">
+                        <nestedClassifier xmi:type="uml:Association" xmi:id="_Y6V1IEXTEeKQjsKQR6M8gw" name="" memberEnd="_-K4okEXVEeKIQ6RCEN9GPw" navigableOwnedEnd="_-K4okEXVEeKIQ6RCEN9GPw">
+                          <ownedEnd xmi:id="_-K4okEXVEeKIQ6RCEN9GPw" name="associationProperty" association="_Y6V1IEXTEeKQjsKQR6M8gw"/>
+                        </nestedClassifier>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_rTxSQEXNEeKQjsKQR6M8gw" name="InheritanceClass">
+                        <generalization xmi:id="_l_zMUEXPEeKQjsKQR6M8gw" general="_q1PjMEXNEeKQjsKQR6M8gw"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_rerhwEXNEeKQjsKQR6M8gw" name="CompositionClass">
+                        <nestedClassifier xmi:type="uml:Extension" xmi:id="_J4g0sEXTEeKQjsKQR6M8gw" name="compositionBaseClass" memberEnd="_FkbB8EXWEeKIQ6RCEN9GPw"/>
+                      </packagedElement>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Package" xmi:id="_oVs7cEXJEeKQjsKQR6M8gw" name="exceptions">
+                      <packagedElement xmi:type="uml:Class" xmi:id="_K9QZAEVAEeKwt55KLWMfog" name="OtherException"/>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_4Ed6YEXJEeKQjsKQR6M8gw" name="NameException"/>
+                    </packagedElement>
                     <packagedElement xmi:type="uml:Package" xmi:id="_Ln9QYHATEeCrvt1hzG-phQ" name="properties">
                       <packagedElement xmi:type="uml:Class" xmi:id="_XcYowHFoEeCpIZ35inDZ5w" name="SinglePropertyClass">
                         <ownedAttribute xmi:id="_1wdEMHFoEeCpIZ35inDZ5w" name="firstProperty" type="_BrMqEHDIEeCl5bNajorhng"/>
@@ -295,10 +312,10 @@
                         </ownedOperation>
                       </packagedElement>
                       <packagedElement xmi:type="uml:Class" xmi:id="_Y_ndUUU8EeKwt55KLWMfog" name="MethodException">
-                        <ownedOperation xmi:id="_lKdpkEU8EeKwt55KLWMfog" name="exceptionMethod" raisedException="_KJTMgEVAEeKwt55KLWMfog"/>
+                        <ownedOperation xmi:id="_lKdpkEU8EeKwt55KLWMfog" name="exceptionMethod" raisedException="_4Ed6YEXJEeKQjsKQR6M8gw"/>
                       </packagedElement>
                       <packagedElement xmi:type="uml:Class" xmi:id="__7nF8EU-EeKwt55KLWMfog" name="MultipleMethodException">
-                        <ownedOperation xmi:id="_FIqZoEU_EeKwt55KLWMfog" name="multipleExceptionMethod" raisedException="_KJTMgEVAEeKwt55KLWMfog _Ks7eAEVAEeKwt55KLWMfog _K9QZAEVAEeKwt55KLWMfog"/>
+                        <ownedOperation xmi:id="_FIqZoEU_EeKwt55KLWMfog" name="multipleExceptionMethod" raisedException="_4Ed6YEXJEeKQjsKQR6M8gw _K9QZAEVAEeKwt55KLWMfog"/>
                       </packagedElement>
                     </packagedElement>
                     <packagedElement xmi:type="uml:Package" xmi:id="_-uaOQHAWEeCrvt1hzG-phQ" name="nested">

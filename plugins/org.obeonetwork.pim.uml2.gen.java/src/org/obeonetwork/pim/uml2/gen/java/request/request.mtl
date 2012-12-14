@@ -2,16 +2,16 @@
 [module request('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 
-[query public getOutgoingNavigableOwnedEnd(aClass : Class) : Set(Property)
-   = getSelfAssociationsNavigableOwnedEnd(aClass)
-      ->union(getOtherAssociationsNavigableOwnedEnd(aClass))->asOrderedSet()
+[query public reqOutgoingNavigableOwnedEnd(aClass : Class) : Set(Property)
+   = reqSelfAssociationsNavigableOwnedEnd(aClass)
+      ->union(reqOtherAssociationsNavigableOwnedEnd(aClass))->asOrderedSet()
 /]
 
-[query private getSelfAssociationsNavigableOwnedEnd(aClass : Class) : Set(Property)
+[query private reqSelfAssociationsNavigableOwnedEnd(aClass : Class) : Set(Property)
    = aClass.getAssociations()->select(ownedEnd.type->asSet()->size() = 1).navigableOwnedEnd->asOrderedSet()
 /]
 
-[query private getOtherAssociationsNavigableOwnedEnd(aClass : Class) : Set(Property)
+[query private reqOtherAssociationsNavigableOwnedEnd(aClass : Class) : Set(Property)
    = aClass.getAssociations()->select(navigableOwnedEnd->select(type <> aClass)->size() = 1).navigableOwnedEnd->select(type <> aClass)->asOrderedSet()
 /]
 
@@ -24,3 +24,8 @@
 [query public getAllInterfaceOperations(aClass : Class) : Sequence(Operation) =
 	aClass.getAllInterfaces()->filter(Interface).ownedOperation->asSequence()
 /]
+
+
+
+	
+

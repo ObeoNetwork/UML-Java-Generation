@@ -41,7 +41,7 @@ package [aClass.genPackageDeclaration()/];
 	[aClass.attributes()/]
 	[aClass.constructor()/]
 	[aClass.operations()/]
-[for (aProperty : Property | aClass.ownedAttribute->union(aClass.getOutgoingNavigableOwnedEnd()))]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
 	[aProperty.accessors()/]
 [/for]
 	[aClass.nestedClassifiers()/]
@@ -54,7 +54,7 @@ package [aClass.genPackageDeclaration()/];
 [/template]
 
 [template private attributes(aClass : Class)]
-[for (aProperty : Property | aClass.ownedAttribute->union(aClass.getOutgoingNavigableOwnedEnd()))]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
 [aProperty.genAttributeComment()/]
 [aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
 [/for]
@@ -187,8 +187,10 @@ public [if(aProperty.isStatic)]static [/if]void removeAll[aProperty.genInsideArr
 
 [template private nestedClassifiers(aClass : Class)]
 [for (nestedClassifier : Classifier | aClass.nestedClassifier)]
+[if (nestedClassifier.oclIsKindOf(Interface) or nestedClassifier.oclIsKindOf(Class) or nestedClassifier.oclIsKindOf(Enumeration))]
 [nestedClassifier.genJavadoc()/]
 [nestedClassifier.genBody()/]
+[/if]
 [/for]
 [/template]
 
