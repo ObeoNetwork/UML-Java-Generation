@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?NLS TYPE="org.eclipse.help.toc"?>
 
-<toc label="Acceleo UML2 to Java Generator" topic="doc/index.html">
- <topic href="doc/index.html" label="Documentation">
+<toc label="UML to Java Documentation" topic="pages/index.html">
+ <topic href="pages/features/index.html" label="Features">
  </topic>
+ <anchor id="org.obeonetwork.pim.uml2.gen.java.doc.features.anchor"/>
+ <topic href="pages/whatsnew/index.html" label="What&apos;s new">
+ </topic>
+ <topic label="Legal" href="pages/legal.html">
+ </topic>
+ <anchor id="org.obeonetwork.pim.uml2.gen.java.doc.anchor"/>
+ <enablement>
+  <test property="org.eclipse.core.runtime.isBundleInstalled" args="org.obeonetwork.pim.uml2.gen.java.ui"/>
+ </enablement>
 </toc>

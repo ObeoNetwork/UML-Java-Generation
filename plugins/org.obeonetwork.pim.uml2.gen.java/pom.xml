@@ -68,6 +68,7 @@
         </executions>
         <configuration>
           <useBinaryResources>false</useBinaryResources>
+          <usePlatformResourcePath>true</usePlatformResourcePath>
           <acceleoProject>
             <root>${project.basedir}</root>
             <entries>
