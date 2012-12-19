@@ -14,14 +14,30 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * General purpose services.
+ * 
+ * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
+ * @since 1.0
+ */
 public class CommonServices {
+	/**
+	 * Returns the current date.
+	 * 
+	 * @return The date.
+	 */
 	public String reqDate() {
 		Date date = new Date(); // to get the date
-		Locale locale = Locale.getDefault();// to get the language of the system
+		Locale locale = Locale.getDefault(); // to get the language of the system
 		DateFormat dateFormatShort = DateFormat.getDateInstance(DateFormat.LONG, locale);
 		return dateFormatShort.format(date);
 	}
-	
+
+	/**
+	 * Returns the current time.
+	 * 
+	 * @return The time.
+	 */
 	public String reqTime() {
 		Date date = new Date();
 		return DateFormat.getTimeInstance(DateFormat.LONG).format(date);

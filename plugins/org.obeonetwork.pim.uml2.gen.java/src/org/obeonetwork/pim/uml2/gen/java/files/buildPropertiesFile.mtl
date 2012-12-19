@@ -2,7 +2,8 @@
 [module buildPropertiesFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
-[import org::obeonetwork::pim::uml2::gen::java::properties::properties/]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
 
 [template private buildPropertiesFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/build.properties
@@ -20,8 +21,8 @@
 ## Contributors:
 ##    Stephane Begaudeau (Obeo) - initial API and implementation
 #################################################################################
-source.. = [aComponent.genSourceFolderName()/]/
-output.. = [aComponent.genOutputFolderName()/]/
+source.. = [aComponent.reqGetSourceFolderPath()/]/
+output.. = [aComponent.reqGetOutputFolderPath()/]/
 bin.includes = META-INF/,\
 			   .,\
 			   plugin.properties

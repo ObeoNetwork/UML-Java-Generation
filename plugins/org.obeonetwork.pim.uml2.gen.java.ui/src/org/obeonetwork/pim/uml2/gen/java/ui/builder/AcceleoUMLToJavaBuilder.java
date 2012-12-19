@@ -50,22 +50,23 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 	 * The ID of the builder.
 	 */
 	public static final String BUILDER_ID = "org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaBuilder";
-	
+
 	/**
 	 * Indicates if the build has generated some content.
 	 */
-	private boolean hasGenerated = false;
+	private boolean hasGenerated;
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see  org.eclipse.core.resources.IncrementalProjectBuilder#build(int,
-	 *      java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
+	 * @see org.eclipse.core.resources.IncrementalProjectBuilder#build(int, java.util.Map,
+	 *      org.eclipse.core.runtime.IProgressMonitor)
 	 */
+	@Override
 	@SuppressWarnings("rawtypes")
 	protected IProject[] build(int kind, Map args, final IProgressMonitor monitor) throws CoreException {
 		hasGenerated = false;
-		
+
 		if (kind == FULL_BUILD) {
 			fullBuild(monitor);
 		} else {
@@ -76,51 +77,57 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 				incrementalBuild(delta, monitor);
 			}
 		}
-		
+
 		if (hasGenerated) {
 			this.refresh(monitor);
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	 * Refresh the project after the generation.
 	 * 
-	 * @param monitor The progress monitor.
+	 * @param monitor
+	 *            The progress monitor.
 	 */
 	protected void refresh(final IProgressMonitor monitor) {
 		Thread thread = new Thread() {
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(500);
+					final int sleepTime = 500;
+					Thread.sleep(sleepTime);
 				} catch (InterruptedException e1) {
 					// do not log
 				}
 				try {
-					getProject().build(IncrementalProjectBuilder.FULL_BUILD, "org.eclipse.jdt.core.javabuilder", new HashMap<String, String>(), monitor);
+					getProject().build(IncrementalProjectBuilder.FULL_BUILD,
+							"org.eclipse.jdt.core.javabuilder", new HashMap<String, String>(), monitor);
 				} catch (CoreException e) {
-					UML2JavaUIActivator.getDefault().getLog().log(new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage()));
+					IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(),
+							e);
+					UML2JavaUIActivator.getDefault().getLog().log(status);
 				}
 			}
 		};
-		
+
 		thread.setPriority(Thread.MIN_PRIORITY);
-		
+
 		thread.start();
 	}
 
 	/**
 	 * Build the complete project.
 	 * 
-	 * @param monitor The progress monitor.
+	 * @param monitor
+	 *            The progress monitor.
 	 */
 	protected void fullBuild(final IProgressMonitor monitor) {
 		IProject project = getProject();
 		List<IFile> umlFiles = new ArrayList<IFile>();
 		umlFiles = computeUMLFiles(umlFiles, project);
-		
+
 		for (IFile iFile : umlFiles) {
 			if (!monitor.isCanceled()) {
 				generate(iFile, monitor);
@@ -131,7 +138,10 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 	/**
 	 * Returns the list of uml files contained in the project.
 	 * 
-	 * @param project The project
+	 * @param files
+	 *            The files to build
+	 * @param container
+	 *            The container where the files should be built
 	 * @return The list of uml files contained in the project.
 	 */
 	private List<IFile> computeUMLFiles(List<IFile> files, IContainer container) {
@@ -139,9 +149,9 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 			IResource[] members = container.members();
 			for (IResource member : members) {
 				if (member instanceof IContainer) {
-					computeUMLFiles(files, (IContainer) member);
+					computeUMLFiles(files, (IContainer)member);
 				} else if (member instanceof IFile) {
-					IFile memberFile = (IFile) member;
+					IFile memberFile = (IFile)member;
 					if ("uml".equals(memberFile.getFileExtension())) {
 						files.add(memberFile);
 					}
@@ -157,8 +167,10 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 	/**
 	 * Launch an incremental build of the project.
 	 * 
-	 * @param delta The resource delta.
-	 * @param monitor The progress monitor.
+	 * @param delta
+	 *            The resource delta.
+	 * @param monitor
+	 *            The progress monitor.
 	 */
 	protected void incrementalBuild(IResourceDelta delta, final IProgressMonitor monitor) {
 		try {
@@ -166,19 +178,21 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 				public boolean visit(IResourceDelta delta) throws CoreException {
 					IResource resource = delta.getResource();
 					if (resource instanceof IFile && "uml".equals(resource.getFileExtension())) {
-						IFile file = (IFile) resource;
+						IFile file = (IFile)resource;
 						switch (delta.getKind()) {
-						case IResourceDelta.ADDED:
-							// handle added resource
-							generate(file, monitor);
-							break;
-						case IResourceDelta.REMOVED:
-							// handle removed resource
-							break;
-						case IResourceDelta.CHANGED:
-							// handle changed resource
-							generate(file, monitor);
-							break;
+							case IResourceDelta.ADDED:
+								// handle added resource
+								generate(file, monitor);
+								break;
+							case IResourceDelta.REMOVED:
+								// handle removed resource
+								break;
+							case IResourceDelta.CHANGED:
+								// handle changed resource
+								generate(file, monitor);
+								break;
+							default:
+								break;
 						}
 					}
 					return true;
@@ -188,14 +202,16 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
 			UML2JavaUIActivator.getDefault().getLog().log(status);
 		}
-		
+
 	}
 
 	/**
 	 * Launches the generation with the given model.
 	 * 
-	 * @param model The uml model.
-	 * @param progressMonitor The progress monitor.
+	 * @param model
+	 *            The uml model.
+	 * @param progressMonitor
+	 *            The progress monitor.
 	 */
 	protected void generate(IFile model, IProgressMonitor progressMonitor) {
 		IProject project = getProject();
@@ -205,13 +221,13 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 			properties.load(propertiesFile.getContents());
 			Object output = properties.get(model.getProjectRelativePath().toString());
 			if (output instanceof String) {
-				String outputPath = (String) output;
+				String outputPath = (String)output;
 				Object clear = properties.get(outputPath + "__clear");
 
 				IFolder targetFolder = project.getFolder(new Path(outputPath));
 
 				if (targetFolder.exists()) {
-					if (clear instanceof String && ((String)clear).trim().equals("true")) {
+					if (clear instanceof String && "true".equals(((String)clear).trim())) {
 						IResource[] members = targetFolder.members();
 						for (IResource member : members) {
 							member.delete(true, progressMonitor);
@@ -221,9 +237,10 @@ public class AcceleoUMLToJavaBuilder extends IncrementalProjectBuilder {
 
 				ResourceSet resourceSet = new AcceleoResourceSetImpl();
 				EObject eObject = ModelUtils.load(model.getLocation().toFile(), resourceSet);
-				Uml2java workflow = new Uml2java(eObject, targetFolder.getLocation().toFile(), new ArrayList<String>());
+				Uml2java workflow = new Uml2java(eObject, targetFolder.getLocation().toFile(),
+						new ArrayList<String>());
 				workflow.doGenerate(BasicMonitor.toMonitor(progressMonitor));
-				
+
 				targetFolder.refreshLocal(IResource.DEPTH_INFINITE, progressMonitor);
 				this.refresh(progressMonitor);
 				this.hasGenerated = true;

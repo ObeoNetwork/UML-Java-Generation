@@ -1,15 +1,16 @@
 [comment encoding = UTF-8 /]
-[module projectXmlFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+[module componentProjectXmlFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
-[import org::obeonetwork::pim::uml2::gen::java::properties::properties /]
 
-[template private projectXmlFile(aComponent : Component)]
+[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
+
+[template private componentProjectXmlFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/.project
 [/template]
 
-[template public genProjectXmlFile(aComponent : Component)]
-[file (aComponent.projectXmlFile(), false, 'UTF-8')]
+[template public genComponentProjectXmlFile(aComponent : Component)]
+[file (aComponent.componentProjectXmlFile(), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>[aComponent.name/]</name>
@@ -22,7 +23,7 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-[if (aComponent.reqShouldGenerateOSGi())]
+[if (aComponent.reqShouldGenerateOSGiArtifacts() or aComponent.reqShouldGenerateEclipseArtifacts())]
 		<buildCommand>
 			<name>org.eclipse.pde.ManifestBuilder</name>
 			<arguments>
@@ -36,7 +37,7 @@
 [/if]
 	</buildSpec>
 	<natures>
-[if (aComponent.reqShouldGenerateOSGi())]
+[if (aComponent.reqShouldGenerateOSGiArtifacts() or aComponent.reqShouldGenerateEclipseArtifacts())]
 		<nature>org.eclipse.pde.PluginNature</nature>
 [/if]
 		<nature>org.eclipse.jdt.core.javanature</nature>

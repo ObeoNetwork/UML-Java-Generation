@@ -16,16 +16,9 @@ package org.obeonetwork.pim.uml2.gen.java.ui.launch;
  * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 1.0
  */
-public interface IUML2JavaContants {
+public interface IUML2JavaUIConstants {
 	/**
-	 * The key for the attribute "target folder" in the launch configuration.
+	 * The type of launch configuration for the UML 2 Java generator.
 	 */
-	String ATTR_TARGET_FOLDER_PATH = "org.obeonetwork.pim.uml2.gen.java.ui.launch.target.folder.path";
-	
-	/**
-	 * The key for the attribute "model paths" in the launch configuration.
-	 */
-	String ATTR_MODEL_PATHS = "org.obeonetwork.pim.uml2.gen.java.ui.launch.models.path";
-	
-	String ATTR_PROPERTIES = "org.obeonetwork.pim.uml2.gen.java.ui.launch.properties";
+	String LAUNCH_CONFIGURATION_TYPE = "org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationType";
 }

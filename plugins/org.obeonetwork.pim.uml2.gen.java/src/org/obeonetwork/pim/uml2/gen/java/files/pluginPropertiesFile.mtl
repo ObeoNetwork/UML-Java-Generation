@@ -3,7 +3,7 @@
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
-[import org::obeonetwork::pim::uml2::gen::java::properties::properties /]
+[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
 
 [template private pluginPropertiesFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/plugin.properties
@@ -21,7 +21,7 @@
 ## Contributors:
 ##    Stephane Begaudeau (Obeo) - initial API and implementation
 #################################################################################
-Bundle-Name = [aComponent.genBundleName()/]
-Provider-Name = [aComponent.genProviderName()/]
+Bundle-Name = Default Bundle Name
+Provider-Name = [aComponent.reqGetBundleProvider()/]
 [/file]
 [/template]

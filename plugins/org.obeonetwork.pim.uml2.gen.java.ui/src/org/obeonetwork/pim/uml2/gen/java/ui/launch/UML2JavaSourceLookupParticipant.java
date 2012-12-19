@@ -18,6 +18,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.debug.core.sourcelookup.AbstractSourceLookupParticipant;
+import org.obeonetwork.pim.uml2.gen.java.utils.IUML2JavaConstants;
 
 /**
  * This class will look for UML models in the workspace.
@@ -34,18 +35,18 @@ public class UML2JavaSourceLookupParticipant extends AbstractSourceLookupPartici
 	 */
 	public String getSourceName(Object object) throws CoreException {
 		String result = null;
-		
+
 		if (object instanceof String) {
-			result = (String) object;
+			result = (String)object;
 		} else if (object instanceof IResource) {
 			result = ((IResource)object).getName();
 		} else if (object instanceof IAdaptable) {
-			IResource resource = (IResource) ((IAdaptable)object).getAdapter(IResource.class);
+			IResource resource = (IResource)((IAdaptable)object).getAdapter(IResource.class);
 			if (resource != null) {
 				result = resource.getName();
 			}
 		}
-		
+
 		return result;
 	}
 
@@ -59,11 +60,12 @@ public class UML2JavaSourceLookupParticipant extends AbstractSourceLookupPartici
 		Object[] result = super.findSourceElements(object);
 		List<IResource> umlModels = new ArrayList<IResource>();
 		for (Object obj : result) {
-			if (obj instanceof IFile && ((IFile)obj).getFileExtension() != null && "uml".equals(((IFile)obj).getFileExtension())) {
-				umlModels.add((IFile) obj);
+			if (obj instanceof IFile && ((IFile)obj).getFileExtension() != null
+					&& IUML2JavaConstants.UML_FILE_EXTENSION.equals(((IFile)obj).getFileExtension())) {
+				umlModels.add((IFile)obj);
 			}
 		}
 		return umlModels.toArray(new Object[umlModels.size()]);
 	}
-	
+
 }

@@ -19,9 +19,9 @@ import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.obeonetwork.pim.uml2.gen.java.main.Uml2java;
 
-
 /**
  * Main entry point of the 'UML2 to Java' generation module.
+ * 
  * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 0.1
  */
@@ -40,7 +40,7 @@ public class GenerateAll {
 	/**
 	 * The other arguments.
 	 */
-	List<? extends Object> arguments;
+	private List<? extends Object> arguments;
 
 	/**
 	 * Constructor.
@@ -51,9 +51,6 @@ public class GenerateAll {
 	 *            is the output folder
 	 * @param arguments
 	 *            are the other arguments
-	 * @throws IOException
-	 *             Thrown when the output cannot be saved.
-	 * @generated
 	 */
 	public GenerateAll(URI modelURI, File targetFolder, List<? extends Object> arguments) {
 		this.modelURI = modelURI;
@@ -63,20 +60,19 @@ public class GenerateAll {
 
 	/**
 	 * Launches the generation.
-	 *
+	 * 
 	 * @param monitor
 	 *            This will be used to display progress information to the user.
 	 * @throws IOException
 	 *             Thrown when the output cannot be saved.
-	 * @generated
 	 */
 	public void doGenerate(IProgressMonitor monitor) throws IOException {
 		if (!targetFolder.exists()) {
 			targetFolder.mkdirs();
 		}
-		
+
 		Uml2java generator = new Uml2java(modelURI, targetFolder, arguments);
 		generator.doGenerate(BasicMonitor.toMonitor(monitor));
-		
+
 	}
 }

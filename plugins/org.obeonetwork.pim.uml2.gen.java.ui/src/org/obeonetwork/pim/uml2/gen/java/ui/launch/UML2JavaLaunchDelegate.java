@@ -12,11 +12,6 @@ package org.obeonetwork.pim.uml2.gen.java.ui.launch;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -24,13 +19,18 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.obeonetwork.pim.uml2.gen.java.main.Uml2java;
+import org.obeonetwork.pim.uml2.gen.java.services.UML2JavaConfigurationHolder;
+import org.obeonetwork.pim.uml2.gen.java.ui.UML2JavaUIActivator;
+import org.obeonetwork.pim.uml2.gen.java.utils.IUML2JavaConstants;
 
 /**
  * The UML to Java launch configuration launcher.
@@ -43,56 +43,112 @@ public class UML2JavaLaunchDelegate implements ILaunchConfigurationDelegate {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.debug.core.model.ILaunchConfigurationDelegate#launch(org.eclipse.debug.core.ILaunchConfiguration, java.lang.String, org.eclipse.debug.core.ILaunch, org.eclipse.core.runtime.IProgressMonitor)
+	 * @see org.eclipse.debug.core.model.ILaunchConfigurationDelegate#launch(org.eclipse.debug.core.ILaunchConfiguration,
+	 *      java.lang.String, org.eclipse.debug.core.ILaunch, org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) throws CoreException {
-		String targetFolder = "";
+	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch,
+			IProgressMonitor monitor) throws CoreException {
+		String umlModelPath = "";
 		try {
-			targetFolder = configuration.getAttribute(IUML2JavaContants.ATTR_TARGET_FOLDER_PATH, "");
+			umlModelPath = configuration.getAttribute(IUML2JavaConstants.UML_MODEL_PATH, "");
 		} catch (CoreException e) {
-			
+			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
+			UML2JavaUIActivator.getDefault().getLog().log(status);
 		}
-		
-		Set<String> umlModelPaths = new LinkedHashSet<String>();
-		try {
-			Set<?> attributes = configuration.getAttribute(IUML2JavaContants.ATTR_MODEL_PATHS, new LinkedHashSet<String>());
-			for (Object attribute : attributes) {
-				if (attribute instanceof String) {
-					umlModelPaths.add((String) attribute);
-				}
-			}
-		} catch (CoreException e) {
 
-		}
-		
-		try {
-			Map<?, ?> map = configuration.getAttribute(IUML2JavaContants.ATTR_PROPERTIES, new HashMap<Object, Object>());
-			Properties properties = new Properties();
-			properties.putAll(map);
-			Uml2java.setUserProperties(properties);
-		} catch (CoreException e) {
-
-		}
-		
-		if (targetFolder == null || targetFolder.length() == 0) {
+		if (umlModelPath == null || umlModelPath.length() == 0) {
 			return;
 		}
-		
-		for (String umlModelPath : umlModelPaths) {
-			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(umlModelPath));
-			IContainer container = ResourcesPlugin.getWorkspace().getRoot().getFolder(new Path(targetFolder));
-			if (file!= null && container != null && file.isAccessible() && container.isAccessible()) {
-				URI modelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
-				try {
-					Uml2java workflow = new Uml2java(modelURI, container.getLocation().toFile(), new ArrayList<String>());
-					workflow.doGenerate(BasicMonitor.toMonitor(monitor));
-					
-					container.refreshLocal(IResource.DEPTH_INFINITE, monitor);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+
+		IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(umlModelPath));
+		IContainer container = ResourcesPlugin.getWorkspace().getRoot();
+		if (file != null && container != null && file.isAccessible() && container.isAccessible()) {
+			URI modelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
+
+			UML2JavaConfigurationHolder configurationHolder = this.createConfigurationHolder(configuration);
+
+			try {
+				Uml2java workflow = new Uml2java(modelURI, container.getLocation().toFile(),
+						new ArrayList<String>());
+
+				workflow.setConfigurationHolder(configurationHolder);
+
+				workflow.doGenerate(BasicMonitor.toMonitor(monitor));
+				container.refreshLocal(IResource.DEPTH_INFINITE, monitor);
+			} catch (IOException e) {
+				IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
+				UML2JavaUIActivator.getDefault().getLog().log(status);
 			}
 		}
+	}
+
+	/**
+	 * Creates the configuration holder from the launch configuration.
+	 * 
+	 * @param configuration
+	 *            The launch configuration
+	 * @return The configuration holder from the launch configuration.
+	 */
+	private UML2JavaConfigurationHolder createConfigurationHolder(ILaunchConfiguration configuration) {
+		UML2JavaConfigurationHolder configurationHolder = new UML2JavaConfigurationHolder();
+
+		try {
+			// General
+			configurationHolder.put(IUML2JavaConstants.UML_MODEL_PATH, configuration.getAttribute(
+					IUML2JavaConstants.UML_MODEL_PATH, ""));
+			configurationHolder.put(IUML2JavaConstants.DEFAULT_PROJECT_NAME, configuration.getAttribute(
+					IUML2JavaConstants.DEFAULT_PROJECT_NAME, ""));
+			configurationHolder.put(IUML2JavaConstants.SOURCE_FOLDER_PATH, configuration.getAttribute(
+					IUML2JavaConstants.SOURCE_FOLDER_PATH, ""));
+			configurationHolder.put(IUML2JavaConstants.OUTPUT_FOLDER_PATH, configuration.getAttribute(
+					IUML2JavaConstants.OUTPUT_FOLDER_PATH, ""));
+			configurationHolder.put(IUML2JavaConstants.JRE_EXECUTION_ENVIRONMENT, configuration.getAttribute(
+					IUML2JavaConstants.JRE_EXECUTION_ENVIRONMENT, ""));
+
+			// Class
+			configurationHolder.put(IUML2JavaConstants.PACKAGES_TO_IGNORE_DURING_GENERATION, configuration
+					.getAttribute(IUML2JavaConstants.PACKAGES_TO_IGNORE_DURING_GENERATION, ""));
+			configurationHolder.put(IUML2JavaConstants.PACKAGES_TO_IGNORE_DURING_IMPORTS, configuration
+					.getAttribute(IUML2JavaConstants.PACKAGES_TO_IGNORE_DURING_IMPORTS, ""));
+			configurationHolder.put(IUML2JavaConstants.GENERATE_GETTERS_AND_SETTERS, configuration
+					.getAttribute(IUML2JavaConstants.GENERATE_GETTERS_AND_SETTERS, false));
+			configurationHolder.put(IUML2JavaConstants.GENERATE_GETTERS_COLLECTIONS, configuration
+					.getAttribute(IUML2JavaConstants.GENERATE_GETTERS_COLLECTIONS, false));
+			configurationHolder.put(IUML2JavaConstants.GENERATE_SETTERS_COLLECTIONS, configuration
+					.getAttribute(IUML2JavaConstants.GENERATE_SETTERS_COLLECTIONS, false));
+			configurationHolder.put(IUML2JavaConstants.GENERATE_ADVANCED_ACCESSORS_COLLECTIONS, configuration
+					.getAttribute(IUML2JavaConstants.GENERATE_ADVANCED_ACCESSORS_COLLECTIONS, false));
+			configurationHolder.put(IUML2JavaConstants.AUTHOR, configuration.getAttribute(
+					IUML2JavaConstants.AUTHOR, ""));
+			configurationHolder.put(IUML2JavaConstants.VERSION, configuration.getAttribute(
+					IUML2JavaConstants.VERSION, ""));
+			configurationHolder.put(IUML2JavaConstants.COPYRIGHT_AND_LICENSE, configuration.getAttribute(
+					IUML2JavaConstants.COPYRIGHT_AND_LICENSE, ""));
+
+			// Component
+			configurationHolder.put(IUML2JavaConstants.COMPONENTS_TO_IGNORE, configuration.getAttribute(
+					IUML2JavaConstants.COMPONENTS_TO_IGNORE, ""));
+			configurationHolder.put(IUML2JavaConstants.COMPONENTS_ARCHITECTURE, configuration.getAttribute(
+					IUML2JavaConstants.COMPONENTS_ARCHITECTURE, ""));
+			configurationHolder.put(IUML2JavaConstants.BUNDLE_PROVIDER, configuration.getAttribute(
+					IUML2JavaConstants.BUNDLE_PROVIDER, ""));
+
+			// Type
+			configurationHolder.put(IUML2JavaConstants.ORDERED_UNIQUE_TYPE, configuration.getAttribute(
+					IUML2JavaConstants.ORDERED_UNIQUE_TYPE, ""));
+			configurationHolder.put(IUML2JavaConstants.ORDERED_NOT_UNIQUE_TYPE, configuration.getAttribute(
+					IUML2JavaConstants.ORDERED_NOT_UNIQUE_TYPE, ""));
+			configurationHolder.put(IUML2JavaConstants.NOT_ORDERED_UNIQUE_TYPE, configuration.getAttribute(
+					IUML2JavaConstants.NOT_ORDERED_UNIQUE_TYPE, ""));
+			configurationHolder.put(IUML2JavaConstants.NOT_ORDERED_NOT_UNIQUE_TYPE, configuration
+					.getAttribute(IUML2JavaConstants.NOT_ORDERED_NOT_UNIQUE_TYPE, ""));
+
+		} catch (CoreException e) {
+			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
+			UML2JavaUIActivator.getDefault().getLog().log(status);
+		}
+
+		return configurationHolder;
 	}
 
 }

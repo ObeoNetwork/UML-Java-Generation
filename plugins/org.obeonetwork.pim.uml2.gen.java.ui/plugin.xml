@@ -96,7 +96,7 @@
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
       <launchConfigurationTabGroup
-            class="org.obeonetwork.pim.uml2.gen.java.ui.launch.AbstractLaunchConfigurationTabGroup"
+            class="org.obeonetwork.pim.uml2.gen.java.ui.launch.UML2JavaLaunchConfigurationTabGroup"
             description="%launchConfigurationTabGroupsName"
             id="org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationTabGroup"
             type="org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationType">

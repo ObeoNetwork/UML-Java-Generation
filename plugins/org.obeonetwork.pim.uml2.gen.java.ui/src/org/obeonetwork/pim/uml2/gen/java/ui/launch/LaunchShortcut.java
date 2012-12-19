@@ -10,10 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.pim.uml2.gen.java.ui.launch;
 
-
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -37,6 +34,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.pim.uml2.gen.java.ui.UML2JavaUIActivator;
+import org.obeonetwork.pim.uml2.gen.java.utils.IUML2JavaConstants;
 
 /**
  * The shortcut launcher for UML to Java launch configurations.
@@ -47,26 +45,29 @@ import org.obeonetwork.pim.uml2.gen.java.ui.UML2JavaUIActivator;
 public class LaunchShortcut implements ILaunchShortcut {
 
 	/**
-	 * UML models for the generation.
+	 * UML model for the generation.
 	 */
-	Set<IFile> files = new LinkedHashSet<IFile>();
-	
+	private IFile file;
+
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.debug.ui.ILaunchShortcut#launch(org.eclipse.jface.viewers.ISelection, java.lang.String)
+	 * @see org.eclipse.debug.ui.ILaunchShortcut#launch(org.eclipse.jface.viewers.ISelection,
+	 *      java.lang.String)
 	 */
 	public void launch(ISelection selection, String mode) {
 		if (selection instanceof IStructuredSelection) {
-			List<?> list = ((IStructuredSelection) selection).toList();
+			List<?> list = ((IStructuredSelection)selection).toList();
 			for (Object object : list) {
-				if (object instanceof IFile && ((IFile)object).getFileExtension() != null && "uml".equals(((IFile)object).getFileExtension())) {
-					files.add((IFile) object);
+				if (object instanceof IFile && ((IFile)object).getFileExtension() != null
+						&& "uml".equals(((IFile)object).getFileExtension())) {
+					this.file = (IFile)object;
+					break;
 				}
 			}
 		}
-		
-		if (files.size() > 0) {
+
+		if (this.file != null) {
 			generate(mode);
 		}
 	}
@@ -79,21 +80,22 @@ public class LaunchShortcut implements ILaunchShortcut {
 	public void launch(IEditorPart editor, String mode) {
 		IEditorInput input = editor.getEditorInput();
 		if (input instanceof IAdaptable) {
-			IFile file = (IFile) ((IAdaptable)input).getAdapter(IFile.class);
-			if (file != null && file.getFileExtension() != null && "uml".equals(file.getFileExtension())) {
-				files.add(file);
+			IFile iFile = (IFile)((IAdaptable)input).getAdapter(IFile.class);
+			if (iFile != null && iFile.getFileExtension() != null && "uml".equals(iFile.getFileExtension())) {
+				this.file = iFile;
 			}
 		}
-		
-		if (files.size() > 0) {
+
+		if (this.file != null) {
 			generate(mode);
 		}
 	}
-	
+
 	/**
 	 * Launches the generation.
 	 * 
-	 * @param mode The generation mode (run always)
+	 * @param mode
+	 *            The generation mode (run always)
 	 */
 	private void generate(String mode) {
 		// Finds or creates a launch configuration for these UML models.
@@ -101,13 +103,13 @@ public class LaunchShortcut implements ILaunchShortcut {
 		if (launchConfiguration == null) {
 			launchConfiguration = this.createConfiguration();
 		}
-		
+
 		// Launch it
 		if (launchConfiguration != null && launchConfiguration.exists()) {
 			DebugUITools.launch(launchConfiguration, mode);
 		}
 	}
-	
+
 	/**
 	 * Returns a newly created launch configuration for the available ".uml" models.
 	 * 
@@ -118,18 +120,17 @@ public class LaunchShortcut implements ILaunchShortcut {
 		ILaunchConfiguration config = null;
 		ILaunchConfigurationWorkingCopy wc = null;
 		try {
-			Set<String> computedModelPaths = new LinkedHashSet<String>();
-			for (IFile file : files) {
-				computedModelPaths.add(file.getFullPath().toString());
-			}
-			
-			ILaunchConfigurationType configType = DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurationType("org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationType");
-			wc = configType.newInstance(null, DebugPlugin.getDefault().getLaunchManager().generateUniqueLaunchConfigurationNameFrom("UML2Java"));
-			wc.setAttribute(IUML2JavaContants.ATTR_TARGET_FOLDER_PATH, "");
-			wc.setAttribute(IUML2JavaContants.ATTR_MODEL_PATHS, computedModelPaths);
-			wc.setMappedResources(files.toArray(new IResource[files.size()]));
+			String computedModelPath = this.file.getFullPath().toString();
+
+			ILaunchConfigurationType configType = DebugPlugin.getDefault().getLaunchManager()
+					.getLaunchConfigurationType(
+							"org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationType");
+			wc = configType.newInstance(null, DebugPlugin.getDefault().getLaunchManager()
+					.generateUniqueLaunchConfigurationNameFrom("UML2Java"));
+			wc.setAttribute(IUML2JavaConstants.UML_MODEL_PATH, computedModelPath);
+			wc.setMappedResources(new IResource[] {this.file });
 			config = wc.doSave();
-			
+
 			IStructuredSelection selection;
 			if (config == null) {
 				selection = new StructuredSelection();
@@ -148,31 +149,24 @@ public class LaunchShortcut implements ILaunchShortcut {
 		}
 		return config;
 	}
-	
+
 	/**
 	 * Returns the first UML to Java launch configuration using all the selected ".uml" models.
 	 * 
 	 * @return The first UML to Java launch configuration using all the selected ".uml" models.
 	 */
 	protected ILaunchConfiguration findLaunchConfiguration() {
-		Set<String> computedModelPaths = new LinkedHashSet<String>();
-		for (IFile file : files) {
-			computedModelPaths.add(file.getFullPath().toString());
-		}
-		
-		ILaunchConfigurationType configurationType = DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurationType("org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationType");
+		String computedModelPath = this.file.getFullPath().toString();
+
+		ILaunchConfigurationType configurationType = DebugPlugin.getDefault().getLaunchManager()
+				.getLaunchConfigurationType(IUML2JavaUIConstants.LAUNCH_CONFIGURATION_TYPE);
 		try {
-			ILaunchConfiguration[] launchConfigurations = DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurations(configurationType);
+			ILaunchConfiguration[] launchConfigurations = DebugPlugin.getDefault().getLaunchManager()
+					.getLaunchConfigurations(configurationType);
 			for (ILaunchConfiguration iLaunchConfiguration : launchConfigurations) {
-				Set<String> modelPaths = new LinkedHashSet<String>();
-				Set<?> attributes = iLaunchConfiguration.getAttribute(IUML2JavaContants.ATTR_MODEL_PATHS, new LinkedHashSet<String>());
-				for (Object attribute : attributes) {
-					if (attribute instanceof String) {
-						modelPaths.add((String) attribute);
-					}
-				}
-				
-				if (modelPaths.size() == computedModelPaths.size() && modelPaths.containsAll(computedModelPaths)) {
+				String modelPath = iLaunchConfiguration.getAttribute(IUML2JavaConstants.UML_MODEL_PATH, "");
+
+				if (modelPath != null && modelPath.equals(computedModelPath)) {
 					return iLaunchConfiguration;
 				}
 			}

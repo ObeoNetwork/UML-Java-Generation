@@ -2,7 +2,8 @@
 [module classPathXmlFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
-[import org::obeonetwork::pim::uml2::gen::java::properties::properties /]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
 
 [template private classPathXmlFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/.classpath
@@ -13,11 +14,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
-[if (aComponent.reqShouldGenerateOSGi())]
+[if (aComponent.reqShouldGenerateOSGiArtifacts() or aComponent.reqShouldGenerateEclipseArtifacts())]
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 [/if]
-	<classpathentry kind="src" path="[aComponent.genSourceFolderName()/]"/>
-	<classpathentry kind="output" path="[aComponent.genOutputFolderName()/]"/>
+	<classpathentry kind="src" path="[aComponent.reqGetSourceFolderPath()/]"/>
+	<classpathentry kind="output" path="[aComponent.reqGetOutputFolderPath()/]"/>
 </classpath>
 [/file]
 [/template]

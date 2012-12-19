@@ -36,7 +36,7 @@ import org.obeonetwork.pim.uml2.gen.java.ui.UML2JavaUIActivator;
  * @since 1.0
  */
 public class ToggleNatureAction implements IObjectActionDelegate {
-	
+
 	/**
 	 * The name of the properties file that configures the Acceleo builder.
 	 */
@@ -55,15 +55,13 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 	@SuppressWarnings("rawtypes")
 	public void run(IAction action) {
 		if (selection instanceof IStructuredSelection) {
-			for (Iterator it = ((IStructuredSelection) selection).iterator(); it
-					.hasNext();) {
+			for (Iterator it = ((IStructuredSelection)selection).iterator(); it.hasNext();) {
 				Object element = it.next();
 				IProject project = null;
 				if (element instanceof IProject) {
-					project = (IProject) element;
+					project = (IProject)element;
 				} else if (element instanceof IAdaptable) {
-					project = (IProject) ((IAdaptable) element)
-							.getAdapter(IProject.class);
+					project = (IProject)((IAdaptable)element).getAdapter(IProject.class);
 				}
 				if (project != null) {
 					toggleNature(project);
@@ -78,8 +76,8 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction,
 	 *      org.eclipse.jface.viewers.ISelection)
 	 */
-	public void selectionChanged(IAction action, ISelection selection) {
-		this.selection = selection;
+	public void selectionChanged(IAction action, ISelection currentSelection) {
+		this.selection = currentSelection;
 	}
 
 	/**
@@ -93,7 +91,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 	}
 
 	/**
-	 * Toggles sample nature on a project
+	 * Toggles sample nature on a project.
 	 * 
 	 * @param project
 	 *            to have sample nature added or removed
@@ -108,8 +106,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 					// Remove the nature
 					String[] newNatures = new String[natures.length - 1];
 					System.arraycopy(natures, 0, newNatures, 0, i);
-					System.arraycopy(natures, i + 1, newNatures, i,
-							natures.length - i - 1);
+					System.arraycopy(natures, i + 1, newNatures, i, natures.length - i - 1);
 					description.setNatureIds(newNatures);
 					project.setDescription(description, null);
 					return;
@@ -122,12 +119,12 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 			System.arraycopy(natures, 0, newNatures, 1, natures.length);
 			description.setNatureIds(newNatures);
 			project.setDescription(description, null);
-			
+
 			// Generate the property file
 			IFile propertiesFile = project.getFile(PROPERTIES_FILE);
 			if (!propertiesFile.exists()) {
 				final String nl = System.getProperty("line.separator");
-				
+
 				StringBuffer content = new StringBuffer();
 				content.append("##############################################################");
 				content.append(nl);
@@ -158,7 +155,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 				content.append("##############################################################");
 				content.append(nl);
 				content.append(nl);
-				
+
 				InputStream source = new ByteArrayInputStream(content.toString().getBytes());
 				propertiesFile.create(source, true, new NullProgressMonitor());
 			}

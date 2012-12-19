@@ -1,4 +1,11 @@
 [comment encoding = UTF-8 /]
+[comment]
+ * Copyright (c) 2012 Obeo
+ * All rights reserved.  This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 1.0
+ * 
+ * You can apply any license to the files generated with this module and Acceleo.
+[/comment]
 [module importService('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 

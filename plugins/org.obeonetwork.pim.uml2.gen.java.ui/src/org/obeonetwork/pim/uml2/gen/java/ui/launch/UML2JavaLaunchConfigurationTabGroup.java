@@ -10,8 +10,13 @@
  *******************************************************************************/
 package org.obeonetwork.pim.uml2.gen.java.ui.launch;
 
+import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
+import org.obeonetwork.pim.uml2.gen.java.ui.launch.tabs.UML2JavaClassLaunchConfigurationTab;
+import org.obeonetwork.pim.uml2.gen.java.ui.launch.tabs.UML2JavaComponentLaunchConfigurationTab;
+import org.obeonetwork.pim.uml2.gen.java.ui.launch.tabs.UML2JavaGeneralLaunchConfigurationTab;
+import org.obeonetwork.pim.uml2.gen.java.ui.launch.tabs.UML2JavaTypeLaunchConfigurationTab;
 
 /**
  * The UML to Java tab groups creator.
@@ -19,15 +24,18 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
  * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 1.0
  */
-public class AbstractLaunchConfigurationTabGroup extends org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup {
+public class UML2JavaLaunchConfigurationTabGroup extends org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup {
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.ILaunchConfigurationDialog, java.lang.String)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.ILaunchConfigurationDialog,
+	 *      java.lang.String)
 	 */
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-		setTabs(new ILaunchConfigurationTab[]{new UML2JavaLaunchConfigurationTab(), new UML2JavaLaunchConfigurationPropertiesTab()});
+		setTabs(new ILaunchConfigurationTab[] {new UML2JavaGeneralLaunchConfigurationTab(),
+				new UML2JavaClassLaunchConfigurationTab(), new UML2JavaComponentLaunchConfigurationTab(),
+				new UML2JavaTypeLaunchConfigurationTab(), new CommonTab(), });
 	}
 
 }
