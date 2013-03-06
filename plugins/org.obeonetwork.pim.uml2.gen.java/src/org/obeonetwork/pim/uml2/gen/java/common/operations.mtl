@@ -17,6 +17,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::common /]
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 [import org::obeonetwork::pim::uml2::gen::java::request::request /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
 
 [template public genOperations (anInterface : Interface) ]
 [for (anOperation : Operation | anInterface.ownedOperation)]
@@ -63,8 +64,10 @@
 /**
 [if (anOperation.ownedComment->size() > 0 and anOperation.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (aComment : Comment | anOperation.ownedComment)]
- * [aComment._body/]
-[/for]
+[javadocStar(aComment._body)/][/for]
+[elseif (anOperation.eAnnotations.details->select(entry | entry.key = 'documentation')->size() > 0)]
+[for (documentation : String | anOperation.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value))]
+[javadocStar(documentation)/][/for]
 [else]
  * Description of the method [anOperation.genName()/].
 [/if]

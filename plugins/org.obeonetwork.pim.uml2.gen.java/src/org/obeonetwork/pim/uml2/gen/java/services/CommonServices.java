@@ -13,6 +13,7 @@ package org.obeonetwork.pim.uml2.gen.java.services;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Scanner;
 
 /**
  * The common services utility class.
@@ -80,4 +81,25 @@ public final class CommonServices {
 		Date date = new Date();
 		return DateFormat.getTimeInstance(DateFormat.LONG).format(date);
 	}
+	
+	
+	/**
+	 * Formats a documentation string to be used in a Javadoc comment.<br/>
+	 * " * " will be added at the beginning of each lines in the documentation string.<br/>
+	 * 
+	 * @param doc
+	 *            the documentation String to be formated as Javadoc lines
+	 * 
+	 * @return stared Javadoc lines from the doc's lines
+	 */
+	public static String javadocStar(String doc) {
+        StringBuffer res = new StringBuffer("");
+        Scanner scanner = new Scanner(doc);
+        while (scanner.hasNextLine()) {
+          String line = scanner.nextLine();
+          res.append(" * " + line + "<br />\n");
+        }
+        return res.toString();
+	}
+
 }

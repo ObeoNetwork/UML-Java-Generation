@@ -17,6 +17,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 [import org::obeonetwork::pim::uml2::gen::java::common::type /]
 [import org::obeonetwork::pim::uml2::gen::java::request::request /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
 
 [template public genAttributes(anInterface : Interface) ]
 [for (aProperty : Property | anInterface.ownedAttribute)]
@@ -46,8 +47,11 @@
 /**
 [if (aProperty.ownedComment->size() > 0 and aProperty.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (propertyComment : Comment | aProperty.ownedComment)]
- * [propertyComment._body/]
+[javadocStar(propertyComment._body)/]
 [/for]
+[elseif (aProperty.eAnnotations.details->select(entry | entry.key = 'documentation')->size() > 0)]
+[for (documentation : String | aProperty.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value))]
+[javadocStar(documentation)/][/for]
 [else]
  * Description of the property [aProperty.genName()/].
 [/if]

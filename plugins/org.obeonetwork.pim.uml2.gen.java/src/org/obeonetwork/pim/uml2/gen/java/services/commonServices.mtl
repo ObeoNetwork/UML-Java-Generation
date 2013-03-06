@@ -26,3 +26,10 @@
 [template public getTime(traceabilityContext : OclAny) post(trim())]
 [invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'getTime()', Sequence{})/]
 [/template]
+
+[**
+ * Returns the Javadoc formated version of a documentation string.
+ */]
+[template public javadocStar(doc : String)]
+[invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'javadocStar(java.lang.String)', Sequence{doc})/]
+[/template]

@@ -19,8 +19,10 @@
 /**
 [if (aClassifier.ownedComment->size() > 0 and aClassifier.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (aComment : Comment | aClassifier.ownedComment)]
- * [aComment._body/]
-[/for]
+[javadocStar(aComment._body)/][/for]
+[elseif (aClassifier.eAnnotations.details->select(entry | entry.key = 'documentation')->size() > 0)]
+[for (documentation : String | aClassifier.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value))]
+[javadocStar(documentation)/][/for]
 [else]
  * Description of [aClassifier.name/].
 [/if]
@@ -38,6 +40,8 @@
 [template public genComment(anElement : Element)]
 [for (ownedComment : Comment | anElement.ownedComment)]
 [ownedComment._body/][/for]
+[for (documentation : String | anElement.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value))]
+[documentation/][/for]
 [/template]
 
 [template public genPropertyParent(aProperty : Property)]
