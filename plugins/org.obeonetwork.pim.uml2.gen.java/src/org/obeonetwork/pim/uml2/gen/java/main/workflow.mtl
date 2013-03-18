@@ -17,14 +17,41 @@
 [import org::obeonetwork::pim::uml2::gen::java::files::commonFile /]
 [import org::obeonetwork::pim::uml2::gen::java::files::enumerationFile /]
 [import org::obeonetwork::pim::uml2::gen::java::files::interfaceFile /]
+[import org::obeonetwork::pim::uml2::gen::java::files::packageFile /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commentServices /]
 
 [template public generate(aModel : Model)]
 [comment @main /]
+[collectComments(aModel)/]
 [for (aPackage : Package | aModel.eAllContents(Package))]
+[aPackage.genInfoFile()/]
 [aPackage.eContents(Class).generateClass()/]
 [aPackage.eContents(Interface).generateInterface()/]
 [aPackage.eContents(Enumeration).generateEnumeration()/]
 [/for]
+[/template]
+
+[**
+ * The entry point for collecting Comments and Documentation Eannotations.
+ * @param aClass an UML Class.
+ */]
+[template public collectComments(aModel : Model)]
+[aModel.clearComments()/]
+[for (aComment : Comment | aModel.eAllContents(Comment))]
+[aComment.collect()/]
+[/for]
+[/template]
+
+[**
+ * Generate the comments for the package in the package-info.java file .
+ * @param aClass an UML Class.
+ */]
+[template public genInfoFile(aPackage : Package)]
+[if (aPackage.hasComment() or aPackage.hasDocumentation())]
+[file (aPackage.genFullPathInfoFile(), false, 'UTF-8')]
+[aPackage.genFileBody()/]
+[/file]
+[/if]
 [/template]
 
 [**

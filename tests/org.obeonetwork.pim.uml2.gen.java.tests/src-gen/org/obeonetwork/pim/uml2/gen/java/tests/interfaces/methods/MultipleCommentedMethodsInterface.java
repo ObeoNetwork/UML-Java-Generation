@@ -10,7 +10,7 @@ import java.util.Date;
 // End of user code
 
 /**
- * The comment of MultipleCommentedMethodsInterface.
+ * The comment of MultipleCommentedMethodsInterface.<br />
  */
 public interface MultipleCommentedMethodsInterface {
 	// Start of user code (user defined attributes)
@@ -18,19 +18,22 @@ public interface MultipleCommentedMethodsInterface {
 	// End of user code
 	
 	/**
-	 * The comment of the first operation of MultipleCommentedMethodsInterface.
+	 * Common comment of all the operations of MultipleCommentedMethodsInterface.<br />
+	 * The comment of the first operation of MultipleCommentedMethodsInterface.<br />
 	 * @return 
 	 */
 	public Boolean firstOperation();
 	
 	/**
-	 * The comment of the second method of MultipleCommentedMethodsInterface.
+	 * Common comment of all the operations of MultipleCommentedMethodsInterface.<br />
+	 * The comment of the second method of MultipleCommentedMethodsInterface.<br />
 	 * @return 
 	 */
 	public Date secondOperation();
 	
 	/**
-	 * The comment of the third method of MultipleCommentedMethodsInterface.
+	 * Common comment of all the operations of MultipleCommentedMethodsInterface.<br />
+	 * The comment of the third method of MultipleCommentedMethodsInterface.<br />
 	 * @return 
 	 */
 	public Integer thirdOperation();

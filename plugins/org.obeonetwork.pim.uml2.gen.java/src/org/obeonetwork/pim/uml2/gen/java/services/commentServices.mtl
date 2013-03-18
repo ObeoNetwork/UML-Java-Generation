@@ -1,0 +1,51 @@
+[comment encoding = UTF-8 /]
+[**
+ * Module implementing the reverse of the org.eclipse.uml2.uml.Comment.getAnnotatedElements().
+ * @author Jean-Pierre.PECUCHET@insa-rouen.fr
+ */]
+[module commentServices('http://www.eclipse.org/uml2/3.0.0/UML')/]
+
+[**
+ * Collect a Comment
+ * @param aComment
+ */]
+[query public collect(aComment : Comment) : OclVoid
+	= invoke('org.obeonetwork.pim.uml2.gen.java.services.CommentServices', 'collect(org.eclipse.uml2.uml.Comment)', Sequence{aComment}) /]
+
+[**
+ * Clear the Comments list
+ */]
+[query public clearComments(aModel : Model) : OclVoid
+	= invoke('org.obeonetwork.pim.uml2.gen.java.services.CommentServices', 'clearComments()', Sequence{}) /]
+
+[**
+ * Get all the Comments for an Element
+ * @param anElement
+ */]
+[query public allComments(anElement : Element) : Sequence(OclAny)
+	= invoke('org.obeonetwork.pim.uml2.gen.java.services.CommentServices', 'allComments(org.eclipse.uml2.uml.Element)', Sequence{anElement}) /]
+
+[**
+ * Get all the documentation eAnnotations for an Element
+ * @param anElement
+ */]
+[query public allDocumentations(anElement : Element) : Sequence(String)
+	= anElement.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value) /]
+
+[**
+ * Test if an Element has Comments
+ * @param anElement
+ */]
+[query public hasComment(anElement : Element) : Boolean = 
+	if anElement.allComments() = null
+		then false 
+		else anElement.allComments()->size() > 0
+	endif /]
+
+[**
+ * Test if an Element has Documentations
+ * @param anElement
+ */]
+[query public hasDocumentation(anElement : Element) : Boolean
+	= anElement.eAnnotations.details->select(entry | entry.key = 'documentation')->size() > 0 /]
+

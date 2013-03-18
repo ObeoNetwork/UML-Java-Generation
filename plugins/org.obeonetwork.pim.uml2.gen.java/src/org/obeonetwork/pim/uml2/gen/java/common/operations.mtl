@@ -18,6 +18,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 [import org::obeonetwork::pim::uml2::gen::java::request::request /]
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commentServices /]
 
 [template public genOperations (anInterface : Interface) ]
 [for (anOperation : Operation | anInterface.ownedOperation)]
@@ -62,11 +63,10 @@
 
 [template public genOperationComment(anOperation : Operation)]
 /**
-[if (anOperation.ownedComment->size() > 0 and anOperation.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
-[for (aComment : Comment | anOperation.ownedComment)]
+[if (anOperation.hasComment() or anOperation.hasDocumentation())]
+[for (aComment : Comment | anOperation.allComments())]
 [javadocStar(aComment._body)/][/for]
-[elseif (anOperation.eAnnotations.details->select(entry | entry.key = 'documentation')->size() > 0)]
-[for (documentation : String | anOperation.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value))]
+[for (documentation : String | anOperation.allDocumentations())]
 [javadocStar(documentation)/][/for]
 [else]
  * Description of the method [anOperation.genName()/].

@@ -10,21 +10,24 @@ import java.util.Date;
 // End of user code
 
 /**
- * The comment of MultipleCommentedPropertiesInterface.
+ * The comment of MultipleCommentedPropertiesInterface.<br />
  */
 public interface MultipleCommentedPropertiesInterface {
 	/**
-	 * The comment of the first property of the MultipleCommentedPropertiesInterface.
+	 * The common comment for all properties of the MultipleCommentedPropertiesInterface.<br />
+	 * The comment of the first property of the MultipleCommentedPropertiesInterface.<br />
 	 */
 	public Integer firstProperty = 0;
 	
 	/**
-	 * The comment of the second property of MultipleCommentedPropertiesInterface.
+	 * The common comment for all properties of the MultipleCommentedPropertiesInterface.<br />
+	 * The comment of the second property of MultipleCommentedPropertiesInterface.<br />
 	 */
 	public Integer secondProperty = 0;
 	
 	/**
-	 * The comment of the third property of MultipleCommentedPropertiesInterface.
+	 * The common comment for all properties of the MultipleCommentedPropertiesInterface.<br />
+	 * The comment of the third property of MultipleCommentedPropertiesInterface.<br />
 	 */
 	public Date thirdProperty = new Date();
 	

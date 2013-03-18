@@ -16,6 +16,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::common /]
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commentServices /]
 
 [**
  * The documentation of the template genFileBody.
@@ -32,21 +33,21 @@
 [template protected genBody(anEnumeration : Enumeration) overrides genBody]
 [anEnumeration.genVisibility()/]enum [anEnumeration.name.toUpperFirst()/] {
 [for (anEnumerationLiteral : EnumerationLiteral | anEnumeration.ownedLiteral)]
-    /**
-[if (anEnumerationLiteral.ownedComment->size() > 0 and anEnumerationLiteral.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
-[for (aComment : Comment | anEnumerationLiteral.ownedComment)]
-     [javadocStar(aComment._body)/][/for]
- */
-[elseif (anEnumerationLiteral.eAnnotations.details->select(entry | entry.key = 'documentation')->size() > 0)]
-[for (documentation : String | anEnumerationLiteral.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value))]
-    [javadocStar(documentation)/][/for]
- */
-[else]
-     * Description of [anEnumerationLiteral.name/].
-     */
-[/if]
+	[anEnumerationLiteral.genLitteralComment()/]
     [anEnumerationLiteral.name/],
     
 [/for]
 }
+[/template]
+
+[template protected genLitteralComment(anEnumerationLiteral : EnumerationLiteral)]
+/**
+[if (anEnumerationLiteral.hasComment() or anEnumerationLiteral.hasDocumentation())]
+[for (aComment : Comment | anEnumerationLiteral.allComments())]
+[javadocStar(aComment._body)/][/for]
+[for (documentation : String | anEnumerationLiteral.allDocumentations())]
+[javadocStar(documentation)/][/for]
+ */[else]
+ * Description of [anEnumerationLiteral.name/].
+ */[/if]
 [/template]

@@ -34,7 +34,7 @@
 [aClass.genBody()/]
 [/template]
 
-[template protected genBody(aClass : Class) overrides genBody]
+[template public genBody(aClass : Class) overrides genBody]
 [aClass.genVisibility()/][aClass.genAbstract()/][aClass.genFinal()/]class [aClass.genName()/][aClass.genInheritance()/][aClass.genInterfaceRealization()/] {
     [aClass.genAttributes()/]
     [aClass.genConstructor()/]
@@ -110,3 +110,4 @@ public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperF
 [/if]
 [/if]
 [/template]
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_tQW_0XASEeCrvt1hzG-phQ" name="model">
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_tQW_0XASEeCrvt1hzG-phQ" name="model">
   <packagedElement xmi:type="uml:Package" xmi:id="_wah1wHASEeCrvt1hzG-phQ" name="org">
     <packagedElement xmi:type="uml:Package" xmi:id="_z8cdUHASEeCrvt1hzG-phQ" name="obeonetwork">
       <packagedElement xmi:type="uml:Package" xmi:id="_0Zqk0HASEeCrvt1hzG-phQ" name="pim">
@@ -7,6 +7,10 @@
           <packagedElement xmi:type="uml:Package" xmi:id="_3-nSQHASEeCrvt1hzG-phQ" name="gen">
             <packagedElement xmi:type="uml:Package" xmi:id="_4-Bg0HASEeCrvt1hzG-phQ" name="java">
               <packagedElement xmi:type="uml:Package" xmi:id="_HJXlMHATEeCrvt1hzG-phQ" name="tests">
+                <ownedComment xmi:id="_h49zwYsxEeKimrJZs-VGWw" annotatedElement="_NjKoAIsgEeK0zoo6cLC4Gg _Qq1D4IsdEeK0zoo6cLC4Gg">
+                  <body>The two lines common comment for the two commented packages&#xD;
+commentedpackage and annotatedcommentedpackage.</body>
+                </ownedComment>
                 <packagedElement xmi:type="uml:Package" xmi:id="_SXdOQHATEeCrvt1hzG-phQ" name="enumeration">
                   <packagedElement xmi:type="uml:Package" xmi:id="_eKnTQHATEeCrvt1hzG-phQ" name="enumerationliterals">
                     <packagedElement xmi:type="uml:Enumeration" xmi:id="_zAxCwHATEeCrvt1hzG-phQ" name="SingleLiteralEnumeration">
@@ -31,8 +35,11 @@
                       <ownedComment xmi:id="_EEJ10HAVEeCrvt1hzG-phQ" annotatedElement="_4X3qUHATEeCrvt1hzG-phQ">
                         <body>The comment of MultipleCommentedLiteralsEnumeration.</body>
                       </ownedComment>
+                      <ownedComment xmi:id="_atkuQIroEeKYN9NRtzUxZQ" annotatedElement="_xDzxYHAUEeCrvt1hzG-phQ _xDzxYXAUEeCrvt1hzG-phQ _xDzKUHAUEeCrvt1hzG-phQ">
+                        <body>The common comment for all literals of MultipleCommentedLiteralsEnumeration.</body>
+                      </ownedComment>
                       <ownedLiteral xmi:id="_xDzKUHAUEeCrvt1hzG-phQ" name="firstLiteral">
-                        <ownedComment xmi:id="_JRVsYHAVEeCrvt1hzG-phQ" annotatedElement="_sajuUHAUEeCrvt1hzG-phQ">
+                        <ownedComment xmi:id="_JRVsYHAVEeCrvt1hzG-phQ" annotatedElement="_xDzKUHAUEeCrvt1hzG-phQ">
                           <body>The comment of the first literal of MultipleCommentedLiteralsEnumeration.</body>
                         </ownedComment>
                       </ownedLiteral>
@@ -47,10 +54,47 @@
                         </ownedComment>
                       </ownedLiteral>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_wXFCwIrnEeKYN9NRtzUxZQ" name="SingleAnnotatedCommentedLiteralEnumeration">
+                      <ownedComment xmi:id="_wXFCwYrnEeKYN9NRtzUxZQ" annotatedElement="_wXFCwIrnEeKYN9NRtzUxZQ">
+                        <body>This is the comment of SingleAnnotatedCommentedLiteralEnumeration.</body>
+                      </ownedComment>
+                      <ownedLiteral xmi:id="_wXFCwornEeKYN9NRtzUxZQ" name="firstLiteral">
+                        <eAnnotations xmi:id="_-cHDwIrnEeKYN9NRtzUxZQ">
+                          <details xmi:id="_-cHDwYrnEeKYN9NRtzUxZQ" key="documentation" value="The documentation of the first literal of SingleAnnotatedCommentedLiteralEnumeration."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_wXFCw4rnEeKYN9NRtzUxZQ" annotatedElement="_wXFCwornEeKYN9NRtzUxZQ">
+                          <body>The comment of the first literal of SingleAnnotatedCommentedLiteralEnumeration.</body>
+                        </ownedComment>
+                      </ownedLiteral>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Enumeration" xmi:id="_EYil8IroEeKYN9NRtzUxZQ" name="SingleAnnotatedLiteralEnumeration">
+                      <ownedComment xmi:id="_EYil8YroEeKYN9NRtzUxZQ" annotatedElement="_EYil8IroEeKYN9NRtzUxZQ">
+                        <body>This is the comment of SingleAnnotatedLiteralEnumeration.</body>
+                      </ownedComment>
+                      <ownedLiteral xmi:id="_EYil8oroEeKYN9NRtzUxZQ" name="firstLiteral">
+                        <eAnnotations xmi:id="_EYil84roEeKYN9NRtzUxZQ">
+                          <details xmi:id="_EYil9IroEeKYN9NRtzUxZQ" key="documentation" value="The two lines documentation of the first literal&#xD;&#xA;of SingleAnnotatedLiteralEnumeration."/>
+                        </eAnnotations>
+                      </ownedLiteral>
+                    </packagedElement>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Enumeration" xmi:id="_lnOj4HAVEeCrvt1hzG-phQ" name="CommentedEnumeration">
                     <ownedComment xmi:id="_nievoHAVEeCrvt1hzG-phQ" annotatedElement="_lnOj4HAVEeCrvt1hzG-phQ">
-                      <body>The comment of CommentedEnumeration.</body>
+                      <body>The two lines comment&#xD;
+of CommentedEnumeration.</body>
+                    </ownedComment>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Enumeration" xmi:id="_f0O7gIrnEeKYN9NRtzUxZQ" name="AnnotatedEnumeration">
+                    <eAnnotations xmi:id="_f0O7gYrnEeKYN9NRtzUxZQ">
+                      <details xmi:id="_f0O7gornEeKYN9NRtzUxZQ" key="documentation" value="The two lines documentation&#xD;&#xA;of AnnotatedEnumeration."/>
+                    </eAnnotations>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Enumeration" xmi:id="_FKtfMIrnEeKYN9NRtzUxZQ" name="AnnotatedCommentedEnumeration">
+                    <eAnnotations xmi:id="_OMLfsIrnEeKYN9NRtzUxZQ">
+                      <details xmi:id="_OMLfsYrnEeKYN9NRtzUxZQ" key="documentation" value="The documentation of AnnotatedCommentedEnumeration."/>
+                    </eAnnotations>
+                    <ownedComment xmi:id="_FKtfMYrnEeKYN9NRtzUxZQ" annotatedElement="_FKtfMIrnEeKYN9NRtzUxZQ">
+                      <body>The comment of AnnotatedCommentedEnumeration.</body>
                     </ownedComment>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Enumeration" xmi:id="_5fGGMHAVEeCrvt1hzG-phQ" name="EmptyEnumeration"/>
@@ -71,19 +115,46 @@
                       <ownedAttribute xmi:id="_3I4PsHFoEeCpIZ35inDZ5w" name="secondProperty" type="_-gPxAHDHEeCl5bNajorhng"/>
                       <ownedAttribute xmi:id="_3PSZsHFoEeCpIZ35inDZ5w" name="thirdProperty" type="_D4MGEHDIEeCl5bNajorhng"/>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_X3vd4IsaEeK0zoo6cLC4Gg" name="SingleAnnotatedPropertyClass">
+                      <ownedComment xmi:id="_X3vd4YsaEeK0zoo6cLC4Gg" annotatedElement="_X3vd4IsaEeK0zoo6cLC4Gg">
+                        <body>The comment of SingleAnnotatedPropertyClass.</body>
+                      </ownedComment>
+                      <ownedAttribute xmi:id="_X3vd4osaEeK0zoo6cLC4Gg" name="firstProperty" type="_BrMqEHDIEeCl5bNajorhng">
+                        <eAnnotations xmi:id="_X3vd44saEeK0zoo6cLC4Gg">
+                          <details xmi:id="_X3vd5IsaEeK0zoo6cLC4Gg" key="documentation" value="The two lines documentation of &#xD;&#xA;the first property of SingleAnnotatedPropertyClass."/>
+                        </eAnnotations>
+                      </ownedAttribute>
+                    </packagedElement>
                     <packagedElement xmi:type="uml:Class" xmi:id="_aNh6sHFoEeCpIZ35inDZ5w" name="SingleCommentedPropertyClass">
                       <ownedComment xmi:id="_w0MwIHFpEeCpIZ35inDZ5w" annotatedElement="_aNh6sHFoEeCpIZ35inDZ5w">
                         <body>The comment of SingleCommentedPropertyClass.</body>
                       </ownedComment>
                       <ownedAttribute xmi:id="_3h5zsHFoEeCpIZ35inDZ5w" name="firstProperty" type="_BrMqEHDIEeCl5bNajorhng">
                         <ownedComment xmi:id="_xHgGoHFpEeCpIZ35inDZ5w" annotatedElement="_3h5zsHFoEeCpIZ35inDZ5w">
-                          <body>The comment of the first property of SingleCommentedPropertyClass.</body>
+                          <body>The two lines comment of &#xD;
+the first property of SingleCommentedPropertyClass.</body>
+                        </ownedComment>
+                      </ownedAttribute>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_BR6ggIsaEeK0zoo6cLC4Gg" name="SingleAnnotatedCommentedPropertyClass">
+                      <ownedComment xmi:id="_BR6ggYsaEeK0zoo6cLC4Gg" annotatedElement="_BR6ggIsaEeK0zoo6cLC4Gg">
+                        <body>The comment of SingleAnnotatedCommentedPropertyClass.</body>
+                      </ownedComment>
+                      <ownedAttribute xmi:id="_BR7HkIsaEeK0zoo6cLC4Gg" name="firstProperty" type="_BrMqEHDIEeCl5bNajorhng">
+                        <eAnnotations xmi:id="_MslNAIsaEeK0zoo6cLC4Gg">
+                          <details xmi:id="_MslNAYsaEeK0zoo6cLC4Gg" key="documentation" value="The documentation of the first property of SingleAnnotatedCommentedPropertyClass."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_BR7HkYsaEeK0zoo6cLC4Gg" annotatedElement="_BR7HkIsaEeK0zoo6cLC4Gg">
+                          <body>The comment of the first property of SingleAnnotatedCommentedPropertyClass.</body>
                         </ownedComment>
                       </ownedAttribute>
                     </packagedElement>
                     <packagedElement xmi:type="uml:Class" xmi:id="_aSQCoHFoEeCpIZ35inDZ5w" name="MultipleCommentedPropertiesClass">
                       <ownedComment xmi:id="_xQzzoHFpEeCpIZ35inDZ5w" annotatedElement="_aSQCoHFoEeCpIZ35inDZ5w">
                         <body>The comment of MultipleCommentedPropertiesClass.</body>
+                      </ownedComment>
+                      <ownedComment xmi:id="_KJ4KQIsbEeK0zoo6cLC4Gg" annotatedElement="_3tzhsHFoEeCpIZ35inDZ5w _3z6JsHFoEeCpIZ35inDZ5w _36AxsHFoEeCpIZ35inDZ5w">
+                        <body>The common comment of all properties of MultipleCommentedPropertiesClass.</body>
                       </ownedComment>
                       <ownedAttribute xmi:id="_3tzhsHFoEeCpIZ35inDZ5w" name="firstProperty" type="_-k_HEHDHEeCl5bNajorhng">
                         <ownedComment xmi:id="_xonPoHFpEeCpIZ35inDZ5w" annotatedElement="_3tzhsHFoEeCpIZ35inDZ5w">
@@ -154,15 +225,44 @@
                         <ownedParameter xmi:id="_BCe4cHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_nW1UAIsYEeK0zoo6cLC4Gg" name="SingleAnnotatedMethodClass">
+                      <eAnnotations xmi:id="_nW1UAYsYEeK0zoo6cLC4Gg">
+                        <details xmi:id="_nW1UAosYEeK0zoo6cLC4Gg" key="documentation" value="The documentation of SingleAnnotatedMethodClass."/>
+                      </eAnnotations>
+                      <ownedOperation xmi:id="_nW1UBIsYEeK0zoo6cLC4Gg" name="firstMethod">
+                        <eAnnotations xmi:id="_nW1UBYsYEeK0zoo6cLC4Gg">
+                          <details xmi:id="_nW1UBosYEeK0zoo6cLC4Gg" key="documentation" value="The two lines documentation of &#xD;&#xA;the first method of SingleAnnotatedMethodClass."/>
+                        </eAnnotations>
+                        <ownedParameter xmi:id="_nW1UCIsYEeK0zoo6cLC4Gg" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
                     <packagedElement xmi:type="uml:Class" xmi:id="_ahUfwHFwEeCSi7MPGob3tQ" name="SingleCommentedMethodClass">
                       <ownedComment xmi:id="_UDn_YXF3EeC-ka_BthtsLw" annotatedElement="_ahUfwHFwEeCSi7MPGob3tQ">
                         <body>The comment of SingleCommentedMethodClass.</body>
                       </ownedComment>
                       <ownedOperation xmi:id="_zp0OMHFwEeCSi7MPGob3tQ" name="firstMethod">
                         <ownedComment xmi:id="_Uf5rsHF3EeC-ka_BthtsLw" annotatedElement="_zp0OMHFwEeCSi7MPGob3tQ">
-                          <body>The comment of the first method of SingleCommentedMethodClass.</body>
+                          <body>The two lines comment of&#xD;
+the first method of SingleCommentedMethodClass.</body>
                         </ownedComment>
                         <ownedParameter xmi:id="_C_ZREHFxEeCSi7MPGob3tQ" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_DK3REIsYEeK0zoo6cLC4Gg" name="SingleAnnotatedCommentedMethodClass">
+                      <eAnnotations xmi:id="_OS5VcIsYEeK0zoo6cLC4Gg">
+                        <details xmi:id="_OS5VcYsYEeK0zoo6cLC4Gg" key="documentation" value="The documentation of SingleAnnotatedCommentedMethodClass."/>
+                      </eAnnotations>
+                      <ownedComment xmi:id="_DK3REYsYEeK0zoo6cLC4Gg" annotatedElement="_DK3REIsYEeK0zoo6cLC4Gg">
+                        <body>The comment of SingleAnnotatedCommentedMethodClass.</body>
+                      </ownedComment>
+                      <ownedOperation xmi:id="_DK3REosYEeK0zoo6cLC4Gg" name="firstMethod">
+                        <eAnnotations xmi:id="_fFMN8IsYEeK0zoo6cLC4Gg">
+                          <details xmi:id="_fFMN8YsYEeK0zoo6cLC4Gg" key="documentation" value="The documentation of the first method of SingleAnnotatedCommentedMethodClass."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_DK3RE4sYEeK0zoo6cLC4Gg" annotatedElement="_DK3REosYEeK0zoo6cLC4Gg">
+                          <body>The comment of the first method of SingleAnnotatedCommentedMethodClass.</body>
+                        </ownedComment>
+                        <ownedParameter xmi:id="_DK3RFIsYEeK0zoo6cLC4Gg" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
                     </packagedElement>
                     <packagedElement xmi:type="uml:Class" xmi:id="_apGiwHFwEeCSi7MPGob3tQ" name="MultipleCommentedMethodsClass">
@@ -276,6 +376,72 @@
                     <packagedElement xmi:type="uml:Class" xmi:id="_WmglEF8HEeGlht6TS2odLw" name="SimpleClassWithSimpleNestedEnumeration">
                       <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_dXLnoF8HEeGlht6TS2odLw" name="SimpleNestedEnumeration"/>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_b3a18IsOEeK0zoo6cLC4Gg" name="SimpleClassWithAnnotatedCommentedNestedClassifiers">
+                      <nestedClassifier xmi:type="uml:Class" xmi:id="_pwgFoIsOEeK0zoo6cLC4Gg" name="SimpleAnnotatedCommentedNestedClass">
+                        <eAnnotations xmi:id="_-BwYUIsOEeK0zoo6cLC4Gg">
+                          <details xmi:id="_-BwYUYsOEeK0zoo6cLC4Gg" key="documentation" value="The documentation of SimpleAnnotatedCommentedNestedClass."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_-BwYUosOEeK0zoo6cLC4Gg" annotatedElement="_pwgFoIsOEeK0zoo6cLC4Gg">
+                          <body>The comment of SimpleAnnotatedCommentedNestedClass.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Interface" xmi:id="_sZzqMIsOEeK0zoo6cLC4Gg" name="SimpleAnnotatedCommentedNestedInterface">
+                        <eAnnotations xmi:id="_KpTHoIsPEeK0zoo6cLC4Gg">
+                          <details xmi:id="_KpTHoYsPEeK0zoo6cLC4Gg" key="documentation" value="The documentation of SimpleAnnotatedCommentedNestedInterface."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_KpTHoosPEeK0zoo6cLC4Gg" annotatedElement="_sZzqMIsOEeK0zoo6cLC4Gg">
+                          <body>The comment of SimpleAnnotatedCommentedNestedInterface.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_b3a18YsOEeK0zoo6cLC4Gg" name="SimpleAnnotatedCommentedNestedEnumeration">
+                        <eAnnotations xmi:id="_LJ4sMIsPEeK0zoo6cLC4Gg">
+                          <details xmi:id="_LJ4sMYsPEeK0zoo6cLC4Gg" key="documentation" value="The documentation of SimpleAnnotatedCommentedNestedEnumeration."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_LJ4sMosPEeK0zoo6cLC4Gg" annotatedElement="_b3a18YsOEeK0zoo6cLC4Gg">
+                          <body>The comment of SimpleAnnotatedCommentedNestedEnumeration.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_ABtBYIsQEeK0zoo6cLC4Gg" name="SimpleClassWithAnnotatedNestedClassifiers">
+                      <nestedClassifier xmi:type="uml:Class" xmi:id="_ABtBYYsQEeK0zoo6cLC4Gg" name="SimpleAnnotatedNestedClass">
+                        <eAnnotations xmi:id="_ABtBYosQEeK0zoo6cLC4Gg">
+                          <details xmi:id="_ABtBY4sQEeK0zoo6cLC4Gg" key="documentation" value="The two lines documentation &#xD;&#xA;of SimpleAnnotatedNestedClass."/>
+                        </eAnnotations>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Interface" xmi:id="_ABtBZYsQEeK0zoo6cLC4Gg" name="SimpleAnnotatedNestedInterface">
+                        <eAnnotations xmi:id="_ABtBZosQEeK0zoo6cLC4Gg">
+                          <details xmi:id="_ABtBZ4sQEeK0zoo6cLC4Gg" key="documentation" value="The two lines documentation &#xD;&#xA;of SimpleAnnotatedNestedInterface."/>
+                        </eAnnotations>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_ABtBaYsQEeK0zoo6cLC4Gg" name="SimpleAnnotatedNestedEnumeration">
+                        <eAnnotations xmi:id="_ABtBaosQEeK0zoo6cLC4Gg">
+                          <details xmi:id="_ABtBa4sQEeK0zoo6cLC4Gg" key="documentation" value="The two lines documentation &#xD;&#xA;of SimpleAnnotatedNestedEnumeration."/>
+                        </eAnnotations>
+                      </nestedClassifier>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_AgDxUIsQEeK0zoo6cLC4Gg" name="SimpleClassWithCommentedNestedClassifiers">
+                      <ownedComment xmi:id="_qPbLYIsQEeK0zoo6cLC4Gg" annotatedElement="_AgDxUYsQEeK0zoo6cLC4Gg _AgDxWYsQEeK0zoo6cLC4Gg _AgDxVYsQEeK0zoo6cLC4Gg">
+                        <body>The common comment for all nested classifiers of SimpleClassWithCommentedNestedClassifiers.</body>
+                      </ownedComment>
+                      <nestedClassifier xmi:type="uml:Class" xmi:id="_AgDxUYsQEeK0zoo6cLC4Gg" name="SimpleCommentedNestedClass">
+                        <ownedComment xmi:id="_AgDxVIsQEeK0zoo6cLC4Gg" annotatedElement="_AgDxUYsQEeK0zoo6cLC4Gg">
+                          <body>The two lines comment of &#xD;
+SimpleCommentedNestedClass.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Interface" xmi:id="_AgDxVYsQEeK0zoo6cLC4Gg" name="SimpleCommentedNestedInterface">
+                        <ownedComment xmi:id="_AgDxWIsQEeK0zoo6cLC4Gg" annotatedElement="_AgDxVYsQEeK0zoo6cLC4Gg">
+                          <body>The two lines comment of &#xD;
+SimpleCommentedNestedInterface.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_AgDxWYsQEeK0zoo6cLC4Gg" name="SimpleCommentedNestedEnumeration">
+                        <ownedComment xmi:id="_AgDxXIsQEeK0zoo6cLC4Gg" annotatedElement="_AgDxWYsQEeK0zoo6cLC4Gg">
+                          <body>The two lines comment of &#xD;
+SimpleCommentedNestedEnumeration.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                    </packagedElement>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_I3sIMHATEeCrvt1hzG-phQ" name="visibility">
                     <packagedElement xmi:type="uml:Class" xmi:id="_gzZ2MHDeEeCl5bNajorhng" name="PublicClass"/>
@@ -287,7 +453,21 @@
                   <packagedElement xmi:type="uml:Class" xmi:id="_dg_DMHDeEeCl5bNajorhng" name="AbstractClass" isAbstract="true"/>
                   <packagedElement xmi:type="uml:Class" xmi:id="_L-MHIXFoEeCpIZ35inDZ5w" name="CommentedClass">
                     <ownedComment xmi:id="_SxUAwHFoEeCpIZ35inDZ5w" annotatedElement="_L-MHIXFoEeCpIZ35inDZ5w">
-                      <body>The comment of CommentedClass.</body>
+                      <body>The two lines comment&#xD;
+of CommentedClass.</body>
+                    </ownedComment>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_YS2YcIsNEeK0zoo6cLC4Gg" name="AnnotatedClass">
+                    <eAnnotations xmi:id="_YS2YcYsNEeK0zoo6cLC4Gg">
+                      <details xmi:id="_YS2YcosNEeK0zoo6cLC4Gg" key="documentation" value="The two lines documentation&#xD;&#xA;of AnnotatedClass."/>
+                    </eAnnotations>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="__h5nUYsMEeK0zoo6cLC4Gg" name="AnnotatedCommentedClass">
+                    <eAnnotations xmi:id="_FgwLYIsNEeK0zoo6cLC4Gg">
+                      <details xmi:id="_FgwLYYsNEeK0zoo6cLC4Gg" key="documentation" value="The documentation of AnnotatedCommentedClass."/>
+                    </eAnnotations>
+                    <ownedComment xmi:id="__h5nUosMEeK0zoo6cLC4Gg" annotatedElement="__h5nUYsMEeK0zoo6cLC4Gg">
+                      <body>The comment of AnnotatedCommentedClass.</body>
                     </ownedComment>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Class" xmi:id="_PBSEsHFoEeCpIZ35inDZ5w" name="FinalClass" isLeaf="true"/>
@@ -308,13 +488,40 @@
                       </ownedComment>
                       <ownedAttribute xmi:id="_rh9iEHDHEeCl5bNajorhng" name="firstProperty" type="_-gPxAHDHEeCl5bNajorhng">
                         <ownedComment xmi:id="_bYa2MHDIEeCl5bNajorhng" annotatedElement="_rh9iEHDHEeCl5bNajorhng">
-                          <body>The comment of the first property of SingleCommentedPropertyInterface.</body>
+                          <body>The two lines comment of&#xD;
+the first property of SingleCommentedPropertyInterface.</body>
+                        </ownedComment>
+                      </ownedAttribute>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_QFuQsIrmEeKYN9NRtzUxZQ" name="SingleAnnotatedPropertyInterface">
+                      <ownedComment xmi:id="_QFuQsYrmEeKYN9NRtzUxZQ" annotatedElement="_QFuQsIrmEeKYN9NRtzUxZQ">
+                        <body>The comment of SingleAnnotatedPropertyInterface.</body>
+                      </ownedComment>
+                      <ownedAttribute xmi:id="_QFuQsormEeKYN9NRtzUxZQ" name="firstProperty" type="_-gPxAHDHEeCl5bNajorhng">
+                        <eAnnotations xmi:id="_QFuQs4rmEeKYN9NRtzUxZQ">
+                          <details xmi:id="_QFuQtIrmEeKYN9NRtzUxZQ" key="documentation" value="The two lines documentation of &#xD;&#xA;the first property of SingleAnnotatedPropertyInterface."/>
+                        </eAnnotations>
+                      </ownedAttribute>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_0QQlsIrlEeKYN9NRtzUxZQ" name="SingleAnnotatedCommentedPropertyInterface">
+                      <ownedComment xmi:id="_0QQlsYrlEeKYN9NRtzUxZQ" annotatedElement="_0QQlsIrlEeKYN9NRtzUxZQ">
+                        <body>The comment of SingleAnnotatedCommentedPropertyInterface.</body>
+                      </ownedComment>
+                      <ownedAttribute xmi:id="_0QQlsorlEeKYN9NRtzUxZQ" name="firstProperty" type="_-gPxAHDHEeCl5bNajorhng">
+                        <eAnnotations xmi:id="_Ho84sIrmEeKYN9NRtzUxZQ">
+                          <details xmi:id="_Ho84sYrmEeKYN9NRtzUxZQ" key="documentation" value="The documentation of the first property of SingleAnnotatedCommentedPropertyInterface."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_0QQls4rlEeKYN9NRtzUxZQ" annotatedElement="_0QQlsorlEeKYN9NRtzUxZQ">
+                          <body>The comment of the first property of SingleAnnotatedCommentedPropertyInterface.</body>
                         </ownedComment>
                       </ownedAttribute>
                     </packagedElement>
                     <packagedElement xmi:type="uml:Interface" xmi:id="_i7bxIXDHEeCl5bNajorhng" name="MultipleCommentedPropertiesInterface">
                       <ownedComment xmi:id="_jCipQHDIEeCl5bNajorhng" annotatedElement="_i7bxIXDHEeCl5bNajorhng">
                         <body>The comment of MultipleCommentedPropertiesInterface.</body>
+                      </ownedComment>
+                      <ownedComment xmi:id="_SZdqYIrlEeKYN9NRtzUxZQ" annotatedElement="_rNrUIHDHEeCl5bNajorhng _rNrUIXDHEeCl5bNajorhng _rNrUInDHEeCl5bNajorhng">
+                        <body>The common comment for all properties of the MultipleCommentedPropertiesInterface.</body>
                       </ownedComment>
                       <ownedAttribute xmi:id="_rNrUIHDHEeCl5bNajorhng" name="firstProperty" type="_-gPxAHDHEeCl5bNajorhng">
                         <ownedComment xmi:id="_jkYLAHDIEeCl5bNajorhng" annotatedElement="_rNrUIHDHEeCl5bNajorhng">
@@ -385,20 +592,52 @@
                         <ownedParameter xmi:id="_hll3MHDVEeCl5bNajorhng" type="_9YxLkHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_iW21QIpjEeKrU9Sf7fOa1Q" name="SingleAnnotatedMethodInterface">
+                      <eAnnotations xmi:id="_iW21QYpjEeKrU9Sf7fOa1Q">
+                        <details xmi:id="_iW21QopjEeKrU9Sf7fOa1Q" key="documentation" value="The two lines documentation &#xD;&#xA;of SingleAnnotatedMethodInterface"/>
+                      </eAnnotations>
+                      <ownedOperation xmi:id="_iW21RIpjEeKrU9Sf7fOa1Q" name="firstMethod">
+                        <eAnnotations xmi:id="_iW21RYpjEeKrU9Sf7fOa1Q">
+                          <details xmi:id="_iW21RopjEeKrU9Sf7fOa1Q" key="documentation" value="The two lines documentation of the first method&#xD;&#xA;of SingleAnnotatedMethodInterface"/>
+                        </eAnnotations>
+                        <ownedParameter xmi:id="_iW21SIpjEeKrU9Sf7fOa1Q" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
                     <packagedElement xmi:type="uml:Interface" xmi:id="_PohqIHDUEeCl5bNajorhng" name="SingleCommentedMethodInterface">
                       <ownedComment xmi:id="_uBvO0HDVEeCl5bNajorhng" annotatedElement="_PohqIHDUEeCl5bNajorhng">
                         <body>The comment of SingleCommentedMethodInterface.</body>
                       </ownedComment>
                       <ownedOperation xmi:id="_TacnIHDVEeCl5bNajorhng" name="firstMethod">
-                        <ownedComment xmi:id="_uXI3EHDVEeCl5bNajorhng" annotatedElement="_SiiuwHDVEeCl5bNajorhng">
-                          <body>The comment of the first method of SingleCommentedMethodInterface.</body>
+                        <ownedComment xmi:id="_uXI3EHDVEeCl5bNajorhng" annotatedElement="_TacnIHDVEeCl5bNajorhng">
+                          <body>The two lines comment&#xD;
+of the first method of SingleCommentedMethodInterface.</body>
                         </ownedComment>
                         <ownedParameter xmi:id="_s8A84HDVEeCl5bNajorhng" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
+                      </ownedOperation>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_gIf8wIpiEeKrU9Sf7fOa1Q" name="SingleAnnotatedCommentedMethodInterface">
+                      <eAnnotations xmi:id="_UDBjQIpjEeKrU9Sf7fOa1Q">
+                        <details xmi:id="_UDBjQYpjEeKrU9Sf7fOa1Q" key="documentation" value="The documentation of SingleAnnotatedCommentedMethodInterface."/>
+                      </eAnnotations>
+                      <ownedComment xmi:id="_gIf8wYpiEeKrU9Sf7fOa1Q" annotatedElement="_gIf8wIpiEeKrU9Sf7fOa1Q">
+                        <body>The comment of SingleAnnotatedCommentedMethodInterface.</body>
+                      </ownedComment>
+                      <ownedOperation xmi:id="_gIf8wopiEeKrU9Sf7fOa1Q" name="firstMethod">
+                        <eAnnotations xmi:id="_B-F-MIpjEeKrU9Sf7fOa1Q">
+                          <details xmi:id="_B-F-MYpjEeKrU9Sf7fOa1Q" key="documentation" value="The documentation of the first method of SingleAnnotatedCommentedMethodInterface."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_gIf8w4piEeKrU9Sf7fOa1Q" annotatedElement="_gIf8wopiEeKrU9Sf7fOa1Q">
+                          <body>The comment of the first method of SingleAnnotatedCommentedMethodInterface.</body>
+                        </ownedComment>
+                        <ownedParameter xmi:id="_gIf8xIpiEeKrU9Sf7fOa1Q" type="_-k_HEHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
                     </packagedElement>
                     <packagedElement xmi:type="uml:Interface" xmi:id="_PohqIXDUEeCl5bNajorhng" name="MultipleCommentedMethodsInterface">
                       <ownedComment xmi:id="_umaCIHDVEeCl5bNajorhng" annotatedElement="_PohqIXDUEeCl5bNajorhng">
                         <body>The comment of MultipleCommentedMethodsInterface.</body>
+                      </ownedComment>
+                      <ownedComment xmi:id="_-uMMIIfPEeKoBaPceiL-7w" annotatedElement="_Ti1HEHDVEeCl5bNajorhng _Tn3_IHDVEeCl5bNajorhng _TswfIHDVEeCl5bNajorhng">
+                        <body>Common comment of all the operations of MultipleCommentedMethodsInterface.</body>
                       </ownedComment>
                       <ownedOperation xmi:id="_Ti1HEHDVEeCl5bNajorhng" name="firstOperation">
                         <ownedComment xmi:id="_u0StIHDVEeCl5bNajorhng" annotatedElement="_Ti1HEHDVEeCl5bNajorhng">
@@ -513,11 +752,13 @@
                       </packagedElement>
                       <packagedElement xmi:type="uml:Interface" xmi:id="_PYAlEHDYEeCl5bNajorhng" name="SingleCommentedParameterMethodInterface">
                         <ownedComment xmi:id="_anAswHDbEeCl5bNajorhng" annotatedElement="_PYAlEHDYEeCl5bNajorhng">
-                          <body>The comment of SingleCommentedParameterMethodInterface.</body>
+                          <body>The comment of SingleCommentedParameterMethodInterface in two lines.&#xD;
+Second comment line for SingleCommentedParameterMethodInterface.</body>
                         </ownedComment>
                         <ownedOperation xmi:id="_gKr4EHDYEeCl5bNajorhng" name="singleCommentedParameterMethod">
                           <ownedComment xmi:id="_bSjkIHDbEeCl5bNajorhng" annotatedElement="_gKr4EHDYEeCl5bNajorhng">
-                            <body>The comment of the method singleCommentedParameterMethod.</body>
+                            <body>The comment of the method singleCommentedParameterMethod in two lines.&#xD;
+Second comment line of the method singleCommentedParameterMethod.</body>
                           </ownedComment>
                           <ownedParameter xmi:id="_LS5UYHDZEeCl5bNajorhng" type="_D4MGEHDIEeCl5bNajorhng" direction="return">
                             <ownedComment xmi:id="_R7aZIHDcEeCl5bNajorhng" annotatedElement="_LS5UYHDZEeCl5bNajorhng">
@@ -601,6 +842,72 @@
                     <packagedElement xmi:type="uml:Interface" xmi:id="_PoE94F8IEeGlht6TS2odLw" name="SimpleInterfaceWithSimpleNestedEnumeration">
                       <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_SOto8F8IEeGlht6TS2odLw" name="SimpleNestedEnumeration"/>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_UezHAIpoEeKgvIJr5mQs8Q" name="SimpleInterfaceWithAnnotatedNestedClassifiers">
+                      <nestedClassifier xmi:type="uml:Interface" xmi:id="_UezHAYpoEeKgvIJr5mQs8Q" name="SimpleAnnotatedNestedInterface">
+                        <eAnnotations xmi:id="_UezHAopoEeKgvIJr5mQs8Q">
+                          <details xmi:id="_UezHA4poEeKgvIJr5mQs8Q" key="documentation" value="The two lines documentation&#xD;&#xA;of SimpleAnnotatedNestedInterface."/>
+                        </eAnnotations>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Class" xmi:id="_UezHBYpoEeKgvIJr5mQs8Q" name="SimpleAnnotatedNestedClass">
+                        <eAnnotations xmi:id="_UezHBopoEeKgvIJr5mQs8Q">
+                          <details xmi:id="_UezuEIpoEeKgvIJr5mQs8Q" key="documentation" value="The two lines documentation&#xD;&#xA;of SimpleAnnotatedNestedClass."/>
+                        </eAnnotations>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_UezuEopoEeKgvIJr5mQs8Q" name="SimpleAnnotatedNestedEnumeration">
+                        <eAnnotations xmi:id="_UezuE4poEeKgvIJr5mQs8Q">
+                          <details xmi:id="_UezuFIpoEeKgvIJr5mQs8Q" key="documentation" value="The two lines documentation&#xD;&#xA;of SimpleAnnotatedNestedEnumeration."/>
+                        </eAnnotations>
+                      </nestedClassifier>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_WKa_gYphEeKrU9Sf7fOa1Q" name="SimpleInterfaceWithCommentedNestedClassifiers">
+                      <ownedComment xmi:id="_FmF7cIpqEeKgvIJr5mQs8Q" annotatedElement="_qz2hoIphEeKrU9Sf7fOa1Q _sMXMsIphEeKrU9Sf7fOa1Q _tVIyoIphEeKrU9Sf7fOa1Q">
+                        <body>The common comment for all the nested classifiers of SimpleInterfaceWithCommentedNestedClassifiers.</body>
+                      </ownedComment>
+                      <nestedClassifier xmi:type="uml:Interface" xmi:id="_qz2hoIphEeKrU9Sf7fOa1Q" name="SimpleCommentedNestedInterface">
+                        <ownedComment xmi:id="_9RIN4IpkEeKrU9Sf7fOa1Q" annotatedElement="_qz2hoIphEeKrU9Sf7fOa1Q">
+                          <body>The two lines comment&#xD;
+of SimpleCommentedNestedInterface.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Class" xmi:id="_sMXMsIphEeKrU9Sf7fOa1Q" name="SimpleCommentedNestedClass">
+                        <ownedComment xmi:id="_e-9acIplEeKrU9Sf7fOa1Q" annotatedElement="_sMXMsIphEeKrU9Sf7fOa1Q">
+                          <body>The two lines comment&#xD;
+of SimpleCommentedNestedClass.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_tVIyoIphEeKrU9Sf7fOa1Q" name="SimpleCommentedNestedEnumeration">
+                        <ownedComment xmi:id="_38PXYIplEeKrU9Sf7fOa1Q" annotatedElement="_tVIyoIphEeKrU9Sf7fOa1Q">
+                          <body>The two lines comment&#xD;
+of SimpleCommentedNestedEnumeration.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                    </packagedElement>
+                    <packagedElement xmi:type="uml:Interface" xmi:id="_CBnPcIpnEeKgvIJr5mQs8Q" name="SimpleInterfaceWithAnnotatedCommentedNestedClassifiers">
+                      <nestedClassifier xmi:type="uml:Interface" xmi:id="_CBn2gIpnEeKgvIJr5mQs8Q" name="SimpleAnnotatedCommentedNestedInterface">
+                        <eAnnotations xmi:id="_BKb6YIpoEeKgvIJr5mQs8Q">
+                          <details xmi:id="_BKdIgIpoEeKgvIJr5mQs8Q" key="documentation" value="The documentation of SimpleAnnotatedCommentedNestedInterface."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_CBn2gYpnEeKgvIJr5mQs8Q" annotatedElement="_CBn2gIpnEeKgvIJr5mQs8Q">
+                          <body>The comment of SimpleAnnotatedCommentedNestedInterface.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Class" xmi:id="_CBn2gopnEeKgvIJr5mQs8Q" name="SimpleAnnotatedCommentedNestedClass">
+                        <eAnnotations xmi:id="_BsrEwIpoEeKgvIJr5mQs8Q">
+                          <details xmi:id="_BsrEwYpoEeKgvIJr5mQs8Q" key="documentation" value="The documentation of SimpleAnnotatedCommentedNestedClass."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_CBn2g4pnEeKgvIJr5mQs8Q" annotatedElement="_CBn2gopnEeKgvIJr5mQs8Q">
+                          <body>The comment of SimpleAnnotatedCommentedNestedClass.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_CBn2hIpnEeKgvIJr5mQs8Q" name="SimpleAnnotatedCommentedNestedEnumeration">
+                        <eAnnotations xmi:id="_CPfd8IpoEeKgvIJr5mQs8Q">
+                          <details xmi:id="_CPfd8YpoEeKgvIJr5mQs8Q" key="documentation" value="The documentation of SimpleAnnotatedCommentedNestedEnumeration."/>
+                        </eAnnotations>
+                        <ownedComment xmi:id="_CBn2hYpnEeKgvIJr5mQs8Q" annotatedElement="_CBn2hIpnEeKgvIJr5mQs8Q">
+                          <body>The comment of SimpleAnnotatedCommentedNestedEnumeration.</body>
+                        </ownedComment>
+                      </nestedClassifier>
+                    </packagedElement>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_cyHPQnATEeCrvt1hzG-phQ" name="visibility">
                     <packagedElement xmi:type="uml:Interface" xmi:id="_vwPl0HAWEeCrvt1hzG-phQ" name="EmptyPublicInterface"/>
@@ -608,12 +915,103 @@
                     <packagedElement xmi:type="uml:Interface" xmi:id="_ybz0MHAWEeCrvt1hzG-phQ" name="EmptyProtectedInterface" visibility="protected"/>
                     <packagedElement xmi:type="uml:Interface" xmi:id="_ygijMHAWEeCrvt1hzG-phQ" name="EmptyPackageInterface" visibility="package"/>
                   </packagedElement>
+                  <packagedElement xmi:type="uml:Interface" xmi:id="_SAB38IfKEeKoBaPceiL-7w" name="AnnotatedInterface">
+                    <eAnnotations xmi:id="_SAB38YfKEeKoBaPceiL-7w">
+                      <details xmi:id="_SAB38ofKEeKoBaPceiL-7w" key="documentation" value="The two lines documentation&#xD;&#xA;of AnnotatedInterface."/>
+                    </eAnnotations>
+                  </packagedElement>
                   <packagedElement xmi:type="uml:Interface" xmi:id="_8UipUHAVEeCrvt1hzG-phQ" name="CommentedInterface">
                     <ownedComment xmi:id="_-LCQ4HAVEeCrvt1hzG-phQ" annotatedElement="_8UipUHAVEeCrvt1hzG-phQ">
-                      <body>The comment of CommentedInterface.</body>
+                      <body>The two lines comment&#xD;
+of CommentedInterface.</body>
+                    </ownedComment>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Interface" xmi:id="_hKvkEYfJEeKoBaPceiL-7w" name="AnnotatedCommentedInterface">
+                    <eAnnotations xmi:id="_oWeyAIfJEeKoBaPceiL-7w">
+                      <details xmi:id="_xypKcIfJEeKoBaPceiL-7w" key="documentation" value="The documentation of AnnotatedCommentedInterface."/>
+                    </eAnnotations>
+                    <ownedComment xmi:id="_hKvkEofJEeKoBaPceiL-7w" annotatedElement="_hKvkEYfJEeKoBaPceiL-7w">
+                      <body>The comment of AnnotatedCommentedInterface.</body>
                     </ownedComment>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Interface" xmi:id="_1nydcHAVEeCrvt1hzG-phQ" name="EmptyInterface"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_OP81gIsgEeK0zoo6cLC4Gg" name="annotatedpackage">
+                  <eAnnotations xmi:id="_OP81gYsgEeK0zoo6cLC4Gg">
+                    <details xmi:id="_OP81gosgEeK0zoo6cLC4Gg" key="documentation" value="The documentation of the annotatedcommentedpackage Package."/>
+                  </eAnnotations>
+                  <packagedElement xmi:type="uml:Interface" xmi:id="_OP81hIsgEeK0zoo6cLC4Gg" name="EmptyInterface"/>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_OP81hYsgEeK0zoo6cLC4Gg" name="EmptyClass"/>
+                  <packagedElement xmi:type="uml:Enumeration" xmi:id="_OP81hosgEeK0zoo6cLC4Gg" name="EmptyEnumeration"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_NjKoAIsgEeK0zoo6cLC4Gg" name="commentedpackage">
+                  <ownedComment xmi:id="_NjKoA4sgEeK0zoo6cLC4Gg" annotatedElement="_NjKoAIsgEeK0zoo6cLC4Gg">
+                    <body>The comment of the annotatedcommentedpackage Package.</body>
+                  </ownedComment>
+                  <packagedElement xmi:type="uml:Interface" xmi:id="_NjKoBIsgEeK0zoo6cLC4Gg" name="EmptyInterface"/>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_NjKoBYsgEeK0zoo6cLC4Gg" name="EmptyClass"/>
+                  <packagedElement xmi:type="uml:Enumeration" xmi:id="_NjKoBosgEeK0zoo6cLC4Gg" name="EmptyEnumeration"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_Qq1D4IsdEeK0zoo6cLC4Gg" name="annotatedcommentedpackage">
+                  <eAnnotations xmi:id="__Tdk4IsbEeK0zoo6cLC4Gg">
+                    <details xmi:id="__Tdk4YsbEeK0zoo6cLC4Gg" key="documentation" value="The documentation of the annotatedcommentedpackage Package."/>
+                  </eAnnotations>
+                  <ownedComment xmi:id="_xfh68IsbEeK0zoo6cLC4Gg" annotatedElement="_Qq1D4IsdEeK0zoo6cLC4Gg">
+                    <body>The comment of the annotatedcommentedpackage Package.</body>
+                  </ownedComment>
+                  <packagedElement xmi:type="uml:Interface" xmi:id="_Ys0kYIsdEeK0zoo6cLC4Gg" name="EmptyInterface"/>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_aBrMkIsfEeK0zoo6cLC4Gg" name="EmptyClass"/>
+                  <packagedElement xmi:type="uml:Enumeration" xmi:id="_eag1EIsfEeK0zoo6cLC4Gg" name="EmptyEnumeration"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_9cpzIIfMEeKoBaPceiL-7w" name="latecomments">
+                  <ownedComment xmi:id="_ErvQAIfNEeKoBaPceiL-7w" annotatedElement="_8UipUHAVEeCrvt1hzG-phQ">
+                    <body>The late comment of CommentedInterface.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_zDk0kIfOEeKoBaPceiL-7w" annotatedElement="_PohqIHDUEeCl5bNajorhng">
+                    <body>The late comment of SingleCommentedMethodInterface.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_ZcY_MIpkEeKrU9Sf7fOa1Q" annotatedElement="_TacnIHDVEeCl5bNajorhng">
+                    <body>The late comment of the first method of SingleCommentedMethodInterface.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_wCqWkYpmEeKgvIJr5mQs8Q" annotatedElement="_qz2hoIphEeKrU9Sf7fOa1Q">
+                    <body>The late comment of SimpleCommentedNestedInterface.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_xbXO4IpmEeKgvIJr5mQs8Q" annotatedElement="_sMXMsIphEeKrU9Sf7fOa1Q">
+                    <body>The late comment of SimpleCommentedNestedClass.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_ymp9UIpmEeKgvIJr5mQs8Q" annotatedElement="_tVIyoIphEeKrU9Sf7fOa1Q">
+                    <body>The late comment of SimpleCommentedNestedEnumeration.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_KeKAsYrlEeKYN9NRtzUxZQ" annotatedElement="_rh9iEHDHEeCl5bNajorhng">
+                    <body>The late comment of the first property of SingleCommentedPropertyInterface.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_YC0NoIrnEeKYN9NRtzUxZQ" annotatedElement="_lnOj4HAVEeCrvt1hzG-phQ">
+                    <body>The late comment of CommentedEnumeration.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_UUBLMIroEeKYN9NRtzUxZQ" annotatedElement="_wo7zQHAUEeCrvt1hzG-phQ">
+                    <body>The late comment of the first literal of SingleCommentedLiteralEnumeration.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_N8cv4IsOEeK0zoo6cLC4Gg" annotatedElement="_L-MHIXFoEeCpIZ35inDZ5w">
+                    <body>The late comment of CommentedClass.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_FH7e4IsREeK0zoo6cLC4Gg" annotatedElement="_AgDxUYsQEeK0zoo6cLC4Gg">
+                    <body>The late comment of SimpleCommentedNestedClass.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_FH7e4YsREeK0zoo6cLC4Gg" annotatedElement="_AgDxVYsQEeK0zoo6cLC4Gg">
+                    <body>The late comment of SimpleCommentedNestedInterface.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_FH7e4osREeK0zoo6cLC4Gg" annotatedElement="_AgDxWYsQEeK0zoo6cLC4Gg">
+                    <body>The late comment of SimpleCommentedNestedEnumeration.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_kh-KQIsZEeK0zoo6cLC4Gg" annotatedElement="_zp0OMHFwEeCSi7MPGob3tQ">
+                    <body>The late comment of the first method of SingleCommentedMethodClass.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_xyE48IsaEeK0zoo6cLC4Gg" annotatedElement="_3h5zsHFoEeCpIZ35inDZ5w">
+                    <body>The late comment of the first property of SingleCommentedPropertyClass.</body>
+                  </ownedComment>
+                  <ownedComment xmi:id="_ufHb8IsxEeKimrJZs-VGWw" annotatedElement="_NjKoAIsgEeK0zoo6cLC4Gg">
+                    <body>The late comment of the annotatedcommentedpackage Package.</body>
+                  </ownedComment>
                 </packagedElement>
               </packagedElement>
             </packagedElement>

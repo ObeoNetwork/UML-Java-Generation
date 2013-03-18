@@ -9,7 +9,7 @@ package org.obeonetwork.pim.uml2.gen.java.tests.interfaces.methods.parameters;
 // End of user code
 
 /**
- * The comment of MultipleCommentedParametersMethodInterface.
+ * The comment of MultipleCommentedParametersMethodInterface.<br />
  */
 public interface MultipleCommentedParametersMethodInterface {
 	// Start of user code (user defined attributes)
@@ -17,7 +17,7 @@ public interface MultipleCommentedParametersMethodInterface {
 	// End of user code
 	
 	/**
-	 * The comment of multipleCommentedParametersMethod.
+	 * The comment of multipleCommentedParametersMethod.<br />
 	 * @param firstParameter The comment of the first parameter of multipleCommentedParametersMethod.
 	 * @param secondParameter The comment of the second parameter of multipleCommentedParametersMethod.
 	 * @param thirdParameter The comment of the first parameter of multipleCommentedParametersMethod.

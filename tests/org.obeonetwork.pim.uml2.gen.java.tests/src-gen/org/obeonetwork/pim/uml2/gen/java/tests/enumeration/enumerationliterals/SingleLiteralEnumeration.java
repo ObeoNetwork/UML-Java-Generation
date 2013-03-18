@@ -8,9 +8,9 @@ package org.obeonetwork.pim.uml2.gen.java.tests.enumeration.enumerationliterals;
  * Description of SingleLiteralEnumeration.
  */
 public enum SingleLiteralEnumeration {
-    /**
-     * Description of firstLiteral.
-     */
+	/**
+	 * Description of firstLiteral.
+	 */
     firstLiteral,
     
 }

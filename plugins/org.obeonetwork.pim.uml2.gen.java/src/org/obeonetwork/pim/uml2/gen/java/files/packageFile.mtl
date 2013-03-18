@@ -1,0 +1,37 @@
+[comment encoding = UTF-8 /]
+[**
+ * Module implementing the reverse of the org.eclipse.uml2.uml.Comment.getAnnotatedElements().
+ * @author Jean-Pierre.PECUCHET@insa-rouen.fr
+ */]
+[module packageFile('http://www.eclipse.org/uml2/3.0.0/UML')/]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::common /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
+[import org::obeonetwork::pim::uml2::gen::java::services::commentServices /]
+
+[template public genFullPathInfoFile(aPackage : Package)]
+[aPackage.genPackagePath().substituteAll('.', '/').concat('/').concat('package-info.java')/]
+[/template]
+
+[template public genPackagePath(aPackage : Package)]
+[aPackage.packagePath().normalizeName()->reverse()->sep('.')/]
+[/template]
+
+[query public packagePath(aPackage : Package) : Sequence(Package) = 
+	Sequence{aPackage}->union(aPackage.ancestors()->filter(Package))->select(pack : Package | pack.oclIsTypeOf(Package))
+/]
+
+[template public genFileBody(aPackage : Package)]
+/**
+ * Package [aPackage.name/].
+ * <p>
+[for (aComment : Comment | aPackage.allComments())]
+[javadocStar(aComment._body)/][/for]
+[for (documentation : String | aPackage.allDocumentations())]
+[javadocStar(documentation)/][/for]
+ */
+package [aPackage.genPackagePath()/];
+[/template]
+
+
+

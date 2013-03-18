@@ -9,21 +9,24 @@ package org.obeonetwork.pim.uml2.gen.java.tests.classes.properties;
 // End of user code
 
 /**
- * The comment of MultipleCommentedPropertiesClass.
+ * The comment of MultipleCommentedPropertiesClass.<br />
  */
 public class MultipleCommentedPropertiesClass {
     /**
-     * The comment of the first property of MultipleCommentedPropertiesClass.
+     * The common comment of all properties of MultipleCommentedPropertiesClass.<br />
+     * The comment of the first property of MultipleCommentedPropertiesClass.<br />
      */
     public Boolean firstProperty = true;
     
     /**
-     * The comment of the second property of MultipleCommentedPropertiesClass.
+     * The common comment of all properties of MultipleCommentedPropertiesClass.<br />
+     * The comment of the second property of MultipleCommentedPropertiesClass.<br />
      */
     public String secondProperty = "";
     
     /**
-     * The comment of the third property of MultipleCommentedPropertiesClass.
+     * The common comment of all properties of MultipleCommentedPropertiesClass.<br />
+     * The comment of the third property of MultipleCommentedPropertiesClass.<br />
      */
     public String thirdProperty = "";
     
@@ -46,7 +49,7 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Returns firstProperty.
-     * @return firstProperty The comment of the first property of MultipleCommentedPropertiesClass.
+     * @return firstProperty The common comment of all properties of MultipleCommentedPropertiesClass.The comment of the first property of MultipleCommentedPropertiesClass.
      */
     public Boolean getFirstProperty() {
     	return this.firstProperty;
@@ -54,7 +57,7 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Sets a value to attribute firstProperty. 
-     * @param newFirstProperty The comment of the first property of MultipleCommentedPropertiesClass.
+     * @param newFirstProperty The common comment of all properties of MultipleCommentedPropertiesClass.The comment of the first property of MultipleCommentedPropertiesClass.
      */
     public void setFirstProperty(Boolean newFirstProperty) {
         this.firstProperty = newFirstProperty;
@@ -62,7 +65,7 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Returns secondProperty.
-     * @return secondProperty The comment of the second property of MultipleCommentedPropertiesClass.
+     * @return secondProperty The common comment of all properties of MultipleCommentedPropertiesClass.The comment of the second property of MultipleCommentedPropertiesClass.
      */
     public String getSecondProperty() {
     	return this.secondProperty;
@@ -70,7 +73,7 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Sets a value to attribute secondProperty. 
-     * @param newSecondProperty The comment of the second property of MultipleCommentedPropertiesClass.
+     * @param newSecondProperty The common comment of all properties of MultipleCommentedPropertiesClass.The comment of the second property of MultipleCommentedPropertiesClass.
      */
     public void setSecondProperty(String newSecondProperty) {
         this.secondProperty = newSecondProperty;
@@ -78,7 +81,7 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Returns thirdProperty.
-     * @return thirdProperty The comment of the third property of MultipleCommentedPropertiesClass.
+     * @return thirdProperty The common comment of all properties of MultipleCommentedPropertiesClass.The comment of the third property of MultipleCommentedPropertiesClass.
      */
     public String getThirdProperty() {
     	return this.thirdProperty;
@@ -86,7 +89,7 @@ public class MultipleCommentedPropertiesClass {
     
     /**
      * Sets a value to attribute thirdProperty. 
-     * @param newThirdProperty The comment of the third property of MultipleCommentedPropertiesClass.
+     * @param newThirdProperty The common comment of all properties of MultipleCommentedPropertiesClass.The comment of the third property of MultipleCommentedPropertiesClass.
      */
     public void setThirdProperty(String newThirdProperty) {
         this.thirdProperty = newThirdProperty;
