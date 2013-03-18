@@ -54,9 +54,11 @@ public final class CommentServices {
 	 *            is the Comment
 	 */
 	public static void collect(Comment c) {
-		for (Element e : c.getAnnotatedElements())
-			if (c.getBody() != null && !"".equals(c.getBody().trim()))
+		for (Element e : c.getAnnotatedElements()) {
+			if (c.getBody() != null && !"".equals(c.getBody().trim())) {
 				addEntry(e, c);
+			}
+		}
 	}
 
 	/**
@@ -68,9 +70,12 @@ public final class CommentServices {
 	 *            is a Comment on that Element
 	 */
 	private static void addEntry(Element e, Comment c) {
-		if (!commentMap.containsKey(e))
+		if (!commentMap.containsKey(e)) {
 			commentMap.put(e, new ArrayList<Comment>());
-		commentMap.get(e).add(c);
+		}
+		if (c != null) {
+			commentMap.get(e).add(c);
+		}
 	}
 
 	/**
@@ -81,7 +86,11 @@ public final class CommentServices {
 	 * @return the List of all Comments for that Element
 	 */
 	public static List<Comment> allComments(Element e) {
-		return commentMap.get(e);
+		List<Comment> list = commentMap.get(e);
+		if (list != null) {
+			return list;
+		}
+		return new ArrayList<Comment>();
 	}
 
 }

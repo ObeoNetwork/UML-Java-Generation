@@ -206,6 +206,16 @@ the first property of SingleCommentedPropertyClass.</body>
                       <ownedAttribute xmi:id="_6XUhoHFoEeCpIZ35inDZ5w" name="integerProperty" type="_-gPxAHDHEeCl5bNajorhng"/>
                       <ownedAttribute xmi:id="_6e9asHFoEeCpIZ35inDZ5w" name="stringProperty" type="_-bhpEHDHEeCl5bNajorhng"/>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_hZYqYY7XEeKbSLdPNUpnag" name="JavaTypePropertiesClass">
+                      <ownedAttribute xmi:id="_hZZRcI7XEeKbSLdPNUpnag" name="booleanProperty" type="_01mygI7XEeKbSLdPNUpnag"/>
+                      <ownedAttribute xmi:id="_hZZRcY7XEeKbSLdPNUpnag" name="byteProperty" type="_01mygY7XEeKbSLdPNUpnag"/>
+                      <ownedAttribute xmi:id="_hZZRco7XEeKbSLdPNUpnag" name="charProperty" type="_01nZkI7XEeKbSLdPNUpnag"/>
+                      <ownedAttribute xmi:id="_TOcjwY7ZEeKoTozZYRj_-g" name="doubleProperty" type="_01nZkY7XEeKbSLdPNUpnag"/>
+                      <ownedAttribute xmi:id="_hZZRc47XEeKbSLdPNUpnag" name="floatProperty" type="_01nZko7XEeKbSLdPNUpnag"/>
+                      <ownedAttribute xmi:id="_hZZRdI7XEeKbSLdPNUpnag" name="intProperty" type="_01nZk47XEeKbSLdPNUpnag"/>
+                      <ownedAttribute xmi:id="_hZZRdY7XEeKbSLdPNUpnag" name="longProperty" type="_FYzfEI7YEeKbSLdPNUpnag"/>
+                      <ownedAttribute xmi:id="_jaG6EI7ZEeKoTozZYRj_-g" name="shortProperty" type="_GgHscI7YEeKbSLdPNUpnag"/>
+                    </packagedElement>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_Ziht0HATEeCrvt1hzG-phQ" name="methods">
                     <packagedElement xmi:type="uml:Package" xmi:id="_ZC5uUHDeEeCl5bNajorhng" name="parameters"/>
@@ -1027,4 +1037,12 @@ of CommentedInterface.</body>
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-k_HEHDHEeCl5bNajorhng" name="Boolean"/>
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_BrMqEHDIEeCl5bNajorhng" name="Byte"/>
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_D4MGEHDIEeCl5bNajorhng" name="Float"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_01mygI7XEeKbSLdPNUpnag" name="boolean"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_01mygY7XEeKbSLdPNUpnag" name="byte"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_01nZkI7XEeKbSLdPNUpnag" name="char"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_01nZkY7XEeKbSLdPNUpnag" name="double"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_01nZko7XEeKbSLdPNUpnag" name="float"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_01nZk47XEeKbSLdPNUpnag" name="int"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_FYzfEI7YEeKbSLdPNUpnag" name="long"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GgHscI7YEeKbSLdPNUpnag" name="short"/>
 </uml:Model>

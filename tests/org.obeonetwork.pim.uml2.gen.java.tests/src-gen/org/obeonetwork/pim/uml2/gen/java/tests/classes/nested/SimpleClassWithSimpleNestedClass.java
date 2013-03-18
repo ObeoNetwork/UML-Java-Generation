@@ -4,7 +4,7 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.classes.nested;
 
-// Start of user code (user defined imports)	
+// Start of user code (user defined imports)
 
 // End of user code
 
@@ -13,21 +13,21 @@ package org.obeonetwork.pim.uml2.gen.java.tests.classes.nested;
  */
 public class SimpleClassWithSimpleNestedClass {
     // Start of user code (user defined attributes)
-        
-        // End of user code
+    
+    // End of user code
     
     /**
      * The constructor.
      */
     public SimpleClassWithSimpleNestedClass() {
     	// Start of user code constructor
-        	super();
-        	// End of user code
+    	super();
+    	// End of user code
     }
     
     // Start of user code (user defined methods)
-        
-        // End of user code
+    
+    // End of user code
     
     /**
      * Description of SimpleNestedClass.

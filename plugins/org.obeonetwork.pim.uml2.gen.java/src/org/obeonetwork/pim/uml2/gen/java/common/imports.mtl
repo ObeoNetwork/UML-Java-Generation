@@ -49,7 +49,7 @@ import [aType.importValue()/];
 [/if]
 [/for]
 [/if]
-// [protected ('(user defined imports)')]	
+// [protected ('(user defined imports)')]
 
 // [/protected]
 

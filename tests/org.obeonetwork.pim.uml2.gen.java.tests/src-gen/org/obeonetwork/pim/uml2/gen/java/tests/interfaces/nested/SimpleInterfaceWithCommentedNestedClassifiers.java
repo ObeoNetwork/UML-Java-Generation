@@ -4,7 +4,7 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.interfaces.nested;
 
-// Start of user code (user defined imports)	
+// Start of user code (user defined imports)
 
 // End of user code
 
@@ -13,12 +13,12 @@ package org.obeonetwork.pim.uml2.gen.java.tests.interfaces.nested;
  */
 public interface SimpleInterfaceWithCommentedNestedClassifiers {
 	// Start of user code (user defined attributes)
-		
-		// End of user code
+	
+	// End of user code
 	
 	// Start of user code (user defined methods)
-		
-		// End of user code
+	
+	// End of user code
 	
 	/**
 	 * The common comment for all the nested classifiers of SimpleInterfaceWithCommentedNestedClassifiers.<br />
