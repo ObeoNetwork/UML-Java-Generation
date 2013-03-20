@@ -18,6 +18,8 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
@@ -131,6 +133,16 @@ public class UML2JavaComponentLaunchConfigurationTab extends AbstractUML2JavaLau
 				IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_ECLIPSE,
 				IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_JAVA, });
 		componentArtifactsCombo.select(0);
+		componentArtifactsCombo.addSelectionListener(new SelectionListener() {
+
+			public void widgetSelected(SelectionEvent e) {
+				update();
+			}
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+				update();
+			}
+		});
 
 		createHelpButton(comp, UML2JavaMessages
 				.getString("UML2JavaComponentLaunchConfigurationTab.GenerateComponentArtifactsHelp"));
@@ -187,6 +199,9 @@ public class UML2JavaComponentLaunchConfigurationTab extends AbstractUML2JavaLau
 	 */
 	private void update() {
 		// do nothing
+
+		this.getLaunchConfigurationDialog().updateButtons();
+		this.getLaunchConfigurationDialog().updateMessage();
 	}
 
 	/**
@@ -216,7 +231,6 @@ public class UML2JavaComponentLaunchConfigurationTab extends AbstractUML2JavaLau
 		if (this.bundleProviderNameText != null) {
 			this.bundleProviderNameText.setText(IUML2JavaConstants.Default.DEFAULT_BUNDLE_PROVIDER_NAME);
 		}
-		this.update();
 	}
 
 	/**
@@ -244,8 +258,6 @@ public class UML2JavaComponentLaunchConfigurationTab extends AbstractUML2JavaLau
 			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
 			UML2JavaUIActivator.getDefault().getLog().log(status);
 		}
-
-		this.update();
 	}
 
 	/**
@@ -265,8 +277,6 @@ public class UML2JavaComponentLaunchConfigurationTab extends AbstractUML2JavaLau
 		// Bundle provider
 		String bundleProvider = this.bundleProviderNameText.getText();
 		configuration.setAttribute(IUML2JavaConstants.BUNDLE_PROVIDER, bundleProvider);
-
-		this.update();
 	}
 
 	/**

@@ -2,6 +2,7 @@
 [module manifestMFFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
+[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
 
 
 [template private  manifestMFFile(aComponent : Component)]
@@ -14,30 +15,21 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: [aComponent.genComponentPath()/]
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: [aComponent.reqGetVersion()/].qualifier
 Bundle-Vendor: %Provider-Name
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: [aComponent.reqGetJREExecutionEnvironment()/]
 Bundle-ActivationPolicy: lazy
 [aComponent.exportPackages()/]
-[if (aComponent.ownedPort.type->filter(Type).oclIsKindOf(Component)->size() > 0)]
 [aComponent.importPackages()/]
-[/if]
-[if (aComponent.ownedPort.type->filter(Component)->size() > 0)]
-[aComponent.requireBundles()/]
-[/if]
 
 [/file]
 [/template]
 
 [template private exportPackages(aComponent : Component)]
-[for (aPort : Port | aComponent.ownedPort) separator(',' + aComponent.lineSeparator())][if (i = 1)]Export-Package:[/if] [aPort.type.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/][/for]
+[for (aProvidedInterface : Interface | aComponent.ownedPort.type->asSequence()->filter(Class).interfaceRealization.contract) separator(',' + aComponent.lineSeparator())][if (i = 1)]Export-Package:[/if] [aProvidedInterface.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/];version="[aComponent.reqGetVersion()/]"[/for]
 [/template]
 
 [template private importPackages(aComponent : Component)]
-[for (aConnectorEnd : ConnectorEnd | aComponent.ownedPort.eInverse(ConnectorEnd).siblings()->filter(ConnectorEnd)) separator(',' + aComponent.lineSeparator())][if (i = 1)]Import-Package:[/if] [aConnectorEnd.role.type.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/][/for]
-[/template]
-
-[template private requireBundles(aComponent : Component)]
-[for (aComponent : Component | aComponent.ownedPort.eInverse(ConnectorEnd).siblings()->filter(ConnectorEnd).role.type->asOrderedSet().ancestors(Component)->first()) separator(',' + aComponent.lineSeparator())][if (i = 1)]Require-Bundle:[/if] [aComponent.name/][/for]
+[for (aClassifier : Classifier | aComponent.ownedPort.type.eInverse(Usage).supplier->filter(Classifier)->reject(ancestors(Component)->includes(aComponent))) separator(',' + aComponent.lineSeparator())][if (i = 1)]Import-Package:[/if] [aClassifier.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/];version="[aComponent.reqGetVersion()/]"[/for]
 [/template]

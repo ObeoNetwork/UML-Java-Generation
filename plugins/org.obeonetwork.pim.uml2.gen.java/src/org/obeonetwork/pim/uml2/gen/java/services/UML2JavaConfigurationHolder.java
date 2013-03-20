@@ -290,10 +290,14 @@ public class UML2JavaConfigurationHolder extends AdapterImpl {
 	private static UML2JavaConfigurationHolder getConfigurationHolder(EObject eObject) {
 		Resource eResource = eObject.eResource();
 		EObject rootEObject = eResource.getContents().get(0);
-		Adapter adapter = rootEObject.eAdapters().get(0);
-		if (adapter instanceof UML2JavaConfigurationHolder) {
-			return (UML2JavaConfigurationHolder)adapter;
+
+		List<Adapter> eAdapters = rootEObject.eAdapters();
+		for (Adapter adapter : eAdapters) {
+			if (adapter instanceof UML2JavaConfigurationHolder) {
+				return (UML2JavaConfigurationHolder)adapter;
+			}
 		}
+
 		return null;
 	}
 

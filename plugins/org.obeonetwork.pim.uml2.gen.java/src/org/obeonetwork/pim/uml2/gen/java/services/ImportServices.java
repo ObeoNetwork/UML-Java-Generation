@@ -19,6 +19,8 @@ import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.Generalization;
+import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
@@ -66,6 +68,7 @@ public class ImportServices {
 	public String reqImport(Classifier aClassifier) {
 		Set<String> importedTypes = new LinkedHashSet<String>();
 
+		// Import from attributes
 		List<Property> attributes = aClassifier.getAttributes();
 		for (Property property : attributes) {
 			String qualifiedName = this.qualifiedName(property.getType());
@@ -81,6 +84,7 @@ public class ImportServices {
 			}
 		}
 
+		// Import from operations
 		List<Operation> operations = aClassifier.getOperations();
 		for (Operation operation : operations) {
 			String qualifiedName = this.qualifiedName(operation.getType());
@@ -116,6 +120,21 @@ public class ImportServices {
 				if (exceptionQualifiedName != null) {
 					importedTypes.add(exceptionQualifiedName);
 				}
+			}
+		}
+
+		// Class or interfaces inheritance
+		List<Generalization> generalizations = aClassifier.getGeneralizations();
+		for (Generalization generalization : generalizations) {
+			importedTypes.add(this.qualifiedName(generalization.getGeneral()));
+		}
+
+		// Classes' interface realizations
+		if (aClassifier instanceof org.eclipse.uml2.uml.Class) {
+			org.eclipse.uml2.uml.Class aClass = (org.eclipse.uml2.uml.Class)aClassifier;
+			List<InterfaceRealization> interfaceRealizations = aClass.getInterfaceRealizations();
+			for (InterfaceRealization interfaceRealization : interfaceRealizations) {
+				importedTypes.add(this.qualifiedName(interfaceRealization.getContract()));
 			}
 		}
 

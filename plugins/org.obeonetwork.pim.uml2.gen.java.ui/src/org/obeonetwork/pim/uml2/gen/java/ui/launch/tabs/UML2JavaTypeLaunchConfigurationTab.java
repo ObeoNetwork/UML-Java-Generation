@@ -204,6 +204,9 @@ public class UML2JavaTypeLaunchConfigurationTab extends AbstractUML2JavaLaunchCo
 	 */
 	private void update() {
 		// do nothing
+
+		this.getLaunchConfigurationDialog().updateButtons();
+		this.getLaunchConfigurationDialog().updateMessage();
 	}
 
 	/**
@@ -240,8 +243,6 @@ public class UML2JavaTypeLaunchConfigurationTab extends AbstractUML2JavaLaunchCo
 			this.notOrderedAndNotUniqueText
 					.setText(IUML2JavaConstants.Default.DEFAULT_NOT_ORDERED_NOT_UNIQUE);
 		}
-
-		this.update();
 	}
 
 	/**
@@ -270,7 +271,6 @@ public class UML2JavaTypeLaunchConfigurationTab extends AbstractUML2JavaLaunchCo
 			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
 			UML2JavaUIActivator.getDefault().getLog().log(status);
 		}
-		this.update();
 	}
 
 	/**
@@ -294,8 +294,6 @@ public class UML2JavaTypeLaunchConfigurationTab extends AbstractUML2JavaLaunchCo
 		// Not ordered not unique
 		String notOrderedNotUnique = this.notOrderedAndNotUniqueText.getText();
 		configuration.setAttribute(IUML2JavaConstants.NOT_ORDERED_NOT_UNIQUE_TYPE, notOrderedNotUnique);
-
-		this.update();
 	}
 
 	/**

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_R5VeMI_aEeKeTr0j6lpMAA">
+  <packagedElement xmi:type="uml:Component" xmi:id="_WmJWII_bEeKeTr0j6lpMAA" name="org.obeonetwork.designer">
+    <nestedClassifier xmi:type="uml:Component" xmi:id="_rpxg8I_bEeKeTr0j6lpMAA" name="org.obeonetwork.designer.eclipse">
+      <nestedClassifier xmi:type="uml:Component" xmi:id="_2uE74I_bEeKeTr0j6lpMAA" name="org.obeonetwork.designer.ide.ui"/>
+      <nestedClassifier xmi:type="uml:Component" xmi:id="_3kj38I_bEeKeTr0j6lpMAA" name="org.obeonetwork.designer.ide"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Component" xmi:id="_vfwUAI_bEeKeTr0j6lpMAA" name="org.obeonetwork.designer.standalone">
+      <nestedClassifier xmi:type="uml:Component" xmi:id="_4Qz58I_bEeKeTr0j6lpMAA" name="org.obeonetwork.designer.ui"/>
+      <nestedClassifier xmi:type="uml:Component" xmi:id="_4Q0hAI_bEeKeTr0j6lpMAA" name="org.obeonetwork.designer.core">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_P1sisJCvEeKjTpArdS2ikA" name="CoreService" type="_kAynMJCoEeKjTpArdS2ikA" aggregation="composite"/>
+        <packagedElement xmi:type="uml:Package" xmi:id="_7TXyUJCnEeKjTpArdS2ikA" name="org">
+          <packagedElement xmi:type="uml:Package" xmi:id="_9LiN0JCnEeKjTpArdS2ikA" name="obeonetwork">
+            <packagedElement xmi:type="uml:Package" xmi:id="__IkiQJCnEeKjTpArdS2ikA" name="designer">
+              <packagedElement xmi:type="uml:Package" xmi:id="_BCQAsJCoEeKjTpArdS2ikA" name="core">
+                <packagedElement xmi:type="uml:Interface" xmi:id="_Dxq0UJCoEeKjTpArdS2ikA" name="ICoreService"/>
+                <packagedElement xmi:type="uml:Package" xmi:id="_FajdsJCoEeKjTpArdS2ikA" name="internal">
+                  <packagedElement xmi:type="uml:Class" xmi:id="_kAynMJCoEeKjTpArdS2ikA" clientDependency="_mQhOIJCoEeKjTpArdS2ikA" name="CoreService">
+                    <interfaceRealization xmi:id="_mQhOIJCoEeKjTpArdS2ikA" client="_kAynMJCoEeKjTpArdS2ikA" supplier="_Dxq0UJCoEeKjTpArdS2ikA" contract="_Dxq0UJCoEeKjTpArdS2ikA"/>
+                  </packagedElement>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Component" xmi:id="_4Q0hAY_bEeKeTr0j6lpMAA" name="org.obeonetwork.designer.common">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_6AClYJCrEeKjTpArdS2ikA" name="CommonService" type="_CN0OMJCjEeKjTpArdS2ikA" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_WY7mMJCvEeKjTpArdS2ikA" name="InternalCommonClass" type="_5Mf-sJCiEeKjTpArdS2ikA" aggregation="composite"/>
+        <packagedElement xmi:type="uml:Package" xmi:id="_kVG5EZCiEeKjTpArdS2ikA" name="org">
+          <packagedElement xmi:type="uml:Package" xmi:id="_slD9EJCiEeKjTpArdS2ikA" name="obeonetwork">
+            <packagedElement xmi:type="uml:Package" xmi:id="_uXSvsJCiEeKjTpArdS2ikA" name="designer">
+              <packagedElement xmi:type="uml:Package" xmi:id="_v68TwJCiEeKjTpArdS2ikA" name="common">
+                <packagedElement xmi:type="uml:Package" xmi:id="_x4gMoJCiEeKjTpArdS2ikA" name="internal">
+                  <packagedElement xmi:type="uml:Class" xmi:id="_5Mf-sJCiEeKjTpArdS2ikA" clientDependency="_Yq3MkJCvEeKjTpArdS2ikA" name="InternalCommonClass">
+                    <generalization xmi:id="_45KWgJCjEeKjTpArdS2ikA" general="_2rEjwJCiEeKjTpArdS2ikA"/>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Class" xmi:id="_CN0OMJCjEeKjTpArdS2ikA" clientDependency="_3Ro_EJCjEeKjTpArdS2ikA _FuqBQJCvEeKjTpArdS2ikA" name="CommonService">
+                    <interfaceRealization xmi:id="_3Ro_EJCjEeKjTpArdS2ikA" client="_CN0OMJCjEeKjTpArdS2ikA" supplier="__KMsMJCiEeKjTpArdS2ikA" contract="__KMsMJCiEeKjTpArdS2ikA"/>
+                    <interfaceRealization xmi:id="_FuqBQJCvEeKjTpArdS2ikA" client="_CN0OMJCjEeKjTpArdS2ikA" supplier="_CK0HEJCvEeKjTpArdS2ikA" contract="_CK0HEJCvEeKjTpArdS2ikA"/>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Usage" xmi:id="_Yq3MkJCvEeKjTpArdS2ikA" client="_5Mf-sJCiEeKjTpArdS2ikA" supplier="_Dxq0UJCoEeKjTpArdS2ikA"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_2rEjwJCiEeKjTpArdS2ikA" name="CommonClass"/>
+                <packagedElement xmi:type="uml:Interface" xmi:id="__KMsMJCiEeKjTpArdS2ikA" name="ICommonService"/>
+                <packagedElement xmi:type="uml:Package" xmi:id="_5bg0oJCuEeKjTpArdS2ikA" name="utils">
+                  <packagedElement xmi:type="uml:Interface" xmi:id="_CK0HEJCvEeKjTpArdS2ikA" name="ICommonProvider"/>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </nestedClassifier>
+    </nestedClassifier>
+  </packagedElement>
+</uml:Model>

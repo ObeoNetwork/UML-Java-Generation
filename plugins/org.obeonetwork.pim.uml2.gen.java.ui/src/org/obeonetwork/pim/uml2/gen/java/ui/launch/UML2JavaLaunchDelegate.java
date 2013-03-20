@@ -68,12 +68,12 @@ public class UML2JavaLaunchDelegate implements ILaunchConfigurationDelegate {
 			UML2JavaConfigurationHolder configurationHolder = this.createConfigurationHolder(configuration);
 
 			try {
-				Uml2java workflow = new Uml2java(modelURI, container.getLocation().toFile(),
+				Uml2java uml2java = new Uml2java(modelURI, container.getLocation().toFile(),
 						new ArrayList<String>());
 
-				workflow.setConfigurationHolder(configurationHolder);
+				uml2java.setConfigurationHolder(configurationHolder);
 
-				workflow.doGenerate(BasicMonitor.toMonitor(monitor));
+				uml2java.doGenerate(BasicMonitor.toMonitor(monitor));
 				container.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 			} catch (IOException e) {
 				IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);

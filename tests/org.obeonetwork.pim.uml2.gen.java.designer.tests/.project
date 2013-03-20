@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>org.obeonetwork.pim.uml2.gen.java.designer.tests</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>fr.obeo.dsl.viewpoint.nature.modelingproject</nature>
+	</natures>
+</projectDescription>

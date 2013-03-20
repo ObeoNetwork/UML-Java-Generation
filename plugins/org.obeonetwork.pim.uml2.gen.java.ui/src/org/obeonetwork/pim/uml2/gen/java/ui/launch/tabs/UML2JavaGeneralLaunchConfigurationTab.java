@@ -303,6 +303,24 @@ public class UML2JavaGeneralLaunchConfigurationTab extends AbstractUML2JavaLaunc
 			executionEnvJRECombo.setText(selectedItem);
 		}
 
+		executionEnvJRECombo.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				update();
+			}
+		});
+
+		executionEnvJRECombo.addSelectionListener(new SelectionListener() {
+
+			public void widgetSelected(SelectionEvent e) {
+				update();
+			}
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+				update();
+			}
+		});
+
 		createHelpButton(comp, UML2JavaMessages
 				.getString("UML2JavaGeneralLaunchConfigurationTab.JREExecutionEnvironmentHelp"));
 	}
@@ -360,6 +378,9 @@ public class UML2JavaGeneralLaunchConfigurationTab extends AbstractUML2JavaLaunc
 	 */
 	private void update() {
 		this.setErrorMessage(null);
+
+		this.getLaunchConfigurationDialog().updateButtons();
+		this.getLaunchConfigurationDialog().updateMessage();
 
 		// Check the path of the model
 		if (this.modelPathText != null) {
@@ -428,8 +449,6 @@ public class UML2JavaGeneralLaunchConfigurationTab extends AbstractUML2JavaLaunc
 		if (this.executionEnvJRECombo != null) {
 			this.executionEnvJRECombo.setText(IUML2JavaConstants.Default.DEFAULT_JRE_EXECUTION_ENVIRONMENT);
 		}
-
-		this.update();
 	}
 
 	/**
@@ -467,7 +486,6 @@ public class UML2JavaGeneralLaunchConfigurationTab extends AbstractUML2JavaLaunc
 			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
 			UML2JavaUIActivator.getDefault().getLog().log(status);
 		}
-		this.update();
 	}
 
 	/**
@@ -495,8 +513,6 @@ public class UML2JavaGeneralLaunchConfigurationTab extends AbstractUML2JavaLaunc
 		// JRE execution environment
 		String jreExecutionEnvironment = this.executionEnvJRECombo.getText();
 		configuration.setAttribute(IUML2JavaConstants.JRE_EXECUTION_ENVIRONMENT, jreExecutionEnvironment);
-
-		this.update();
 	}
 
 	/**
@@ -510,33 +526,32 @@ public class UML2JavaGeneralLaunchConfigurationTab extends AbstractUML2JavaLaunc
 		try {
 			// Model path
 			String attribute = configuration.getAttribute(IUML2JavaConstants.UML_MODEL_PATH, "");
-			isValid = isValid && (attribute == null || attribute.trim().length() == 0);
+			isValid = isValid && attribute != null && attribute.trim().length() > 0;
 
 			// Source folder path
 			attribute = configuration.getAttribute(IUML2JavaConstants.SOURCE_FOLDER_PATH,
 					IUML2JavaConstants.Default.DEFAULT_SOURCE_FOLDER_PATH);
-			isValid = isValid && (attribute == null || attribute.trim().length() == 0);
+			isValid = isValid && attribute != null && attribute.trim().length() > 0;
 
 			// Output folder path
 			attribute = configuration.getAttribute(IUML2JavaConstants.OUTPUT_FOLDER_PATH,
 					IUML2JavaConstants.Default.DEFAULT_OUTPUT_FOLDER_PATH);
-			isValid = isValid && (attribute == null || attribute.trim().length() == 0);
+			isValid = isValid && attribute != null && attribute.trim().length() > 0;
 
 			// Default project name
 			attribute = configuration.getAttribute(IUML2JavaConstants.DEFAULT_PROJECT_NAME,
 					IUML2JavaConstants.Default.DEFAULT_DEFAULT_PROJECT_NAME);
-			isValid = isValid && (attribute == null || attribute.trim().length() == 0);
+			isValid = isValid && attribute != null && attribute.trim().length() > 0;
 
 			// JRE execution environment
 			attribute = configuration.getAttribute(IUML2JavaConstants.JRE_EXECUTION_ENVIRONMENT,
 					IUML2JavaConstants.Default.DEFAULT_JRE_EXECUTION_ENVIRONMENT);
-			isValid = isValid && (attribute == null || attribute.trim().length() == 0);
+			isValid = isValid && attribute != null && attribute.trim().length() > 0;
 
 		} catch (CoreException e) {
 			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
 			UML2JavaUIActivator.getDefault().getLog().log(status);
 		}
-		this.update();
 		return isValid;
 	}
 

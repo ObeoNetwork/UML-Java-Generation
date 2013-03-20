@@ -10,9 +10,9 @@
 
 
 [query public reqImportProject(aString : String) : OclVoid = 
-	invoke('org.obeonetwork.pim.uml2.gen.java.services.RefreshWorkspace', 'importProject(java.lang.String)', Sequence{aString})
+	invoke('org.obeonetwork.pim.uml2.gen.java.services.WorkspaceServices', 'importProject(java.lang.String)', Sequence{aString})
 /]
 
 [query public reqCreateDefaultProject(anOclAny : OclAny) : OclVoid = 
-	invoke('org.obeonetwork.pim.uml2.gen.java.services.RefreshWorkspace', 'createDefaultProject(org.eclipse.emf.ecore.EObject)', Sequence{anOclAny})
+	invoke('org.obeonetwork.pim.uml2.gen.java.services.WorkspaceServices', 'createDefaultProject(org.eclipse.emf.ecore.EObject)', Sequence{anOclAny})
 /]

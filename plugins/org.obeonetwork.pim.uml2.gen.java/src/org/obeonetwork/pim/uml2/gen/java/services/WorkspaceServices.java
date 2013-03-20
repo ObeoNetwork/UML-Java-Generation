@@ -26,6 +26,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
@@ -51,6 +52,10 @@ public class WorkspaceServices {
 	 *            The name of the project.
 	 */
 	public void importProject(String projectName) {
+		if (!EMFPlugin.IS_ECLIPSE_RUNNING) {
+			return;
+		}
+
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		try {
 			IWorkspaceRoot workspaceRoot = workspace.getRoot();

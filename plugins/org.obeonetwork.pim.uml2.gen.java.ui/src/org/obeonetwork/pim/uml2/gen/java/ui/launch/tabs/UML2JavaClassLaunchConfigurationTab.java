@@ -344,6 +344,9 @@ public class UML2JavaClassLaunchConfigurationTab extends AbstractUML2JavaLaunchC
 	 */
 	private void update() {
 		// nothing yet
+
+		this.getLaunchConfigurationDialog().updateButtons();
+		this.getLaunchConfigurationDialog().updateMessage();
 	}
 
 	/**
@@ -418,7 +421,6 @@ public class UML2JavaClassLaunchConfigurationTab extends AbstractUML2JavaLaunchC
 		if (this.copyrightAndLicenseText != null) {
 			this.copyrightAndLicenseText.setText(IUML2JavaConstants.Default.DEFAULT_COPYRIGHT_AND_LICENSE);
 		}
-		this.update();
 	}
 
 	/**
@@ -481,7 +483,6 @@ public class UML2JavaClassLaunchConfigurationTab extends AbstractUML2JavaLaunchC
 			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
 			UML2JavaUIActivator.getDefault().getLog().log(status);
 		}
-		this.update();
 	}
 
 	/**
@@ -532,8 +533,6 @@ public class UML2JavaClassLaunchConfigurationTab extends AbstractUML2JavaLaunchC
 		// Copyright and license
 		String copyrightAndLicense = this.copyrightAndLicenseText.getText();
 		configuration.setAttribute(IUML2JavaConstants.COPYRIGHT_AND_LICENSE, copyrightAndLicense);
-
-		this.update();
 	}
 
 	/**

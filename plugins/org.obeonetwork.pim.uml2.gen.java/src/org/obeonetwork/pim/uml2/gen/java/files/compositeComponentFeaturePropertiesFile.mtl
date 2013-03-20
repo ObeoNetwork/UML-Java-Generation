@@ -1,0 +1,23 @@
+[comment encoding = UTF-8 /]
+[module compositeComponentFeaturePropertiesFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::path/]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
+
+[template private compositeComponentFeaturePropertiesFile(aComponent : Component)]
+[aComponent.genComponentPath()/]/feature.properties
+[/template]
+
+[template public genCompositeComponentFeaturePropertiesFile(aComponent : Component)]
+[file (aComponent.compositeComponentFeaturePropertiesFile(), false, 'UTF-8')]
+#################################################################################
+## [aComponent.reqGetCopyrightAndLicense()/]
+#################################################################################
+Feature-Label = [aComponent.name/]
+Feature-Description = 
+ 
+Licence = 
+Copyright = 
+[/file]
+[/template]
