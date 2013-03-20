@@ -4,12 +4,13 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
 [import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
+[import org::obeonetwork::pim::uml2::gen::java::services::workspaceServices /]
 
 [template private compositeComponentBuildPropertiesFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/build.properties
 [/template]
 
-[template public genCompositeComponentBuildPropertiesFile(aComponent : Component)]
+[template public genCompositeComponentBuildPropertiesFile(aComponent : Component) ? (not (aComponent.reqGetGenerationRootPath() + '/' + aComponent.compositeComponentBuildPropertiesFile()).reqResourceExists())]
 [file (aComponent.compositeComponentBuildPropertiesFile(), false, 'UTF-8')]
 #################################################################################
 ## [aComponent.reqGetCopyrightAndLicense()/]

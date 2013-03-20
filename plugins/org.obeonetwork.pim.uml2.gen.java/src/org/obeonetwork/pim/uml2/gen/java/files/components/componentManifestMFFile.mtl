@@ -2,14 +2,15 @@
 [module componentManifestMFFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
-[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
 
+[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
+[import org::obeonetwork::pim::uml2::gen::java::services::workspaceServices /]
 
 [template private componentManifestMFFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/META-INF/MANIFEST.MF
 [/template]
 
-[template public genComponentManifestMFFile(aComponent : Component)]
+[template public genComponentManifestMFFile(aComponent : Component) ? (not (aComponent.reqGetGenerationRootPath() + '/' + aComponent.componentManifestMFFile()).reqResourceExists())]
 [file (aComponent.componentManifestMFFile(), false, 'UTF-8')]
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2

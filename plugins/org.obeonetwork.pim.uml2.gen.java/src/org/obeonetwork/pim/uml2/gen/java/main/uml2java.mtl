@@ -79,6 +79,11 @@
 [aComponent.genComponentBuildPropertiesFile() /]
 [aComponent.genComponentPluginPropertiesFile() /]
 [/if]
+
+[comment Create the default source and output folder /]
+[(aComponent.reqGetGenerationRootPath() + '/' + aComponent.name + '/' + aComponent.reqGetSourceFolderPath()).reqCreateFolder()/]
+[(aComponent.reqGetGenerationRootPath() + '/' + aComponent.name + '/' + aComponent.reqGetOutputFolderPath()).reqCreateFolder()/]
+
 [aComponent.genComponentPath().reqImportProject() /]
 [/template]
 

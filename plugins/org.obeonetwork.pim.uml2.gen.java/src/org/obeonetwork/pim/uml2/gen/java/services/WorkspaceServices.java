@@ -58,6 +58,17 @@ public class WorkspaceServices {
 	}
 
 	/**
+	 * Creates a folder at the given path.
+	 * 
+	 * @param path
+	 *            The location of the folder to create
+	 */
+	public void createFolder(String path) {
+		File file = new File(path);
+		file.mkdirs();
+	}
+
+	/**
 	 * Imports a new project, created outside of the workspace, to the workspace.
 	 * 
 	 * @param projectName

@@ -3,11 +3,14 @@
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
+[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
+[import org::obeonetwork::pim::uml2::gen::java::services::workspaceServices /]
+
 [template private componentCoreSettingsFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/.settings/org.eclipse.core.ressources.prefs
 [/template]
 
-[template public genComponentCoreSettingsFile(aComponent : Component)]
+[template public genComponentCoreSettingsFile(aComponent : Component) ? (not (aComponent.reqGetGenerationRootPath() + '/' + aComponent.componentCoreSettingsFile()).reqResourceExists())]
 [file (aComponent.componentCoreSettingsFile(), false, 'UTF-8')]
 eclipse.preferences.version=1
 encoding/<project>=UTF-8

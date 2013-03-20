@@ -13,6 +13,10 @@
 	invoke('org.obeonetwork.pim.uml2.gen.java.services.WorkspaceServices', 'resourceExists(java.lang.String)', Sequence{aString})
 /]
 
+[query public reqCreateFolder(aString : String) : OclVoid = 
+	invoke('org.obeonetwork.pim.uml2.gen.java.services.WorkspaceServices', 'createFolder(java.lang.String)', Sequence{aString})
+/]
+
 [query public reqImportProject(aString : String) : OclVoid = 
 	invoke('org.obeonetwork.pim.uml2.gen.java.services.WorkspaceServices', 'importProject(java.lang.String)', Sequence{aString})
 /]

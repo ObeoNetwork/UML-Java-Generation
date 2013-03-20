@@ -3,11 +3,14 @@
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
+[import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
+[import org::obeonetwork::pim::uml2::gen::java::services::workspaceServices /]
+
 [template private componentJdtSettingsFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/.settings/org.eclipse.jdt.ressources.prefs
 [/template]
 
-[template public genComponentJdtSettingsFile(aComponent : Component)]
+[template public genComponentJdtSettingsFile(aComponent : Component) ? (not (aComponent.reqGetGenerationRootPath() + '/' + aComponent.componentJdtSettingsFile()).reqResourceExists())]
 [file (aComponent.componentJdtSettingsFile(), false, 'UTF-8')]
 eclipse.preferences.version=1
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.5
