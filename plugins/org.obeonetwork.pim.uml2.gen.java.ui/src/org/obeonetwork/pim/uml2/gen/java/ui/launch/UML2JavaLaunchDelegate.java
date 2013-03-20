@@ -67,6 +67,10 @@ public class UML2JavaLaunchDelegate implements ILaunchConfigurationDelegate {
 
 			UML2JavaConfigurationHolder configurationHolder = this.createConfigurationHolder(configuration);
 
+			// Add the location of the generation to the configuration holder
+			configurationHolder.put(IUML2JavaConstants.GENERATION_ROOT_PATH, container.getLocation().toFile()
+					.getAbsolutePath());
+
 			try {
 				Uml2java uml2java = new Uml2java(modelURI, container.getLocation().toFile(),
 						new ArrayList<String>());

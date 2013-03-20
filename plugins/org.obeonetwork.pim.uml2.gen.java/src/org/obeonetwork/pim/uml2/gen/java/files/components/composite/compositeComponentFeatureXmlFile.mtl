@@ -1,16 +1,16 @@
 [comment encoding = UTF-8 /]
-[module featureXmlFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+[module compositeComponentFeatureXmlFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
 [import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
 
-[template private featureXmlFile(aComponent : Component)]
+[template private compositeComponentFeatureXmlFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/feature.xml
 [/template]
 
-[template public genFeatureXmlFile(aComponent : Component)]
-[file (aComponent.featureXmlFile(), false, 'UTF-8')]
+[template public genCompositeComponentFeatureXmlFile(aComponent : Component)]
+[file (aComponent.compositeComponentFeatureXmlFile(), false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="[aComponent.name/]"

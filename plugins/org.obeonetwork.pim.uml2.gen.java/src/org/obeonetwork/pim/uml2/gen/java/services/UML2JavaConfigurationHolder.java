@@ -48,6 +48,17 @@ public class UML2JavaConfigurationHolder extends AdapterImpl {
 	}
 
 	/**
+	 * Returns the absolute location of the folder in which the code will be generated.
+	 * 
+	 * @param eObject
+	 *            The model element
+	 * @return The absolute location of the folder in which the code will be generated.
+	 */
+	public static String getGenerationRootPath(EObject eObject) {
+		return UML2JavaConfigurationHolder.getStringValue(eObject, IUML2JavaConstants.GENERATION_ROOT_PATH);
+	}
+
+	/**
 	 * Returns the default project name.
 	 * 
 	 * @param eObject

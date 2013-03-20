@@ -129,8 +129,8 @@ public class UML2JavaComponentLaunchConfigurationTab extends AbstractUML2JavaLau
 		componentArtifactsCombo = new Combo(comp, SWT.READ_ONLY);
 		componentArtifactsCombo.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
 		componentArtifactsCombo.setItems(new String[] {
-				IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_OSGI,
-				IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_ECLIPSE,
+		/* IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_OSGI, */
+		IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_ECLIPSE,
 				IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_JAVA, });
 		componentArtifactsCombo.select(0);
 		componentArtifactsCombo.addSelectionListener(new SelectionListener() {
@@ -219,10 +219,10 @@ public class UML2JavaComponentLaunchConfigurationTab extends AbstractUML2JavaLau
 
 		// Component architecture kind
 		configuration.setAttribute(IUML2JavaConstants.COMPONENTS_ARCHITECTURE,
-				IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_OSGI);
+				IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_ECLIPSE);
 		if (this.componentArtifactsCombo != null) {
 			this.componentArtifactsCombo
-					.setText(IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_OSGI);
+					.setText(IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_ECLIPSE);
 		}
 
 		// Bundle provider
@@ -246,7 +246,7 @@ public class UML2JavaComponentLaunchConfigurationTab extends AbstractUML2JavaLau
 
 			// Components architecture kind
 			attribute = configuration.getAttribute(IUML2JavaConstants.COMPONENTS_ARCHITECTURE,
-					IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_OSGI);
+					IUML2JavaConstants.Default.DEFAULT_COMPONENT_ARTIFACTS_TYPE_ECLIPSE);
 			this.componentArtifactsCombo.setText(attribute);
 
 			// Bundle provider

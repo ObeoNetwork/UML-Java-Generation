@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.pim.uml2.gen.java.services;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -44,6 +45,17 @@ import org.obeonetwork.pim.uml2.gen.java.utils.IUML2JavaConstants;
  * @since 2.0
  */
 public class WorkspaceServices {
+
+	/**
+	 * Returns <code>true</code> if the file exists, <code>false</code> otherwise.
+	 * 
+	 * @param path
+	 *            The absolute path of the file on the file system
+	 * @return <code>true</code> if the file exists, <code>false</code> otherwise.
+	 */
+	public boolean resourceExists(String path) {
+		return new File(path).exists();
+	}
 
 	/**
 	 * Imports a new project, created outside of the workspace, to the workspace.
@@ -82,6 +94,10 @@ public class WorkspaceServices {
 	 *            The model element
 	 */
 	public void createDefaultProject(EObject eObject) {
+		if (!EMFPlugin.IS_ECLIPSE_RUNNING) {
+			return;
+		}
+
 		IProgressMonitor monitor = new NullProgressMonitor();
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		try {

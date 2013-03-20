@@ -9,6 +9,10 @@
 [module workspaceServices('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 
+[query public reqResourceExists(aString : String) : Boolean = 
+	invoke('org.obeonetwork.pim.uml2.gen.java.services.WorkspaceServices', 'resourceExists(java.lang.String)', Sequence{aString})
+/]
+
 [query public reqImportProject(aString : String) : OclVoid = 
 	invoke('org.obeonetwork.pim.uml2.gen.java.services.WorkspaceServices', 'importProject(java.lang.String)', Sequence{aString})
 /]

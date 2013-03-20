@@ -8,6 +8,12 @@
 [/comment]
 [module configurationServices('http://www.eclipse.org/uml2/4.0.0/UML')/]
 
+[query public reqGetGenerationRootPath(anOclAny : OclAny) : String
+	= invoke('org.obeonetwork.pim.uml2.gen.java.services.UML2JavaConfigurationHolder', 'getGenerationRootPath(org.eclipse.emf.ecore.EObject)', Sequence{anOclAny}) /]
+
+
+
+
 [query public reqGetDefaultProjectName(anOclAny : OclAny) : String
 	= invoke('org.obeonetwork.pim.uml2.gen.java.services.UML2JavaConfigurationHolder', 'getDefaultProjectName(org.eclipse.emf.ecore.EObject)', Sequence{anOclAny}) /]
 

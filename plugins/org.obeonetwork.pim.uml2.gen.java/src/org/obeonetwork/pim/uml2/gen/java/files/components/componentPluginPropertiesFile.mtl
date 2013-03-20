@@ -1,16 +1,16 @@
 [comment encoding = UTF-8 /]
-[module pluginPropertiesFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+[module componentPluginPropertiesFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
 [import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
 
-[template private pluginPropertiesFile(aComponent : Component)]
+[template private componentPluginPropertiesFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/plugin.properties
 [/template]
 
-[template public genPluginPropertiesFile(aComponent : Component)]
-[file (aComponent.pluginPropertiesFile(), false, 'UTF-8')]
+[template public genComponentPluginPropertiesFile(aComponent : Component)]
+[file (aComponent.componentPluginPropertiesFile(), false, 'UTF-8')]
 #################################################################################
 ## [aComponent.reqGetCopyrightAndLicense()/]
 #################################################################################

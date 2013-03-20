@@ -1,16 +1,16 @@
 [comment encoding = UTF-8 /]
-[module buildPropertiesFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+[module componentBuildPropertiesFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 
 [import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
 
-[template private buildPropertiesFile(aComponent : Component)]
+[template private componentBuildPropertiesFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/build.properties
 [/template]
 
-[template public genBuildPropertiesFile(aComponent : Component)]
-[file (aComponent.buildPropertiesFile(), false, 'UTF-8')]
+[template public genComponentBuildPropertiesFile(aComponent : Component)]
+[file (aComponent.componentBuildPropertiesFile(), false, 'UTF-8')]
 #################################################################################
 ## [aComponent.reqGetCopyrightAndLicense()/]
 #################################################################################

@@ -33,6 +33,11 @@ public interface IUML2JavaConstants {
 	String PDE_PLUGIN_NATURE_ID = "org.eclipse.pde.PluginNature";
 
 	/**
+	 * The absolute location of the folder in which the code will be generated.
+	 */
+	String GENERATION_ROOT_PATH = "generation_root_path";
+
+	/**
 	 * The key representing the default project name.
 	 */
 	String DEFAULT_PROJECT_NAME = "default_project_name";

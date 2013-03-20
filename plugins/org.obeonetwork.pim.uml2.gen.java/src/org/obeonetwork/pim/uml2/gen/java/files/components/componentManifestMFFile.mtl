@@ -1,16 +1,16 @@
 [comment encoding = UTF-8 /]
-[module manifestMFFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+[module componentManifestMFFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::path/]
 [import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
 
 
-[template private  manifestMFFile(aComponent : Component)]
+[template private componentManifestMFFile(aComponent : Component)]
 [aComponent.genComponentPath()/]/META-INF/MANIFEST.MF
 [/template]
 
-[template public genManifestMFFile(aComponent : Component)]
-[file (aComponent.manifestMFFile(), false, 'UTF-8')]
+[template public genComponentManifestMFFile(aComponent : Component)]
+[file (aComponent.componentManifestMFFile(), false, 'UTF-8')]
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
