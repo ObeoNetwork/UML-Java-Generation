@@ -25,7 +25,7 @@
 [template public genInterfaceJavaFile(anInterface : Interface)]
 [file (anInterface.interfaceJavaFilePath(), false, 'UTF-8')]
 [anInterface.genHeader()/]
-package [anInterface.genPackageDeclaration()/];
+[if (anInterface.genPackageDeclaration().size() > 0)]package [anInterface.genPackageDeclaration()/];[/if]
 
 [anInterface.genImport()/]
 
