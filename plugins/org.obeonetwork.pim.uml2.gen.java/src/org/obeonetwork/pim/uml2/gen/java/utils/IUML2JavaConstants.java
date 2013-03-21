@@ -138,6 +138,21 @@ public interface IUML2JavaConstants {
 	String NOT_ORDERED_NOT_UNIQUE_TYPE = "not_ordered_not_unique";
 
 	/**
+	 * The key representing if we should ignore the Java types during the generation and import.
+	 */
+	String IGNORE_JAVA_TYPES_DURING_GENERATION_AND_IMPORT = "ignore_java_types_during_generation_and_import";
+
+	/**
+	 * The key representing the types to ignore during the generation.
+	 */
+	String TYPES_TO_IGNORE_DURING_GENERATION = "types_to_ignore_during_generation";
+
+	/**
+	 * The key representing the types to ignore during the imports.
+	 */
+	String TYPES_TO_IGNORE_DURING_IMPORTS = "types_to_ignore_during_imports";
+
+	/**
 	 * The default values.
 	 * 
 	 * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
@@ -254,5 +269,20 @@ public interface IUML2JavaConstants {
 		 * The default value to indicate if we should generate advanced accessors for collections.
 		 */
 		boolean DEFAULT_GENERATE_ADVANCED_ACCESSORS_COLLECTIONS = false;
+
+		/**
+		 * The default value to indicate if we should generate and import Java types.
+		 */
+		boolean DEFAULT_IGNORE_JAVA_TYPES_DURING_GENERATION_AND_IMPORT = true;
+
+		/**
+		 * The default types to ignore during the generation.
+		 */
+		String DEFAULT_TYPES_TO_IGNORE_DURING_GENERATION = "";
+
+		/**
+		 * The default types to ignore during the import declaration.
+		 */
+		String DEFAULT_TYPES_TO_IGNORE_DURING_IMPORTS = "";
 	}
 }

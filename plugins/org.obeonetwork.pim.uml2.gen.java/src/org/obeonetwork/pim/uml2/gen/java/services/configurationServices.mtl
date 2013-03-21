@@ -93,3 +93,14 @@
 [query public reqGetNotOrderedUniqueCollectionsType(anOclAny : OclAny) : String
 	= invoke('org.obeonetwork.pim.uml2.gen.java.services.UML2JavaConfigurationHolder', 'getNotOrderedUniqueCollectionsType(org.eclipse.emf.ecore.EObject)', Sequence{anOclAny}) /]
 
+[query public reqShouldIgnoreJavaTypes(anOclAny : OclAny) : Boolean
+	= invoke('org.obeonetwork.pim.uml2.gen.java.services.UML2JavaConfigurationHolder', 'shouldIgnoreJavaTypes(org.eclipse.emf.ecore.EObject)', Sequence{anOclAny}) /]
+
+[query public reqGetTypesToIgnoreDuringTheGeneration(anOclAny : OclAny) : Sequence(String)
+	= invoke('org.obeonetwork.pim.uml2.gen.java.services.UML2JavaConfigurationHolder', 'getTypesToIgnoreDuringTheGeneration(org.eclipse.emf.ecore.EObject)', Sequence{anOclAny}) /]
+
+[query public reqGetTypesToIgnoreDuringTheImports(anOclAny : OclAny) : Sequence(String)
+	= invoke('org.obeonetwork.pim.uml2.gen.java.services.UML2JavaConfigurationHolder', 'getTypesToIgnoreDuringTheImports(org.eclipse.emf.ecore.EObject)', Sequence{anOclAny}) /]
+
+
+

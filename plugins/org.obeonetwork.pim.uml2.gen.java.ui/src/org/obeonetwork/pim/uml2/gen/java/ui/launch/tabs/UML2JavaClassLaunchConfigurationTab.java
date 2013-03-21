@@ -18,6 +18,8 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
@@ -171,8 +173,7 @@ public class UML2JavaClassLaunchConfigurationTab extends AbstractUML2JavaLaunchC
 		});
 
 		createHelpButton(comp, UML2JavaMessages
-				.getString("UML2JavaClassLaunchConfigurationTab.PackagesToIgnoreDuringTheImportHelp"));
-
+				.getString("UML2JavaClassLaunchConfigurationTab.TypessToIgnoreDuringTheImportHelp"));
 	}
 
 	/**
@@ -208,6 +209,15 @@ public class UML2JavaClassLaunchConfigurationTab extends AbstractUML2JavaLaunchC
 				.getString("UML2JavaClassLaunchConfigurationTab.GenerateGettersAndSettersLabel"));
 		this.generateGettersAndSettersButton
 				.setSelection(IUML2JavaConstants.Default.DEFAULT_GENERATE_GETTERS_AND_SETTERS);
+		this.generateGettersAndSettersButton.addSelectionListener(new SelectionListener() {
+			public void widgetSelected(SelectionEvent e) {
+				update();
+			}
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+				update();
+			}
+		});
 
 		createHelpButton(comp, UML2JavaMessages
 				.getString("UML2JavaClassLaunchConfigurationTab.GenerateGettersAndSettersHelp"));
@@ -222,6 +232,15 @@ public class UML2JavaClassLaunchConfigurationTab extends AbstractUML2JavaLaunchC
 				.getString("UML2JavaClassLaunchConfigurationTab.GenerateGettersForCollectionsLabel"));
 		this.generateGettersForCollectionsButton
 				.setSelection(IUML2JavaConstants.Default.DEFAULT_GENERATE_GETTERS_COLLECTIONS);
+		this.generateGettersForCollectionsButton.addSelectionListener(new SelectionListener() {
+			public void widgetSelected(SelectionEvent e) {
+				update();
+			}
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+				update();
+			}
+		});
 
 		createHelpButton(comp, UML2JavaMessages
 				.getString("UML2JavaClassLaunchConfigurationTab.GenerateGettersForCollectionsHelp"));
@@ -236,6 +255,15 @@ public class UML2JavaClassLaunchConfigurationTab extends AbstractUML2JavaLaunchC
 				.getString("UML2JavaClassLaunchConfigurationTab.GenerateSettersForCollectionsLabel"));
 		this.generateSettersForCollectionsButton
 				.setSelection(IUML2JavaConstants.Default.DEFAULT_GENERATE_SETTERS_COLLECTIONS);
+		this.generateSettersForCollectionsButton.addSelectionListener(new SelectionListener() {
+			public void widgetSelected(SelectionEvent e) {
+				update();
+			}
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+				update();
+			}
+		});
 
 		createHelpButton(comp, UML2JavaMessages
 				.getString("UML2JavaClassLaunchConfigurationTab.GenerateSettersForCollectionsHelp"));
@@ -251,6 +279,15 @@ public class UML2JavaClassLaunchConfigurationTab extends AbstractUML2JavaLaunchC
 						.getString("UML2JavaClassLaunchConfigurationTab.GenerateAdvancedAccessorsForCollectionsLabel"));
 		this.generateAdvancedAccessorsForCollectionsButton
 				.setSelection(IUML2JavaConstants.Default.DEFAULT_GENERATE_ADVANCED_ACCESSORS_COLLECTIONS);
+		this.generateAdvancedAccessorsForCollectionsButton.addSelectionListener(new SelectionListener() {
+			public void widgetSelected(SelectionEvent e) {
+				update();
+			}
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+				update();
+			}
+		});
 
 		createHelpButton(comp, UML2JavaMessages
 				.getString("UML2JavaClassLaunchConfigurationTab.GenerateAdvancedAccessorsForCollectionsHelp"));

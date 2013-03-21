@@ -292,6 +292,44 @@ public class UML2JavaConfigurationHolder extends AdapterImpl {
 	}
 
 	/**
+	 * Returns <code>true</code> if we should ignore the Java types during the generation, <code>false</code>
+	 * otherwise.
+	 * 
+	 * @param eObject
+	 *            The model element
+	 * @return <code>true</code> if we should ignore the Java types during the generation, <code>false</code>
+	 *         otherwise.
+	 */
+	public static boolean shouldIgnoreJavaTypes(EObject eObject) {
+		return UML2JavaConfigurationHolder.getBooleanValue(eObject,
+				IUML2JavaConstants.IGNORE_JAVA_TYPES_DURING_GENERATION_AND_IMPORT);
+	}
+
+	/**
+	 * Returns the list of the types to ignore during the generation.
+	 * 
+	 * @param eObject
+	 *            The model element
+	 * @return The list of the types to ignore during the generation.
+	 */
+	public static List<String> getTypesToIgnoreDuringTheGeneration(EObject eObject) {
+		return UML2JavaConfigurationHolder.getStringListValue(eObject,
+				IUML2JavaConstants.TYPES_TO_IGNORE_DURING_GENERATION);
+	}
+
+	/**
+	 * Returns the list of the types to ignore during the import.
+	 * 
+	 * @param eObject
+	 *            The model element
+	 * @return The list of the types to ignore during the import.
+	 */
+	public static List<String> getTypesToIgnoreDuringTheImports(EObject eObject) {
+		return UML2JavaConfigurationHolder.getStringListValue(eObject,
+				IUML2JavaConstants.TYPES_TO_IGNORE_DURING_IMPORTS);
+	}
+
+	/**
 	 * Returns the configuration holder for the given model element.
 	 * 
 	 * @param eObject
@@ -349,6 +387,8 @@ public class UML2JavaConfigurationHolder extends AdapterImpl {
 			Object object = configurationHolder.getValue(key);
 			if (object instanceof String) {
 				return Boolean.valueOf((String)object).booleanValue();
+			} else if (object instanceof Boolean) {
+				return ((Boolean)object).booleanValue();
 			}
 		}
 		return false;

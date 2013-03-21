@@ -68,10 +68,12 @@ public class ImportServices {
 	public String reqImport(Classifier aClassifier) {
 		Set<String> importedTypes = new LinkedHashSet<String>();
 
+		boolean ignoreJavaTypes = UML2JavaConfigurationHolder.shouldIgnoreJavaTypes(aClassifier);
+
 		// Import from attributes
 		List<Property> attributes = aClassifier.getAttributes();
 		for (Property property : attributes) {
-			String qualifiedName = this.qualifiedName(property.getType());
+			String qualifiedName = this.qualifiedName(property.getType(), ignoreJavaTypes);
 			if (qualifiedName != null) {
 				importedTypes.add(qualifiedName);
 			}
@@ -87,7 +89,7 @@ public class ImportServices {
 		// Import from operations
 		List<Operation> operations = aClassifier.getOperations();
 		for (Operation operation : operations) {
-			String qualifiedName = this.qualifiedName(operation.getType());
+			String qualifiedName = this.qualifiedName(operation.getType(), ignoreJavaTypes);
 			if (qualifiedName != null) {
 				importedTypes.add(qualifiedName);
 			}
@@ -101,7 +103,7 @@ public class ImportServices {
 
 			List<Parameter> ownedParameters = operation.getOwnedParameters();
 			for (Parameter parameter : ownedParameters) {
-				qualifiedName = this.qualifiedName(parameter.getType());
+				qualifiedName = this.qualifiedName(parameter.getType(), ignoreJavaTypes);
 				if (qualifiedName != null) {
 					importedTypes.add(qualifiedName);
 				}
@@ -116,7 +118,7 @@ public class ImportServices {
 
 			List<Type> raisedExceptions = operation.getRaisedExceptions();
 			for (Type type : raisedExceptions) {
-				String exceptionQualifiedName = this.qualifiedName(type);
+				String exceptionQualifiedName = this.qualifiedName(type, ignoreJavaTypes);
 				if (exceptionQualifiedName != null) {
 					importedTypes.add(exceptionQualifiedName);
 				}
@@ -126,7 +128,7 @@ public class ImportServices {
 		// Class or interfaces inheritance
 		List<Generalization> generalizations = aClassifier.getGeneralizations();
 		for (Generalization generalization : generalizations) {
-			importedTypes.add(this.qualifiedName(generalization.getGeneral()));
+			importedTypes.add(this.qualifiedName(generalization.getGeneral(), ignoreJavaTypes));
 		}
 
 		// Classes' interface realizations
@@ -134,12 +136,40 @@ public class ImportServices {
 			org.eclipse.uml2.uml.Class aClass = (org.eclipse.uml2.uml.Class)aClassifier;
 			List<InterfaceRealization> interfaceRealizations = aClass.getInterfaceRealizations();
 			for (InterfaceRealization interfaceRealization : interfaceRealizations) {
-				importedTypes.add(this.qualifiedName(interfaceRealization.getContract()));
+				importedTypes.add(this.qualifiedName(interfaceRealization.getContract(), ignoreJavaTypes));
 			}
 		}
 
 		List<String> sortedImportedTypes = new ArrayList<String>(importedTypes);
 		Collections.sort(sortedImportedTypes);
+
+		// Package to remove during import
+		List<String> importedTypesToRemove = new ArrayList<String>();
+		List<String> packagesToIgnoreDuringImports = UML2JavaConfigurationHolder
+				.getPackagesToIgnoreDuringImports(aClassifier);
+		for (String packageToIgnoreDuringImports : packagesToIgnoreDuringImports) {
+			for (String sortedImportedType : sortedImportedTypes) {
+				if (sortedImportedType.startsWith(packageToIgnoreDuringImports + '.')
+						|| sortedImportedType.contains('.' + packageToIgnoreDuringImports + '.')) {
+					importedTypesToRemove.add(sortedImportedType);
+				}
+			}
+		}
+		sortedImportedTypes.removeAll(importedTypesToRemove);
+
+		// Type to ignore during import declaration
+		importedTypesToRemove.clear();
+		List<String> typesToIgnoreDuringTheImports = UML2JavaConfigurationHolder
+				.getTypesToIgnoreDuringTheImports(aClassifier);
+		for (String typeToIgnoreDuringTheImports : typesToIgnoreDuringTheImports) {
+			for (String sortedImportedType : sortedImportedTypes) {
+				if (sortedImportedType.equals(typeToIgnoreDuringTheImports)
+						|| sortedImportedType.endsWith('.' + typeToIgnoreDuringTheImports)) {
+					importedTypesToRemove.add(sortedImportedType);
+				}
+			}
+		}
+		sortedImportedTypes.removeAll(importedTypesToRemove);
 
 		StringBuilder stringBuilder = new StringBuilder();
 		for (String importedType : sortedImportedTypes) {
@@ -179,9 +209,11 @@ public class ImportServices {
 	 * 
 	 * @param type
 	 *            The type
+	 * @param ignoreJavaTypes
+	 *            Indicates if we should ignore the Java types.
 	 * @return The qualified name of the given type.
 	 */
-	private String qualifiedName(Type type) {
+	private String qualifiedName(Type type, boolean ignoreJavaTypes) {
 		String result = null;
 		if (type != null && !(type instanceof PrimitiveType)) {
 			List<String> packagesName = new ArrayList<String>();
@@ -205,7 +237,7 @@ public class ImportServices {
 			stringBuilder.append(type.getName());
 
 			result = stringBuilder.toString();
-			if (JAVA_LANG_TYPES.contains(type.getName())) {
+			if (ignoreJavaTypes && JAVA_LANG_TYPES.contains(type.getName())) {
 				result = null;
 			} else if (JAVA_UTIL_TYPES.contains(type.getName())) {
 				result = "java.util." + type.getName();

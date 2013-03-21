@@ -40,7 +40,7 @@
 [comment @main /]
 
 [comment Components artifacts generation /]
-[for (aComponent : Component | aModel.eAllContents(Component))]
+[for (aComponent : Component | aModel.eAllContents(Component)->select(shouldGenerateComponent()))]
 	[if (aComponent.eAllContents(Component)->size() = 0)]
 		[comment simple component /]		
 		[aComponent.generateComponent()/]
@@ -51,23 +51,42 @@
 [/for]
 
 [comment Type artifacts generation /]
-[for (aType : Type | aModel.eAllContents(Type))]
-	[if (aType.oclIsTypeOf(Class) or aType.oclIsTypeOf(Interface) or aType.oclIsTypeOf(Enumeration))]
-		[comment For all type outside of a component, create a project if it does not exists /]
-		[if (aType.ancestors(Component)->size() = 0)]
-			[aModel.reqCreateDefaultProject()/]
-		[/if]
-	[/if]
-
-	[if (aType.oclIsTypeOf(Class))]
-		[aType.oclAsType(Class).genClassJavaFile()/]
-	[elseif (aType.oclIsTypeOf(Interface))]
-		[aType.oclAsType(Interface).genInterfaceJavaFile()/]
-	[elseif (aType.oclIsTypeOf(Enumeration))]
-		[aType.oclAsType(Enumeration).genEnumJavaFile()/]
+[for (aPackage : Package | aModel.eAllContents(Package)->including(aModel))]
+	[if (aPackage.shouldGenerateContent())]
+		[for (aType : Type | aPackage.packagedElement->filter(Type)->select(shouldGenerateType()))]
+			[if (aType.oclIsTypeOf(Class) or aType.oclIsTypeOf(Interface) or aType.oclIsTypeOf(Enumeration))]
+				[comment For all type outside of a component, create a project if it does not exists /]
+				[if (aType.ancestors(Component)->size() = 0)]
+					[aModel.reqCreateDefaultProject()/]
+				[/if]
+			[/if]
+		
+			[if (aType.oclIsTypeOf(Class))]
+				[aType.oclAsType(Class).genClassJavaFile()/]
+			[elseif (aType.oclIsTypeOf(Interface))]
+				[aType.oclAsType(Interface).genInterfaceJavaFile()/]
+			[elseif (aType.oclIsTypeOf(Enumeration))]
+				[aType.oclAsType(Enumeration).genEnumJavaFile()/]
+			[/if]
+		[/for]
 	[/if]
 [/for]
 [/template]
+
+[query private shouldGenerateContent(aPackage : Package) : Boolean = 
+	aPackage.ancestors()->including(aPackage)->select(oclIsTypeOf(Package))->filter(Package)->any(aP : Package | reqGetPackagesToIgnoreDuringGeneration()->includes(aP.name))->size() = 0
+/]
+
+[query private shouldGenerateType(aType : Type) : Boolean = 
+	(not aType.reqGetTypesToIgnoreDuringTheGeneration()->includes(aType.name))
+	and (aType.ancestors(Component)->reject(aC: Component | aC.shouldGenerateComponent())->size() = 0)
+/]
+
+[query private shouldGenerateComponent(aComponent : Component) : Boolean = 
+	(not aComponent.reqGetComponentsToIgnore()->includes(aComponent.name))
+	and (aComponent.ancestors(Component)->reject(aC: Component | not aC.reqGetComponentsToIgnore()->includes(aC.name))->size() = 0)
+/]
+
 
 [template private generateComponent(aComponent : Component) ? (not aComponent.reqGetComponentsToIgnore()->includes(aComponent.name))]
 [aComponent.genComponentClassPathXmlFile() /]

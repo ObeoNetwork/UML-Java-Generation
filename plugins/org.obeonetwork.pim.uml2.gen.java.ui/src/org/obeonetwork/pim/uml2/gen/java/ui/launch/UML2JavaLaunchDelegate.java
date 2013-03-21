@@ -147,6 +147,14 @@ public class UML2JavaLaunchDelegate implements ILaunchConfigurationDelegate {
 			configurationHolder.put(IUML2JavaConstants.NOT_ORDERED_NOT_UNIQUE_TYPE, configuration
 					.getAttribute(IUML2JavaConstants.NOT_ORDERED_NOT_UNIQUE_TYPE, ""));
 
+			configurationHolder.put(IUML2JavaConstants.IGNORE_JAVA_TYPES_DURING_GENERATION_AND_IMPORT,
+					configuration.getAttribute(
+							IUML2JavaConstants.IGNORE_JAVA_TYPES_DURING_GENERATION_AND_IMPORT, false));
+			configurationHolder.put(IUML2JavaConstants.TYPES_TO_IGNORE_DURING_GENERATION, configuration
+					.getAttribute(IUML2JavaConstants.TYPES_TO_IGNORE_DURING_GENERATION, ""));
+			configurationHolder.put(IUML2JavaConstants.TYPES_TO_IGNORE_DURING_IMPORTS, configuration
+					.getAttribute(IUML2JavaConstants.TYPES_TO_IGNORE_DURING_IMPORTS, ""));
+
 		} catch (CoreException e) {
 			IStatus status = new Status(IStatus.ERROR, UML2JavaUIActivator.PLUGIN_ID, e.getMessage(), e);
 			UML2JavaUIActivator.getDefault().getLog().log(status);
