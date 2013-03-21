@@ -22,17 +22,6 @@
    = aClass.getAssociations()->select(navigableOwnedEnd->select(type <> aClass)->size() = 1).navigableOwnedEnd->select(type <> aClass)->asOrderedSet()
 /]
 
-[query public getAllInterfaces(aClass : Class) : Bag(NamedElement) = aClass.clientDependency->filter(Realization).supplier /]
-
-[**
- * Returns all the operations of the interfaces implemented by the given class.
- * @param aClass The class.
- */]
-[query public getAllInterfaceOperations(aClass : Class) : Sequence(Operation) =
-	aClass.getAllInterfaces()->filter(Interface).ownedOperation->asSequence()
-/]
-
-
 
 	
 

@@ -11,6 +11,7 @@
 
 [import org::obeonetwork::pim::uml2::gen::java::request::request/]
 
+[import org::obeonetwork::pim::uml2::gen::java::services::classifierServices /]
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
 [import org::obeonetwork::pim::uml2::gen::java::services::importService /]
 [import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
@@ -44,6 +45,7 @@
 	[aClass.operations()/]
 [for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
 	[aProperty.accessors()/]
+
 [/for]
 	[aClass.nestedClassifiers()/]
 }
@@ -96,7 +98,7 @@ public [aClass.genName()/]() {
 [/template]
 
 [template private operations(aClass : Class)]
-[for (anOperation : Operation | ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+[for (anOperation : Operation | aClass.ownedOperation->union(aClass.reqGetAllInheritedOperations()))]
 [anOperation.genOperationComment()/]
 [if (anOperation.isAbstract)]
 [anOperation.genMethodPrototype()/];
@@ -107,23 +109,12 @@ public [aClass.genName()/]() {
 [/if]
  
 [/for]
-[for (anOperation : Operation | aClass.getAllInterfaceOperations())]
-[anOperation.genInheritedOperationComment()/]
-[if (anOperation.isAbstract)]
-[anOperation.genMethodPrototype()/];
-[else]
-[anOperation.genMethodPrototype()/] {
-	[anOperation.genBehavior()/]
-}
-[/if]
-
-[/for]
 // [protected ('(user defined methods)')]
 
 // [/protected]
 [/template]
 
-[template private accessors(aProperty : Property)]
+[template private accessors(aProperty : Property) post(trim())]
 
 [if (aProperty.reqShouldGenerateGettersAndSetters())][aProperty.getterAndSetter()/][/if]
 [if (not (aProperty.upper = 1) and aProperty.reqShouldGenerateGettersForCollections())][aProperty.collectionGetter()/][/if]

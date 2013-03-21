@@ -171,6 +171,30 @@ public class ImportServices {
 		}
 		sortedImportedTypes.removeAll(importedTypesToRemove);
 
+		// Remove all the import from the same package
+		importedTypesToRemove.clear();
+		String qualifiedName = this.qualifiedName(aClassifier, false);
+		if (qualifiedName != null) {
+			int lastIndexOf = qualifiedName.lastIndexOf('.');
+			if (lastIndexOf == -1) {
+				// Default package
+				for (String sortedImportedType : sortedImportedTypes) {
+					if (sortedImportedType.indexOf('.') == -1) {
+						importedTypesToRemove.add(sortedImportedType);
+					}
+				}
+			} else {
+				String packageName = qualifiedName.substring(0, lastIndexOf);
+				for (String sortedImportedType : sortedImportedTypes) {
+					if (sortedImportedType.startsWith(packageName)
+							&& sortedImportedType.indexOf('.', packageName.length()) == -1) {
+						importedTypesToRemove.add(sortedImportedType);
+					}
+				}
+			}
+		}
+		sortedImportedTypes.removeAll(importedTypesToRemove);
+
 		StringBuilder stringBuilder = new StringBuilder();
 		for (String importedType : sortedImportedTypes) {
 			stringBuilder.append(IMPORT + importedType + END_IMPORT);
