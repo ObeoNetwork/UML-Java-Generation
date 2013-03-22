@@ -23,6 +23,10 @@
 [genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][genReturn()/] [genName()/]([genOperationParameters()/])
 [/template]
 
+[template public genInheritedMethodPrototype(anOperation : Operation)]
+[genVisibility()/][genReturn()/] [genName()/]([genOperationParameters()/])
+[/template]
+
 [template public genOperationParameters(anOperation : Operation)]
 [anOperation.ownedParameter->select(param : Parameter | not (param.direction = ParameterDirectionKind::return)).genOperationParameter()->sep(', ')/]
 [/template]

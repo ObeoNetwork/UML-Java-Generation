@@ -376,6 +376,24 @@ the first method of SingleCommentedMethodClass.</body>
                         <ownedParameter xmi:id="_ttARcF8FEeGlht6TS2odLw" name="param" type="_-bhpEHDHEeCl5bNajorhng"/>
                       </ownedOperation>
                     </packagedElement>
+                    <packagedElement xmi:type="uml:Package" xmi:id="_t7qX4JL4EeKaZchLwUeGYw" name="inheritance">
+                      <packagedElement xmi:type="uml:Interface" xmi:id="_v6zlIJL4EeKaZchLwUeGYw" name="IParentInterface">
+                        <ownedOperation xmi:id="_18hP8JL4EeKaZchLwUeGYw" name="firstMethod"/>
+                        <ownedOperation xmi:id="_3m8xcJL4EeKaZchLwUeGYw" name="secondMethod"/>
+                        <ownedOperation xmi:id="_Avg4cJL5EeKaZchLwUeGYw" name="fourthMethod"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_xnRuAJL4EeKaZchLwUeGYw" name="AbstractParentClass" isAbstract="true">
+                        <ownedOperation xmi:id="_5JfiQJL4EeKaZchLwUeGYw" name="secondMethod"/>
+                        <ownedOperation xmi:id="_-b4o8JL4EeKaZchLwUeGYw" name="thirdMethod" isAbstract="true"/>
+                        <ownedOperation xmi:id="_IV73QJL5EeKaZchLwUeGYw" name="fifthMethod" isAbstract="true"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_z5N7cJL4EeKaZchLwUeGYw" clientDependency="_jfBkcJL5EeKaZchLwUeGYw" name="ChildClass">
+                        <generalization xmi:id="_wwTNQJL5EeKaZchLwUeGYw" general="_xnRuAJL4EeKaZchLwUeGYw"/>
+                        <interfaceRealization xmi:id="_jfBkcJL5EeKaZchLwUeGYw" client="_z5N7cJL4EeKaZchLwUeGYw" supplier="_v6zlIJL4EeKaZchLwUeGYw" contract="_v6zlIJL4EeKaZchLwUeGYw"/>
+                        <ownedOperation xmi:id="_Gq_YYJL5EeKaZchLwUeGYw" name="fourthMethod"/>
+                        <ownedOperation xmi:id="_KN9v4JL5EeKaZchLwUeGYw" name="fifthMethod"/>
+                      </packagedElement>
+                    </packagedElement>
                   </packagedElement>
                   <packagedElement xmi:type="uml:Package" xmi:id="_-uaOQHAWEeCrvt1hzG-phQ" name="nested">
                     <packagedElement xmi:type="uml:Class" xmi:id="_maIrUF8GEeGlht6TS2odLw" name="SimpleClassWithSimpleNestedClass">

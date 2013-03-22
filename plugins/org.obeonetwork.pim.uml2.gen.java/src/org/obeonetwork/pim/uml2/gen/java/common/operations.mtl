@@ -19,6 +19,7 @@
 [import org::obeonetwork::pim::uml2::gen::java::request::request /]
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
 [import org::obeonetwork::pim::uml2::gen::java::services::commentServices /]
+[import org::obeonetwork::pim::uml2::gen::java::services::classifierServices /]
 
 [template public genOperations (anInterface : Interface) ]
 [for (anOperation : Operation | anInterface.ownedOperation)]
@@ -33,7 +34,7 @@
 
 [template public genOperations(aClass : Class)]
 
-[for (anOperation : Operation | ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+[for (anOperation : Operation | aClass.ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
 [anOperation.genOperationComment()/]
 [if (anOperation.isAbstract)]
 [anOperation.genMethodPrototype()/];
@@ -44,16 +45,18 @@
 [/if]
  
 [/for]
-[for (anOperation : Operation | aClass.getAllInterfaceOperations())]
-[anOperation.genInheritedOperationComment()/]
+[for (anOperation : Operation | aClass.reqGetAllInheritedOperations()->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+[anOperation.genOperationComment()/]
 [if (anOperation.isAbstract)]
-[anOperation.genMethodPrototype()/];
+[anOperation.genInheritedMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
 [else]
 [anOperation.genMethodPrototype()/] {
 	[anOperation.genBehavior()/]
 }
 [/if]
-
+ 
 [/for]
 // [protected ('(user defined methods)')]
 
