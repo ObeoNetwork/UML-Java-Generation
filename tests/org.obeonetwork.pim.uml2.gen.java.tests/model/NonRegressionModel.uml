@@ -331,6 +331,7 @@ the first method of SingleCommentedMethodClass.</body>
                       <ownedOperation xmi:id="_1R8poHFwEeCSi7MPGob3tQ" name="stringMethod">
                         <ownedParameter xmi:id="_bRRgkHFxEeCSi7MPGob3tQ" type="_-bhpEHDHEeCl5bNajorhng" direction="return"/>
                       </ownedOperation>
+                      <ownedOperation xmi:id="_tNThQZLxEeKaZchLwUeGYw" name="voidMethod"/>
                     </packagedElement>
                     <packagedElement xmi:type="uml:Class" xmi:id="_bF820XFwEeCSi7MPGob3tQ" name="StaticMethodClass">
                       <ownedOperation xmi:id="_18_KsHFwEeCSi7MPGob3tQ" name="staticMethod" isStatic="true">

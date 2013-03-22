@@ -29,7 +29,8 @@ public class VoidReturningMethodsClass {
      * Description of the method voidReturningMethod.
      */
     public void voidReturningMethod() {
-    	
+    	// Start of user code for method voidReturningMethod
+    	// End of user code
     }
      
     /**
@@ -37,7 +38,8 @@ public class VoidReturningMethodsClass {
      * @param param 
      */
     public void voidReturningMethodWithParameters(String param) {
-    	
+    	// Start of user code for method voidReturningMethodWithParameters
+    	// End of user code
     }
      
     // Start of user code (user defined methods)

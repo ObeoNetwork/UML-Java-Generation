@@ -92,6 +92,14 @@ public class TypeMethodsClass {
     	// End of user code
     }
      
+    /**
+     * Description of the method voidMethod.
+     */
+    public void voidMethod() {
+    	// Start of user code for method voidMethod
+    	// End of user code
+    }
+     
     // Start of user code (user defined methods)
     
     // End of user code
