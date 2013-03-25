@@ -4,12 +4,14 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.interfaces;
 
-// Start of user code (user defined imports)	
+// Start of user code (user defined imports)
 
 // End of user code
 
 /**
- * The comment of CommentedInterface.
+ * The two lines comment<br />
+ * of CommentedInterface.<br />
+ * The late comment of CommentedInterface.<br />
  */
 public interface CommentedInterface {
 	// Start of user code (user defined attributes)

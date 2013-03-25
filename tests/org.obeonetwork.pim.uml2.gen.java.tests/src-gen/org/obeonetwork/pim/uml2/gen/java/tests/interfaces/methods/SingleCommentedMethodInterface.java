@@ -4,12 +4,13 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.interfaces.methods;
 
-// Start of user code (user defined imports)	
+// Start of user code (user defined imports)
 
 // End of user code
 
 /**
- * The comment of SingleCommentedMethodInterface.
+ * The comment of SingleCommentedMethodInterface.<br />
+ * The late comment of SingleCommentedMethodInterface.<br />
  */
 public interface SingleCommentedMethodInterface {
 	// Start of user code (user defined attributes)
@@ -17,7 +18,9 @@ public interface SingleCommentedMethodInterface {
 	// End of user code
 	
 	/**
-	 * The comment of the first method of SingleCommentedMethodInterface.
+	 * The two lines comment<br />
+	 * of the first method of SingleCommentedMethodInterface.<br />
+	 * The late comment of the first method of SingleCommentedMethodInterface.<br />
 	 * @return 
 	 */
 	public Boolean firstMethod();

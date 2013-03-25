@@ -5,7 +5,7 @@
 package org.obeonetwork.pim.uml2.gen.java.tests.classes.methods;
 
 import java.util.Date;
-// Start of user code (user defined imports)	
+// Start of user code (user defined imports)
 
 // End of user code
 
@@ -89,6 +89,14 @@ public class TypeMethodsClass {
     	// Start of user code for method stringMethod
     	String stringMethod = "";
     	return stringMethod;
+    	// End of user code
+    }
+     
+    /**
+     * Description of the method voidMethod.
+     */
+    public void voidMethod() {
+    	// Start of user code for method voidMethod
     	// End of user code
     }
      

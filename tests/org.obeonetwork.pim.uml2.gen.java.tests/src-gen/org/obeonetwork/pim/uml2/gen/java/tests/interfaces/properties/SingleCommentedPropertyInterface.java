@@ -4,16 +4,18 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.interfaces.properties;
 
-// Start of user code (user defined imports)	
+// Start of user code (user defined imports)
 
 // End of user code
 
 /**
- * The comment of SingleCommentedPropertyInterface.
+ * The comment of SingleCommentedPropertyInterface.<br />
  */
 public interface SingleCommentedPropertyInterface {
 	/**
-	 * The comment of the first property of SingleCommentedPropertyInterface.
+	 * The two lines comment of<br />
+	 * the first property of SingleCommentedPropertyInterface.<br />
+	 * The late comment of the first property of SingleCommentedPropertyInterface.<br />
 	 */
 	public Integer firstProperty = 0;
 	

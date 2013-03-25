@@ -4,16 +4,18 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.classes.properties;
 
-// Start of user code (user defined imports)	
+// Start of user code (user defined imports)
 
 // End of user code
 
 /**
- * The comment of SingleCommentedPropertyClass.
+ * The comment of SingleCommentedPropertyClass.<br />
  */
 public class SingleCommentedPropertyClass {
     /**
-     * The comment of the first property of SingleCommentedPropertyClass.
+     * The two lines comment of <br />
+     * the first property of SingleCommentedPropertyClass.<br />
+     * The late comment of the first property of SingleCommentedPropertyClass.<br />
      */
     public Byte firstProperty = null;
     
@@ -36,7 +38,8 @@ public class SingleCommentedPropertyClass {
     
     /**
      * Returns firstProperty.
-     * @return firstProperty The comment of the first property of SingleCommentedPropertyClass.
+     * @return firstProperty The two lines comment of 
+     the first property of SingleCommentedPropertyClass.The late comment of the first property of SingleCommentedPropertyClass.
      */
     public Byte getFirstProperty() {
     	return this.firstProperty;
@@ -44,7 +47,8 @@ public class SingleCommentedPropertyClass {
     
     /**
      * Sets a value to attribute firstProperty. 
-     * @param newFirstProperty The comment of the first property of SingleCommentedPropertyClass.
+     * @param newFirstProperty The two lines comment of 
+     the first property of SingleCommentedPropertyClass.The late comment of the first property of SingleCommentedPropertyClass.
      */
     public void setFirstProperty(Byte newFirstProperty) {
         this.firstProperty = newFirstProperty;

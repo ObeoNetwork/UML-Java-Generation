@@ -4,12 +4,14 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.classes;
 
-// Start of user code (user defined imports)	
+// Start of user code (user defined imports)
 
 // End of user code
 
 /**
- * The comment of CommentedClass.
+ * The two lines comment<br />
+ * of CommentedClass.<br />
+ * The late comment of CommentedClass.<br />
  */
 public class CommentedClass {
     // Start of user code (user defined attributes)

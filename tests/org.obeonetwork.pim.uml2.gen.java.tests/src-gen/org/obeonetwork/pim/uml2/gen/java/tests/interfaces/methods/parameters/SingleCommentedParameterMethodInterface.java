@@ -4,12 +4,13 @@
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.interfaces.methods.parameters;
 
-// Start of user code (user defined imports)	
+// Start of user code (user defined imports)
 
 // End of user code
 
 /**
- * The comment of SingleCommentedParameterMethodInterface.
+ * The comment of SingleCommentedParameterMethodInterface in two lines.<br />
+ * Second comment line for SingleCommentedParameterMethodInterface.<br />
  */
 public interface SingleCommentedParameterMethodInterface {
 	// Start of user code (user defined attributes)
@@ -17,7 +18,8 @@ public interface SingleCommentedParameterMethodInterface {
 	// End of user code
 	
 	/**
-	 * The comment of the method singleCommentedParameterMethod.
+	 * The comment of the method singleCommentedParameterMethod in two lines.<br />
+	 * Second comment line of the method singleCommentedParameterMethod.<br />
 	 * @param firstParameter The comment of the first parameter of the method singleCommentedParameterMethod.
 	 * @return The comment of the return type of singleCommentedParameterMethod.
 	 */
