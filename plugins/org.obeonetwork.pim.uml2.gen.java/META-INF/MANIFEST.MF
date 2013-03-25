@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.pim.uml2.gen.java
-Bundle-Version: 1.0.3.qualifier
+Bundle-Version: 1.0.4.qualifier
 Bundle-Activator: org.obeonetwork.pim.uml2.gen.java.UML2JavaActivator
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin

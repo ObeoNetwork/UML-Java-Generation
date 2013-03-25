@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.pim.uml2.gen.java.ui.feature"
       label="Acceleo UML2 to Java Generator UI"
-      version="1.0.3.qualifier"
+      version="1.0.4.qualifier"
       provider-name="Obeo Network"
       plugin="org.obeonetwork.pim.uml2.gen.java.ui">
 
