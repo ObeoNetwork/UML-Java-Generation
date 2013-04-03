@@ -141,7 +141,9 @@ public class WorkspaceServices {
 				while (stringTokenizer.hasMoreTokens()) {
 					String token = stringTokenizer.nextToken();
 					IFolder src = intputContainer.getFolder(new Path(token));
-					src.create(true, true, monitor);
+					if (!src.exists()) {
+						src.create(true, true, monitor);
+					}
 
 					intputContainer = src;
 				}
@@ -153,7 +155,9 @@ public class WorkspaceServices {
 				while (stringTokenizer.hasMoreTokens()) {
 					String token = stringTokenizer.nextToken();
 					IFolder out = outputContainer.getFolder(new Path(token));
-					out.create(true, true, monitor);
+					if (!out.exists()) {
+						out.create(true, true, monitor);
+					}
 
 					outputContainer = out;
 				}
