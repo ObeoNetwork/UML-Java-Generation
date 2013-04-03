@@ -215,6 +215,28 @@ public class WorkspaceServices {
 						new Path[] {}, outputContainer.getFullPath());
 
 				javaProject.setRawClasspath(newEntries, null);
+
+				IFile buildPropertiesFile = project.getFile("build.properties");
+				if (!buildPropertiesFile.exists()) {
+					StringBuilder stringBuilder = new StringBuilder();
+					stringBuilder
+							.append("#################################################################################"
+									+ System.getProperty("line.separator"));
+					stringBuilder.append("## " + UML2JavaConfigurationHolder.getCopyrightAndLicense(eObject)
+							+ System.getProperty("line.separator"));
+					stringBuilder
+							.append("#################################################################################"
+									+ System.getProperty("line.separator"));
+					stringBuilder.append("source.. = "
+							+ UML2JavaConfigurationHolder.getSourceFolderPath(eObject)
+							+ System.getProperty("line.separator"));
+					stringBuilder.append("output.. = "
+							+ UML2JavaConfigurationHolder.getOutputFolderPath(eObject)
+							+ System.getProperty("line.separator"));
+					stringBuilder.append("" + System.getProperty("line.separator"));
+					buildPropertiesFile.create(new ByteArrayInputStream(stringBuilder.toString().getBytes()),
+							true, monitor);
+				}
 			}
 		} catch (CoreException coreException) {
 			AcceleoEnginePlugin.log(coreException, true);
