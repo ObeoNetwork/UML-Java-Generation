@@ -9,7 +9,7 @@
 [module importService('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 
-[template public genImport(aClassifier : Classifier)]
+[template public genImport(aClassifier : Classifier) post(trim())]
 [reqImport()/]
 // [protected ('(user defined imports)')]
 
