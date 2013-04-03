@@ -46,5 +46,8 @@
     [anEnumerationLiteral.name/],
     
 [/for]
+	// [protected ('(user defined enum literals)')]
+	
+	// [/protected]
 }
 [/template]
