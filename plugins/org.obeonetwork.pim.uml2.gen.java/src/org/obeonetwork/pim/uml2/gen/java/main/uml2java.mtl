@@ -13,11 +13,13 @@
  */]
 [module uml2java('http://www.eclipse.org/uml2/4.0.0/UML')]
 
+[import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
 
 [import org::obeonetwork::pim::uml2::gen::java::files::classJavaFile /]
 [import org::obeonetwork::pim::uml2::gen::java::files::enumJavaFile /]
 [import org::obeonetwork::pim::uml2::gen::java::files::interfaceJavaFile /]
+[import org::obeonetwork::pim::uml2::gen::java::files::packageInfoJavaFile /]
 
 [import org::obeonetwork::pim::uml2::gen::java::files::components::componentBuildPropertiesFile/]
 [import org::obeonetwork::pim::uml2::gen::java::files::components::componentClassPathXmlFile/]
@@ -69,6 +71,11 @@
 				[aType.oclAsType(Enumeration).genEnumJavaFile()/]
 			[/if]
 		[/for]
+		
+		[comment Generate package-info.java if the package has a documentation/]
+		[if (aPackage.hasDocumentation() or aPackage.hasComment())]
+			[aPackage.genPackageInfoJavaFile()/]
+		[/if]
 	[/if]
 [/for]
 [/template]

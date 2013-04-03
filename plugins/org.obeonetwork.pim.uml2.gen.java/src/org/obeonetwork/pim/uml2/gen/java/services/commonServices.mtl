@@ -15,3 +15,7 @@
 [query public reqTime(anOclAny : OclAny) : String =
 	invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'reqTime()', Sequence{})
 /]
+
+[query public reqFormatJavadoc(aString : String) : String =
+	invoke('org.obeonetwork.pim.uml2.gen.java.services.CommonServices', 'formatJavadoc(java.lang.String)', Sequence{aString})
+/]

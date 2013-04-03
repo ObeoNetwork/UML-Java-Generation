@@ -28,3 +28,11 @@
 [for (ownedComment : Comment | anElement.ownedComment)]
 [ownedComment._body/][/for]
 [/template]
+
+[query public hasDocumentation(anElement : Element) : Boolean =
+	anElement.eAnnotations.details->select(entry | entry.key = 'documentation')->size() > 0
+/]
+
+[query public hasComment(anElement : Element) : Boolean =
+	anElement.eInverse(Comment)->size() > 0
+/]

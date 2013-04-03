@@ -13,6 +13,7 @@ package org.obeonetwork.pim.uml2.gen.java.services;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Scanner;
 
 /**
  * General purpose services.
@@ -41,5 +42,23 @@ public class CommonServices {
 	public String reqTime() {
 		Date date = new Date();
 		return DateFormat.getTimeInstance(DateFormat.LONG).format(date);
+	}
+
+	/**
+	 * Formats the javadoc.
+	 * 
+	 * @param documentation
+	 *            The given documentation
+	 * @return The javadoc formatted
+	 */
+	public String formatJavadoc(String documentation) {
+		StringBuilder stringBuilder = new StringBuilder();
+		Scanner scanner = new Scanner(documentation);
+		while (scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			stringBuilder.append(" * " + line + "<br />" + System.lineSeparator());
+		}
+		scanner.close();
+		return stringBuilder.toString();
 	}
 }

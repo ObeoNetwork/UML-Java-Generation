@@ -1,0 +1,29 @@
+[comment encoding = UTF-8 /]
+[module packageInfoJavaFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import org::obeonetwork::pim::uml2::gen::java::common::path /]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
+
+[template private packageInfoJavaFilePath(aPackage : Package)]
+[aPackage.genPackagePath()/]package-info.java
+[/template]
+
+[template public genPackageInfoJavaFile(aPackage : Package)]
+[file (aPackage.packageInfoJavaFilePath(), false, 'UTF-8')]
+/**
+ * Package [aPackage.name/].
+ * <p>
+[for (aComment : Comment | aPackage.eInverse(Comment))]
+[aComment._body.reqFormatJavadoc()/][/for]
+[for (documentation : String | aPackage.allDocumentation())]
+[documentation.reqFormatJavadoc()/][/for]
+ * </p>
+ */
+package [aPackage.genPackageDeclaration()/];
+[/file]
+[/template]
+
+[query public allDocumentation(anElement : Element) : Sequence(String)
+	= anElement.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value)
+/]
