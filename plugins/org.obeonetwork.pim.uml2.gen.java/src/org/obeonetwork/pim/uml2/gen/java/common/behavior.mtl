@@ -11,12 +11,13 @@
 [template public genBehavior(anOperation : Operation) post(trim())]
 [if (not anOperation.genMethodBody().equalsIgnoreCase(''))]
 [anOperation.method.genBehavior()/]
-[elseif (not anOperation.type.oclIsUndefined())]
 // [protected ('for method ' + name)]
+[if (not anOperation.type.oclIsUndefined())]
 [for (aParameter : Parameter | ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
 [aParameter.genType()/] [anOperation.genName()/] = [aParameter.computeDefault()/];
 [/for]
 return [genName()/];
+[/if]
 // [/protected]
 [/if]
 [/template]

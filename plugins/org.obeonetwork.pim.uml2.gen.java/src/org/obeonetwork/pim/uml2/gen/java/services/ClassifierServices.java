@@ -30,7 +30,7 @@ import org.eclipse.uml2.uml.Type;
  * @since 2.0
  */
 public class ClassifierServices {
-	public LinkedHashSet<Operation> getAllInheritedOperations(org.eclipse.uml2.uml.Class aClass) {
+	public List<Operation> getAllInheritedOperations(org.eclipse.uml2.uml.Class aClass) {
 		LinkedHashSet<Operation> inheritedOperations = new LinkedHashSet<Operation>();
 
 		// Everything inherited from the classes
@@ -67,7 +67,9 @@ public class ClassifierServices {
 				for (Class aGeneralizedClass : allGeneralizedClasses) {
 					List<Operation> generalizedClassOperations = aGeneralizedClass.getOwnedOperations();
 					for (Operation generalizedClassOperation : generalizedClassOperations) {
-						if (this.areEqual(generalizedClassOperation, inheritedOperation)) {
+						if (generalizedClassOperation != inheritedOperation
+								&& !generalizedClassOperation.isAbstract()
+								&& this.areEqual(generalizedClassOperation, inheritedOperation)) {
 							shouldRemoveOperation = true;
 							break;
 						}
@@ -81,7 +83,9 @@ public class ClassifierServices {
 		}
 		inheritedOperations.removeAll(operationsToRemove);
 
-		return inheritedOperations;
+		List<Operation> operations = new ArrayList<Operation>();
+		operations.addAll(inheritedOperations);
+		return operations;
 	}
 
 	private boolean areEqual(Operation generalizedClassOperation, Operation inheritedOperation) {

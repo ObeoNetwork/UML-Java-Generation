@@ -13,13 +13,17 @@ package org.obeonetwork.pim.uml2.gen.java.services;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.eclipse.acceleo.engine.AcceleoEnginePlugin;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -30,12 +34,17 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.ISourceRange;
 import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.ToolFactory;
+import org.eclipse.jdt.core.formatter.CodeFormatter;
 import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jdt.launching.environments.IExecutionEnvironment;
 import org.eclipse.jdt.launching.environments.IExecutionEnvironmentsManager;
+import org.eclipse.text.edits.TextEdit;
 import org.obeonetwork.pim.uml2.gen.java.utils.IUML2JavaConstants;
 
 /**
@@ -197,6 +206,39 @@ public class WorkspaceServices {
 			}
 		} catch (CoreException coreException) {
 			AcceleoEnginePlugin.log(coreException, true);
+		}
+	}
+
+	public void formatProjectCode(String projectName) {
+		if (!EMFPlugin.IS_ECLIPSE_RUNNING) {
+			return;
+		}
+		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+		IJavaProject iJavaProject = JavaCore.create(project);
+		Map<?, ?> options = iJavaProject.getOptions(true);
+		final CodeFormatter codeFormatter = ToolFactory.createCodeFormatter(options);
+
+		try {
+			project.accept(new IResourceVisitor() {
+
+				public boolean visit(IResource resource) throws CoreException {
+					if (resource.isAccessible() && resource instanceof IFile
+							&& "java".equals(((IFile)resource).getFileExtension())) {
+						IFile iFile = (IFile)resource;
+						ICompilationUnit compilationUnit = JavaCore.createCompilationUnitFrom(iFile);
+						ISourceRange sourceRange = compilationUnit.getSourceRange();
+						TextEdit indentEdit = codeFormatter.format(CodeFormatter.K_COMPILATION_UNIT,
+								compilationUnit.getSource(), sourceRange.getOffset(),
+								sourceRange.getLength(), 0, null);
+						compilationUnit.applyTextEdit(indentEdit, null);
+						compilationUnit.reconcile(ICompilationUnit.NO_AST, false, null, null);
+						return false;
+					}
+					return true;
+				}
+			});
+		} catch (CoreException e) {
+			e.printStackTrace();
 		}
 	}
 }

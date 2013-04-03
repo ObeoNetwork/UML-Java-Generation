@@ -98,10 +98,23 @@ public [aClass.genName()/]() {
 [/template]
 
 [template private operations(aClass : Class)]
-[for (anOperation : Operation | aClass.ownedOperation->union(aClass.reqGetAllInheritedOperations()))]
+[for (anOperation : Operation | aClass.ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
 [anOperation.genOperationComment()/]
 [if (anOperation.isAbstract)]
 [anOperation.genMethodPrototype()/];
+[else]
+[anOperation.genMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
+[/if]
+ 
+[/for]
+[for (anOperation : Operation | aClass.reqGetAllInheritedOperations()->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+[anOperation.genOperationComment()/]
+[if (anOperation.isAbstract)]
+[anOperation.genInheritedMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
 [else]
 [anOperation.genMethodPrototype()/] {
 	[anOperation.genBehavior()/]
