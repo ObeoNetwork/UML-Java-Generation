@@ -53,4 +53,29 @@
       </nestedClassifier>
     </nestedClassifier>
   </packagedElement>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_bJjWIJFrEeKXqv5bdCjlHQ" name="boolean"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_gpphoJFrEeKXqv5bdCjlHQ" name="java">
+    <packagedElement xmi:type="uml:Package" xmi:id="_igGs8JFrEeKXqv5bdCjlHQ" name="lang">
+      <packagedElement xmi:type="uml:Class" xmi:id="_exlMwJFrEeKXqv5bdCjlHQ" name="String"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_nHyCsJFrEeKXqv5bdCjlHQ" name="util">
+      <packagedElement xmi:type="uml:Class" xmi:id="_kkGlAJFrEeKXqv5bdCjlHQ" name="Date"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_pYA_8JFrEeKXqv5bdCjlHQ" clientDependency="_hRq48JIxEeKEZ_rz4nK0GQ" name="Object">
+    <generalization xmi:id="_0rDugZI8EeK594ZXXqc2tw" general="_dHAhQZIvEeKEZ_rz4nK0GQ"/>
+    <ownedAttribute xmi:id="_EvD-sJFuEeKXqv5bdCjlHQ" name="firstProperty" type="_exlMwJFrEeKXqv5bdCjlHQ"/>
+    <ownedAttribute xmi:id="_ISuSsJFuEeKXqv5bdCjlHQ" name="secondProperty" type="_kkGlAJFrEeKXqv5bdCjlHQ"/>
+    <interfaceRealization xmi:id="_hRq48JIxEeKEZ_rz4nK0GQ" client="_pYA_8JFrEeKXqv5bdCjlHQ" supplier="_TWLOcJIxEeKEZ_rz4nK0GQ" contract="_TWLOcJIxEeKEZ_rz4nK0GQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_dHAhQZIvEeKEZ_rz4nK0GQ" name="Parent">
+    <ownedOperation xmi:id="_DZa20JIxEeKEZ_rz4nK0GQ" name="firstOperation">
+      <ownedParameter xmi:id="_JP7XMJIxEeKEZ_rz4nK0GQ" name="firstParameter" type="_exlMwJFrEeKXqv5bdCjlHQ" direction="out"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_TWLOcJIxEeKEZ_rz4nK0GQ" name="IParent">
+    <ownedOperation xmi:id="_YHV3YJIxEeKEZ_rz4nK0GQ" name="firstOperation">
+      <ownedParameter xmi:id="_adyxYJIxEeKEZ_rz4nK0GQ" name="firstParameter" type="_exlMwJFrEeKXqv5bdCjlHQ"/>
+    </ownedOperation>
+  </packagedElement>
 </uml:Model>
