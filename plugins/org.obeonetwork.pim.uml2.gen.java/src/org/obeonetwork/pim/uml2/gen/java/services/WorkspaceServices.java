@@ -251,8 +251,6 @@ public class WorkspaceServices {
 		try {
 			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			IJavaProject iJavaProject = JavaCore.create(project);
-
 			Map<String, String> options = DefaultCodeFormatterConstants.getEclipseDefaultSettings();
 
 			// initialize the compiler settings to be able to format 1.5 code
