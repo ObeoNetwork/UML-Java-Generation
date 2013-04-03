@@ -14,9 +14,7 @@
 /**
  * Package [aPackage.name/].
  * <p>
-[for (aComment : Comment | aPackage.eInverse(Comment))]
-[aComment._body.reqFormatJavadoc()/][/for]
-[for (documentation : String | aPackage.allDocumentation())]
+[for (documentation : String | aPackage.allDocumentation()->union(aPackage.eInverse(Comment)._body))]
 [documentation.reqFormatJavadoc()/][/for]
  * </p>
  */
@@ -24,6 +22,6 @@ package [aPackage.genPackageDeclaration()/];
 [/file]
 [/template]
 
-[query public allDocumentation(anElement : Element) : Sequence(String)
+[query private allDocumentation(anElement : Element) : Sequence(String)
 	= anElement.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value)
 /]

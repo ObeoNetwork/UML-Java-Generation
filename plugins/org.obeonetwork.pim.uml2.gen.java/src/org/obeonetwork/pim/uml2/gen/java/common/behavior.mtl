@@ -2,57 +2,28 @@
 [module behavior('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration /]
-[import org::obeonetwork::pim::uml2::gen::java::common::type /]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::typesServices /]
 
 [**
  * This template will generate the body of the given operation.
  * @param anOperation The operation.
  */]
 [template public genBehavior(anOperation : Operation) post(trim())]
-[if (not anOperation.genMethodBody().equalsIgnoreCase(''))]
-[anOperation.method.genBehavior()/]
 // [protected ('for method ' + name)]
-[if (not anOperation.type.oclIsUndefined())]
-[for (aParameter : Parameter | ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return))]
-[aParameter.genType()/] [anOperation.genName()/] = [aParameter.computeDefault()/];
+[if (not anOperation.genMethodBody().equalsIgnoreCase(''))]
+[anOperation.genMethodBody()/]
+[elseif (not anOperation.type.oclIsUndefined())]
+[for (aParameter : Parameter | ownedParameter->select(param : Parameter | param.direction = ParameterDirectionKind::return)->first())]
+[aParameter.reqTypeName()/] [anOperation.name/] = [aParameter.reqDefaultValue()/];
+return [anOperation.name/];
 [/for]
-return [genName()/];
 [/if]
 // [/protected]
-[/if]
-[/template]
-
-[template protected computeDefault(aParameter : Parameter) post(trim())]
-[if (aParameter.upper = 1)]
-    [if (not aParameter.default.oclIsUndefined())]
-        [if (''.equalsIgnoreCase(aParameter.default) or aParameter.default = null)]
-            [if (aParameter.getUserDefaultValue().equalsIgnoreCase(''))][aParameter.default/][else][aParameter.getUserDefaultValue()/][/if]
-        [else]
-            [if ('String'.equalsIgnoreCase(aParameter.type.genName()))][aParameter.default.addQuotes()/][else][aParameter.default/][/if]
-        [/if]
-    [else]
-        [if ('String'.equalsIgnoreCase(aParameter.type.genName()))]
-            ['""'/]
-        [else]        
-            [aParameter.getUserDefaultValue()/]
-        [/if]
-    [/if]
-[else]
-    [if (not aParameter.default.oclIsUndefined())]        
-        new  [aParameter.genType()/]()
-    [else]
-        new [aParameter.genType()/]()
-    [/if]
-[/if]
 [/template]
 
 [template protected genMethodBody(anOperation : Operation) post(trim())]
-[anOperation.method/]
-[/template]
-
-[template public genBehavior(aBehavior : Behavior) post(trim())]
-[/template]
-
-[template public genBehavior(anOpaqueBehavior : OpaqueBehavior) post(trim())]
+[for (anOpaqueBehavior : OpaqueBehavior | anOperation.method->filter(OpaqueBehavior))]
 [anOpaqueBehavior._body/]
+[/for]
 [/template]

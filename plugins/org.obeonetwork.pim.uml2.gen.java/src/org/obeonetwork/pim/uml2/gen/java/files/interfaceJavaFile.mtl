@@ -5,11 +5,10 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
 [import org::obeonetwork::pim::uml2::gen::java::common::attribute/]
-[import org::obeonetwork::pim::uml2::gen::java::common::operations/]
-[import org::obeonetwork::pim::uml2::gen::java::common::type/]
 
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
 [import org::obeonetwork::pim::uml2::gen::java::services::importService /]
+[import org::obeonetwork::pim::uml2::gen::java::services::typesServices /]
 
 [**
  * Define the package organisations for the class
@@ -51,7 +50,7 @@
 [template private genAttributes(anInterface : Interface) ]
 [for (aProperty : Property | anInterface.ownedAttribute)]
 [aProperty.genAttributeComment()/]
-[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
 
 [/for]
 // [protected ('(user defined attributes)')]

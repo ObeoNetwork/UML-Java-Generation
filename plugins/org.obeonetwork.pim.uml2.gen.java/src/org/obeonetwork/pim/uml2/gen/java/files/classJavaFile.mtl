@@ -5,16 +5,15 @@
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
 [import org::obeonetwork::pim::uml2::gen::java::common::attribute/]
-[import org::obeonetwork::pim::uml2::gen::java::common::operations/]
 [import org::obeonetwork::pim::uml2::gen::java::common::behavior/]
-[import org::obeonetwork::pim::uml2::gen::java::common::type/]
 
 [import org::obeonetwork::pim::uml2::gen::java::request::request/]
 
 [import org::obeonetwork::pim::uml2::gen::java::services::classifierServices /]
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
-[import org::obeonetwork::pim::uml2::gen::java::services::importService /]
 [import org::obeonetwork::pim::uml2::gen::java::services::configurationServices /]
+[import org::obeonetwork::pim::uml2::gen::java::services::importService /]
+[import org::obeonetwork::pim::uml2::gen::java::services::typesServices /]
 
 
 [template private classJavaFilePath(aClass : Class)]
@@ -59,7 +58,7 @@
 [template private attributes(aClass : Class)]
 [for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
 [aProperty.genAttributeComment()/]
-[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
 
 [/for]
 // [protected ('(user defined attributes)')]
@@ -70,7 +69,6 @@
 
 [template private constructor(aClass : Class)]
 [if (ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name))->size() = 0)]
-[if (not(aClass.isAbstract))]
 /**
  * The constructor.
  */
@@ -79,8 +77,6 @@ public [aClass.genName()/]() {
 	super();
 	// [/protected]
 }
-[/if]
-[elseif (not(aClass.isAbstract))]
 [for (aConstructor : Operation | ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name)))]
 /**
  * The constructor.
@@ -141,7 +137,7 @@ public [aClass.genName()/]() {
  * Returns [aProperty.genName()/].
  * @return [aProperty.genName()/] [aProperty.genComment()/]
  */
-public [if(aProperty.isStatic)]static [/if][aProperty.genType()/] get[aProperty.genName().toUpperFirst()/]() {
+public [if(aProperty.isStatic)]static [/if][aProperty.reqTypeName()/] get[aProperty.genName().toUpperFirst()/]() {
 	return [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/];
 }
 [if (not aProperty.isLeaf)]
@@ -150,7 +146,7 @@ public [if(aProperty.isStatic)]static [/if][aProperty.genType()/] get[aProperty.
  * Sets a value to attribute [aProperty.genName()/]. 
  * @param new[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
  */
-public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] new[aProperty.genName().toUpperFirst()/]) {
+public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] new[aProperty.genName().toUpperFirst()/]) {
 [if (not aProperty.opposite.oclIsUndefined() and aProperty.upper = 1 and aProperty.opposite.upper = 1)]
 	if([if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] != null) {
 		[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](null);
@@ -169,7 +165,7 @@ public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperF
  * Returns [aProperty.genName()/].
  * @return [aProperty.genName()/] [aProperty.genComment()/]
  */
-public [if(aProperty.isStatic)]static [/if][aProperty.genType()/] get[aProperty.genName().toUpperFirst()/]() {
+public [if(aProperty.isStatic)]static [/if][aProperty.reqTypeName()/] get[aProperty.genName().toUpperFirst()/]() {
 	return [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/];
 }
 [/template]
@@ -180,7 +176,7 @@ public [if(aProperty.isStatic)]static [/if][aProperty.genType()/] get[aProperty.
  * Sets a value to attribute [aProperty.genName()/]. 
  * @param new[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
  */
-public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] new[aProperty.genName().toUpperFirst()/]) {
+public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] new[aProperty.genName().toUpperFirst()/]) {
 [if (not aProperty.opposite.oclIsUndefined() and aProperty.upper = 1 and aProperty.opposite.upper = 1)]
 	if([if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] != null) {
 		[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](null);
@@ -197,34 +193,34 @@ public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperF
 
 /**
  * Adds one attribute (if [aProperty.genName()/] had a multiple cardinality)
- * @param [aProperty.genInsideArrayType().toLowerFirst()/]ToAdd in [aProperty.genName()/]
+ * @param [aProperty.type.name.toUpperFirst().toLowerFirst()/]ToAdd in [aProperty.genName()/]
  */
-public [if(aProperty.isStatic)]static [/if]void add[aProperty.genInsideArrayType()/]To[aProperty.genName().toUpperFirst()/]([aProperty.genInsideArrayType()/] [aProperty.genInsideArrayType().toLowerFirst()/]ToAdd) {
-	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].add([aProperty.genInsideArrayType().toLowerFirst()/]ToAdd);
+public [if(aProperty.isStatic)]static [/if]void add[aProperty.type.name.toUpperFirst()/]To[aProperty.genName().toUpperFirst()/]([aProperty.type.name.toUpperFirst()/] [aProperty.type.name.toUpperFirst().toLowerFirst()/]ToAdd) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].add([aProperty.type.name.toUpperFirst().toLowerFirst()/]ToAdd);
 }
 
 /**
  * Removes an attribute (if [aProperty.genName()/] had a multiple cardinality)
- * @param [aProperty.genInsideArrayType().toLowerFirst()/]ToRemove in [aProperty.genName()/]
+ * @param [aProperty.type.name.toUpperFirst().toLowerFirst()/]ToRemove in [aProperty.genName()/]
  */
-public [if(aProperty.isStatic)]static [/if]void remove[aProperty.genInsideArrayType()/]To[aProperty.genName().toUpperFirst()/]([aProperty.genInsideArrayType()/] [aProperty.genInsideArrayType().toLowerFirst()/]ToRemove) {
-	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].remove([aProperty.genInsideArrayType().toLowerFirst()/]ToRemove);
+public [if(aProperty.isStatic)]static [/if]void remove[aProperty.type.name.toUpperFirst()/]To[aProperty.genName().toUpperFirst()/]([aProperty.type.name.toUpperFirst()/] [aProperty.type.name.toUpperFirst().toLowerFirst()/]ToRemove) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].remove([aProperty.type.name.toUpperFirst().toLowerFirst()/]ToRemove);
 }
 
 /**
  * Adds all the attribute (if [aProperty.genName()/] had a multiple cardinality)
- * @param [aProperty.genInsideArrayType().toLowerFirst()/]sToAdd in [aProperty.genName()/]
+ * @param [aProperty.type.name.toUpperFirst().toLowerFirst()/]sToAdd in [aProperty.genName()/]
  */
-public [if(aProperty.isStatic)]static [/if]void addAll[aProperty.genInsideArrayType()/]To[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] [aProperty.genInsideArrayType().toLowerFirst()/]sToAdd) {
-	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].addAll([aProperty.genInsideArrayType().toLowerFirst()/]sToAdd);
+public [if(aProperty.isStatic)]static [/if]void addAll[aProperty.type.name.toUpperFirst()/]To[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] [aProperty.type.name.toUpperFirst().toLowerFirst()/]sToAdd) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].addAll([aProperty.type.name.toUpperFirst().toLowerFirst()/]sToAdd);
 }
 
 /**
  * Removes all the attribute (if [aProperty.genName()/] had a multiple cardinality)
- * @param [aProperty.genInsideArrayType().toLowerFirst()/]sToRemove in [aProperty.genName()/]
+ * @param [aProperty.type.name.toUpperFirst().toLowerFirst()/]sToRemove in [aProperty.genName()/]
  */
-public [if(aProperty.isStatic)]static [/if]void removeAll[aProperty.genInsideArrayType()/]To[aProperty.genName().toUpperFirst()/]([aProperty.genType()/] [aProperty.genInsideArrayType().toLowerFirst()/]sToRemove) {
-	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].removeAll([aProperty.genInsideArrayType().toLowerFirst()/]sToRemove);
+public [if(aProperty.isStatic)]static [/if]void removeAll[aProperty.type.name.toUpperFirst()/]To[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] [aProperty.type.name.toUpperFirst().toLowerFirst()/]sToRemove) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].removeAll([aProperty.type.name.toUpperFirst().toLowerFirst()/]sToRemove);
 }
 [/template]
 

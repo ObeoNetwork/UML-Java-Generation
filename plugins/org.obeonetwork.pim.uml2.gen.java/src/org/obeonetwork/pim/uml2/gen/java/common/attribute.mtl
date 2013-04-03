@@ -2,14 +2,16 @@
 [module attribute('http://www.eclipse.org/uml2/4.0.0/UML')]
 
 [import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
-[import org::obeonetwork::pim::uml2::gen::java::common::type/]
+
 [import org::obeonetwork::pim::uml2::gen::java::request::request/]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::typesServices /]
 
 
 [template public genAttributes(aClass : Class)]
 [for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
 [aProperty.genAttributeComment()/]
-[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genType()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
 
 [/for]
 // [protected ('(user defined attributes)')]

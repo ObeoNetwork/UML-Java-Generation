@@ -56,7 +56,12 @@ public class CommonServices {
 		Scanner scanner = new Scanner(documentation);
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
-			stringBuilder.append(" * " + line + "<br />" + System.lineSeparator());
+			stringBuilder.append(" * " + line);
+			if (scanner.hasNextLine()) {
+				stringBuilder.append("<br />" + System.getProperty("line.separator"));
+			} else {
+				stringBuilder.append(System.getProperty("line.separator"));
+			}
 		}
 		scanner.close();
 		return stringBuilder.toString();

@@ -78,6 +78,17 @@
 		[/if]
 	[/if]
 [/for]
+
+[comment Format everything/]
+[aModel.reqFormatProjectCode(aModel.reqGetDefaultProjectName())/]
+
+[for (aComponent : Component | aModel.eAllContents(Component)->select(shouldGenerateComponent()))]
+	[if (aComponent.eAllContents(Component)->size() = 0)]
+		[comment simple component /]		
+		[aModel.reqFormatProjectCode(aComponent.name)/]
+	[/if]
+[/for]
+
 [/template]
 
 [query private shouldGenerateContent(aPackage : Package) : Boolean = 

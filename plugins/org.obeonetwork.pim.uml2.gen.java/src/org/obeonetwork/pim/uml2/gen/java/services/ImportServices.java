@@ -266,6 +266,10 @@ public class ImportServices {
 			} else if (JAVA_UTIL_TYPES.contains(type.getName())) {
 				result = "java.util." + type.getName();
 			}
+		} else if (type instanceof PrimitiveType) {
+			if (JAVA_UTIL_TYPES.contains(type.getName())) {
+				result = "java.util." + type.getName();
+			}
 		}
 		return result;
 	}

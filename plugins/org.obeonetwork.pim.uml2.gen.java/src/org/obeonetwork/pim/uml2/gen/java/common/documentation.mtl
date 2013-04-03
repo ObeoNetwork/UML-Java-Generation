@@ -1,7 +1,9 @@
 [comment encoding = UTF-8 /]
 [module documentation('http://www.eclipse.org/uml2/4.0.0/UML')]
 
+[import org::obeonetwork::pim::uml2::gen::java::common::declaration/]
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
+
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices /]
 
 [template public genHeader(aClassifier : Classifier) post(trim())]
@@ -14,10 +16,9 @@
 
 [template public genJavadoc(aClassifier : Classifier)]
 /**
-[if (aClassifier.ownedComment->size() > 0 and aClassifier.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
-[for (aComment : Comment | aClassifier.ownedComment)]
- * [aComment._body/]
-[/for]
+[if (aClassifier.hasComment() or aClassifier.hasDocumentation())]
+[for (documentation : String | aClassifier.allDocumentation()->union(aClassifier.eInverse(Comment)._body))]
+[documentation.reqFormatJavadoc()/][/for]
 [else]
  * Description of [aClassifier.name/].
 [/if]
@@ -36,3 +37,38 @@
 [query public hasComment(anElement : Element) : Boolean =
 	anElement.eInverse(Comment)->size() > 0
 /]
+
+[query private allDocumentation(anElement : Element) : Sequence(String)
+	= anElement.eAnnotations.details->select(entry | entry.key = 'documentation')->collect(entry | entry.value)
+/]
+
+
+[template public genOperationComment(anOperation : Operation)]
+/**
+[if (anOperation.hasComment() or anOperation.hasDocumentation())]
+[for (documentation : String | anOperation.allDocumentation()->union(anOperation.eInverse(Comment)._body))]
+[documentation.reqFormatJavadoc()/][/for]
+[else]
+ * Description of the method [anOperation.genName()/].
+[/if]
+[for (parameter : Parameter | anOperation.ownedParameter)]
+[if (not (parameter.direction = ParameterDirectionKind::return))]
+ * @param [parameter.genName()/] [parameter.genComment()/]
+[/if]
+[/for]
+[for (parameter : Parameter | anOperation.ownedParameter)]
+[if (parameter.direction = ParameterDirectionKind::return)]
+ * @return [parameter.genComment()/]
+[/if]
+[/for]
+ */
+[/template]
+
+[template public genInheritedOperationComment(anOperation : Operation)]
+/**
+ * {@inheritDoc}
+[if(anOperation.eContainer().oclIsKindOf(Classifier))]
+ * @see [anOperation.eContainer().oclAsType(Classifier).genPackageDeclaration()/].[anOperation.eContainer().oclAsType(Classifier).name/]
+[/if]
+ */
+[/template]

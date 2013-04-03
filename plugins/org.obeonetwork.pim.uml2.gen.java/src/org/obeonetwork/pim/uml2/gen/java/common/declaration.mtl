@@ -1,18 +1,18 @@
 [comment encoding = UTF-8 /]
 [module declaration('http://www.eclipse.org/uml2/4.0.0/UML')]
 
-[import org::obeonetwork::pim::uml2::gen::java::common::type /]
+[import org::obeonetwork::pim::uml2::gen::java::services::typesServices /]
 
 [template public genName(aNamedElement : NamedElement)]
 [aNamedElement.name/]
 [/template]
 
 [template public genMethodPrototype(anOperation : Operation)]
-[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][genReturn()/] [genName()/]([genOperationParameters()/])[genOperationExceptions()/]
+[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][reqReturnTypeName()/] [genName()/]([genOperationParameters()/])[genOperationExceptions()/]
 [/template]
 
 [template public genInheritedMethodPrototype(anOperation : Operation)]
-[genVisibility()/][genReturn()/] [genName()/]([genOperationParameters()/])
+[genVisibility()/][reqReturnTypeName()/] [genName()/]([genOperationParameters()/])
 [/template]
 
 [template public genOperationExceptions(anOperation : Operation)]
@@ -24,7 +24,7 @@
 [/template]
 
 [template public genOperationParameter(aParameter : Parameter)]
-[aParameter.genType()/] [aParameter.genName()/]
+[aParameter.reqTypeName()/] [aParameter.genName()/]
 [/template]
 
 [template public genInheritance(aClassifier : Classifier)]
@@ -71,41 +71,9 @@
 [/template]
 
 [template public genDefaultValue(aProperty : Property)]
- = [computeDefault()/]
-[/template]
-
-[template public computeDefault(aProperty : Property) post(trim())]
-[if (aProperty.upper = 1)]
-    [if (not aProperty.default.oclIsUndefined())]
-        [if (''.equalsIgnoreCase(aProperty.default) or aProperty.default = null)]
-            [if (aProperty.getUserDefaultValue().equalsIgnoreCase(''))][aProperty.default/][else][aProperty.getUserDefaultValue()/][/if]
-        [else]
-            [if ('String'.equalsIgnoreCase(aProperty.type.genName()))][aProperty.default.addQuotes()/][else][aProperty.default/][/if]
-        [/if]
-    [else]
-        [if ('String'.equalsIgnoreCase(aProperty.type.genName()))]
-            ['""'/]
-        [else]        
-            [aProperty.getUserDefaultValue()/]
-        [/if]
-    [/if]
-[else]
-    [if (not aProperty.default.oclIsUndefined())]        
-        new [aProperty.genType()/]()
-    [else]
-        new [aProperty.genType()/]()
-    [/if]
-[/if]
+ = [aProperty.reqDefaultValue()/];
 [/template]
 
 [template public addQuotes(aString : String)]
 "[aString/]"
-[/template]
-
-[template public getUserDefaultValue(aTypedElement : TypedElement) post(trim())]
-[if (not getProperty('java.defaultvalue.' + aTypedElement.type.name).size().oclIsUndefined() and (getProperty('java.defaultvalue.' + aTypedElement.type.name).size() > 0) and not ''.equalsIgnoreCase(getProperty('java.defaultvalue.' + aTypedElement.type.name)))]
-    [getProperty('java.defaultvalue.' + aTypedElement.type.name)/]
-[else]
-    null
-[/if]
 [/template]

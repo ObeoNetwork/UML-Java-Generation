@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.pim.uml2.gen.java.services;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -37,13 +39,17 @@ import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
-import org.eclipse.jdt.core.ISourceRange;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.ToolFactory;
 import org.eclipse.jdt.core.formatter.CodeFormatter;
+import org.eclipse.jdt.core.formatter.DefaultCodeFormatterConstants;
 import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jdt.launching.environments.IExecutionEnvironment;
 import org.eclipse.jdt.launching.environments.IExecutionEnvironmentsManager;
+import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.Document;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.text.edits.MalformedTreeException;
 import org.eclipse.text.edits.TextEdit;
 import org.obeonetwork.pim.uml2.gen.java.utils.IUML2JavaConstants;
 
@@ -87,6 +93,8 @@ public class WorkspaceServices {
 		if (!EMFPlugin.IS_ECLIPSE_RUNNING) {
 			return;
 		}
+
+		System.getProperty("line.separator");
 
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		try {
@@ -217,12 +225,28 @@ public class WorkspaceServices {
 		if (!EMFPlugin.IS_ECLIPSE_RUNNING) {
 			return;
 		}
-		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-		IJavaProject iJavaProject = JavaCore.create(project);
-		Map<?, ?> options = iJavaProject.getOptions(true);
-		final CodeFormatter codeFormatter = ToolFactory.createCodeFormatter(options);
 
 		try {
+			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			IJavaProject iJavaProject = JavaCore.create(project);
+
+			Map<String, String> options = DefaultCodeFormatterConstants.getEclipseDefaultSettings();
+
+			// initialize the compiler settings to be able to format 1.5 code
+			options.put(JavaCore.COMPILER_COMPLIANCE, JavaCore.VERSION_1_5);
+			options.put(JavaCore.COMPILER_CODEGEN_TARGET_PLATFORM, JavaCore.VERSION_1_5);
+			options.put(JavaCore.COMPILER_SOURCE, JavaCore.VERSION_1_5);
+
+			// change the option to wrap each enum constant on a new line
+			options.put(DefaultCodeFormatterConstants.FORMATTER_ALIGNMENT_FOR_ENUM_CONSTANTS,
+					DefaultCodeFormatterConstants.createAlignmentValue(true,
+							DefaultCodeFormatterConstants.WRAP_ONE_PER_LINE,
+							DefaultCodeFormatterConstants.INDENT_ON_COLUMN));
+
+			// instanciate the default code formatter with the given options
+			final CodeFormatter codeFormatter = ToolFactory.createCodeFormatter(options);
+
 			project.accept(new IResourceVisitor() {
 
 				public boolean visit(IResource resource) throws CoreException {
@@ -230,17 +254,35 @@ public class WorkspaceServices {
 							&& "java".equals(((IFile)resource).getFileExtension())) {
 						IFile iFile = (IFile)resource;
 						ICompilationUnit compilationUnit = JavaCore.createCompilationUnitFrom(iFile);
-						ISourceRange sourceRange = compilationUnit.getSourceRange();
-						TextEdit indentEdit = codeFormatter.format(CodeFormatter.K_COMPILATION_UNIT,
-								compilationUnit.getSource(), sourceRange.getOffset(),
-								sourceRange.getLength(), 0, null);
-						compilationUnit.applyTextEdit(indentEdit, null);
-						compilationUnit.reconcile(ICompilationUnit.NO_AST, false, null, null);
-						return false;
+						String contents = compilationUnit.getBuffer().getContents();
+						final TextEdit edit = codeFormatter.format(CodeFormatter.K_COMPILATION_UNIT,
+								contents, // source to format
+								0, // starting position
+								contents.length(), // length
+								0, // initial indentation
+								System.getProperty("line.separator") // line separator
+								);
+
+						IDocument document = new Document(contents);
+						try {
+							if (edit != null) {
+								edit.apply(document);
+							}
+						} catch (MalformedTreeException e) {
+							e.printStackTrace();
+						} catch (BadLocationException e) {
+							e.printStackTrace();
+						}
+
+						iFile.setContents(new ByteArrayInputStream(document.get().getBytes()),
+								IResource.FORCE, new NullProgressMonitor());
+						return true;
 					}
 					return true;
 				}
 			});
+
+			project.build(IncrementalProjectBuilder.FULL_BUILD, new NullProgressMonitor());
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
