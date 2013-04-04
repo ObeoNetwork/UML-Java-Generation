@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.pim.uml2.gen.java.utils;
 
+import java.util.Calendar;
+
 /**
  * List of constants for the UML2Java generator.
  * 
@@ -228,7 +230,8 @@ public interface IUML2JavaConstants {
 		/**
 		 * The default license and copyright.
 		 */
-		String DEFAULT_COPYRIGHT_AND_LICENSE = "All rights reserved.";
+		String DEFAULT_COPYRIGHT_AND_LICENSE = Calendar.getInstance().get(Calendar.YEAR)
+				+ ", All rights reserved.";
 
 		/**
 		 * The default ordered unique Java type.
