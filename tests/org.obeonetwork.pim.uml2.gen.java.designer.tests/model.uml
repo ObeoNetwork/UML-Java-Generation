@@ -81,7 +81,9 @@
     <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_eXNd0J0EEeKbgfSBAQ729Q" name="AProtectedNestedEnum" visibility="protected"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_TWLOcJIxEeKEZ_rz4nK0GQ" name="IParent">
-    <nestedClassifier xmi:type="uml:Class" xmi:id="_fkCdUJ0EEeKbgfSBAQ729Q" name="APublicNestedClass"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_fkCdUJ0EEeKbgfSBAQ729Q" name="APublicNestedClass">
+      <ownedAttribute xmi:id="_5GrpwJ0HEeKai8Cw9ETK2w" name="aProperty" type="_kkGlAJFrEeKXqv5bdCjlHQ" isOrdered="true"/>
+    </nestedClassifier>
     <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_g1TQ4J0EEeKbgfSBAQ729Q" name="APublicNestedEnum"/>
     <ownedOperation xmi:id="_YHV3YJIxEeKEZ_rz4nK0GQ" name="firstOperation">
       <ownedParameter xmi:id="_adyxYJIxEeKEZ_rz4nK0GQ" name="firstParameter" type="_exlMwJFrEeKXqv5bdCjlHQ"/>

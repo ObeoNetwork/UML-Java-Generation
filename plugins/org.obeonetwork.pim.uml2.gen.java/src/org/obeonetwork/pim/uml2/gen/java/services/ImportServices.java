@@ -20,6 +20,7 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Generalization;
+import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Operation;
@@ -66,6 +67,79 @@ public class ImportServices {
 	 * @return The string representing the import block for a given classifier.
 	 */
 	public String reqImport(Classifier aClassifier) {
+		Set<String> importedTypes = this.typeToImports(aClassifier);
+
+		List<String> sortedImportedTypes = new ArrayList<String>(importedTypes);
+		Collections.sort(sortedImportedTypes);
+
+		// Package to remove during import
+		List<String> importedTypesToRemove = new ArrayList<String>();
+		List<String> packagesToIgnoreDuringImports = UML2JavaConfigurationHolder
+				.getPackagesToIgnoreDuringImports(aClassifier);
+		for (String packageToIgnoreDuringImports : packagesToIgnoreDuringImports) {
+			for (String sortedImportedType : sortedImportedTypes) {
+				if (sortedImportedType.startsWith(packageToIgnoreDuringImports + '.')
+						|| sortedImportedType.contains('.' + packageToIgnoreDuringImports + '.')) {
+					importedTypesToRemove.add(sortedImportedType);
+				}
+			}
+		}
+		sortedImportedTypes.removeAll(importedTypesToRemove);
+
+		// Type to ignore during import declaration
+		importedTypesToRemove.clear();
+		List<String> typesToIgnoreDuringTheImports = UML2JavaConfigurationHolder
+				.getTypesToIgnoreDuringTheImports(aClassifier);
+		for (String typeToIgnoreDuringTheImports : typesToIgnoreDuringTheImports) {
+			for (String sortedImportedType : sortedImportedTypes) {
+				if (sortedImportedType.equals(typeToIgnoreDuringTheImports)
+						|| sortedImportedType.endsWith('.' + typeToIgnoreDuringTheImports)) {
+					importedTypesToRemove.add(sortedImportedType);
+				}
+			}
+		}
+		sortedImportedTypes.removeAll(importedTypesToRemove);
+
+		// Remove all the import from the same package
+		importedTypesToRemove.clear();
+		String qualifiedName = this.qualifiedName(aClassifier, false);
+		if (qualifiedName != null) {
+			int lastIndexOf = qualifiedName.lastIndexOf('.');
+			if (lastIndexOf == -1) {
+				// Default package
+				for (String sortedImportedType : sortedImportedTypes) {
+					if (sortedImportedType.indexOf('.') == -1) {
+						importedTypesToRemove.add(sortedImportedType);
+					}
+				}
+			} else {
+				String packageName = qualifiedName.substring(0, lastIndexOf);
+				for (String sortedImportedType : sortedImportedTypes) {
+					if (sortedImportedType.startsWith(packageName)
+							&& sortedImportedType.indexOf('.', packageName.length()) == -1) {
+						importedTypesToRemove.add(sortedImportedType);
+					}
+				}
+			}
+		}
+		sortedImportedTypes.removeAll(importedTypesToRemove);
+
+		StringBuilder stringBuilder = new StringBuilder();
+		for (String importedType : sortedImportedTypes) {
+			stringBuilder.append(IMPORT + importedType + END_IMPORT);
+		}
+
+		return stringBuilder.toString();
+	}
+
+	/**
+	 * Returns the list of the qualified name of the types to import.
+	 * 
+	 * @param aClassifier
+	 *            A classifier
+	 * @return The list of the qualified name of the types to import.
+	 */
+	private Set<String> typeToImports(Classifier aClassifier) {
 		Set<String> importedTypes = new LinkedHashSet<String>();
 
 		boolean ignoreJavaTypes = UML2JavaConfigurationHolder.shouldIgnoreJavaTypes(aClassifier);
@@ -140,67 +214,22 @@ public class ImportServices {
 			}
 		}
 
-		List<String> sortedImportedTypes = new ArrayList<String>(importedTypes);
-		Collections.sort(sortedImportedTypes);
-
-		// Package to remove during import
-		List<String> importedTypesToRemove = new ArrayList<String>();
-		List<String> packagesToIgnoreDuringImports = UML2JavaConfigurationHolder
-				.getPackagesToIgnoreDuringImports(aClassifier);
-		for (String packageToIgnoreDuringImports : packagesToIgnoreDuringImports) {
-			for (String sortedImportedType : sortedImportedTypes) {
-				if (sortedImportedType.startsWith(packageToIgnoreDuringImports + '.')
-						|| sortedImportedType.contains('.' + packageToIgnoreDuringImports + '.')) {
-					importedTypesToRemove.add(sortedImportedType);
-				}
+		// Nested classifiers
+		if (aClassifier instanceof org.eclipse.uml2.uml.Class) {
+			org.eclipse.uml2.uml.Class aClass = (org.eclipse.uml2.uml.Class)aClassifier;
+			List<Classifier> nestedClassifiers = aClass.getNestedClassifiers();
+			for (Classifier aNestedClassifier : nestedClassifiers) {
+				importedTypes.addAll(this.typeToImports(aNestedClassifier));
+			}
+		} else if (aClassifier instanceof Interface) {
+			Interface anInterface = (Interface)aClassifier;
+			List<Classifier> nestedClassifiers = anInterface.getNestedClassifiers();
+			for (Classifier aNestedClassifier : nestedClassifiers) {
+				importedTypes.addAll(this.typeToImports(aNestedClassifier));
 			}
 		}
-		sortedImportedTypes.removeAll(importedTypesToRemove);
 
-		// Type to ignore during import declaration
-		importedTypesToRemove.clear();
-		List<String> typesToIgnoreDuringTheImports = UML2JavaConfigurationHolder
-				.getTypesToIgnoreDuringTheImports(aClassifier);
-		for (String typeToIgnoreDuringTheImports : typesToIgnoreDuringTheImports) {
-			for (String sortedImportedType : sortedImportedTypes) {
-				if (sortedImportedType.equals(typeToIgnoreDuringTheImports)
-						|| sortedImportedType.endsWith('.' + typeToIgnoreDuringTheImports)) {
-					importedTypesToRemove.add(sortedImportedType);
-				}
-			}
-		}
-		sortedImportedTypes.removeAll(importedTypesToRemove);
-
-		// Remove all the import from the same package
-		importedTypesToRemove.clear();
-		String qualifiedName = this.qualifiedName(aClassifier, false);
-		if (qualifiedName != null) {
-			int lastIndexOf = qualifiedName.lastIndexOf('.');
-			if (lastIndexOf == -1) {
-				// Default package
-				for (String sortedImportedType : sortedImportedTypes) {
-					if (sortedImportedType.indexOf('.') == -1) {
-						importedTypesToRemove.add(sortedImportedType);
-					}
-				}
-			} else {
-				String packageName = qualifiedName.substring(0, lastIndexOf);
-				for (String sortedImportedType : sortedImportedTypes) {
-					if (sortedImportedType.startsWith(packageName)
-							&& sortedImportedType.indexOf('.', packageName.length()) == -1) {
-						importedTypesToRemove.add(sortedImportedType);
-					}
-				}
-			}
-		}
-		sortedImportedTypes.removeAll(importedTypesToRemove);
-
-		StringBuilder stringBuilder = new StringBuilder();
-		for (String importedType : sortedImportedTypes) {
-			stringBuilder.append(IMPORT + importedType + END_IMPORT);
-		}
-
-		return stringBuilder.toString();
+		return importedTypes;
 	}
 
 	/**
