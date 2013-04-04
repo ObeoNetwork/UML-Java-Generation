@@ -41,7 +41,7 @@
 	
 	[for (nestedClassifier : Classifier | anInterface.nestedClassifier)]
 	[nestedClassifier.genJavadoc()/]
-	[nestedClassifier.genBody()/]
+	[nestedClassifier.genClassifierBody()/]
 	[/for]
 }
 [/let]

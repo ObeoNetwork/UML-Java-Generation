@@ -228,7 +228,7 @@ public [if(aProperty.isStatic)]static [/if]void removeAll[aProperty.type.name.to
 [for (nestedClassifier : Classifier | aClass.nestedClassifier)]
 [if (nestedClassifier.oclIsKindOf(Interface) or nestedClassifier.oclIsKindOf(Class) or nestedClassifier.oclIsKindOf(Enumeration))]
 [nestedClassifier.genJavadoc()/]
-[nestedClassifier.genBody()/]
+[nestedClassifier.genClassifierBody()/]
 [/if]
 [/for]
 [/template]

@@ -5,7 +5,3 @@
 [template public genClassifierBody(aClassifier : Classifier)]
 // invalid content
 [/template]
-
-[template public genBody(aClassifier : Classifier)]
-// This template should be overridden in order to generate the body of the file.
-[/template]
