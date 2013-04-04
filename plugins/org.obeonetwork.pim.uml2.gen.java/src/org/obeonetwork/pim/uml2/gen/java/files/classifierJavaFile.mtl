@@ -1,10 +1,6 @@
 [comment encoding = UTF-8 /]
 [module classifierJavaFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
-[import org::obeonetwork::pim::uml2::gen::java::files::classJavaFile /]
-[import org::obeonetwork::pim::uml2::gen::java::files::interfaceJavaFile /]
-[import org::obeonetwork::pim::uml2::gen::java::files::enumJavaFile /]
-
 [import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
 [import org::obeonetwork::pim::uml2::gen::java::common::path /]
 
