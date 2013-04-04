@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.obeonetwork.pim.uml2.gen.java.ui.launchConfigurationType">
+<stringAttribute key="author" value="sbegaudeau"/>
+<stringAttribute key="bundle_provider" value="Obeo Network"/>
+<stringAttribute key="components_architecture" value="Eclipse Plugins, Features and Update Sites"/>
+<stringAttribute key="components_ignore" value=""/>
+<stringAttribute key="copyright_license" value="2013, Obeo All rights reserved."/>
+<stringAttribute key="default_project_name" value="org.obeonetwork.uml.to.java"/>
+<booleanAttribute key="generate_advanced_accessors_collections" value="false"/>
+<booleanAttribute key="generate_getters_collections" value="true"/>
+<booleanAttribute key="generate_getters_setters" value="true"/>
+<booleanAttribute key="generate_setters_collections" value="false"/>
+<booleanAttribute key="ignore_java_types_during_generation_and_import" value="true"/>
+<stringAttribute key="jre_execution_environment" value="JavaSE-1.7"/>
+<stringAttribute key="not_ordered_not_unique" value="java.util.ArrayList"/>
+<stringAttribute key="not_ordered_unique" value="java.util.HashSet"/>
+<stringAttribute key="ordered_not_unique" value="java.util.ArrayList"/>
+<stringAttribute key="ordered_unique" value="java.util.LinkedHashSet"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/org.obeonetwork.pim.uml2.gen.java.designer.tests/model.uml"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="output_folder_path" value="target/classes"/>
+<stringAttribute key="packages_ignore_generation" value="java, "/>
+<stringAttribute key="packages_ignore_imports" value="java.lang, "/>
+<stringAttribute key="source_folder_path" value="src/main/java"/>
+<stringAttribute key="types_to_ignore_during_generation" value=""/>
+<stringAttribute key="types_to_ignore_during_imports" value=""/>
+<stringAttribute key="uml_model_path" value="/org.obeonetwork.pim.uml2.gen.java.designer.tests/model.uml"/>
+<stringAttribute key="version" value="1.0.0"/>
+</launchConfiguration>
