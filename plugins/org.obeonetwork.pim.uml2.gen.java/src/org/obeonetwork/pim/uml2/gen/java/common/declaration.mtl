@@ -70,10 +70,6 @@
 [if (aFeature.isStatic)]static [/if]
 [/template]
 
-[template public genDefaultValue(aProperty : Property)]
- = [aProperty.reqDefaultValue()/];
-[/template]
-
 [template public addQuotes(aString : String)]
 "[aString/]"
 [/template]

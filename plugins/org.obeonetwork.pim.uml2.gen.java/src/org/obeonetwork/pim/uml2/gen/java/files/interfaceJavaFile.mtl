@@ -50,7 +50,7 @@
 [template private genAttributes(anInterface : Interface) ]
 [for (aProperty : Property | anInterface.ownedAttribute)]
 [aProperty.genAttributeComment()/]
-[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/][aProperty.genDefaultValue()/];
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/] = [aProperty.reqDefaultValue()/];
 
 [/for]
 // [protected ('(user defined attributes)')]
