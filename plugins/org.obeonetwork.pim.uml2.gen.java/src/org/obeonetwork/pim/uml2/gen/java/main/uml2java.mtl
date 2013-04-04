@@ -64,11 +64,11 @@
 			[/if]
 		
 			[if (aType.oclIsTypeOf(Class))]
-				[aType.oclAsType(Class).genClassJavaFile()/]
+				[aType.oclAsType(Class).genClassifierJavaFile()/]
 			[elseif (aType.oclIsTypeOf(Interface))]
-				[aType.oclAsType(Interface).genInterfaceJavaFile()/]
+				[aType.oclAsType(Interface).genClassifierJavaFile()/]
 			[elseif (aType.oclIsTypeOf(Enumeration))]
-				[aType.oclAsType(Enumeration).genEnumJavaFile()/]
+				[aType.oclAsType(Enumeration).genClassifierJavaFile()/]
 			[/if]
 		[/for]
 		

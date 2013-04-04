@@ -64,7 +64,9 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_pYA_8JFrEeKXqv5bdCjlHQ" clientDependency="_hRq48JIxEeKEZ_rz4nK0GQ" name="Object">
     <generalization xmi:id="_0rDugZI8EeK594ZXXqc2tw" general="_dHAhQZIvEeKEZ_rz4nK0GQ"/>
-    <ownedAttribute xmi:id="_EvD-sJFuEeKXqv5bdCjlHQ" name="firstProperty" type="_exlMwJFrEeKXqv5bdCjlHQ"/>
+    <ownedAttribute xmi:id="_EvD-sJFuEeKXqv5bdCjlHQ" name="firstProperty" type="_exlMwJFrEeKXqv5bdCjlHQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WTGvYZ0CEeKbgfSBAQ729Q" value="*"/>
+    </ownedAttribute>
     <ownedAttribute xmi:id="_ISuSsJFuEeKXqv5bdCjlHQ" name="secondProperty" type="_kkGlAJFrEeKXqv5bdCjlHQ"/>
     <interfaceRealization xmi:id="_hRq48JIxEeKEZ_rz4nK0GQ" client="_pYA_8JFrEeKXqv5bdCjlHQ" supplier="_TWLOcJIxEeKEZ_rz4nK0GQ" contract="_TWLOcJIxEeKEZ_rz4nK0GQ"/>
   </packagedElement>
@@ -72,10 +74,18 @@
     <ownedOperation xmi:id="_DZa20JIxEeKEZ_rz4nK0GQ" name="firstOperation">
       <ownedParameter xmi:id="_JP7XMJIxEeKEZ_rz4nK0GQ" name="firstParameter" type="_exlMwJFrEeKXqv5bdCjlHQ" direction="out"/>
     </ownedOperation>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_bcqYQJ0EEeKbgfSBAQ729Q" name="ANestedClass">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_cKJwYJ0EEeKbgfSBAQ729Q" name="ANestedClassInANestedClass"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Interface" xmi:id="_dJE2wJ0EEeKbgfSBAQ729Q" name="ANestedInterface"/>
+    <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_eXNd0J0EEeKbgfSBAQ729Q" name="AProtectedNestedEnum" visibility="protected"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_TWLOcJIxEeKEZ_rz4nK0GQ" name="IParent">
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_fkCdUJ0EEeKbgfSBAQ729Q" name="APublicNestedClass"/>
+    <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_g1TQ4J0EEeKbgfSBAQ729Q" name="APublicNestedEnum"/>
     <ownedOperation xmi:id="_YHV3YJIxEeKEZ_rz4nK0GQ" name="firstOperation">
       <ownedParameter xmi:id="_adyxYJIxEeKEZ_rz4nK0GQ" name="firstParameter" type="_exlMwJFrEeKXqv5bdCjlHQ"/>
     </ownedOperation>
   </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_OXq38J0EEeKbgfSBAQ729Q" name="AnEnum"/>
 </uml:Model>

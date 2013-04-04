@@ -15,27 +15,6 @@
 [import org::obeonetwork::pim::uml2::gen::java::services::importService /]
 [import org::obeonetwork::pim::uml2::gen::java::services::typesServices /]
 
-
-[template private classJavaFilePath(aClass : Class)]
-[if (not aClass.getNearestPackage().oclIsUndefined())]
-[aClass.genPackagePath()/][aClass.name/].java
-[else]
-[aClass.name.concat('.java')/]
-[/if]
-[/template]
-
-[template public genClassJavaFile(aClass : Class)]
-[file (aClass.classJavaFilePath(), false, 'UTF-8')]
-[aClass.genHeader()/]
-[if (aClass.genPackageDeclaration().size() > 0)]package [aClass.genPackageDeclaration()/];[/if]
-
-[aClass.genImport()/]
-
-[aClass.genJavadoc()/]
-[aClass.genClassifierBody()/]
-[/file]
-[/template]
-
 [template private genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Class))]
 [let aClass : Class = aClassifier.oclAsType(Class)]
 [aClass.declaration()/] {
@@ -46,8 +25,6 @@
 	[aProperty.accessors()/]
 
 [/for]
-	[aClass.nestedClassifiers()/]
-}
 [/let]
 [/template]
 
@@ -223,13 +200,3 @@ public [if(aProperty.isStatic)]static [/if]void removeAll[aProperty.type.name.to
 	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].removeAll([aProperty.type.name.toUpperFirst().toLowerFirst()/]sToRemove);
 }
 [/template]
-
-[template private nestedClassifiers(aClass : Class)]
-[for (nestedClassifier : Classifier | aClass.nestedClassifier)]
-[if (nestedClassifier.oclIsKindOf(Interface) or nestedClassifier.oclIsKindOf(Class) or nestedClassifier.oclIsKindOf(Enumeration))]
-[nestedClassifier.genJavadoc()/]
-[nestedClassifier.genClassifierBody()/]
-[/if]
-[/for]
-[/template]
-

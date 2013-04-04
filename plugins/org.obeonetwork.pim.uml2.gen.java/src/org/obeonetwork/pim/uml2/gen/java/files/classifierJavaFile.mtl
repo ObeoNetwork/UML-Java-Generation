@@ -1,7 +1,54 @@
 [comment encoding = UTF-8 /]
 [module classifierJavaFile('http://www.eclipse.org/uml2/4.0.0/UML')]
 
+[import org::obeonetwork::pim::uml2::gen::java::files::classJavaFile /]
+[import org::obeonetwork::pim::uml2::gen::java::files::interfaceJavaFile /]
+[import org::obeonetwork::pim::uml2::gen::java::files::enumJavaFile /]
 
-[template public genClassifierBody(aClassifier : Classifier)]
+[import org::obeonetwork::pim::uml2::gen::java::common::documentation /]
+[import org::obeonetwork::pim::uml2::gen::java::common::path /]
+
+[import org::obeonetwork::pim::uml2::gen::java::services::importService /]
+
+[template private classifierJavaFilePath(aClassifier : Classifier)]
+[if (not aClassifier.getNearestPackage().oclIsUndefined())]
+[aClassifier.genPackagePath()/][aClassifier.name/].java
+[else]
+[aClassifier.name.concat('.java')/]
+[/if]
+[/template]
+
+[template public genClassifierJavaFile(aClassifier : Classifier)]
+[file (aClassifier.classifierJavaFilePath(), false, 'UTF-8')]
+[aClassifier.genHeader()/]
+[if (aClassifier.genPackageDeclaration().size() > 0)]package [aClassifier.genPackageDeclaration()/];[/if]
+
+[aClassifier.genImport()/]
+
+[aClassifier.genJavadoc()/]
+[aClassifier.genClassifierBody()/]
+[if (aClassifier.oclIsKindOf(Class))]
+[aClassifier.oclAsType(Class).nestedClassifier->genNestedClassifiers()/]
+[elseif (aClassifier.oclIsKindOf(Interface))]
+[aClassifier.oclAsType(Interface).nestedClassifier->genNestedClassifiers()/]
+[/if]
+}
+[/file]
+[/template]
+
+[template public genClassifierBody(aClassifier : Classifier) ? (not aClassifier.oclIsTypeOf(Class) and not aClassifier.oclIsTypeOf(Class) and not aClassifier.oclIsTypeOf(Class))]
 // invalid content
+[/template]
+
+[template private genNestedClassifiers(nestedClassifiers : OrderedSet(Classifier))]
+[for (aClassifier : Classifier | nestedClassifiers)]
+	[aClassifier.genJavadoc()/]
+	[aClassifier.genClassifierBody()/]
+	[if (aClassifier.oclIsKindOf(Class))]
+	[aClassifier.oclAsType(Class).nestedClassifier->genNestedClassifiers()/]
+	[elseif (aClassifier.oclIsKindOf(Interface))]
+	[aClassifier.oclAsType(Interface).nestedClassifier->genNestedClassifiers()/]
+	[/if]
+	}
+[/for]
 [/template]

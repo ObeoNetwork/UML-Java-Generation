@@ -8,29 +8,6 @@
 [import org::obeonetwork::pim::uml2::gen::java::services::commonServices/]
 [import org::obeonetwork::pim::uml2::gen::java::services::importService /]
 
-[**
- * Define the package organisations for the class
- */]
-[template private enumJavaFilePath(anEnumeration : Enumeration)]
-[if (not anEnumeration.getNearestPackage().oclIsUndefined())]
-[anEnumeration.genPackagePath()/][anEnumeration.name/].java
-[else]
-[anEnumeration.name.concat('.java')/]
-[/if]
-[/template]
-
-[template public genEnumJavaFile(anEnumeration : Enumeration)]
-[file (anEnumeration.enumJavaFilePath(), false, 'UTF-8')]
-[anEnumeration.genHeader()/]
-[if (anEnumeration.genPackageDeclaration().size() > 0)]package [anEnumeration.genPackageDeclaration()/];[/if]
-
-[anEnumeration.genImport()/]
-
-[anEnumeration.genJavadoc()/]
-[anEnumeration.genClassifierBody()/]
-[/file]
-[/template]
-
 [template private genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Enumeration))]
 [aClassifier.genVisibility()/]enum [aClassifier.name.toUpperFirst()/] {
 [for (anEnumerationLiteral : EnumerationLiteral | aClassifier.oclAsType(Enumeration).ownedLiteral)]
@@ -49,5 +26,4 @@
 	// [protected ('(user defined enum literals)')]
 	
 	// [/protected]
-}
 [/template]
