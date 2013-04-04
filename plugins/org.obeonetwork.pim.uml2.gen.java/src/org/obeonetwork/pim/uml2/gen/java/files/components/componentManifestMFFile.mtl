@@ -21,16 +21,28 @@ Bundle-Vendor: %Provider-Name
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: [aComponent.reqGetJREExecutionEnvironment()/]
 Bundle-ActivationPolicy: lazy
-[aComponent.exportPackages()/]
-[aComponent.importPackages()/]
+[aComponent.importExportPackages()/]
 
 [/file]
 [/template]
 
-[template private exportPackages(aComponent : Component)]
-[for (aProvidedInterface : Interface | aComponent.ownedPort.type->asSequence()->filter(Class).interfaceRealization.contract) separator(',' + aComponent.lineSeparator())][if (i = 1)]Export-Package:[/if] [aProvidedInterface.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/];version="[aComponent.reqGetVersion()/]"[/for]
+[template private importExportPackages(aComponent : Component) post(trim()) {
+	exportedInterfaces: Sequence(Interface) = aComponent.ownedPort.type->asSequence()->filter(Class).interfaceRealization.contract;
+	importedClassifiers: Sequence(Classifier) = aComponent.ownedPort.type.eInverse(Usage).supplier->filter(Classifier)->reject(ancestors(Component)->includes(aComponent))->asSequence();
+}]
+[if (exportedInterfaces->size() > 0)]
+Export-Package: [exportedInterfaces->first().packageName()/];version="[aComponent.reqGetVersion()/]"[if (exportedInterfaces->size() > 1)],[/if]
+[for (anExportedInterface : Interface | exportedInterfaces->excluding(exportedInterfaces->first()))]
+ [anExportedInterface.packageName()/];version="[aComponent.reqGetVersion()/]"[if (i < exportedInterfaces->size() - 1)],[/if]
+[/for][/if]
+[if (importedClassifiers->size() > 0)]
+Import-Package: [importedClassifiers->first().packageName()/];version="[aComponent.reqGetVersion()/]"[if (importedClassifiers->size() > 1)],[/if]
+[for (anImportedClassifier : Classifier | importedClassifiers->excluding(importedClassifiers->first()))]
+ [anImportedClassifier.packageName()/];version="[aComponent.reqGetVersion()/]"[if (i < importedClassifiers->size() - 1)],[/if]
+[/for]
+[/if]
 [/template]
 
-[template private importPackages(aComponent : Component)]
-[for (aClassifier : Classifier | aComponent.ownedPort.type.eInverse(Usage).supplier->filter(Classifier)->reject(ancestors(Component)->includes(aComponent))) separator(',' + aComponent.lineSeparator())][if (i = 1)]Import-Package:[/if] [aClassifier.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/];version="[aComponent.reqGetVersion()/]"[/for]
+[template private packageName(aClassifier : Classifier)]
+[aClassifier.ancestors(Package)->select(oclIsTypeOf(Package))->reverse().name->sep('.')/]
 [/template]
