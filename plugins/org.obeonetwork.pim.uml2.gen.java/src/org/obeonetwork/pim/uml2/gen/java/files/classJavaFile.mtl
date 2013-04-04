@@ -38,7 +38,7 @@
 [aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/] = [aProperty.reqDefaultValue()/];
 
 [/for]
-// [protected ('(user defined attributes)')]
+// [protected ('(user defined attributes for ' + aClass.name + ')')]
 
 // [/protected]
 
@@ -50,7 +50,7 @@
  * The constructor.
  */
 public [aClass.genName()/]() {
-	// [protected ('constructor')]
+	// [protected ('constructor for ' + aClass.name + ')')]
 	super();
 	// [/protected]
 }
@@ -62,7 +62,7 @@ public [aClass.genName()/]() {
 [/for]
  */
 [aConstructor.genVisibility()/][aConstructor.genName()/]([aConstructor.genOperationParameters()/]) {
-	// [protected ('constructor with ' + aConstructor.ownedParameter.genName()->sep(', '))]
+	// [protected ('constructor with ' + aConstructor.ownedParameter.genName()->sep(', ') + ' for ' + aClass.name + ')')]
 	super();
 	// [/protected]
 }
@@ -95,7 +95,7 @@ public [aClass.genName()/]() {
 [/if]
  
 [/for]
-// [protected ('(user defined methods)')]
+// [protected ('(user defined methods for ' + aClass.name + ')')]
 
 // [/protected]
 [/template]

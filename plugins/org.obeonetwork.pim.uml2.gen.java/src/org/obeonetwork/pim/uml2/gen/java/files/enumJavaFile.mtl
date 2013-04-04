@@ -23,7 +23,7 @@
     [anEnumerationLiteral.name/],
     
 [/for]
-	// [protected ('(user defined enum literals)')]
+	// [protected ('(user defined enum literals for ' + aClassifier.name + ')')]
 	
 	// [/protected]
 [/template]

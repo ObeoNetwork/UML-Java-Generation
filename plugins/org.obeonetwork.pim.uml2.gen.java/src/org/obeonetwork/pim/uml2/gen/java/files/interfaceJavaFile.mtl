@@ -25,7 +25,7 @@
 [aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/] = [aProperty.reqDefaultValue()/];
 
 [/for]
-// [protected ('(user defined attributes)')]
+// [protected ('(user defined attributes for ' + anInterface.name + ')')]
 
 // [/protected]
 
@@ -37,7 +37,7 @@
 [anOperation.genMethodPrototype()/];
 
 [/for]
-// [protected ('(user defined methods)')]
+// [protected ('(user defined methods for ' + anInterface.name + ')')]
 
 // [/protected]
 [/template]
