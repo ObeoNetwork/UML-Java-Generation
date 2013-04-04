@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * All rights reserved.
+ *******************************************************************************/
+
 /**
  * Package annotatedcommentedpackage.
  * <p>
@@ -6,6 +10,8 @@
  * commentedpackage and annotatedcommentedpackage.
  * The comment of the annotatedcommentedpackage Package.
  * </p>
+ * 
+ * @author sbegaudeau
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.annotatedcommentedpackage;
 

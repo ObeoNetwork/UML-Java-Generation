@@ -381,17 +381,28 @@ the first method of SingleCommentedMethodClass.</body>
                         <ownedOperation xmi:id="_18hP8JL4EeKaZchLwUeGYw" name="firstMethod"/>
                         <ownedOperation xmi:id="_3m8xcJL4EeKaZchLwUeGYw" name="secondMethod"/>
                         <ownedOperation xmi:id="_Avg4cJL5EeKaZchLwUeGYw" name="fourthMethod"/>
+                        <ownedOperation xmi:id="_c22_MJ0hEeKai8Cw9ETK2w" name="sixthMethod"/>
+                        <ownedOperation xmi:id="_c22_MZ0hEeKai8Cw9ETK2w" name="seventhMethod"/>
+                        <ownedOperation xmi:id="_c22_Mp0hEeKai8Cw9ETK2w" name="eighthMethod"/>
+                        <ownedOperation xmi:id="_d3kOQJ0hEeKai8Cw9ETK2w" name="ninthMethod"/>
                       </packagedElement>
                       <packagedElement xmi:type="uml:Class" xmi:id="_xnRuAJL4EeKaZchLwUeGYw" name="AbstractParentClass" isAbstract="true">
+                        <generalization xmi:id="__D4TEJ0qEeKN65n2cZpz5w" general="_5h5RMJ0qEeKN65n2cZpz5w"/>
                         <ownedOperation xmi:id="_5JfiQJL4EeKaZchLwUeGYw" name="secondMethod"/>
                         <ownedOperation xmi:id="_-b4o8JL4EeKaZchLwUeGYw" name="thirdMethod" isAbstract="true"/>
                         <ownedOperation xmi:id="_IV73QJL5EeKaZchLwUeGYw" name="fifthMethod" isAbstract="true"/>
+                        <ownedOperation xmi:id="_lTfNQJ0hEeKai8Cw9ETK2w" name="sixthMethod" visibility="protected" isAbstract="true"/>
+                        <ownedOperation xmi:id="_lTfNQZ0hEeKai8Cw9ETK2w" name="seventhMethod" visibility="package" isAbstract="true"/>
+                        <ownedOperation xmi:id="_lTfNQp0hEeKai8Cw9ETK2w" name="eighthMethod" visibility="private"/>
                       </packagedElement>
                       <packagedElement xmi:type="uml:Class" xmi:id="_z5N7cJL4EeKaZchLwUeGYw" clientDependency="_jfBkcJL5EeKaZchLwUeGYw" name="ChildClass">
                         <generalization xmi:id="_wwTNQJL5EeKaZchLwUeGYw" general="_xnRuAJL4EeKaZchLwUeGYw"/>
                         <interfaceRealization xmi:id="_jfBkcJL5EeKaZchLwUeGYw" client="_z5N7cJL4EeKaZchLwUeGYw" supplier="_v6zlIJL4EeKaZchLwUeGYw" contract="_v6zlIJL4EeKaZchLwUeGYw"/>
                         <ownedOperation xmi:id="_Gq_YYJL5EeKaZchLwUeGYw" name="fourthMethod"/>
                         <ownedOperation xmi:id="_KN9v4JL5EeKaZchLwUeGYw" name="fifthMethod"/>
+                      </packagedElement>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_5h5RMJ0qEeKN65n2cZpz5w" name="GreatParentClass" isAbstract="true">
+                        <ownedOperation xmi:id="_9RgWgJ0qEeKN65n2cZpz5w" name="ninthMethod"/>
                       </packagedElement>
                     </packagedElement>
                   </packagedElement>

@@ -22,6 +22,7 @@ import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Parameter;
 import org.eclipse.uml2.uml.Type;
+import org.eclipse.uml2.uml.VisibilityKind;
 
 /**
  * Various services for the classifiers.
@@ -68,8 +69,35 @@ public class ClassifierServices {
 					List<Operation> generalizedClassOperations = aGeneralizedClass.getOwnedOperations();
 					for (Operation generalizedClassOperation : generalizedClassOperations) {
 						if (generalizedClassOperation != inheritedOperation
-								&& !generalizedClassOperation.isAbstract()
+								&& this.canOverride(generalizedClassOperation, inheritedOperation)
 								&& this.areEqual(generalizedClassOperation, inheritedOperation)) {
+							shouldRemoveOperation = true;
+							break;
+						}
+					}
+				}
+			}
+
+			// See if we don't have the same operation to implement with a stronger visibility
+			// public > package > protected > private
+			if (!shouldRemoveOperation) {
+				for (Operation otherInheritedOperation : inheritedOperations) {
+					if (this.areEqual(inheritedOperation, otherInheritedOperation)) {
+						if (VisibilityKind.PUBLIC_LITERAL.equals(otherInheritedOperation.getVisibility())
+								&& !VisibilityKind.PUBLIC_LITERAL.equals(inheritedOperation.getVisibility())) {
+							// Public > everything
+							shouldRemoveOperation = true;
+							break;
+						} else if (VisibilityKind.PACKAGE_LITERAL.equals(otherInheritedOperation
+								.getVisibility())
+								&& !VisibilityKind.PUBLIC_LITERAL.equals(inheritedOperation.getVisibility())) {
+							// Package > protected and private only
+							shouldRemoveOperation = true;
+							break;
+						} else if (VisibilityKind.PROTECTED_LITERAL.equals(otherInheritedOperation
+								.getVisibility())
+								&& VisibilityKind.PRIVATE_LITERAL.equals(inheritedOperation.getVisibility())) {
+							// Protected > private only
 							shouldRemoveOperation = true;
 							break;
 						}
@@ -86,6 +114,11 @@ public class ClassifierServices {
 		List<Operation> operations = new ArrayList<Operation>();
 		operations.addAll(inheritedOperations);
 		return operations;
+	}
+
+	private boolean canOverride(Operation generalizedClassOperation, Operation inheritedOperation) {
+		return !generalizedClassOperation.isAbstract()
+				&& !VisibilityKind.PRIVATE_LITERAL.equals(generalizedClassOperation.getVisibility());
 	}
 
 	private boolean areEqual(Operation generalizedClassOperation, Operation inheritedOperation) {

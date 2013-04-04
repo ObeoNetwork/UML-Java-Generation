@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * All rights reserved.
+ *******************************************************************************/
+
 /**
  * Package latecomments.
  * <p>
@@ -18,6 +22,8 @@
  * The late comment of the first property of SingleCommentedPropertyClass.
  * The late comment of the annotatedcommentedpackage Package.
  * </p>
+ * 
+ * @author sbegaudeau
  */
 package org.obeonetwork.pim.uml2.gen.java.tests.latecomments;
 
