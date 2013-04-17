@@ -78,9 +78,12 @@ public class ImportServices {
 				.getPackagesToIgnoreDuringImports(aClassifier);
 		for (String packageToIgnoreDuringImports : packagesToIgnoreDuringImports) {
 			for (String sortedImportedType : sortedImportedTypes) {
-				if (sortedImportedType.startsWith(packageToIgnoreDuringImports + '.')
-						|| sortedImportedType.contains('.' + packageToIgnoreDuringImports + '.')) {
-					importedTypesToRemove.add(sortedImportedType);
+				int lastIndexOfDot = sortedImportedType.lastIndexOf('.');
+				if (lastIndexOfDot != -1) {
+					String sortedImportedTypePackage = sortedImportedType.substring(0, lastIndexOfDot);
+					if (sortedImportedTypePackage.equals(packageToIgnoreDuringImports)) {
+						importedTypesToRemove.add(sortedImportedType);
+					}
 				}
 			}
 		}
