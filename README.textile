@@ -11,6 +11,5 @@ More details about this generator can be found here:
 * "http://www.obeonetwork.com/page/uml-to-java-generator":http://www.obeonetwork.com/page/uml-to-java-generator
 
 
-
-
-
+The official community (forum, articles, etc) is available on the Obeo Network:
+* "http://www.obeonetwork.com/group/uml-to-java-generator":http://www.obeonetwork.com/group/uml-to-java-generator
