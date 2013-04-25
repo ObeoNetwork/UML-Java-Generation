@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.obeonetwork.pim.uml2.gen.java.feature_2.0.1.qualifier.jar" id="org.obeonetwork.pim.uml2.gen.java.feature" version="2.0.1.qualifier">
+   <feature url="features/org.obeonetwork.pim.uml2.gen.java.feature_2.0.2.qualifier.jar" id="org.obeonetwork.pim.uml2.gen.java.feature" version="2.0.2.qualifier">
       <category name="org.obeonetwork.acceleo.category"/>
    </feature>
-   <feature url="features/org.obeonetwork.pim.uml2.gen.java.ui.feature_2.0.1.qualifier.jar" id="org.obeonetwork.pim.uml2.gen.java.ui.feature" version="2.0.1.qualifier">
+   <feature url="features/org.obeonetwork.pim.uml2.gen.java.ui.feature_2.0.2.qualifier.jar" id="org.obeonetwork.pim.uml2.gen.java.ui.feature" version="2.0.2.qualifier">
       <category name="org.obeonetwork.acceleo.category"/>
    </feature>
    <category-def name="org.obeonetwork.acceleo.category" label="Acceleo">
