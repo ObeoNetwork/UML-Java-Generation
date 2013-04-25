@@ -15,6 +15,7 @@ import java.util.List;
 import org.eclipse.uml2.uml.MultiplicityElement;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Parameter;
+import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.TypedElement;
 
 /**
@@ -93,9 +94,29 @@ public class TypesServices {
 
 	public String defaultValue(TypedElement aTypedElement) {
 		String defaultValue = "";
+
+		boolean shortcut = false;
 		if (aTypedElement.getType() == null) {
+			shortcut = true;
+		} else if (aTypedElement instanceof Property) {
+			Property property = (Property)aTypedElement;
+			String aDefault = property.getDefault();
+			if (aDefault != null && aDefault.length() > 0) {
+				if ("String".equals(aTypedElement.getType().getName()) && !aDefault.startsWith("\"")
+						&& !aDefault.endsWith("\"")) {
+					// Add quotes for strings if there are not quotes
+					defaultValue = "\"" + aDefault + "\"";
+				} else {
+					defaultValue = aDefault;
+				}
+				shortcut = true;
+			}
+		}
+
+		if (shortcut) {
 			return defaultValue;
 		}
+
 		if (aTypedElement instanceof MultiplicityElement
 				&& (((MultiplicityElement)aTypedElement).getUpper() > 1 || ((MultiplicityElement)aTypedElement)
 						.getUpper() == -1)) {

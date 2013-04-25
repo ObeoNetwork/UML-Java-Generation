@@ -68,6 +68,12 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WTGvYZ0CEeKbgfSBAQ729Q" value="*"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_ISuSsJFuEeKXqv5bdCjlHQ" name="secondProperty" type="_kkGlAJFrEeKXqv5bdCjlHQ"/>
+    <ownedAttribute xmi:id="_4Zp10K2IEeKPwYp3JlzLqw" name="thirdProperty" type="_exlMwJFrEeKXqv5bdCjlHQ">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_8o7SoK2IEeKPwYp3JlzLqw" value="&quot;this is some kind of value!&quot;"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_YQazEK2JEeKPwYp3JlzLqw" name="fourthAttribute" type="_bJjWIJFrEeKXqv5bdCjlHQ">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_cEMmsK2JEeKPwYp3JlzLqw" value="&quot;something&quot;.contains(&quot;thing&quot;)"/>
+    </ownedAttribute>
     <interfaceRealization xmi:id="_hRq48JIxEeKEZ_rz4nK0GQ" client="_pYA_8JFrEeKXqv5bdCjlHQ" supplier="_TWLOcJIxEeKEZ_rz4nK0GQ" contract="_TWLOcJIxEeKEZ_rz4nK0GQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_dHAhQZIvEeKEZ_rz4nK0GQ" name="Parent">
