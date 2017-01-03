@@ -1,15 +1,4 @@
-h1. Welcome to UML Java Generation by Obeo Network
+h1. This project has moved to Eclipse
 
-This project provides a UML to Java generator created with Acceleo to generate Java code from UML models.
+See the [Eclipse UML Generators](https://www.eclipse.org/umlgen/) project.
 
-The master branch supports UML2 V4.x while the R1_0_maintenance branch supports UML2 v3.x
-
-These plugins are released under the EPL Open-Souce License.
-
-
-More details about this generator can be found here:
-* "http://www.obeonetwork.com/page/uml-to-java-generator":http://www.obeonetwork.com/page/uml-to-java-generator
-
-
-The official community (forum, articles, etc) is available on the Obeo Network:
-* "http://www.obeonetwork.com/group/uml-to-java-generator":http://www.obeonetwork.com/group/uml-to-java-generator
